@@ -11,6 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println();
+
         // Creo y declaro el objeto, que serña objMenu*/
         clsMenuOpciones objMenu = new clsMenuOpciones();
 
