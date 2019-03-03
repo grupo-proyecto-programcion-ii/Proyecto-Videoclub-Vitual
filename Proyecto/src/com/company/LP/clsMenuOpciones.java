@@ -28,15 +28,8 @@ public class clsMenuOpciones {
         clsGestor objGestor = new clsGestor();
 
         /**
-         * Lo idea es que objGestor sea un ArrayList, ¿por qué? queremos que el programa contínue una vez un usuario
-         * haya seleccionado los servicios...Luego si ya se ha registrado un usuario, lo idea sería que
-         * otro usuario que se registre no pueda volver a registrar con el mismo nombre. Esto se le llama
-         * dar de alta a un usuario, y siendo un mismo objeto mejor que sea un arraylist.
-         */
-
-        /**
-         * he creado un iterador para que recorra el aarylist y sea capaz de mostrarme sus elementos
-         * (no me ha servido)
+         * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los métodos contenidos
+         * en esa clase se pueden hacer las funciones principales.
          */
 
         System.out.println("***************" +
@@ -80,10 +73,12 @@ public class clsMenuOpciones {
         } while (opcion != 4);
     }
 
-    public void entrarUsuarios(ArrayList<clsUsuario>listaUsuarios){
+    public void entrarUsuarios(ArrayList<clsUsuario> listaUsuarios) {
 
         String id = null;
         String contra = null;
+        int op = 0;
+        int op2 = 0;
 
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
@@ -91,16 +86,64 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        for (clsUsuario usuario: listaUsuarios){
-            if (id.equals(usuario.getIdentificador() && contra.equals(usuario.getContrasena())){
-                
+        for (clsUsuario usuario : listaUsuarios) {
+            if (contra.equals(usuario.getContrasena())) {
+
+                do {
+                    System.out.println("Selecciona el servicio que deseas:");
+                    System.out.println("----> 1. Alquilar artículos ");
+                    System.out.println("----> 2. Suscripcuón mensual");
+                    System.out.println("----> 3. Salir");
+                    op = Utilidades.leerEntero();
+
+                    if (op == 1) {
+
+                        do {
+                            System.out.println("Selecciona el tipo de artículo a reservar: ");
+                            System.out.println("----> 1. Peliculas");
+                            System.out.println("----> 2. CD_Musica");
+                            System.out.println("----> 3. Videojuegos");
+                            System.out.println("----> 4. Salir");
+                            op2 = Utilidades.leerEntero();
+
+                            switch (op2) {
+                                case 1:
+
+                                    break;
+                                case 2:
+
+                                    break;
+                                case 3:
+
+                                    break;
+                                case 4:
+
+                                    break;
+                            }
+                            System.out.println();
+
+                        } while (op2 != 4);
+
+                    } else {
+
+                        System.out.println("Suscripción mensual, todavia no se ha idea como funcionara..");
+                    }
+
+                } while (op != 4);
+
+            } else {
+                System.out.println("Contraseña incorrecta");
             }
         }
-       // leerDatos();
-      //  objGestor.entrarUsuario(id, contra);
     }
 
-    public static void altaUsuario(clsGestor objGestor){
+    /**
+     *Para dar de anta a los usuarios se hace la llamada a la clase gestor, donde se encuentra
+     * el método para añadirlo al arraylist propio de usuarios.
+     * @param objGestor
+     */
+
+    public static void altaUsuario(clsGestor objGestor) {
 
         String id = null;
         String contra = null;
@@ -114,12 +157,16 @@ public class clsMenuOpciones {
         objGestor.anadirUsuario(id, contra);
     }
 
-    public static void visualizarUsuarios(ArrayList<clsUsuario>listaUsuarios){
+    /**
+     * Se recorre el arraylist para visualizar los atributos principales. En este caso sólo el
+     * nombre de usuario o identificador.
+     * @param listaUsuarios
+     */
 
-        for (clsUsuario usuario : listaUsuarios){
-            System.out.println("Identidicador:  "+usuario.getIdentificador());
+    public static void visualizarUsuarios(ArrayList<clsUsuario> listaUsuarios) {
+
+        for (clsUsuario usuario : listaUsuarios) {
+            System.out.println("Identidicador:  " + usuario.getIdentificador());
         }
     }
-
-
 }

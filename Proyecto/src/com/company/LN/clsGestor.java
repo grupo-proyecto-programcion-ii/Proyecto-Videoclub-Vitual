@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- *Aquí se gestionarán todos los usuarios y todo lo que interactuaremos con ellos. Se crearán las
- * funciones propias par dar de alta a los usuarios, dar de baja, e inclusoque entre con uno
- * ya existente.
+ *Para llevar a cabo las opciones principales se crea un arrayList, que apunta a clsUsuario, que
+ * contiene los atributos principales de los usuarios.
  *
  */
 
 public class clsGestor {
 
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
-    //private Iterator<clsGestor> miIterator = listaUsuarios.iterator();
 
+    /**
+     * Con esta clase se visualiza el numero de usuarios dados de alya
+     */
 
     public void visualizarNumUsuarios(){
 
@@ -28,6 +29,14 @@ public class clsGestor {
             System.out.println(listaUsuarios.size() + " usuarios dados de alta");
         }
     }
+
+    /**
+     * Con éste método se recojen los datos del usuario en el objeto objUsuarios que apunta
+     * a la clase clsUsuario donde se encuentran los atributos principales. Una vez instanciado el objeto,
+     * se añade al arraylist.
+     * @param id
+     * @param contra
+     */
 
     public void anadirUsuario(String id, String contra){
 

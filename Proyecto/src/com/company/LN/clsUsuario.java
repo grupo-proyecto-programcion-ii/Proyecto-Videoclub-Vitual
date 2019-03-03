@@ -2,6 +2,7 @@ package com.company.LN;
 
 public class clsUsuario {
 
+    //Atributos principales de la clase clsUsuario
     private String identificador = null;
     private String contrasena = null;
 
