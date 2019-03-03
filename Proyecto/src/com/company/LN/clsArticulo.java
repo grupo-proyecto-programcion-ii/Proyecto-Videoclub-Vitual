@@ -1,5 +1,10 @@
 package com.company.LN;
 
+/**
+ *Todas las clases de objetos reciben Herencia de la clase clsArticulo,ya que todos
+ * tienen los mismos atributos en común.
+ */
+
 public class clsArticulo {
 
     private int indentificador;
@@ -29,6 +34,8 @@ public class clsArticulo {
     public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
+
+
 
 
 

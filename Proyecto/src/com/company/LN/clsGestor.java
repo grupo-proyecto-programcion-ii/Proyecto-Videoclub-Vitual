@@ -16,7 +16,7 @@ public class clsGestor {
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
 
     /**
-     * Con esta clase se visualiza el numero de usuarios dados de alya
+     * Con esta clase se visualiza el numero de usuarios dados de alta
      */
 
     public void visualizarNumUsuarios(){

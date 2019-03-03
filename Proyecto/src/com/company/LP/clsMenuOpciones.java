@@ -117,7 +117,7 @@ public class clsMenuOpciones {
 
                                     break;
                                 case 4:
-
+                                    System.out.println("Adios");
                                     break;
                             }
                             System.out.println();
