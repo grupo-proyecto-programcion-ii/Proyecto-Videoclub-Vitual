@@ -1,6 +1,7 @@
 package com.company.LP;
 
 import com.company.LN.clsGestor;
+import com.company.LN.clsUsuario;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,15 +21,11 @@ import java.util.Iterator;
 
 public class clsMenuOpciones {
 
-    private String id = null;
-    private String contra = null;
-    // Creo y declaro el objeto, que señala objGestor
-    private ArrayList<clsGestor> listaUsuarios = new ArrayList<clsGestor>();
-    private clsGestor objUsuarios = new clsGestor();
-
     public void menuPrincipal() {
 
         int opcion = 0;
+        // Creo y declaro el objeto, que señala objGestor
+        clsGestor objGestor = new clsGestor();
 
         /**
          * Lo idea es que objGestor sea un ArrayList, ¿por qué? queremos que el programa contínue una vez un usuario
@@ -41,7 +38,6 @@ public class clsMenuOpciones {
          * he creado un iterador para que recorra el aarylist y sea capaz de mostrarme sus elementos
          * (no me ha servido)
          */
-        Iterator<clsGestor> miIterator = listaUsuarios.iterator();
 
         System.out.println("***************" +
                 "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
@@ -58,57 +54,36 @@ public class clsMenuOpciones {
             System.out.print("Opción:");
             opcion = Utilidades.leerEntero();
 
+            /**
+             * La primera opción no está acabada, lo que quiero es que si el usuario se identifica
+             * con un usuario ya existente, puede seguir con los servicios. Aún no he sido capaz de comparar
+             * el nombre de usuario que escribe, con el nombre de usuario ya existente ne el arraylist
+             *
+             */
+
             switch (opcion) {
-
-                /**
-                 * La primera opción no está acabada, lo que quiero es que si el usuario se identifica
-                 * con un usuario ya existente, puede seguir con los servicios. Aún no he sido capaz de comparar
-                 * el nombre de usuario que escribe, con el nombre de usuario ya existente ne el arraylist
-                 *
-                 */
-
                 case 1:
-                    opcion1();
+                    entrarUsuarios(objGestor.leerUsuarios());
                     break;
-                /**
-                 * Introducir usuarios de alta, funciona
-                 */
-
                 case 2:
-                    opcion2();
+                    altaUsuario(objGestor);
                     break;
-
-                /**
-                 * Puedo indicar el número de usuarios, pero no soy capaz de mostrarlos
-                 */
-
                 case 3:
-
-                    if (listaUsuarios.size() == 1) {
-                        System.out.println(listaUsuarios.size() + " usuario dado de alta");
-                    } else if (listaUsuarios.size() == 0) {
-                        System.out.println("Ningún usuario dado de alta");
-                    } else {
-                        System.out.println(listaUsuarios.size() + " usuarios dados de alta");
-                    }
-
-/**
- while(miIterator.hasNext()) {
- System.out.print(miIterator.next()+" / ");
- }
-
- for (int i = 0; i < objUsuario.size(); i++ ){
- objUsuario.get(0);
- } */
+                    objGestor.visualizarNumUsuarios();
+                    visualizarUsuarios(objGestor.leerUsuarios());
+                    break;
+                case 4:
+                    System.out.println("Fin del programa");
                     break;
             }
-
             System.out.println();
-
         } while (opcion != 4);
     }
 
-    public void opcion1(){
+    public void entrarUsuarios(ArrayList<clsUsuario>listaUsuarios){
+
+        String id = null;
+        String contra = null;
 
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
@@ -116,10 +91,19 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        objUsuarios.entrarUsuario(id, contra);
+        for (clsUsuario usuario: listaUsuarios){
+            if (id.equals(usuario.getIdentificador() && contra.equals(usuario.getContrasena())){
+                
+            }
+        }
+       // leerDatos();
+      //  objGestor.entrarUsuario(id, contra);
     }
 
-    public void opcion2(){
+    public static void altaUsuario(clsGestor objGestor){
+
+        String id = null;
+        String contra = null;
 
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
@@ -127,8 +111,15 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        objUsuarios.setIdentificador(id);
-        objUsuarios.setContraseña(contra);
-        listaUsuarios.add(objUsuarios);
+        objGestor.anadirUsuario(id, contra);
     }
+
+    public static void visualizarUsuarios(ArrayList<clsUsuario>listaUsuarios){
+
+        for (clsUsuario usuario : listaUsuarios){
+            System.out.println("Identidicador:  "+usuario.getIdentificador());
+        }
+    }
+
+
 }
