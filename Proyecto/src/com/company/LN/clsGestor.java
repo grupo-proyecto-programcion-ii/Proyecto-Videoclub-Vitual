@@ -40,8 +40,7 @@ public class clsGestor {
     public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
-
-
+    
     public void entrarUsuario(String id, String contra){
 
         if (id.equals(identificador) && contra.equals(contraseña)) {

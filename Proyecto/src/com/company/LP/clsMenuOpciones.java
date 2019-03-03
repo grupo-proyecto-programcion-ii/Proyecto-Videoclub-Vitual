@@ -20,11 +20,15 @@ import java.util.Iterator;
 
 public class clsMenuOpciones {
 
+    private String id = null;
+    private String contra = null;
+    // Creo y declaro el objeto, que señala objGestor
+    private ArrayList<clsGestor> listaUsuarios = new ArrayList<clsGestor>();
+    private clsGestor objUsuarios = new clsGestor();
+
     public void menuPrincipal() {
 
         int opcion = 0;
-        String id = null;
-        String contra = null;
 
         /**
          * Lo idea es que objGestor sea un ArrayList, ¿por qué? queremos que el programa contínue una vez un usuario
@@ -33,16 +37,11 @@ public class clsMenuOpciones {
          * dar de alta a un usuario, y siendo un mismo objeto mejor que sea un arraylist.
          */
 
-        // Creo y declaro el objeto, que señala objGestor
-        ArrayList<clsGestor> listaUsuarios = new ArrayList<clsGestor>();
-        clsGestor objUsuarios = new clsGestor();
-
         /**
          * he creado un iterador para que recorra el aarylist y sea capaz de mostrarme sus elementos
          * (no me ha servido)
          */
         Iterator<clsGestor> miIterator = listaUsuarios.iterator();
-
 
         System.out.println("***************" +
                 "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
@@ -69,32 +68,14 @@ public class clsMenuOpciones {
                  */
 
                 case 1:
-
-                    System.out.println("Introduce tus datos; ");
-                    System.out.print("Usuario: ");
-                    id = Utilidades.leerCadena();
-                    System.out.print("Contraseña: ");
-                    contra = Utilidades.leerCadena();
-
-                    objUsuarios.entrarUsuario(id, contra);
+                    opcion1();
                     break;
-
                 /**
                  * Introducir usuarios de alta, funciona
                  */
 
                 case 2:
-
-                    System.out.println("Introduce tus datos; ");
-                    System.out.print("Usuario: ");
-                    id = Utilidades.leerCadena();
-                    System.out.print("Contraseña: ");
-                    contra = Utilidades.leerCadena();
-
-                    objUsuarios.setIdentificador(id);
-                    objUsuarios.setContraseña(contra);
-                    listaUsuarios.add(objUsuarios);
-
+                    opcion2();
                     break;
 
                 /**
@@ -125,5 +106,29 @@ public class clsMenuOpciones {
             System.out.println();
 
         } while (opcion != 4);
+    }
+
+    public void opcion1(){
+
+        System.out.println("Introduce tus datos; ");
+        System.out.print("Usuario: ");
+        id = Utilidades.leerCadena();
+        System.out.print("Contraseña: ");
+        contra = Utilidades.leerCadena();
+
+        objUsuarios.entrarUsuario(id, contra);
+    }
+
+    public void opcion2(){
+
+        System.out.println("Introduce tus datos; ");
+        System.out.print("Usuario: ");
+        id = Utilidades.leerCadena();
+        System.out.print("Contraseña: ");
+        contra = Utilidades.leerCadena();
+
+        objUsuarios.setIdentificador(id);
+        objUsuarios.setContraseña(contra);
+        listaUsuarios.add(objUsuarios);
     }
 }
