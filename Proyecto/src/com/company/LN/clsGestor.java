@@ -11,20 +11,41 @@ import com.company.LP.Utilidades;
 
 public class clsGestor {
 
+    @Override
+    public String toString() {
+        return "clsGestor{" +
+                "identificador='" + identificador + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                '}';
+    }
+
+    //Atributos del objeto objUsuarios
     private String identificador;
+    private String contraseña;
 
-    public void altaUsuario(){
-
-        System.out.println("Introduce tus datos; ");
-        System.out.print("Usuario: ");
-        identificador = Utilidades.leerCadena();
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void entrarUsuario(){
-
-        System.out.println("hola");
-
-
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
+
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+
+    public void entrarUsuario(String id, String contra){
+
+        if (id.equals(identificador) && contra.equals(contraseña)) {
+
+        }
+    }
 }

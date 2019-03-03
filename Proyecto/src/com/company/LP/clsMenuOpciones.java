@@ -23,6 +23,8 @@ public class clsMenuOpciones {
     public void menuPrincipal() {
 
         int opcion = 0;
+        String id = null;
+        String contra = null;
 
         /**
          * Lo idea es que objGestor sea un ArrayList, ¿por qué? queremos que el programa contínue una vez un usuario
@@ -32,14 +34,14 @@ public class clsMenuOpciones {
          */
 
         // Creo y declaro el objeto, que señala objGestor
-        ArrayList<clsGestor> objUsuario = new ArrayList<clsGestor>();
-        clsGestor usuarios = new clsGestor();
+        ArrayList<clsGestor> listaUsuarios = new ArrayList<clsGestor>();
+        clsGestor objUsuarios = new clsGestor();
 
         /**
          * he creado un iterador para que recorra el aarylist y sea capaz de mostrarme sus elementos
          * (no me ha servido)
          */
-        Iterator<clsGestor> miIterator = objUsuario.iterator();
+        Iterator<clsGestor> miIterator = listaUsuarios.iterator();
 
 
         System.out.println("***************" +
@@ -67,10 +69,14 @@ public class clsMenuOpciones {
                  */
 
                 case 1:
-                    //Si existe el usuario, se hace la llamada a entrar.
-                    if (objUsuario.contains(usuarios)){
-                        objUsuario.get(objUsuario.size());
-                    }
+
+                    System.out.println("Introduce tus datos; ");
+                    System.out.print("Usuario: ");
+                    id = Utilidades.leerCadena();
+                    System.out.print("Contraseña: ");
+                    contra = Utilidades.leerCadena();
+
+                    objUsuarios.entrarUsuario(id, contra);
                     break;
 
                 /**
@@ -78,32 +84,46 @@ public class clsMenuOpciones {
                  */
 
                 case 2:
-                    //Si se quiere registrar un usuario se hace la llamda a registrar
-                    usuarios.altaUsuario();
-                    objUsuario.add(usuarios);
+
+                    System.out.println("Introduce tus datos; ");
+                    System.out.print("Usuario: ");
+                    id = Utilidades.leerCadena();
+                    System.out.print("Contraseña: ");
+                    contra = Utilidades.leerCadena();
+
+                    objUsuarios.setIdentificador(id);
+                    objUsuarios.setContraseña(contra);
+                    listaUsuarios.add(objUsuarios);
+
                     break;
 
                 /**
                  * Puedo indicar el número de usuarios, pero no soy capaz de mostrarlos
                  */
+
                 case 3:
 
-                    if (objUsuario.size() == 1) {
-                        System.out.println(objUsuario.size() + " usuario dados de alta");
+                    if (listaUsuarios.size() == 1) {
+                        System.out.println(listaUsuarios.size() + " usuario dado de alta");
+                    } else if (listaUsuarios.size() == 0) {
+                        System.out.println("Ningún usuario dado de alta");
                     } else {
-                        System.out.println(objUsuario.size() + " usuarios dados de alta");
-                    }
-/**
-                    while(miIterator.hasNext()) {
-                        System.out.print(miIterator.next()+" / ");
+                        System.out.println(listaUsuarios.size() + " usuarios dados de alta");
                     }
 
-                    for (int i = 0; i < objUsuario.size(); i++ ){
-                        objUsuario.get(0);
-                    } */
+/**
+ while(miIterator.hasNext()) {
+ System.out.print(miIterator.next()+" / ");
+ }
+
+ for (int i = 0; i < objUsuario.size(); i++ ){
+ objUsuario.get(0);
+ } */
                     break;
             }
+
             System.out.println();
+
         } while (opcion != 4);
     }
 }
