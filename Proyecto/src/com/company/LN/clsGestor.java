@@ -11,21 +11,18 @@ import com.company.LP.Utilidades;
 
 public class clsGestor {
 
-    private String usuario = null;
-
-    public void entrarUsuario(){
-
-        System.out.println("Introduce tus datos; ");
-        System.out.print("Usuario: ");
-        usuario = Utilidades.leerCadena();
-
-    }
+    private String identificador;
 
     public void altaUsuario(){
 
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
-        usuario = Utilidades.leerCadena();
+        identificador = Utilidades.leerCadena();
+    }
+
+    public void entrarUsuario(){
+
+        System.out.println("hola");
 
 
     }

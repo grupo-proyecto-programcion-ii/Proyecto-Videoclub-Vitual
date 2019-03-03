@@ -2,6 +2,9 @@ package com.company.LP;
 
 import com.company.LN.clsGestor;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * La idea de la clase es contener aquellas opciones que el usuario tenga que seleccionar.
  * Hemos decidido que la gestión del usuario(datos de él) será en la clase gestor.
@@ -28,50 +31,79 @@ public class clsMenuOpciones {
          * dar de alta a un usuario, y siendo un mismo objeto mejor que sea un arraylist.
          */
 
-        // Creo y declaro el objeto, que serña objGestor
-        clsGestor objGestor = new clsGestor();
+        // Creo y declaro el objeto, que señala objGestor
+        ArrayList<clsGestor> objUsuario = new ArrayList<clsGestor>();
+        clsGestor usuarios = new clsGestor();
+
+        /**
+         * he creado un iterador para que recorra el aarylist y sea capaz de mostrarme sus elementos
+         * (no me ha servido)
+         */
+        Iterator<clsGestor> miIterator = objUsuario.iterator();
+
+
+        System.out.println("***************" +
+                "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
+                "*****************");
+        System.out.println();
 
         do {
-
-            System.out.println("***************" +
-                    "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
-                    "*****************");
-            System.out.println();
-
-            //System.out.println("Usuarios existentes; ");
-            //La idea es que aquí en un futuro con un print se muestren los datos ya existentes
-            //System.out.println();
 
             System.out.println("Selecciona el tipo de una opción:");
             System.out.println("----> 1. Entrar ");
             System.out.println("----> 2. Registrarse");
-            System.out.println("----> 3. Salir");
+            System.out.println("----> 3. Visualizar Usuarios");
+            System.out.println("----> 4. Salir");
             System.out.print("Opción:");
             opcion = Utilidades.leerEntero();
 
             switch (opcion) {
+
+                /**
+                 * La primera opción no está acabada, lo que quiero es que si el usuario se identifica
+                 * con un usuario ya existente, puede seguir con los servicios. Aún no he sido capaz de comparar
+                 * el nombre de usuario que escribe, con el nombre de usuario ya existente ne el arraylist
+                 *
+                 */
+
                 case 1:
-                    //Lamada al objeto
-                    objGestor.entrarUsuario();
+                    //Si existe el usuario, se hace la llamada a entrar.
+                    if (objUsuario.contains(usuarios)){
+                        objUsuario.get(objUsuario.size());
+                    }
                     break;
+
+                /**
+                 * Introducir usuarios de alta, funciona
+                 */
+
                 case 2:
-
+                    //Si se quiere registrar un usuario se hace la llamda a registrar
+                    usuarios.altaUsuario();
+                    objUsuario.add(usuarios);
                     break;
 
+                /**
+                 * Puedo indicar el número de usuarios, pero no soy capaz de mostrarlos
+                 */
                 case 3:
 
+                    if (objUsuario.size() == 1) {
+                        System.out.println(objUsuario.size() + " usuario dados de alta");
+                    } else {
+                        System.out.println(objUsuario.size() + " usuarios dados de alta");
+                    }
+/**
+                    while(miIterator.hasNext()) {
+                        System.out.print(miIterator.next()+" / ");
+                    }
+
+                    for (int i = 0; i < objUsuario.size(); i++ ){
+                        objUsuario.get(0);
+                    } */
                     break;
-
             }
-
-            System.out.println("Selecciona el tipo de una opción:");
             System.out.println();
-            System.out.println("----> 1. Alquilar artículos");
-            System.out.println("----> 2. Suscripción mensual");
-            System.out.println("----> 3. Salir");
-            System.out.print("Opción:");
-            opcion = Utilidades.leerEntero();
-
-        } while (opcion == 3);
+        } while (opcion != 4);
     }
 }
