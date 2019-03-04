@@ -2,6 +2,10 @@ package com.company.LN;
 
 public class clsVideojuegos extends clsArticulo {
 
+    public clsVideojuegos(){
+
+    }
+
     public clsVideojuegos(int puntuacion, int pegiVideojuegos) {
         this.puntuacion = puntuacion;
         this.pegiVideojuegos = pegiVideojuegos;

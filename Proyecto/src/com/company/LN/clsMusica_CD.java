@@ -2,23 +2,27 @@ package com.company.LN;
 
 public class clsMusica_CD extends clsArticulo {
 
-    public clsMusica_CD(int año, String artistas, String explicito) {
-        this.año = año;
+    public clsMusica_CD(){
+
+    }
+
+    public clsMusica_CD(int anio, String artistas, String explicito) {
+        this.anio = anio;
         this.artistas = artistas;
         this.explicito = explicito;
     }
 
     //Atributos principales de la clase clsMusicz
-    private int año;
+    private int anio;
     private String artistas;
     private String explicito;
 
-    public int getAño() {
-        return año;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public String getArtistas() {

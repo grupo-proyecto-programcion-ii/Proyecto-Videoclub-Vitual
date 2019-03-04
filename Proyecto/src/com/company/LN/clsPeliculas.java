@@ -2,6 +2,10 @@ package com.company.LN;
 
 public class clsPeliculas extends clsArticulo {
 
+    public clsPeliculas(){
+
+    }
+
     public clsPeliculas(int pegi, int puntuacion) {
         this.pegi = pegi;
         this.puntuacion = puntuacion;

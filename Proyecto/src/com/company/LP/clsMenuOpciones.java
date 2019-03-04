@@ -1,5 +1,6 @@
 package com.company.LP;
 
+import com.company.LN.clsArticulo;
 import com.company.LN.clsGestor;
 import com.company.LN.clsUsuario;
 
@@ -14,7 +15,7 @@ import java.util.Iterator;
  * esa primera opción lo que vamos a hacer es perdirle que tipo de servicios quiere que que le ofrezcamos.
  * Las dos opciones que contemplamos será la de alquilar una serie de artículos limitados o una suscripción
  * semanal/mensual.
- * <p>
+ *
  * La función menuOpciones abarca todas las opciones que el usuário seleccionara. Todas las opciones estám
  * contenidas en funciones de diferentes clases donde se llamará.
  */
@@ -24,8 +25,9 @@ public class clsMenuOpciones {
     public void menuPrincipal() {
 
         int opcion = 0;
-        // Creo y declaro el objeto, que señala objGestor
+        // Creo y declaro el objeto, que señala objGestor y objArticulo
         clsGestor objGestor = new clsGestor();
+        clsArticulo objArticulo = new clsArticulo();
 
         /**
          * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los métodos contenidos
@@ -129,7 +131,7 @@ public class clsMenuOpciones {
                         System.out.println("Suscripción mensual, todavia no se ha idea como funcionara..");
                     }
 
-                } while (op != 4);
+                } while (op != 3);
 
             } else {
                 System.out.println("Contraseña incorrecta");
