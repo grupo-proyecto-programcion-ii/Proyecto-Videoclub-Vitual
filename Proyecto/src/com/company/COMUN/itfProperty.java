@@ -1,5 +1,7 @@
 package com.company.COMUN;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 /**
  * @author javier.cerro
  * Interfaz para la independencia entre la LN y la LP.
@@ -41,6 +43,8 @@ public interface itfProperty {
      */
     char getCharProperty(String propiedad);
 
-    public Object getProperty (String objPropiedad);
+    public Object getPropertyU (String objPropiedad);
+
+    public Object getPropertyA (String obj_Propiedad);
 
 }
