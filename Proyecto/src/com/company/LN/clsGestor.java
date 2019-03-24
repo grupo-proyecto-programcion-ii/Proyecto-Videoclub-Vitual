@@ -1,5 +1,6 @@
 package com.company.LN;
 
+import com.company.COMUN.itfProperty;
 import com.company.LP.Utilidades;
 
 import java.util.ArrayList;
@@ -35,9 +36,7 @@ public class clsGestor {
      * Con éste método se recojen los datos del usuario en el objeto objUsuarios que apunta
      * a la clase clsUsuario donde se encuentran los atributos principales. Una vez instanciado el objeto,
      * se añade al arraylist.
-     * @param _id
-     * @param _contra
-     * @param c_Aleatorio
+     *
      */
 
     public void anadirUsuario(String _id, String _contra, int c_Aleatorio){
@@ -46,17 +45,35 @@ public class clsGestor {
         listaUsuarios.add(objUsuarios);
     }
 
-    public void anadirPelicula(){
+    public ArrayList<itfProperty> leerUsuarios(){
 
-    }
-    public void anadirVideojuego(){
+        ArrayList<itfProperty> rUsuarios = new ArrayList<itfProperty>();
 
+        for (clsUsuario usuario:listaUsuarios){
+            rUsuarios.add(usuario);
+        }
+        return rUsuarios;
     }
-    public void anadirMusica_CD(){
 
+    public void anadirPelicula(int _idPelicula,String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula){
+
+        clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula );
+        listaArticulos.add(objPelicula);
     }
 
-    public ArrayList<clsUsuario>leerUsuarios(){
-        return listaUsuarios;
+    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego){
+
+        clsVideojuegos objVidejuego = new clsVideojuegos(_idVideojuego, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
+        listaArticulos.add(objVidejuego);
     }
+
+    public void anadirMusica_CD(int _idMusica,String nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito){
+
+        clsMusica_CD objMusica = new clsMusica_CD(_idMusica, nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
+        listaArticulos.add(objMusica);
+    }
+
+    public ArrayList
 }
+
+

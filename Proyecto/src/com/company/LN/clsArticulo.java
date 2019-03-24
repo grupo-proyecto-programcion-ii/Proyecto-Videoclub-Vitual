@@ -1,5 +1,7 @@
 package com.company.LN;
 
+import com.company.COMUN.itfProperty;
+
 import java.util.ArrayList;
 
 /**
@@ -7,24 +9,34 @@ import java.util.ArrayList;
  * tienen los mismos atributos en común.
  */
 
-public class clsArticulo {
-/*
-    private ArrayList<clsVideojuegos> listaVideojuegos = new ArrayList<clsVideojuegos>();
-    private ArrayList<clsMusica_CD> listaMusica = new ArrayList<clsMusica_CD>();
-    private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<clsPeliculas>();
+public abstract class clsArticulo implements itfProperty {
 
-    */
-
-    private int indentificador;
+    private int id;
+    private String nombre;
     private double precio;
     private double duracion;
 
+    public clsArticulo(int id,String nombre, double precio, double duracion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.duracion = duracion;
+    }
+
     public int getIndentificador() {
-        return indentificador;
+        return id;
     }
 
     public void setIndentificador(int indentificador) {
-        this.indentificador = indentificador;
+        this.id = indentificador;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public double getPrecio() {
@@ -42,15 +54,4 @@ public class clsArticulo {
     public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
-/*
-    public void anadirVidejuegos(int punt, int pegiV){
-
-        clsVideojuegos objVidejuego = new clsVideojuegos(punt, pegiV);
-        listaVideojuegos.add(objVidejuego);
-    }
-
-    public ArrayList<clsVideojuegos> leerVidejuegos(){
-        return listaVideojuegos;
-    }
-*/
 }

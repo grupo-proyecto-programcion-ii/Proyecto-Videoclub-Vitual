@@ -41,4 +41,6 @@ public interface itfProperty {
      */
     char getCharProperty(String propiedad);
 
+    public Object getProperty (String objPropiedad);
+
 }

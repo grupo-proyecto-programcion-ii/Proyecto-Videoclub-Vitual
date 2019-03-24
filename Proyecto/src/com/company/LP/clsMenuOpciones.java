@@ -1,12 +1,13 @@
 package com.company.LP;
 
-import com.company.LN.clsArticulo;
-import com.company.LN.clsGestor;
-import com.company.LN.clsUsuario;
+        import com.company.COMUN.itfProperty;
+        import com.company.LN.clsArticulo;
+        import com.company.LN.clsGestor;
+        import com.company.LN.clsUsuario;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
+        import java.util.ArrayList;
+        import java.util.Iterator;
+        import java.util.Random;
 
 /**
  * La idea de la clase es contener aquellas opciones que el usuario tenga que seleccionar.
@@ -16,12 +17,14 @@ import java.util.Random;
  * esa primera opción lo que vamos a hacer es perdirle que tipo de servicios quiere que que le ofrezcamos.
  * Las dos opciones que contemplamos será la de alquilar una serie de artículos limitados o una suscripción
  * semanal/mensual.
- *
+ * <p>
  * La función menuOpciones abarca todas las opciones que el usuário seleccionara. Todas las opciones estám
  * contenidas en funciones de diferentes clases donde se llamará.
  */
 
 public class clsMenuOpciones {
+
+    private  clsGestor objGestor = new clsGestor();
 
     public void menuPrincipal() {
 
@@ -59,14 +62,14 @@ public class clsMenuOpciones {
 
             switch (opcion) {
                 case 1:
-                    entrarUsuarios(objGestor.leerUsuarios());
+                    entrarUsuarios(objGestor);
                     break;
                 case 2:
                     altaUsuario(objGestor);
                     break;
                 case 3:
                     objGestor.visualizarNumUsuarios();
-                    visualizarUsuarios(objGestor.leerUsuarios());
+                    visulizarUsuarios(objGestor);
                     break;
                 case 4:
                     System.out.println("Fin del programa");
@@ -76,7 +79,9 @@ public class clsMenuOpciones {
         } while (opcion != 4);
     }
 
-    public void entrarUsuarios(ArrayList<clsUsuario> lUsuarios) {
+    public void entrarUsuarios(clsGestor objG) {
+
+        ArrayList<itfProperty> lUsuarios = objG.leerUsuarios();
 
         String id = null;
         String contra = null;
@@ -89,10 +94,10 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        for (clsUsuario usuario : lUsuarios) {
-            if (contra.equals(usuario.getContrasena()) & id.equals(usuario.getIdentificador())) {
+        for (itfProperty usuario:lUsuarios) {
+            if (contra.equals(usuario.getProperty("Contraseña")) & id.equals(usuario.getProperty("Identificador"))) {
 
-                System.out.println("Contraseña correcta en unuario: "+usuario.getIdentificador());
+                System.out.println("Contraseña correcta en unuario: " + usuario.getProperty("Identificador"));
 
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
@@ -108,26 +113,30 @@ public class clsMenuOpciones {
                             System.out.println("----> 1. Peliculas");
                             System.out.println("----> 2. CD_Musica");
                             System.out.println("----> 3. Videojuegos");
-                            System.out.println("----> 4. Salir");
+                            System.out.println("----> 4. Visualizar lista articulos reservados");
+                            System.out.println("----> 5. Salir");
                             op2 = Utilidades.leerEntero();
 
                             switch (op2) {
                                 case 1:
-
+                                    altaPelicula(objGestor);
                                     break;
                                 case 2:
-
+                                    altaMusica_CD(objGestor);
                                     break;
                                 case 3:
-
+                                    altaVideojuego(objGestor);
                                     break;
                                 case 4:
+
+                                    break;
+                                case 5:
                                     System.out.println("Adios");
                                     break;
                             }
                             System.out.println();
 
-                        } while (op2 != 4);
+                        } while (op2 != 5);
 
                     } else {
 
@@ -137,18 +146,19 @@ public class clsMenuOpciones {
                 } while (op != 3);
 
             } else {
-                System.out.println("Contraseña incorrecta en unuario: "+usuario.getIdentificador());
+                System.out.println("Contraseña incorrecta en unuario: " + usuario.getProperty("Identificador"));
             }
         }
     }
 
     /**
-     *Para dar de anta a los usuarios se hace la llamada a la clase gestor, donde se encuentra
+     * Para dar de anta a los usuarios se hace la llamada a la clase gestor, donde se encuentra
      * el método para añadirlo al arraylist propio de usuarios.
-     * @param objGestor
+     *
+     * @param objG
      */
 
-    public static void altaUsuario(clsGestor objGestor) {
+    public static void altaUsuario(clsGestor objG) {
 
         Random r = new Random();
 
@@ -162,49 +172,111 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        objGestor.anadirUsuario(id, contra, codigoAleatorio);
+        objG.anadirUsuario(id, contra, codigoAleatorio);
     }
 
-    /**
-     * Se recorre el arraylist para visualizar los atributos principales. En este caso sólo el
-     * nombre de usuario o identificador.
-     * @param listaUsuarios
-     */
 
-    public static void visualizarUsuarios(ArrayList<clsUsuario> listaUsuarios) {
+    public static void visulizarUsuarios (clsGestor objG){
 
-        for (clsUsuario usuario : listaUsuarios) {
-            System.out.println("Identidicador:  " + usuario.getIdentificador());
-            System.out.println("Codigo de usuario aleatorio:  "+usuario.getCodigoAleatoria());
+        ArrayList<itfProperty> usuarios = objG.leerUsuarios();
+
+        for (itfProperty usuario:usuarios){
+            System.out.println("Identificador: "+usuario.getProperty("Identificador"));
+            System.out.println("Codigo de usuario aleatorio: "+usuario.getProperty("CodigoAleatorio"));
         }
     }
 
-    public static void altaPelicula(){
+    public static void altaPelicula(clsGestor objG) {
 
-        int indentificador = 0;
-        double precio = 0;
-        double duracion = 0;
+        int idPelicula = 0;
+        String nombreP = null;
+        double precioP = 0;
+        double duracionP = 0;
 
         int pegiPelicula = 0;
         int puntuacionPelicula = 0;
 
+        System.out.println("Introduce los datos de la película;");
+        System.out.print("precio: ");
+        precioP = Utilidades.leerReal();
+        System.out.println("Nombre pelicula: ");
+        nombreP = Utilidades.leerCadena();
+        System.out.print("duración(min.seg): ");
+        duracionP = Utilidades.leerReal();
+        System.out.print("pegi de la pelicula: ");
+        pegiPelicula = Utilidades.leerEntero();
+        System.out.print("puntuación película: ");
+        puntuacionPelicula = Utilidades.leerEntero();
+
+        objG.anadirPelicula(idPelicula, nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
+
     }
 
-    public static void altaVideojuego(){
+    public static void altaVideojuego(clsGestor objG) {
 
-        int indentificador = 0;
-        double precio = 0;
-        double duracion = 0;
+        int idVideojuego = 0;
+        String nombreV = null;
+        double precioV = 0;
+        double duracionV = 0;
 
         int puntuacionVidejuego = 0;
         int pegiVidejuego = 0;
 
+        System.out.println("Introduce los datos del Videojuego;");
+        System.out.print("precio: ");
+        precioV = Utilidades.leerReal();
+        System.out.println("Nombre videojuego: ");
+        nombreV = Utilidades.leerCadena();
+        System.out.print("duración(min.seg): ");
+        duracionV = Utilidades.leerReal();
+        System.out.println("puntuación videojuego: ");
+        puntuacionVidejuego = Utilidades.leerEntero();
+        System.out.println("pegi videojuego: ");
+        pegiVidejuego = Utilidades.leerEntero();
+
+        objG.anadirVideojuego(idVideojuego, nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
+
     }
 
-    public static void altaMusica_CD(){
+    public static void altaMusica_CD(clsGestor objG) {
 
-        int indentificador = 0;
-        double precio = 0;
-        double duracion = 0;
+        int idMusica = 0;
+        String nombreM = null;
+        double precioM = 0;
+        double duracionM = 0;
+
+        int anio = 0;
+        String artista = null;
+        String explicito = null;
+
+        System.out.println("Introduce los datos de la Musica;");
+        System.out.print("precio: ");
+        precioM = Utilidades.leerReal();
+        System.out.println("Nombre música CD: ");
+        nombreM = Utilidades.leerCadena();
+        System.out.print("duración(min.seg): ");
+        duracionM = Utilidades.leerReal();
+        System.out.print("año de salida: ");
+        anio = Utilidades.leerEntero();
+        System.out.print("nombre del artista: ");
+        artista = Utilidades.leerCadena();
+        System.out.println("explicito o estudio: ");
+        explicito = Utilidades.leerCadena();
+
+        objG.anadirMusica_CD(idMusica, nombreM, precioM, duracionM, anio, artista, explicito);
+
     }
+
+    public static void visualizarArticulos (clsGestor objG){
+
+        ArrayList<itfProperty> articulos = objG.leerUsuarios();
+
+        for (itfProperty articulo:articulos){
+            //System.out.println("Identificador: "+usuario.getProperty("Identificador"));
+            //System.out.println("Codigo de usuario aleatorio: "+usuario.getProperty("CodigoAleatorio"));
+        }
+    }
+
+
+
 }

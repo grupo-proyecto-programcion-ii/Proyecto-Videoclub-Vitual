@@ -1,8 +1,10 @@
 package com.company.LN;
 
+import com.company.COMUN.itfProperty;
+
 import java.util.Random;
 
-public class clsUsuario {
+public class clsUsuario implements itfProperty {
 
     //Atributos principales de la clase clsUsuario
     private String identificador = null;
@@ -39,6 +41,43 @@ public class clsUsuario {
         this.identificador = _id;
         this.contrasena = _codigo;
         this.codigoAleatoria = _cAleatorio;
+    }
+
+    public Object getProperty(String propiedad){
+
+        switch(propiedad)
+        {
+            case "Identificador": return 	this.getIdentificador();
+            case "Contraseña": return this.getContrasena();
+            case "CodigoAleatorio": return this.getCodigoAleatoria();
+        }
+
+        return null;
+    }
+
+    @Override
+    public String getStringProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Integer getIntegerProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Float getFloatProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Double getDoubleProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public char getCharProperty(String propiedad) {
+        return 0;
     }
 
 }

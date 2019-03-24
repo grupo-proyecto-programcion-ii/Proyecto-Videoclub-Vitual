@@ -2,14 +2,13 @@ package com.company.LN;
 
 public class clsMusica_CD extends clsArticulo {
 
-    public clsMusica_CD(){
 
-    }
+    public clsMusica_CD(int _idPelicula, String _nombreM, double _precioP, double _duracionP, int _anio, String _artistas, String _explicito) {
 
-    public clsMusica_CD(int _anio, String _artistas, String _explicito) {
-        this.anio = anio;
-        this.artistas = artistas;
-        this.explicito = explicito;
+        super(_idPelicula,_nombreM, _precioP, _duracionP);
+        this.anio = _anio;
+        this.artistas = _artistas;
+        this.explicito = _explicito;
     }
 
     //Atributos principales de la clase clsMusicz
@@ -42,4 +41,33 @@ public class clsMusica_CD extends clsArticulo {
     }
 
 
+    @Override
+    public String getStringProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Integer getIntegerProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Float getFloatProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public Double getDoubleProperty(String propiedad) {
+        return null;
+    }
+
+    @Override
+    public char getCharProperty(String propiedad) {
+        return 0;
+    }
+
+    @Override
+    public Object getProperty(String objPropiedad) {
+        return null;
+    }
 }
