@@ -6,29 +6,29 @@ public class clsPeliculas extends clsArticulo {
 
     }
 
-    public clsPeliculas(int pegi, int puntuacion) {
-        this.pegi = pegi;
-        this.puntuacion = puntuacion;
+    public clsPeliculas(int _pegi, int _puntuacionP) {
+        this.pegi = _pegi;
+        this.puntuacionP = _puntuacionP;
     }
 
     //Atributos principales de la clase clsPeliculas
     private int pegi;
-    private int puntuacion;
+    private int puntuacionP;
 
     public int getPegi() {
         return pegi;
     }
 
-    public void setPegi(int pegi) {
-        this.pegi = pegi;
+    public void setPegi(int _pegi) {
+        this.pegi = _pegi;
     }
 
     public int getPuntuacion() {
-        return puntuacion;
+        return puntuacionP;
     }
 
-    public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
+    public void setPuntuacion(int _puntuacion) {
+        this.puntuacionP = _puntuacion;
     }
 
 }

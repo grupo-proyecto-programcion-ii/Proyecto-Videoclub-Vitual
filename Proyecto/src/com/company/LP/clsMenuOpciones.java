@@ -6,6 +6,7 @@ import com.company.LN.clsUsuario;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * La idea de la clase es contener aquellas opciones que el usuario tenga que seleccionar.
@@ -27,7 +28,7 @@ public class clsMenuOpciones {
         int opcion = 0;
         // Creo y declaro el objeto, que señala objGestor y objArticulo
         clsGestor objGestor = new clsGestor();
-        clsArticulo objArticulo = new clsArticulo();
+
 
         /**
          * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los métodos contenidos
@@ -75,7 +76,7 @@ public class clsMenuOpciones {
         } while (opcion != 4);
     }
 
-    public void entrarUsuarios(ArrayList<clsUsuario> listaUsuarios) {
+    public void entrarUsuarios(ArrayList<clsUsuario> lUsuarios) {
 
         String id = null;
         String contra = null;
@@ -88,8 +89,10 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        for (clsUsuario usuario : listaUsuarios) {
-            if (contra.equals(usuario.getContrasena())) {
+        for (clsUsuario usuario : lUsuarios) {
+            if (contra.equals(usuario.getContrasena()) & id.equals(usuario.getIdentificador())) {
+
+                System.out.println("Contraseña correcta en unuario: "+usuario.getIdentificador());
 
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
@@ -134,7 +137,7 @@ public class clsMenuOpciones {
                 } while (op != 3);
 
             } else {
-                System.out.println("Contraseña incorrecta");
+                System.out.println("Contraseña incorrecta en unuario: "+usuario.getIdentificador());
             }
         }
     }
@@ -147,6 +150,9 @@ public class clsMenuOpciones {
 
     public static void altaUsuario(clsGestor objGestor) {
 
+        Random r = new Random();
+
+        int codigoAleatorio = r.nextInt(1000);
         String id = null;
         String contra = null;
 
@@ -156,7 +162,7 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        objGestor.anadirUsuario(id, contra);
+        objGestor.anadirUsuario(id, contra, codigoAleatorio);
     }
 
     /**
@@ -169,6 +175,36 @@ public class clsMenuOpciones {
 
         for (clsUsuario usuario : listaUsuarios) {
             System.out.println("Identidicador:  " + usuario.getIdentificador());
+            System.out.println("Codigo de usuario aleatorio:  "+usuario.getCodigoAleatoria());
         }
+    }
+
+    public static void altaPelicula(){
+
+        int indentificador = 0;
+        double precio = 0;
+        double duracion = 0;
+
+        int pegiPelicula = 0;
+        int puntuacionPelicula = 0;
+
+    }
+
+    public static void altaVideojuego(){
+
+        int indentificador = 0;
+        double precio = 0;
+        double duracion = 0;
+
+        int puntuacionVidejuego = 0;
+        int pegiVidejuego = 0;
+
+    }
+
+    public static void altaMusica_CD(){
+
+        int indentificador = 0;
+        double precio = 0;
+        double duracion = 0;
     }
 }

@@ -6,21 +6,21 @@ public class clsVideojuegos extends clsArticulo {
 
     }
 
-    public clsVideojuegos(int puntuacion, int pegiVideojuegos) {
-        this.puntuacion = puntuacion;
+    public clsVideojuegos(int puntuacionV, int pegiVideojuegos) {
+        this.puntuacionV = puntuacionV;
         this.pegiVideojuegos = pegiVideojuegos;
     }
 
     //Atributos principales de la clase clsVideojuegos
-    private int puntuacion;
+    private int puntuacionV;
     private int pegiVideojuegos;
 
     public int getPuntuacion() {
-        return puntuacion;
+        return puntuacionV;
     }
 
     public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
+        this.puntuacionV = puntuacion;
     }
 
     public int getPegiVideojuegos() {

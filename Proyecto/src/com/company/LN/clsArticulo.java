@@ -8,10 +8,12 @@ import java.util.ArrayList;
  */
 
 public class clsArticulo {
-
+/*
     private ArrayList<clsVideojuegos> listaVideojuegos = new ArrayList<clsVideojuegos>();
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<clsMusica_CD>();
     private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<clsPeliculas>();
+
+    */
 
     private int indentificador;
     private double precio;
@@ -40,7 +42,7 @@ public class clsArticulo {
     public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
-
+/*
     public void anadirVidejuegos(int punt, int pegiV){
 
         clsVideojuegos objVidejuego = new clsVideojuegos(punt, pegiV);
@@ -50,5 +52,5 @@ public class clsArticulo {
     public ArrayList<clsVideojuegos> leerVidejuegos(){
         return listaVideojuegos;
     }
-
+*/
 }

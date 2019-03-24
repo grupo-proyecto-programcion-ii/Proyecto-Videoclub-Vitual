@@ -6,7 +6,7 @@ public class clsMusica_CD extends clsArticulo {
 
     }
 
-    public clsMusica_CD(int anio, String artistas, String explicito) {
+    public clsMusica_CD(int _anio, String _artistas, String _explicito) {
         this.anio = anio;
         this.artistas = artistas;
         this.explicito = explicito;
@@ -21,24 +21,24 @@ public class clsMusica_CD extends clsArticulo {
         return anio;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setAnio(int _anio) {
+        this.anio = _anio;
     }
 
     public String getArtistas() {
         return artistas;
     }
 
-    public void setArtistas(String artistas) {
-        this.artistas = artistas;
+    public void setArtistas(String _artistas) {
+        this.artistas = _artistas;
     }
 
     public String getExplicito() {
         return explicito;
     }
 
-    public void setExplicito(String explicito) {
-        this.explicito = explicito;
+    public void setExplicito(String _explicito) {
+        this.explicito = _explicito;
     }
 
 

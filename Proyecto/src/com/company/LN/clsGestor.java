@@ -14,6 +14,7 @@ import java.util.Iterator;
 public class clsGestor {
 
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
+    private ArrayList<clsArticulo>listaArticulos = new ArrayList<clsArticulo>();
 
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta
@@ -34,14 +35,25 @@ public class clsGestor {
      * Con éste método se recojen los datos del usuario en el objeto objUsuarios que apunta
      * a la clase clsUsuario donde se encuentran los atributos principales. Una vez instanciado el objeto,
      * se añade al arraylist.
-     * @param id
-     * @param contra
+     * @param _id
+     * @param _contra
+     * @param c_Aleatorio
      */
 
-    public void anadirUsuario(String id, String contra){
+    public void anadirUsuario(String _id, String _contra, int c_Aleatorio){
 
-        clsUsuario objUsuarios = new clsUsuario(id, contra);
+        clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
         listaUsuarios.add(objUsuarios);
+    }
+
+    public void anadirPelicula(){
+
+    }
+    public void anadirVideojuego(){
+
+    }
+    public void anadirMusica_CD(){
+
     }
 
     public ArrayList<clsUsuario>leerUsuarios(){
