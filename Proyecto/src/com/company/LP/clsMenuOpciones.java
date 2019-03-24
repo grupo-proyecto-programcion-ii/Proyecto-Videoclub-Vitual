@@ -78,7 +78,7 @@ public class clsMenuOpciones {
      * @param objG
      */
 
-    public void entrarUsuarios(clsGestor objG) {
+    private void entrarUsuarios(clsGestor objG) {
 
         ArrayList<itfProperty> lUsuarios = objG.leerUsuarios();
 
@@ -158,7 +158,7 @@ public class clsMenuOpciones {
      * @param objG
      */
 
-    public static void altaUsuario(clsGestor objG) {
+    private static void altaUsuario(clsGestor objG) {
 
         Random r = new Random();
 
@@ -181,7 +181,7 @@ public class clsMenuOpciones {
      * usuarios tienen disponible la visibilidad de un artículo.
      * @param objG
      */
-    public static void visulizarUsuarios (clsGestor objG){
+    private static void visulizarUsuarios (clsGestor objG){
 
         ArrayList<itfProperty> usuarios = objG.leerUsuarios();
 
@@ -196,7 +196,7 @@ public class clsMenuOpciones {
      * etc....
      * @param objG
      */
-    public static void altaPelicula(clsGestor objG) {
+    private static void altaPelicula(clsGestor objG) {
 
         int idPelicula = 0;
         String nombreP = null;
