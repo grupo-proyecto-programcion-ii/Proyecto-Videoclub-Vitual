@@ -1,8 +1,15 @@
 package com.company.LN;
 
+/**
+ *Esta clase hereda de la clase padre artículos. Hereda 4 atributos principales. Contiene
+ * los atributos, el contructor y el método para hacer la llamda a los datos.
+ */
+
 public class clsPeliculas extends clsArticulo {
 
-    //Atributos principales de la clase clsPeliculas
+    /***
+     * Atributos
+     */
     private int pegiP;
     private int puntuacionP;
 
@@ -22,15 +29,52 @@ public class clsPeliculas extends clsArticulo {
         this.puntuacionP = _puntuacion;
     }
 
-
+    /***
+     * Contructor. Hereda con un super los 4 atributos principales.
+     * @param _idPelicula
+     * @param _nombreP
+     * @param _precioP
+     * @param _duracionP
+     * @param _pegiPelicula
+     * @param _puntuacionPelicula
+     */
     public clsPeliculas(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
         super(_idPelicula,_nombreP,  _precioP, _duracionP);
-        this.pegiP= _pegiPelicula;
+        this.pegiP = _pegiPelicula;
         this.puntuacionP = _puntuacionPelicula;
     }
 
+    /**
+     * Método para hacer la llamda desde LP obteniendo los datos de los atributos especificamente.
+     * @param obj_Propiedad
+     * @return
+     */
+    @Override
+    public Object getPropertyA(String obj_Propiedad) {
 
+        switch (obj_Propiedad){
+            case "IdentificadorP":
+                return this.getIndentificador();
+            case "NombreP":
+                return this.getNombre();
+            case "PrecioP":
+                return this.getPrecio();
+            case "DuracionP":
+                return this.getDuracion();
+            case "PegiP":
+                return this.pegiP;
+            case "PuntuacionP":
+                return this.puntuacionP;
+        }
+        return null;
+    }
+
+    /**
+     * Métodos de la clase interfaz itfProperty
+     * @param propiedad
+     * @return
+     */
     @Override
     public String getStringProperty(String propiedad) {
         return null;
@@ -57,7 +101,7 @@ public class clsPeliculas extends clsArticulo {
     }
 
     @Override
-    public Object getProperty(String objPropiedad) {
+    public Object getPropertyU(String objPropiedad) {
         return null;
     }
 }

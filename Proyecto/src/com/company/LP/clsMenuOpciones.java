@@ -1,30 +1,23 @@
 package com.company.LP;
 
         import com.company.COMUN.itfProperty;
-        import com.company.LN.clsArticulo;
         import com.company.LN.clsGestor;
-        import com.company.LN.clsUsuario;
-
         import java.util.ArrayList;
-        import java.util.Iterator;
         import java.util.Random;
 
 /**
- * La idea de la clase es contener aquellas opciones que el usuario tenga que seleccionar.
- * Hemos decidido que la gestión del usuario(datos de él) será en la clase gestor.
- * Lo primero que hará nuestro programa será pedir al usuario registrarse o entrar, aun que aún no diponemos
- * la base de datos con datos y usuarios queremos implementar la funcionalidad. Una vez el usuario haya seleccionado
- * esa primera opción lo que vamos a hacer es perdirle que tipo de servicios quiere que que le ofrezcamos.
- * Las dos opciones que contemplamos será la de alquilar una serie de artículos limitados o una suscripción
- * semanal/mensual.
- * <p>
- * La función menuOpciones abarca todas las opciones que el usuário seleccionara. Todas las opciones estám
- * contenidas en funciones de diferentes clases donde se llamará.
+ * La clase contiene un menu principal donde se centra en el registro, entrada y visualización del usuario.
+ * Una vez el usuario se ha registrado y se ha "logeado" tiene disponibloe la opción de alquilar articulos
+ * o un servicio de suscrición.
  */
 
 public class clsMenuOpciones {
 
     private  clsGestor objGestor = new clsGestor();
+
+    /**
+     * En éste menu principal se encargará de seleccionar todo lo que tiene que ver con el usuario
+     */
 
     public void menuPrincipal() {
 
@@ -79,6 +72,12 @@ public class clsMenuOpciones {
         } while (opcion != 4);
     }
 
+    /**
+     * Una vez el usuario se ha registrado se conprueban sus credenciales y se le da la posibilidad a disponer de
+     * servicios.
+     * @param objG
+     */
+
     public void entrarUsuarios(clsGestor objG) {
 
         ArrayList<itfProperty> lUsuarios = objG.leerUsuarios();
@@ -95,15 +94,16 @@ public class clsMenuOpciones {
         contra = Utilidades.leerCadena();
 
         for (itfProperty usuario:lUsuarios) {
-            if (contra.equals(usuario.getProperty("Contraseña")) & id.equals(usuario.getProperty("Identificador"))) {
+            if (contra.equals(usuario.getPropertyU("Contraseña")) & id.equals(usuario.getPropertyU("Identificador"))) {
 
-                System.out.println("Contraseña correcta en unuario: " + usuario.getProperty("Identificador"));
+                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU("Identificador"));
 
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
                     System.out.println("----> 1. Alquilar artículos ");
                     System.out.println("----> 2. Suscripcuón mensual");
                     System.out.println("----> 3. Salir");
+                    System.out.print("Opción:");
                     op = Utilidades.leerEntero();
 
                     if (op == 1) {
@@ -115,6 +115,7 @@ public class clsMenuOpciones {
                             System.out.println("----> 3. Videojuegos");
                             System.out.println("----> 4. Visualizar lista articulos reservados");
                             System.out.println("----> 5. Salir");
+                            System.out.print("Opción:");
                             op2 = Utilidades.leerEntero();
 
                             switch (op2) {
@@ -128,7 +129,7 @@ public class clsMenuOpciones {
                                     altaVideojuego(objGestor);
                                     break;
                                 case 4:
-
+                                    visualizarArticulos(objGestor);
                                     break;
                                 case 5:
                                     System.out.println("Adios");
@@ -146,15 +147,14 @@ public class clsMenuOpciones {
                 } while (op != 3);
 
             } else {
-                System.out.println("Contraseña incorrecta en unuario: " + usuario.getProperty("Identificador"));
+                System.out.println("Contraseña incorrecta en unuario: " + usuario.getPropertyU("Identificador"));
             }
         }
     }
 
     /**
-     * Para dar de anta a los usuarios se hace la llamada a la clase gestor, donde se encuentra
-     * el método para añadirlo al arraylist propio de usuarios.
-     *
+     * Este método tiene la función de recibir los parámetros del usuario para después introducirlos en un array
+     * en clsUsuario
      * @param objG
      */
 
@@ -175,17 +175,27 @@ public class clsMenuOpciones {
         objG.anadirUsuario(id, contra, codigoAleatorio);
     }
 
-
+    /**
+     * ésta función sierve para visualizar el usuario y un código aleatorio generado, éste código está
+     * pensado que sirva como etiqueta a la hora de seleccionar artículos. Una manera para saber qué
+     * usuarios tienen disponible la visibilidad de un artículo.
+     * @param objG
+     */
     public static void visulizarUsuarios (clsGestor objG){
 
         ArrayList<itfProperty> usuarios = objG.leerUsuarios();
 
         for (itfProperty usuario:usuarios){
-            System.out.println("Identificador: "+usuario.getProperty("Identificador"));
-            System.out.println("Codigo de usuario aleatorio: "+usuario.getProperty("CodigoAleatorio"));
+            System.out.println("Identificador: "+usuario.getPropertyU("Identificador"));
+            System.out.println("Codigo de usuario aleatorio: "+usuario.getPropertyU("CodigoAleatorio"));
         }
     }
 
+    /**
+     * altaPelicula, altaVideojuego y altaMusica simplemente recoje los datos para llevarlo a la base de datos
+     * etc....
+     * @param objG
+     */
     public static void altaPelicula(clsGestor objG) {
 
         int idPelicula = 0;
@@ -199,7 +209,7 @@ public class clsMenuOpciones {
         System.out.println("Introduce los datos de la película;");
         System.out.print("precio: ");
         precioP = Utilidades.leerReal();
-        System.out.println("Nombre pelicula: ");
+        System.out.print("Nombre pelicula: ");
         nombreP = Utilidades.leerCadena();
         System.out.print("duración(min.seg): ");
         duracionP = Utilidades.leerReal();
@@ -225,13 +235,13 @@ public class clsMenuOpciones {
         System.out.println("Introduce los datos del Videojuego;");
         System.out.print("precio: ");
         precioV = Utilidades.leerReal();
-        System.out.println("Nombre videojuego: ");
+        System.out.print("Nombre videojuego: ");
         nombreV = Utilidades.leerCadena();
         System.out.print("duración(min.seg): ");
         duracionV = Utilidades.leerReal();
-        System.out.println("puntuación videojuego: ");
+        System.out.print("puntuación videojuego: ");
         puntuacionVidejuego = Utilidades.leerEntero();
-        System.out.println("pegi videojuego: ");
+        System.out.print("pegi videojuego: ");
         pegiVidejuego = Utilidades.leerEntero();
 
         objG.anadirVideojuego(idVideojuego, nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
@@ -260,23 +270,52 @@ public class clsMenuOpciones {
         anio = Utilidades.leerEntero();
         System.out.print("nombre del artista: ");
         artista = Utilidades.leerCadena();
-        System.out.println("explicito o estudio: ");
+        System.out.print("explicito o estudio: ");
         explicito = Utilidades.leerCadena();
 
         objG.anadirMusica_CD(idMusica, nombreM, precioM, duracionM, anio, artista, explicito);
 
     }
 
+    /**
+     * éste método recorre el ArraylisT que se encuentra en clsGestor donde se encuentran todos los objetos
+     * de tipo artículo. Se ha utilizado una propiedad específica para hacer las llamdas a la infomación
+     * que contiene dicho array.
+     * @param objG
+     */
     public static void visualizarArticulos (clsGestor objG){
 
-        ArrayList<itfProperty> articulos = objG.leerUsuarios();
+        ArrayList<itfProperty> articulos = objG.leerArticulos();
 
         for (itfProperty articulo:articulos){
-            //System.out.println("Identificador: "+usuario.getProperty("Identificador"));
-            //System.out.println("Codigo de usuario aleatorio: "+usuario.getProperty("CodigoAleatorio"));
+
+            System.out.println("PELICULA");
+            System.out.println();
+            System.out.println("Identificador Pelicula: "+articulo.getPropertyA("IdentificadorP"));
+            System.out.println("Nombre Pelicula: "+articulo.getPropertyA("NombreP"));
+            System.out.println("Precio Pelicula: "+articulo.getPropertyA("PrecioP"));
+            System.out.println("Duración Pelicula: "+articulo.getPropertyA("DuracionP"));
+            System.out.println("Pegi Pelicula: "+articulo.getPropertyA("PegiP"));
+            System.out.println("Puntuación Pelicula: "+articulo.getPropertyA("PuntuacionP"));
+            System.out.println();
+            System.out.println("VIDEOJUEGO");
+            System.out.println("Identificador Videojuego: "+articulo.getPropertyA("IdentificadorV"));
+            System.out.println("Nombre Videojuego: "+articulo.getPropertyA("NombreV"));
+            System.out.println("Precio Videojuego: "+articulo.getPropertyA("PrecioV"));
+            System.out.println("Duración Videojuego: "+articulo.getPropertyA("DuracionV"));
+            System.out.println("Puntuación Videojuego: "+articulo.getPropertyA("PuntuacionV"));
+            System.out.println("Pegi Videojuego: "+articulo.getPropertyA("PegiV"));
+            System.out.println();
+            System.out.println("MUSICA");
+            System.out.println("Identificador Musica: "+articulo.getPropertyA("IdentificadorM"));
+            System.out.println("Nombre Musica: "+articulo.getPropertyA("NombreM"));
+            System.out.println("Precio Musica: "+articulo.getPropertyA("PrecioM"));
+            System.out.println("Duración Musica: "+articulo.getPropertyA("DuracionM"));
+            System.out.println("Año creación: "+articulo.getPropertyA("Anio"));
+            System.out.println("Artista: "+articulo.getPropertyA("artista"));
+            System.out.println("Estudio: "+articulo.getPropertyA("Explicito"));
+            System.out.println();
+
         }
     }
-
-
-
 }

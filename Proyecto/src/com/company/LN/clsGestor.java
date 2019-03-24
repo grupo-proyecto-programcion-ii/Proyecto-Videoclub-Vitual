@@ -1,24 +1,24 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
-import com.company.LP.Utilidades;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
- *Para llevar a cabo las opciones principales se crea un arrayList, que apunta a clsUsuario, que
- * contiene los atributos principales de los usuarios.
+ *ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
+ * e introduciéndolos en ArrayList.
  *
  */
 
 public class clsGestor {
-
+    /**
+     * Instancia y declñaración de dos ArrayList que guardarán objetos. Uno guardará los objetos de usuarios
+     * y el otro artículos.
+     */
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
     private ArrayList<clsArticulo>listaArticulos = new ArrayList<clsArticulo>();
 
     /**
-     * Con esta clase se visualiza el numero de usuarios dados de alta
+     * Con esta clase se visualiza el numero de usuarios dados de alta.
      */
 
     public void visualizarNumUsuarios(){
@@ -33,9 +33,8 @@ public class clsGestor {
     }
 
     /**
-     * Con éste método se recojen los datos del usuario en el objeto objUsuarios que apunta
-     * a la clase clsUsuario donde se encuentran los atributos principales. Una vez instanciado el objeto,
-     * se añade al arraylist.
+     * Con éste método se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist específica
+     * para una lista de usuarios.
      *
      */
 
@@ -44,6 +43,13 @@ public class clsGestor {
         clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
         listaUsuarios.add(objUsuarios);
     }
+
+    /**
+     * Método para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist
+     * que apunta a la interfaz itfProperty. Se recoje el array para copiar los objetos. Éste método es
+     * de relevancia ya que, una vez que el usuario se ha registrado.
+     * @return
+     */
 
     public ArrayList<itfProperty> leerUsuarios(){
 
@@ -55,6 +61,15 @@ public class clsGestor {
         return rUsuarios;
     }
 
+    /***
+     * Métodos para añador objetos de artículos al arraylist de artículos.
+     * @param _idPelicula
+     * @param _nombreP
+     * @param _precioP
+     * @param _duracionP
+     * @param _pegiPelicula
+     * @param _puntuacionPelicula
+     */
     public void anadirPelicula(int _idPelicula,String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula){
 
         clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula );
@@ -73,7 +88,21 @@ public class clsGestor {
         listaArticulos.add(objMusica);
     }
 
-    public ArrayList
+    /**
+     * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
+     *
+     * @return
+     */
+
+    public ArrayList<itfProperty>leerArticulos(){
+
+        ArrayList<itfProperty> rArticulos = new ArrayList<itfProperty>();
+
+        for (clsArticulo articulo:listaArticulos){
+            rArticulos.add(articulo);
+        }
+        return rArticulos;
+    }
 }
 
 

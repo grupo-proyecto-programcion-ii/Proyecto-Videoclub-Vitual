@@ -2,11 +2,14 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 
-import java.util.Random;
-
+/**
+ * Ésta clase contiene atributos y el contructor para el usuario.
+ */
 public class clsUsuario implements itfProperty {
 
-    //Atributos principales de la clase clsUsuario
+    /**
+     * Atributos geters y seters
+     */
     private String identificador = null;
     private String contrasena = null;
     private int codigoAleatoria = 0;
@@ -35,15 +38,24 @@ public class clsUsuario implements itfProperty {
         this.contrasena = _contrasena;
     }
 
-
+    /***
+     * Contructor que recibe los parámetros para los atributos.
+     * @param _id
+     * @param _codigo
+     * @param _cAleatorio
+     */
     public clsUsuario(String _id, String _codigo, int _cAleatorio) {
 
         this.identificador = _id;
         this.contrasena = _codigo;
         this.codigoAleatoria = _cAleatorio;
     }
-
-    public Object getProperty(String propiedad){
+    /**
+     *Método para obtener los datos de los atributos de usuarios.
+     * @param propiedad
+     * @return
+     */
+    public Object getPropertyU(String propiedad){
 
         switch(propiedad)
         {
@@ -53,8 +65,11 @@ public class clsUsuario implements itfProperty {
         }
 
         return null;
-    }
-
+    }/**
+     * Métodos de la clase interfaz itfProperty
+     * @param propiedad
+     * @return
+     */
     @Override
     public String getStringProperty(String propiedad) {
         return null;
@@ -78,6 +93,11 @@ public class clsUsuario implements itfProperty {
     @Override
     public char getCharProperty(String propiedad) {
         return 0;
+    }
+
+    @Override
+    public Object getPropertyA(String obj_Propiedad) {
+        return null;
     }
 
 }
