@@ -1,12 +1,13 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
- *ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
+ * ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
  * e introduciéndolos en ArrayList.
- *
  */
 
 public class clsGestor {
@@ -15,13 +16,16 @@ public class clsGestor {
      * y el otro artículos.
      */
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
-    private ArrayList<clsArticulo>listaArticulos = new ArrayList<clsArticulo>();
+    //private ArrayList<clsArticulo> listaArticulos = new ArrayList<clsArticulo>();
+    private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<clsPeliculas>();
+    private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<clsVideojuegos>();
+    private ArrayList<clsMusica_CD> listaMusica = new ArrayList<clsMusica_CD>();
 
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta.
      */
 
-    public void visualizarNumUsuarios(){
+    public void visualizarNumUsuarios() {
 
         if (listaUsuarios.size() == 1) {
             System.out.println(listaUsuarios.size() + " usuario dado de alta");
@@ -35,10 +39,9 @@ public class clsGestor {
     /**
      * Con éste método se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist específica
      * para una lista de usuarios.
-     *
      */
 
-    public void anadirUsuario(String _id, String _contra, int c_Aleatorio){
+    public void anadirUsuario(String _id, String _contra, int c_Aleatorio) {
 
         clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
         listaUsuarios.add(objUsuarios);
@@ -48,14 +51,15 @@ public class clsGestor {
      * Método para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist
      * que apunta a la interfaz itfProperty. Se recoje el array para copiar los objetos. Éste método es
      * de relevancia ya que, una vez que el usuario se ha registrado.
+     *
      * @return
      */
 
-    public ArrayList<itfProperty> leerUsuarios(){
+    public ArrayList<itfProperty> leerUsuarios() {
 
         ArrayList<itfProperty> rUsuarios = new ArrayList<itfProperty>();
 
-        for (clsUsuario usuario:listaUsuarios){
+        for (clsUsuario usuario : listaUsuarios) {
             rUsuarios.add(usuario);
         }
         return rUsuarios;
@@ -70,23 +74,33 @@ public class clsGestor {
      * @param _pegiPelicula
      * @param _puntuacionPelicula
      */
-    public void anadirPelicula(int _idPelicula,String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula){
+    public void anadirPelicula(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
-        clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula );
-        listaArticulos.add(objPelicula);
+        clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula);
+        listaPeliculas.add(objPelicula);
     }
 
-    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego){
+    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego) {
 
         clsVideojuegos objVidejuego = new clsVideojuegos(_idVideojuego, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
-        listaArticulos.add(objVidejuego);
+        listaVidejuegos.add(objVidejuego);
     }
 
-    public void anadirMusica_CD(int _idMusica,String nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito){
+    public void anadirMusica_CD(int _idMusica, String nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito) {
 
         clsMusica_CD objMusica = new clsMusica_CD(_idMusica, nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
-        listaArticulos.add(objMusica);
+        listaMusica.add(objMusica);
     }
+
+
+    public int _idPelicula() {
+
+        Random idP = new Random();
+
+        int idPelicula = idP.nextInt(-1000);
+        return idPelicula;
+    }
+
 
     /**
      * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
@@ -94,15 +108,37 @@ public class clsGestor {
      * @return
      */
 
-    public ArrayList<itfProperty>leerArticulos(){
+    public ArrayList<itfProperty> leerPeliculas() {
 
-        ArrayList<itfProperty> rArticulos = new ArrayList<itfProperty>();
+        ArrayList<itfProperty> rPeliculas = new ArrayList<itfProperty>();
 
-        for (clsArticulo articulo:listaArticulos){
-            rArticulos.add(articulo);
+        for (clsPeliculas pelicula : listaPeliculas) {
+            rPeliculas.add(pelicula);
         }
-        return rArticulos;
+        return rPeliculas;
     }
+
+    public ArrayList<itfProperty> leerVideojuegos() {
+
+        ArrayList<itfProperty> rVideojuegos = new ArrayList<itfProperty>();
+
+        for (clsVideojuegos videojuego : listaVidejuegos) {
+            rVideojuegos.add(videojuego);
+        }
+        return rVideojuegos;
+    }
+
+    public ArrayList<itfProperty> leerMusica() {
+
+        ArrayList<itfProperty> rMusica = new ArrayList<itfProperty>();
+
+        for (clsMusica_CD cd : listaMusica) {
+            rMusica.add(cd);
+        }
+        return rMusica;
+    }
+
+
 }
 
 
