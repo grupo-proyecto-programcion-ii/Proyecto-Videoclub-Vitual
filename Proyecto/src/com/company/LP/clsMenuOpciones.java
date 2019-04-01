@@ -169,9 +169,9 @@ public class clsMenuOpciones {
 
     private static void altaUsuario(clsGestor objG) {
 
-        Random r = new Random();
+       // Random r = new Random();
 
-        int codigoAleatorio = r.nextInt(1000);
+        int codigoAleatorio = 0;
         String id = null;
         String contra = null;
 
@@ -289,6 +289,7 @@ public class clsMenuOpciones {
 
     public static void visulalizarPeliculas(clsGestor objG){
 
+        objG.visualizarNumPeliculas();
         ArrayList<itfProperty> peliculas = objG.leerPeliculas();
 
         System.out.println("PELICULAS");
@@ -309,6 +310,7 @@ public class clsMenuOpciones {
 
     public static void visualizarVidejuegos(clsGestor objG){
 
+        objG.visualizarNumVideojuegos();
         ArrayList<itfProperty> videojuegos = objG.leerVideojuegos();
 
         System.out.println("VIDEOJUEGOS-----------------------------");
@@ -328,6 +330,7 @@ public class clsMenuOpciones {
 
     public static void visualizarMusica(clsGestor objG){
 
+        objG.visualizarNumCd();
         ArrayList<itfProperty> musicas = objG.leerMusica();
 
         System.out.println("MUSICAS-----------------------------");

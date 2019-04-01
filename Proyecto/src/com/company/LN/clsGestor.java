@@ -138,6 +138,19 @@ public class clsGestor {
         return rMusica;
     }
 
+    public void visualizarNumPeliculas() {
+        System.out.println(listaPeliculas.size() + " peliculas para reservar");
+    }
+
+    public void visualizarNumVideojuegos() {
+        System.out.println(listaVidejuegos.size() + " peliculas para reservar");
+    }
+
+    public void visualizarNumCd() {
+        System.out.println(listaMusica.size() + " peliculas para reservar");
+    }
+
+
 
 }
 
