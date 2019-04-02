@@ -7,21 +7,32 @@ import java.sql.PreparedStatement;
 public class clsConexion {
 
     public static int insert(Connection con, String query, Object[] parametros) throws Exception {
-        PreparedStatement stt = con.prepareStatement(query);
-        cargarDatos(stt, parametros);
-        stt.execute();
-        return stt.getUpdateCount();
+
+
+        PreparedStatement objStatements = con.prepareStatement(query);
+        cargarDatos(objStatements, parametros);
+        objStatements.execute();
+
+        return objStatements.getUpdateCount();
     }
 
-    private static void cargarDatos(PreparedStatement stt, Object[] parametros) throws Exception {
-        for (int i = 0; i < parametros.length; i++) {
-            int j = i + 1;
+    /**
+     * Filtro para preparar de forma organizada los preparedstatements
+     * @param objSt
+     * @param parametros
+     * @throws Exception
+     */
+    private static void cargarDatos(PreparedStatement objSt, Object[] parametros) throws Exception {
+
+        for (int i = 1; i < parametros.length; i++) {
+
+            int j = i++;
             if (parametros[i] instanceof String) {
-                stt.setString(j, (String) parametros[i]);
+                objSt.setString(j, (String) parametros[i]);
             } else if (parametros[i] instanceof Integer) {
-                stt.setInt(j, (Integer) parametros[i]);
+                objSt.setInt(j, (Integer) parametros[i]);
             } else if (parametros[i] instanceof Double) {
-                stt.setDouble(j, (Double) parametros[i]);
+                objSt.setDouble(j, (Double) parametros[i]);
             }
         }
     }

@@ -59,14 +59,14 @@ public class clsGestor {
 
             clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
             listaUsuarios.add(objUsuarios);
-            objUsuarios.setCodigoAleatoria(objDatos.insertarUsuario(_id, _contra));
+            objUsuarios.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
 
             objDatos.desconectarBD();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Fallo al introdir usuarios....");
         }
 
     }

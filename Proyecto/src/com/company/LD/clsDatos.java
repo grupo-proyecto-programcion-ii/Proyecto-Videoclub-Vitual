@@ -41,7 +41,7 @@ public class clsDatos {
         objConexion.close();
     }
 
-    public int insertarUsuario(String _identificador,String _contrasena ) throws Exception {
+    public int insertarCodigoUsuario(String _identificador,String _contrasena ) throws Exception {
         return clsUsuarioBD.insertar(objConexion ,_identificador, _contrasena);
     }
 }

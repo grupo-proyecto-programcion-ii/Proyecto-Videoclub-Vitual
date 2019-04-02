@@ -174,7 +174,7 @@ public class clsMenuOpciones {
 
         // Random r = new Random();
 
-        int codigoAleatorio = 0;
+        int codigoAleatorio = 1;
         String id = null;
         String contra = null;
 

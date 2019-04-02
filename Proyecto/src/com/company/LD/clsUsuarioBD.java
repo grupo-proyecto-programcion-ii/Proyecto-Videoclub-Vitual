@@ -7,7 +7,7 @@ public class clsUsuarioBD extends clsConexion{
 
     public static int insertar(Connection objCon, String identificador, String contrasena) throws Exception {
         Object[] parametrosUsuario = {identificador, contrasena};
-        return insert(objCon, "INSERT INTO campos(identificador,contrasena)VALUES(?,?,?,?,?,?)", parametrosUsuario);
+        return insert(objCon, "INSERT INTO Usuarios (identificador,contrasena)VALUES(?,?)", parametrosUsuario);
     }
 
   /**  public static ResultSet getAll(Connection con) throws Exception {
