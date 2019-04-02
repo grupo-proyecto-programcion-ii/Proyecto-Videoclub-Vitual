@@ -3,7 +3,7 @@ package com.company.LD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import static com.company.LD.clsConstantes.*;
+import static com.company.LD.clsConstantesBD.*;
 
 /**
  *Clase que cominucará los parámetros entre la lógica de negocio

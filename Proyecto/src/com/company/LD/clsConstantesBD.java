@@ -1,6 +1,6 @@
 package com.company.LD;
 
-public class clsConstantes {
+public class clsConstantesBD {
 
     /**
      *Constantes de usuario, contraseña, pueeto. nombre base de datos

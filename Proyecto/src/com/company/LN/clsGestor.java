@@ -5,7 +5,6 @@ import com.company.LD.clsDatos;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
@@ -51,25 +50,24 @@ public class clsGestor {
      * para una lista de usuarios.
      */
 
-    public void anadirUsuario(String _id, String _contra, int c_Aleatorio) {
+    public void anadirUsuario(String _id, String _contra) {
 
         try {
 
             objDatos.conectarBD();
 
-            clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
+            clsUsuario objUsuarios = new clsUsuario(_id, _contra);
             listaUsuarios.add(objUsuarios);
             objUsuarios.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
 
             objDatos.desconectarBD();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("Fallo al introdir usuarios....");
+            e.printStackTrace();
         }
-
     }
+
+
 
     /**
      * Método para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist

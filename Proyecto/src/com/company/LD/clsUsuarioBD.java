@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 
 public class clsUsuarioBD extends clsConexion{
 
+    private static final String TEMPLATE = "";
+
     public static int insertar(Connection objCon, String identificador, String contrasena) throws Exception {
         Object[] parametrosUsuario = {identificador, contrasena};
         return insert(objCon, "INSERT INTO Usuarios (identificador,contrasena)VALUES(?,?)", parametrosUsuario);

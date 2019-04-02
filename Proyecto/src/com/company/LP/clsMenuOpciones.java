@@ -184,7 +184,7 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        objG.anadirUsuario(id, contra, codigoAleatorio);
+        objG.anadirUsuario(id, contra);
     }
 
     /**

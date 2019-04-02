@@ -44,13 +44,11 @@ public class clsUsuario implements itfProperty {
      * Contructor que recibe los parámetros para los atributos.
      * @param _id
      * @param _codigo
-     * @param _cAleatorio
      */
-    public clsUsuario(String _id, String _codigo, int _cAleatorio) {
+    public clsUsuario(String _id, String _codigo) {
 
         this.identificador = _id;
         this.contrasena = _codigo;
-        this.codigoAleatoria = _cAleatorio;
     }
     /**
      *Método para obtener los datos de los atributos de usuarios.
