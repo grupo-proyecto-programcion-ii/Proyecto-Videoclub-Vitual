@@ -1,43 +1,28 @@
 package com.company.LD;
 
+
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 public class clsConexion {
 
-    //Nombre de la base de datos
-    public String database="proyecto";
-
-    //host
-    public String hostname="localhost";
-
-    //puerto
-    public String port="3306";
-
-    //Ruta de la base de datos (jdbc:mysql://localhost:3306/alumnoBD?useTimezone=true&serverTimezone=GMT&useSSL=false)
-    public String url="jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useTimezone=true&serverTimezone=GMT&useSSL=false";
-
-    //Nombre de usuario
-    public String user="root";
-
-    //Password
-    public String password="";
-
-    public Connection conectarBD() {
-
-        Connection objConn = null;
-
-        try {
-
-            objConn = DriverManager.getConnection (url, user, password);
-
-        } catch (SQLException e) {
-            System.out.println("Ha fallado la conexión" + e);
-        }
-
-        return objConn;
-
+    public static int insert(Connection con, String query, Object[] parametros) throws Exception {
+        PreparedStatement stt = con.prepareStatement(query);
+        cargarDatos(stt, parametros);
+        stt.execute();
+        return stt.getUpdateCount();
     }
 
+    private static void cargarDatos(PreparedStatement stt, Object[] parametros) throws Exception {
+        for (int i = 0; i < parametros.length; i++) {
+            int j = i + 1;
+            if (parametros[i] instanceof String) {
+                stt.setString(j, (String) parametros[i]);
+            } else if (parametros[i] instanceof Integer) {
+                stt.setInt(j, (Integer) parametros[i]);
+            } else if (parametros[i] instanceof Double) {
+                stt.setDouble(j, (Double) parametros[i]);
+            }
+        }
+    }
 }

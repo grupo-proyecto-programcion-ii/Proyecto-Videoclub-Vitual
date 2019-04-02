@@ -2,6 +2,7 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 
+
 /**
  * Ésta clase contiene atributos y el contructor para el usuario.
  */
@@ -10,9 +11,10 @@ public class clsUsuario implements itfProperty {
     /**
      * Atributos geters y seters
      */
+    private int codigoAleatoria = 0;
     private String identificador = null;
     private String contrasena = null;
-    private int codigoAleatoria = 0;
+
 
     public int getCodigoAleatoria() {
         return codigoAleatoria;

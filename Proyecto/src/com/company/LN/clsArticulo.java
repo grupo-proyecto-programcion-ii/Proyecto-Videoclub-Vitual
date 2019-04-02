@@ -5,7 +5,7 @@ import com.company.COMUN.itfProperty;
 import java.util.ArrayList;
 
 /**
- *Todas las clases de objetos reciben Herencia de la clase clsArticulo,ya que todos
+ * Todas las clases de objetos reciben Herencia de la clase clsArticulo,ya que todos
  * tienen los mismos atributos en común.
  */
 
@@ -16,7 +16,7 @@ public abstract class clsArticulo implements itfProperty {
     private double precio;
     private double duracion;
 
-    public clsArticulo(int id,String nombre, double precio, double duracion) {
+    public clsArticulo(int id, String nombre, double precio, double duracion) {
 
         this.id = id;
         this.nombre = nombre;

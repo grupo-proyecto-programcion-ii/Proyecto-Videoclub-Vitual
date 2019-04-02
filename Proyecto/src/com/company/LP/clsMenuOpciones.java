@@ -1,9 +1,10 @@
 package com.company.LP;
 
-        import com.company.COMUN.itfProperty;
-        import com.company.LN.clsGestor;
-        import java.util.ArrayList;
-        import java.util.Random;
+import com.company.COMUN.itfProperty;
+import com.company.LN.clsGestor;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * La clase contiene un menu principal donde se centra en el registro, entrada y visualización del usuario.
@@ -72,6 +73,7 @@ public class clsMenuOpciones {
     /**
      * Una vez el usuario se ha registrado se conprueban sus credenciales y se le da la posibilidad a disponer de
      * servicios.
+     *
      * @param objG
      */
 
@@ -90,7 +92,7 @@ public class clsMenuOpciones {
         System.out.print("Contraseña: ");
         contra = Utilidades.leerCadena();
 
-        for (itfProperty usuario:lUsuarios) {
+        for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU("Contraseña")) & id.equals(usuario.getPropertyU("Identificador"))) {
 
                 System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU("Identificador"));
@@ -107,9 +109,9 @@ public class clsMenuOpciones {
 
                         do {
                             System.out.println("Selecciona el tipo de artículo a reservar: ");
-                            System.out.println("----> 1. Peliculas");
-                            System.out.println("----> 2. CD_Musica");
-                            System.out.println("----> 3. Videojuegos");
+                            System.out.println("----> 1. Añadir Peliculas");
+                            System.out.println("----> 2. Añadir CD_Musica");
+                            System.out.println("----> 3. Añadir Videojuegos");
                             System.out.println("----> 4. Visualizar lista peliculas reservados");
                             System.out.println("----> 5. Visualizar lista videojuegos  reservados");
                             System.out.println("----> 6. Visualizar lista musica reservados");
@@ -164,12 +166,13 @@ public class clsMenuOpciones {
     /**
      * Este método tiene la función de recibir los parámetros del usuario para después introducirlos en un array
      * en clsUsuario
+     *
      * @param objG
      */
 
     private static void altaUsuario(clsGestor objG) {
 
-       // Random r = new Random();
+        // Random r = new Random();
 
         int codigoAleatorio = 0;
         String id = null;
@@ -188,21 +191,23 @@ public class clsMenuOpciones {
      * ésta función sierve para visualizar el usuario y un código aleatorio generado, éste código está
      * pensado que sirva como etiqueta a la hora de seleccionar artículos. Una manera para saber qué
      * usuarios tienen disponible la visibilidad de un artículo.
+     *
      * @param objG
      */
-    private static void visulizarUsuarios (clsGestor objG){
+    private static void visulizarUsuarios(clsGestor objG) {
 
         ArrayList<itfProperty> usuarios = objG.leerUsuarios();
 
-        for (itfProperty usuario:usuarios){
-            System.out.println("Identificador: "+usuario.getPropertyU("Identificador"));
-            System.out.println("Codigo de usuario aleatorio: "+usuario.getPropertyU("CodigoAleatorio"));
+        for (itfProperty usuario : usuarios) {
+            System.out.println("Identificador: " + usuario.getPropertyU("Identificador"));
+            System.out.println("Codigo de usuario aleatorio: " + usuario.getPropertyU("CodigoAleatorio"));
         }
     }
 
     /**
      * altaPelicula, altaVideojuego y altaMusica simplemente recoje los datos para llevarlo a la base de datos
      * etc....
+     *
      * @param objG
      */
     private static void altaPelicula(clsGestor objG) {
@@ -287,63 +292,63 @@ public class clsMenuOpciones {
     }
 
 
-    public static void visulalizarPeliculas(clsGestor objG){
+    public static void visulalizarPeliculas(clsGestor objG) {
 
         objG.visualizarNumPeliculas();
         ArrayList<itfProperty> peliculas = objG.leerPeliculas();
 
-        System.out.println("PELICULAS");
-        for (itfProperty pelicula:peliculas){
+        System.out.println("PELICULAS-----------------------------");
+        for (itfProperty pelicula : peliculas) {
 
             System.out.println("PELICULA");
             System.out.println();
-            System.out.println("Identificador Pelicula: "+pelicula.getPropertyA("IdentificadorP"));
-            System.out.println("Nombre Pelicula: "+pelicula.getPropertyA("NombreP"));
-            System.out.println("Precio Pelicula: "+pelicula.getPropertyA("PrecioP"));
-            System.out.println("Duración Pelicula: "+pelicula.getPropertyA("DuracionP"));
-            System.out.println("Pegi Pelicula: "+pelicula.getPropertyA("PegiP"));
-            System.out.println("Puntuación Pelicula: "+pelicula.getPropertyA("PuntuacionP"));
+            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA("IdentificadorP"));
+            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA("NombreP"));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA("PrecioP"));
+            System.out.println("Duración Pelicula: " + pelicula.getPropertyA("DuracionP"));
+            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA("PegiP"));
+            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA("PuntuacionP"));
             System.out.println();
         }
 
     }
 
-    public static void visualizarVidejuegos(clsGestor objG){
+    public static void visualizarVidejuegos(clsGestor objG) {
 
         objG.visualizarNumVideojuegos();
         ArrayList<itfProperty> videojuegos = objG.leerVideojuegos();
 
         System.out.println("VIDEOJUEGOS-----------------------------");
-        for (itfProperty videjuego:videojuegos){
+        for (itfProperty videjuego : videojuegos) {
             System.out.println("VIDEOJUEGO");
             System.out.println();
-            System.out.println("Identificador Videojuego: "+videjuego.getPropertyA("IdentificadorV"));
-            System.out.println("Nombre Videojuego: "+videjuego.getPropertyA("NombreV"));
-            System.out.println("Precio Videojuego: "+videjuego.getPropertyA("PrecioV"));
-            System.out.println("Duración Videojuego: "+videjuego.getPropertyA("DuracionV"));
-            System.out.println("Puntuación Videojuego: "+videjuego.getPropertyA("PuntuacionV"));
-            System.out.println("Pegi Videojuego: "+videjuego.getPropertyA("PegiV"));
+            System.out.println("Identificador Videojuego: " + videjuego.getPropertyA("IdentificadorV"));
+            System.out.println("Nombre Videojuego: " + videjuego.getPropertyA("NombreV"));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA("PrecioV"));
+            System.out.println("Duración Videojuego: " + videjuego.getPropertyA("DuracionV"));
+            System.out.println("Puntuación Videojuego: " + videjuego.getPropertyA("PuntuacionV"));
+            System.out.println("Pegi Videojuego: " + videjuego.getPropertyA("PegiV"));
             System.out.println();
         }
 
     }
 
-    public static void visualizarMusica(clsGestor objG){
+    public static void visualizarMusica(clsGestor objG) {
 
         objG.visualizarNumCd();
         ArrayList<itfProperty> musicas = objG.leerMusica();
 
         System.out.println("MUSICAS-----------------------------");
-        for (itfProperty cd:musicas){
+        for (itfProperty cd : musicas) {
             System.out.println("MUSICA");
             System.out.println();
-            System.out.println("Identificador Musica: "+cd.getPropertyA("IdentificadorM"));
-            System.out.println("Nombre Musica: "+cd.getPropertyA("NombreM"));
-            System.out.println("Precio Musica: "+cd.getPropertyA("PrecioM"));
-            System.out.println("Duración Musica: "+cd.getPropertyA("DuracionM"));
-            System.out.println("Año creación: "+cd.getPropertyA("Anio"));
-            System.out.println("Artista: "+cd.getPropertyA("artista"));
-            System.out.println("Estudio: "+cd.getPropertyA("Explicito"));
+            System.out.println("Identificador Musica: " + cd.getPropertyA("IdentificadorM"));
+            System.out.println("Nombre Musica: " + cd.getPropertyA("NombreM"));
+            System.out.println("Precio Musica: " + cd.getPropertyA("PrecioM"));
+            System.out.println("Duración Musica: " + cd.getPropertyA("DuracionM"));
+            System.out.println("Año creación: " + cd.getPropertyA("Anio"));
+            System.out.println("Artista: " + cd.getPropertyA("artista"));
+            System.out.println("Estudio: " + cd.getPropertyA("Explicito"));
             System.out.println();
         }
 
@@ -353,52 +358,53 @@ public class clsMenuOpciones {
      * éste método recorre el ArraylisT que se encuentra en clsGestor donde se encuentran todos los objetos
      * de tipo artículo. Se ha utilizado una propiedad específica para hacer las llamdas a la infomación
      * que contiene dicho array.
+     *
      * @param objG
      */
-    public static void visualizarArticulos (clsGestor objG){
+    public static void visualizarArticulos(clsGestor objG) {
 
         ArrayList<itfProperty> peliculas = objG.leerPeliculas();
         ArrayList<itfProperty> videojuegos = objG.leerVideojuegos();
         ArrayList<itfProperty> musicas = objG.leerMusica();
 
         System.out.println("PELICULAS");
-       for (itfProperty pelicula:peliculas){
+        for (itfProperty pelicula : peliculas) {
 
             System.out.println("PELICULA-----------------------------");
             System.out.println();
-            System.out.println("Identificador Pelicula: "+pelicula.getPropertyA("IdentificadorP"));
-            System.out.println("Nombre Pelicula: "+pelicula.getPropertyA("NombreP"));
-            System.out.println("Precio Pelicula: "+pelicula.getPropertyA("PrecioP"));
-            System.out.println("Duración Pelicula: "+pelicula.getPropertyA("DuracionP"));
-            System.out.println("Pegi Pelicula: "+pelicula.getPropertyA("PegiP"));
-            System.out.println("Puntuación Pelicula: "+pelicula.getPropertyA("PuntuacionP"));
+            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA("IdentificadorP"));
+            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA("NombreP"));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA("PrecioP"));
+            System.out.println("Duración Pelicula: " + pelicula.getPropertyA("DuracionP"));
+            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA("PegiP"));
+            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA("PuntuacionP"));
             System.out.println();
         }
 
         System.out.println("VIDEOJUEGOS-----------------------------");
-        for (itfProperty videjuego:videojuegos){
+        for (itfProperty videjuego : videojuegos) {
             System.out.println("VIDEOJUEGO");
             System.out.println();
-            System.out.println("Identificador Videojuego: "+videjuego.getPropertyA("IdentificadorV"));
-            System.out.println("Nombre Videojuego: "+videjuego.getPropertyA("NombreV"));
-            System.out.println("Precio Videojuego: "+videjuego.getPropertyA("PrecioV"));
-            System.out.println("Duración Videojuego: "+videjuego.getPropertyA("DuracionV"));
-            System.out.println("Puntuación Videojuego: "+videjuego.getPropertyA("PuntuacionV"));
-            System.out.println("Pegi Videojuego: "+videjuego.getPropertyA("PegiV"));
+            System.out.println("Identificador Videojuego: " + videjuego.getPropertyA("IdentificadorV"));
+            System.out.println("Nombre Videojuego: " + videjuego.getPropertyA("NombreV"));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA("PrecioV"));
+            System.out.println("Duración Videojuego: " + videjuego.getPropertyA("DuracionV"));
+            System.out.println("Puntuación Videojuego: " + videjuego.getPropertyA("PuntuacionV"));
+            System.out.println("Pegi Videojuego: " + videjuego.getPropertyA("PegiV"));
             System.out.println();
         }
 
         System.out.println("MUSICAS-----------------------------");
-        for (itfProperty cd:musicas){
+        for (itfProperty cd : musicas) {
             System.out.println("MUSICA");
             System.out.println();
-            System.out.println("Identificador Musica: "+cd.getPropertyA("IdentificadorM"));
-            System.out.println("Nombre Musica: "+cd.getPropertyA("NombreM"));
-            System.out.println("Precio Musica: "+cd.getPropertyA("PrecioM"));
-            System.out.println("Duración Musica: "+cd.getPropertyA("DuracionM"));
-            System.out.println("Año creación: "+cd.getPropertyA("Anio"));
-            System.out.println("Artista: "+cd.getPropertyA("artista"));
-            System.out.println("Estudio: "+cd.getPropertyA("Explicito"));
+            System.out.println("Identificador Musica: " + cd.getPropertyA("IdentificadorM"));
+            System.out.println("Nombre Musica: " + cd.getPropertyA("NombreM"));
+            System.out.println("Precio Musica: " + cd.getPropertyA("PrecioM"));
+            System.out.println("Duración Musica: " + cd.getPropertyA("DuracionM"));
+            System.out.println("Año creación: " + cd.getPropertyA("Anio"));
+            System.out.println("Artista: " + cd.getPropertyA("artista"));
+            System.out.println("Estudio: " + cd.getPropertyA("Explicito"));
             System.out.println();
         }
 

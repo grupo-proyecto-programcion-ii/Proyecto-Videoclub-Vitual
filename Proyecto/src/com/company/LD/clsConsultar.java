@@ -1,6 +1,8 @@
-package com.company.LD;
+
+/**package com.company.LD;
 
 public class clsConsultar {
 
 
 }
+*/

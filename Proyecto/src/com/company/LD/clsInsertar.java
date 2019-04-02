@@ -1,4 +1,4 @@
-package com.company.LD;
+/**package com.company.LD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.sql.SQLException;
  * Clase para insertar usuarios
  */
 
+/*
 public class clsInsertar {
 
     public void insertarBD(String _id, String _codigo, int _cAleatorio) {
@@ -42,4 +43,7 @@ public class clsInsertar {
             System.out.println("No se ha podido realizar el insert: " + e);
         }
     }
+
+
 }
+*/

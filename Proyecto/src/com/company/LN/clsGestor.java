@@ -1,8 +1,12 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
+import com.company.LD.clsDatos;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -20,6 +24,12 @@ public class clsGestor {
     private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<clsPeliculas>();
     private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<clsVideojuegos>();
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<clsMusica_CD>();
+
+    /**
+     * Se instancia un objeto para crear la comunicación con la lógica de datos
+     */
+
+    private clsDatos objDatos = new clsDatos();
 
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta.
@@ -43,8 +53,22 @@ public class clsGestor {
 
     public void anadirUsuario(String _id, String _contra, int c_Aleatorio) {
 
-        clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
-        listaUsuarios.add(objUsuarios);
+        try {
+
+            objDatos.conectarBD();
+
+            clsUsuario objUsuarios = new clsUsuario(_id, _contra, c_Aleatorio);
+            listaUsuarios.add(objUsuarios);
+            objUsuarios.setCodigoAleatoria(objDatos.insertarUsuario(_id, _contra));
+
+            objDatos.desconectarBD();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -149,8 +173,6 @@ public class clsGestor {
     public void visualizarNumCd() {
         System.out.println(listaMusica.size() + " peliculas para reservar");
     }
-
-
 
 }
 
