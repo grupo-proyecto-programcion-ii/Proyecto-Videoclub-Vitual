@@ -13,6 +13,7 @@ public class clsConstantesBD {
     public final static String DATABASE = "videoclub";
     public final static String DIRECTION = "127.0.0.1";
     public final static String URL = "jdbc:mysql://" + DIRECTION + ":" + PORT + "/" + DATABASE + "?useTimezone=true&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true";
+    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
 }
 

@@ -4,13 +4,28 @@ package com.company.LD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+/**
+ * Clase donde se hacen todas las conecxiones a la base de datos
+ */
+
 public class clsConexion {
 
-    public static int insert(Connection con, String query, Object[] parametros) throws Exception {
+    /**
+     * Insertar los datos al mísmo tiempo que devuelve un entero siendo el número de filas de la
+     * tabla a insertar
+     * @param _objCon
+     * @param query
+     * @param parametros
+     * @return
+     * @throws Exception
+     */
 
+    public static int insert(Connection _objCon, String query, Object[] parametros) throws Exception {
 
-        PreparedStatement objStatements = con.prepareStatement(query);
-        cargarDatos(objStatements, parametros);
+        PreparedStatement objStatements = _objCon.prepareStatement(query);
+        //filtrarDatos(objStatements, parametros);
+        objStatements.setString(1,(String) parametros[1]);
+        objStatements.setString(2, (String) parametros[2]);
         objStatements.execute();
 
         return objStatements.getUpdateCount();
@@ -22,9 +37,9 @@ public class clsConexion {
      * @param parametros
      * @throws Exception
      */
-    private static void cargarDatos(PreparedStatement objSt, Object[] parametros) throws Exception {
+    private static void filtrarDatos(PreparedStatement objSt, Object[] parametros) throws Exception {
 
-        for (int i = 1; i < parametros.length; i++) {
+        for (int i = 0; i < parametros.length; i++) {
 
             int j = i++;
             if (parametros[i] instanceof String) {

@@ -64,6 +64,7 @@ public class clsGestor {
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Fallo");
         }
     }
 

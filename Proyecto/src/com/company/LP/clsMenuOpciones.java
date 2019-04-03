@@ -2,6 +2,7 @@ package com.company.LP;
 
 import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
+import static com.company.COMUN.clsConstantes.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -172,11 +173,8 @@ public class clsMenuOpciones {
 
     private static void altaUsuario(clsGestor objG) {
 
-        // Random r = new Random();
-
-        int codigoAleatorio = 1;
-        String id = null;
-        String contra = null;
+        String id;
+        String contra;
 
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
@@ -199,8 +197,8 @@ public class clsMenuOpciones {
         ArrayList<itfProperty> usuarios = objG.leerUsuarios();
 
         for (itfProperty usuario : usuarios) {
-            System.out.println("Identificador: " + usuario.getPropertyU("Identificador"));
-            System.out.println("Codigo de usuario aleatorio: " + usuario.getPropertyU("CodigoAleatorio"));
+            System.out.println("Identificador: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
+            System.out.println("Codigo de usuario aleatorio: " + usuario.getPropertyU(USUARIO_CONTRASENA));
         }
     }
 
@@ -302,12 +300,12 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA");
             System.out.println();
-            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA("IdentificadorP"));
-            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA("NombreP"));
-            System.out.println("Precio Pelicula: " + pelicula.getPropertyA("PrecioP"));
-            System.out.println("Duración Pelicula: " + pelicula.getPropertyA("DuracionP"));
-            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA("PegiP"));
-            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA("PuntuacionP"));
+            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
+            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
+            System.out.println("Duración Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
+            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
         }
 
@@ -372,12 +370,12 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA-----------------------------");
             System.out.println();
-            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA("IdentificadorP"));
-            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA("NombreP"));
-            System.out.println("Precio Pelicula: " + pelicula.getPropertyA("PrecioP"));
-            System.out.println("Duración Pelicula: " + pelicula.getPropertyA("DuracionP"));
-            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA("PegiP"));
-            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA("PuntuacionP"));
+            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
+            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
+            System.out.println("Duración Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
+            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
         }
 

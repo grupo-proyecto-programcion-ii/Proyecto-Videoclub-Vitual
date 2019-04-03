@@ -1,6 +1,7 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
+import static com.company.COMUN.clsConstantes.*;
 
 
 /**
@@ -59,9 +60,10 @@ public class clsUsuario implements itfProperty {
 
         switch(propiedad)
         {
-            case "Identificador": return 	this.getIdentificador();
-            case "Contraseña": return this.getContrasena();
-            case "CodigoAleatorio": return this.getCodigoAleatoria();
+            case USUARIO_CODIGO_ID: return this.getCodigoAleatoria();
+            case USUARIO_IDENTIFICADOR: return 	this.getIdentificador();
+            case USUARIO_CONTRASENA: return this.getContrasena();
+
         }
 
         return null;

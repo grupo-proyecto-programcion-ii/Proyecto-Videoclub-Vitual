@@ -23,12 +23,18 @@ public class clsDatos {
      * en clsConexión
      * @throws SQLException
      */
-    public Connection conectarBD() throws SQLException{
+    public Connection conectarBD() throws SQLException, ClassNotFoundException {
 
         try {
+
+            Class.forName(DRIVER).newInstance();
             objConexion = DriverManager.getConnection(URL, USER, PASS);
         } catch (SQLException e) {
             System.out.println("Ha fallado la conexión" + e);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
         }
         return objConexion;
     }

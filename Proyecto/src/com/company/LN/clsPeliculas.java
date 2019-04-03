@@ -1,4 +1,6 @@
 package com.company.LN;
+import static com.company.COMUN.clsConstantes.*;
+
 
 /**
  *Esta clase hereda de la clase padre artículos. Hereda 4 atributos principales. Contiene
@@ -54,18 +56,18 @@ public class clsPeliculas extends clsArticulo {
     public Object getPropertyA(String obj_Propiedad) {
 
         switch (obj_Propiedad){
-            case "IdentificadorP":
+            case PELICULA_CODIGO_ID:
                 return this.getIndentificador();
-            case "NombreP":
+            case PELICULA_NOMBRE:
                 return this.getNombre();
-            case "PrecioP":
+            case PELICULA_PRECIO:
                 return this.getPrecio();
-            case "DuracionP":
+            case PELICULA_DURACION:
                 return this.getDuracion();
-            case "PegiP":
-                return this.pegiP;
-            case "PuntuacionP":
-                return this.puntuacionP;
+            case PELICULA_PEGI:
+                return this.getPegi();
+            case PELICULA_PUNTUACION:
+                return this.getPuntuacion();
         }
         return null;
     }
