@@ -1,3 +1,6 @@
+
+
+/**
 package com.company.LD;
 
 
@@ -7,7 +10,7 @@ import java.sql.PreparedStatement;
 /**
  * Clase donde se hacen todas las conecxiones a la base de datos
  */
-
+/**
 public class clsConexion {
 
     /**
@@ -19,9 +22,8 @@ public class clsConexion {
      * @return
      * @throws Exception
      */
-
+/**
     public static int insert(Connection _objCon, String query, Object[] parametros) throws Exception {
-        System.out.println(query);
         PreparedStatement objStatements = _objCon.prepareStatement(query);
         objStatements.setString(1,(String) parametros[0]);
         objStatements.setString(2, (String) parametros[1]);
@@ -30,3 +32,5 @@ public class clsConexion {
         return objStatements.getUpdateCount();
     }
 }
+ */
+

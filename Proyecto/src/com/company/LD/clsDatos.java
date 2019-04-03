@@ -48,6 +48,6 @@ public class clsDatos {
     }
 
     public int insertarCodigoUsuario(String _identificador,String _contrasena ) throws Exception {
-        return clsUsuarioBD.insertar(objConexion ,_identificador, _contrasena);
+        return clsUsuarioBD.insertarUsuario(objConexion ,_identificador, _contrasena);
     }
 }

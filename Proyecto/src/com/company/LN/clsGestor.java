@@ -56,9 +56,9 @@ public class clsGestor {
 
             objDatos.conectarBD();
 
-            clsUsuario objUsuarios = new clsUsuario(_id, _contra);
-            listaUsuarios.add(objUsuarios);
-            objUsuarios.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
+            clsUsuario objUsuario = new clsUsuario(_id, _contra);
+            listaUsuarios.add(objUsuario);
+            objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
 
             objDatos.desconectarBD();
 

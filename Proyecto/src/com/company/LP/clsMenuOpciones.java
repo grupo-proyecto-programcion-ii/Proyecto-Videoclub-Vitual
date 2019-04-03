@@ -200,7 +200,7 @@ public class clsMenuOpciones {
 
         for (itfProperty usuario : usuarios) {
             System.out.println("Identificador: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
-            System.out.println("Codigo de usuario aleatorio: " + usuario.getPropertyU(USUARIO_CONTRASENA));
+            System.out.println("Codigo de usuario aleatorio: " + usuario.getPropertyU(USUARIO_CODIGO_ID));
         }
     }
 
