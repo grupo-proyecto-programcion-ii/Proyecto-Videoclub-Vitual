@@ -57,7 +57,7 @@ public class clsPeliculas extends clsArticulo {
 
         switch (obj_Propiedad){
             case PELICULA_CODIGO_ID:
-                return this.getIndentificador();
+                return this.getId();
             case PELICULA_NOMBRE:
                 return this.getNombre();
             case PELICULA_PRECIO:
@@ -65,9 +65,9 @@ public class clsPeliculas extends clsArticulo {
             case PELICULA_DURACION:
                 return this.getDuracion();
             case PELICULA_PEGI:
-                return this.getPegi();
+                return this.pegiP;
             case PELICULA_PUNTUACION:
-                return this.getPuntuacion();
+                return this.puntuacionP;
         }
         return null;
     }

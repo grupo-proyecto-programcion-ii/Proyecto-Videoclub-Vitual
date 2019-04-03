@@ -47,7 +47,28 @@ public class clsDatos {
         objConexion.close();
     }
 
-    public int insertarCodigoUsuario(String _identificador,String _contrasena ) throws Exception {
-        return clsUsuarioBD.insertarUsuario(objConexion ,_identificador, _contrasena);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public int insertarCodigoUsuario(String identificador,String contrasena ) throws Exception {
+        Object[] parametrosUsuario = {identificador, contrasena};
+        return clsUsuarioBD.insertarUsuario(objConexion ,parametrosUsuario);
     }
+
+    public int insertarIdPelicula(String nombreP, double precioP, double duracionP, int pegiPelicula, int puntuacionPelicula) throws SQLException {
+        Object[] parametrosPeliculas = {nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula};
+        return clsPeliculasBD.insertarPelicula(objConexion, parametrosPeliculas);
+    }
+    
+    public int insertarIdVidejuego(String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
+        Object[] parametrosVideojuegos = {nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego};
+        return clsVideojuegosBD.insertarVieojuego(objConexion, parametrosVideojuegos);
+    }
+
+    public int insertarIdMusica(String nombreM, double precioM, double duracionM, int anio, String artista, String explicito) throws SQLException {
+        Object[] parametrosMusica ={nombreM, precioM, duracionM, anio, artista, explicito};
+        return clsMusicaBD.insertarMusica(objConexion, parametrosMusica);
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 }

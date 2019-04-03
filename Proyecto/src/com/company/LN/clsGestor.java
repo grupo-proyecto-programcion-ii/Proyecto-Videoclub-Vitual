@@ -5,8 +5,6 @@ import com.company.LD.clsDatos;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 /**
  * ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
@@ -18,11 +16,10 @@ public class clsGestor {
      * Instancia y declñaración de dos ArrayList que guardarán objetos. Uno guardará los objetos de usuarios
      * y el otro artículos.
      */
-    private ArrayList<clsUsuario> listaUsuarios = new ArrayList<clsUsuario>();
-    //private ArrayList<clsArticulo> listaArticulos = new ArrayList<clsArticulo>();
-    private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<clsPeliculas>();
-    private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<clsVideojuegos>();
-    private ArrayList<clsMusica_CD> listaMusica = new ArrayList<clsMusica_CD>();
+    private ArrayList<clsUsuario> listaUsuarios = new ArrayList<>();
+    private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<>();
+    private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<>();
+    private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
 
     /**
      * Se instancia un objeto para crear la comunicación con la lógica de datos
@@ -33,6 +30,7 @@ public class clsGestor {
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta.
      */
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void visualizarNumUsuarios() {
 
@@ -87,7 +85,7 @@ public class clsGestor {
         }
         return rUsuarios;
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /***
      * Métodos para añador objetos de artículos al arraylist de artículos.
      * @param _idPelicula
@@ -99,22 +97,43 @@ public class clsGestor {
      */
     public void anadirPelicula(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
-        clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula);
-        listaPeliculas.add(objPelicula);
+        try {
+
+            objDatos.conectarBD();
+
+            clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula);
+            listaPeliculas.add(objPelicula);
+            objPelicula.setId(objDatos.insertarIdPelicula(_nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula));
+
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("Error al insertar película");
+        }
     }
 
-    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego) {
+    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego) throws SQLException, ClassNotFoundException {
+
+        objDatos.conectarBD();
 
         clsVideojuegos objVidejuego = new clsVideojuegos(_idVideojuego, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
+        objVidejuego.setId(objDatos.insertarIdVidejuego(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
+
+        objDatos.desconectarBD();
     }
 
-    public void anadirMusica_CD(int _idMusica, String nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito) {
+    public void anadirMusica_CD(int _idMusica, String   _nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito) throws SQLException, ClassNotFoundException {
 
-        clsMusica_CD objMusica = new clsMusica_CD(_idMusica, nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
+        objDatos.conectarBD();
+
+        clsMusica_CD objMusica = new clsMusica_CD(_idMusica, _nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
         listaMusica.add(objMusica);
-    }
+        objMusica.setId(objDatos.insertarIdMusica(_nombreM,_precioM, _duracionM, _anio, _artista, _explicito));
 
+        objDatos.desconectarBD();
+    }
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
@@ -151,6 +170,8 @@ public class clsGestor {
         }
         return rMusica;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void visualizarNumPeliculas() {
         System.out.println(listaPeliculas.size() + " peliculas para reservar");

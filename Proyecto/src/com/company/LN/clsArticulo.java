@@ -22,13 +22,14 @@ public abstract class clsArticulo implements itfProperty {
         this.duracion = duracion;
     }
 
-    public int getIndentificador() {
+    public int getId() {
         return id;
     }
 
-    public void setIndentificador(int indentificador) {
-        this.id = indentificador;
+    public void setId(int id) {
+        this.id = id;
     }
+
 
     public String getNombre() {
         return nombre;

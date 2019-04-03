@@ -68,7 +68,7 @@ public class clsMusica_CD extends clsArticulo {
 
         switch (obj_Propiedad){
             case "IdentificadorM":
-                return this.getIndentificador();
+                return this.getId();
             case "NombreV":
                 return this.getNombre();
             case "PrecioV":
