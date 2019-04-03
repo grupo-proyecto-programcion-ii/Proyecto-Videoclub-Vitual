@@ -58,7 +58,7 @@ public class clsDatos {
         Object[] parametrosPeliculas = {nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula};
         return clsPeliculasBD.insertarPelicula(objConexion, parametrosPeliculas);
     }
-    
+
     public int insertarIdVidejuego(String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
         Object[] parametrosVideojuegos = {nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego};
         return clsVideojuegosBD.insertarVieojuego(objConexion, parametrosVideojuegos);

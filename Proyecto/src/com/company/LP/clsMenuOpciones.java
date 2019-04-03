@@ -94,10 +94,10 @@ public class clsMenuOpciones {
         contra = Utilidades.leerCadena();
 
         for (itfProperty usuario : lUsuarios) {
-            if (contra.equals(usuario.getPropertyU("Contraseña")) & id.equals(usuario.getPropertyU("Identificador"))) {
+            if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
                 System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU("Identificador"));
-
+                System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
                     System.out.println("----> 1. Alquilar artículos ");

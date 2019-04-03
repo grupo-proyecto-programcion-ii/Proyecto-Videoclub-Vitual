@@ -1,4 +1,5 @@
 package com.company.LN;
+import static com.company.COMUN.clsConstantes.*;
 
 /**
  * Clase que hereda del padre, siendo clsArticulo.
@@ -53,17 +54,17 @@ public class clsVideojuegos extends clsArticulo {
     public Object getPropertyA(String obj_Propiedad) {
 
         switch (obj_Propiedad){
-            case "IdentificadorP":
+            case VIDEJUEGO_ID:
                 return this.getId();
-            case "NombreV":
+            case VIDEOJUEGO_NOMBRE:
                 return this.getNombre();
-            case "PrecioV":
+            case VIDEOJUEGO_PRECIO:
                 return this.getPrecio();
-            case "DuracionV":
+            case VIDEOJUEGO_DURACION:
                 return this.getDuracion();
-            case "PuntuacionV":
+            case VIDEOJUEGO_PUNTUACION:
                 return this.puntuacionV;
-            case "PegiV":
+            case VIDEOJUEGO_PEGI:
                 return this.pegiVideojuegos;
         }
         return null;

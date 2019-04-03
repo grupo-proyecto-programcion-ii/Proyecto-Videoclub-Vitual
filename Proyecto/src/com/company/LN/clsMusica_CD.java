@@ -1,4 +1,5 @@
 package com.company.LN;
+import static com.company.COMUN.clsConstantes.*;
 
 /**
  * ésta clase contiene los atributos, el constructor y el método filtrar la llamda a los diferentes atributos
@@ -67,19 +68,19 @@ public class clsMusica_CD extends clsArticulo {
     public Object getPropertyA(String obj_Propiedad) {
 
         switch (obj_Propiedad){
-            case "IdentificadorM":
+            case MUSICA_ID:
                 return this.getId();
-            case "NombreV":
+            case  MUSICA_NOMBRE:
                 return this.getNombre();
-            case "PrecioV":
+            case MUSICA_PRECIO:
                 return this.getPrecio();
-            case "DuracionV":
+            case MUSICA_DURACION:
                 return this.getDuracion();
-            case "Anio":
+            case MUSICA_ANIO:
                 return this.anio;
-            case "Artista":
+            case MUSICA_ARTISTA:
                 return this.artistas;
-            case "Explicito":
+            case MUSICA_EXPLICITO:
                 return this.explicito;
         }
         return null;
