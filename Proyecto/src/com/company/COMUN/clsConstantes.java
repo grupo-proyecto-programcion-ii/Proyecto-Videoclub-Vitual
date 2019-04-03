@@ -15,6 +15,8 @@ public class clsConstantes {
     public static final String PELICULA_PEGI = "PegiP";
     public static final String PELICULA_PUNTUACION = "PuntuacionP";
 
+    //public static final String VIDEJUEGO_
+
 
 
 

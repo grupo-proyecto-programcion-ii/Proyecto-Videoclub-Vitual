@@ -132,9 +132,11 @@ public class clsMenuOpciones {
                                     altaVideojuego(objG);
                                     break;
                                 case 4:
+                                    objG.visualizarNumPeliculas();
                                     visulalizarPeliculas(objG);
                                     break;
                                 case 5:
+                                    objG.visualizarNumVideojuegos();
                                     visualizarVidejuegos(objG);
                                     break;
                                 case 6:

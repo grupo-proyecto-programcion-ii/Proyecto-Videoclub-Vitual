@@ -116,15 +116,6 @@ public class clsGestor {
     }
 
 
-    public int _idPelicula() {
-
-        Random idP = new Random();
-
-        int idPelicula = idP.nextInt(-1000);
-        return idPelicula;
-    }
-
-
     /**
      * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
      *

@@ -21,34 +21,12 @@ public class clsConexion {
      */
 
     public static int insert(Connection _objCon, String query, Object[] parametros) throws Exception {
-
+        System.out.println(query);
         PreparedStatement objStatements = _objCon.prepareStatement(query);
-        //filtrarDatos(objStatements, parametros);
-        objStatements.setString(1,(String) parametros[1]);
-        objStatements.setString(2, (String) parametros[2]);
+        objStatements.setString(1,(String) parametros[0]);
+        objStatements.setString(2, (String) parametros[1]);
         objStatements.execute();
 
         return objStatements.getUpdateCount();
-    }
-
-    /**
-     * Filtro para preparar de forma organizada los preparedstatements
-     * @param objSt
-     * @param parametros
-     * @throws Exception
-     */
-    private static void filtrarDatos(PreparedStatement objSt, Object[] parametros) throws Exception {
-
-        for (int i = 0; i < parametros.length; i++) {
-
-            int j = i++;
-            if (parametros[i] instanceof String) {
-                objSt.setString(j, (String) parametros[i]);
-            } else if (parametros[i] instanceof Integer) {
-                objSt.setInt(j, (Integer) parametros[i]);
-            } else if (parametros[i] instanceof Double) {
-                objSt.setDouble(j, (Double) parametros[i]);
-            }
-        }
     }
 }
