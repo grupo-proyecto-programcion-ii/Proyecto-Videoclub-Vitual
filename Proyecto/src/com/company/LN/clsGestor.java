@@ -57,9 +57,7 @@ public class clsGestor {
             clsUsuario objUsuario = new clsUsuario(_id, _contra);
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
-
             objDatos.desconectarBD();
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Fallo");
@@ -119,7 +117,6 @@ public class clsGestor {
         clsVideojuegos objVidejuego = new clsVideojuegos(_idVideojuego, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
         objVidejuego.setId(objDatos.insertarIdVidejuego(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
-
         objDatos.desconectarBD();
     }
 

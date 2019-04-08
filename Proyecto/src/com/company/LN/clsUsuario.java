@@ -12,7 +12,7 @@ public class clsUsuario implements itfProperty {
     /**
      * Atributos geters y seters
      */
-    private int codigoAleatoria = 0;
+    private int codigoAleatoria;
     private String identificador = null;
     private String contrasena = null;
 
@@ -22,7 +22,7 @@ public class clsUsuario implements itfProperty {
     }
 
     public void setCodigoAleatoria(int _codigoAleatoria) {
-        this.codigoAleatoria = codigoAleatoria;
+        this.codigoAleatoria = _codigoAleatoria;
     }
 
     public String getIdentificador() {

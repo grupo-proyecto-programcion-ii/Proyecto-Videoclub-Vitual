@@ -96,7 +96,7 @@ public class clsMenuOpciones {
         for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
-                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU("Identificador"));
+                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
                 System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
@@ -212,7 +212,7 @@ public class clsMenuOpciones {
      */
     private static void altaPelicula(clsGestor objG) {
 
-        int idPelicula = 1;
+        int idPelicula = 0;
         String nombreP = null;
         double precioP = 0;
         double duracionP = 0;
@@ -238,7 +238,7 @@ public class clsMenuOpciones {
 
     public static void altaVideojuego(clsGestor objG) throws SQLException, ClassNotFoundException {
 
-        int idVideojuego = 2;
+        int idVideojuego = 0;
         String nombreV = null;
         double precioV = 0;
         double duracionV = 0;
@@ -264,7 +264,7 @@ public class clsMenuOpciones {
 
     public static void altaMusica_CD(clsGestor objG) throws SQLException, ClassNotFoundException {
 
-        int idMusica = 3;
+        int idMusica = 0;
         String nombreM = null;
         double precioM = 0;
         double duracionM = 0;
