@@ -227,10 +227,11 @@ public class clsGestor {
         try {
             objDatos.conectarBD();
             videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (usuariosBaseDatos.next()){
-                int id = usuariosBaseDatos.getInt(PELICULA_CODIGO_ID);
-                String nombre = usuariosBaseDatos.getString(PELICULA_NOMBRE);
-                String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
+            while (videojuegosBaseDatos.next()){
+                int id = videojuegosBaseDatos.getInt(PELICULA_CODIGO_ID);
+                String nombre = videojuegosBaseDatos.getString(PELICULA_NOMBRE);
+                int precio = peliculasBaseDatos.getInt(PELICULA_DURACION);
+                int duracion = peliculasBaseDatos.getInt(PELICULA_DURACION);
                 clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
                 listaUsuarios.add(objUsuario);
             }
