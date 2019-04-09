@@ -45,6 +45,13 @@ public class clsVideojuegos extends clsArticulo {
         this.pegiVideojuegos = pegiVideojuegos;
     }
 
+    public clsVideojuegos(String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
+
+        super(_nombreV,  _precioP, _duracionP);
+        this.puntuacionV = puntuacionV;
+        this.pegiVideojuegos = pegiVideojuegos;
+    }
+
     /**
      *Método para obtener los datos de los atributos de vidoejuegos.
      * @param obj_Propiedad

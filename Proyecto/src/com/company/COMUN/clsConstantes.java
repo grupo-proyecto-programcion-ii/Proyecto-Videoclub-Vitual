@@ -28,13 +28,4 @@ public class clsConstantes {
     public static final String MUSICA_ARTISTA = "Artista";
     public static final String MUSICA_EXPLICITO = "Explicito";
 
-
-
-
-
-
-
-
-
-
 }

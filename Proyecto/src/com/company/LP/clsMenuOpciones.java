@@ -34,6 +34,9 @@ public class clsMenuOpciones {
                 "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
                 "*****************");
         System.out.println();
+        System.out.println("Cargando datos.....");
+
+        objGestor.cargarUsuarios();
 
         do {
 
@@ -96,7 +99,7 @@ public class clsMenuOpciones {
         for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
-                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU("Identificador"));
+                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
                 System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
@@ -143,6 +146,7 @@ public class clsMenuOpciones {
                                     visualizarMusica(objG);
                                     break;
                                 case 7:
+                                    objG.visualizarNumCd();
                                     visualizarArticulos(objG);
                                     break;
                                 case 8:
@@ -161,7 +165,7 @@ public class clsMenuOpciones {
                 } while (op != 3);
 
             } else {
-                System.out.println("Contraseña incorrecta en unuario: " + usuario.getPropertyU("Identificador"));
+                System.out.println("Contraseña incorrecta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
             }
         }
     }
@@ -212,7 +216,6 @@ public class clsMenuOpciones {
      */
     private static void altaPelicula(clsGestor objG) {
 
-        int idPelicula = 1;
         String nombreP = null;
         double precioP = 0;
         double duracionP = 0;
@@ -232,13 +235,12 @@ public class clsMenuOpciones {
         System.out.print("puntuación película: ");
         puntuacionPelicula = Utilidades.leerEntero();
 
-        objG.anadirPelicula(idPelicula, nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
+        objG.anadirPelicula(nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
 
     }
 
     public static void altaVideojuego(clsGestor objG) throws SQLException, ClassNotFoundException {
 
-        int idVideojuego = 2;
         String nombreV = null;
         double precioV = 0;
         double duracionV = 0;
@@ -258,13 +260,12 @@ public class clsMenuOpciones {
         System.out.print("pegi videojuego: ");
         pegiVidejuego = Utilidades.leerEntero();
 
-        objG.anadirVideojuego(idVideojuego, nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
+        objG.anadirVideojuego(nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
 
     }
 
     public static void altaMusica_CD(clsGestor objG) throws SQLException, ClassNotFoundException {
 
-        int idMusica = 3;
         String nombreM = null;
         double precioM = 0;
         double duracionM = 0;
@@ -287,7 +288,7 @@ public class clsMenuOpciones {
         System.out.print("explicito o estudio: ");
         explicito = Utilidades.leerCadena();
 
-        objG.anadirMusica_CD(idMusica, nombreM, precioM, duracionM, anio, artista, explicito);
+        objG.anadirMusica_CD(nombreM, precioM, duracionM, anio, artista, explicito);
 
     }
 

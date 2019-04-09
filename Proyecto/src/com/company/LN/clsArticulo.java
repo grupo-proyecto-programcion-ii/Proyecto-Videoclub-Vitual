@@ -22,6 +22,10 @@ public abstract class clsArticulo implements itfProperty {
         this.duracion = duracion;
     }
 
+    public clsArticulo(String nombreP, double precioP, double duracionP) {
+
+    }
+
     public int getId() {
         return id;
     }

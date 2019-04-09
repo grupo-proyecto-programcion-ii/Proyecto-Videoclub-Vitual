@@ -1,8 +1,8 @@
 package com.company.LD;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import java.sql.*;
+
 import static com.company.LD.clsConstantesBD.*;
 
 /**
@@ -15,8 +15,18 @@ public class clsDatos {
      * Atributo para la conexión a la base de datos, un objeto
      * de tipo Connection
      */
-
     private Connection objConexion = null;
+
+    /**
+     * Objeto para rear la consulta
+     */
+    private PreparedStatement objStatements = null;
+
+    /**
+     * Objeto para devolver un resultado de consulta
+     */
+
+    private ResultSet objRS = null;
 
     /**
      * Método para establecer la conexión, antes se encontraba
@@ -51,7 +61,7 @@ public class clsDatos {
 
     public int insertarCodigoUsuario(String identificador,String contrasena ) throws Exception {
         Object[] parametrosUsuario = {identificador, contrasena};
-        return clsUsuarioBD.insertarUsuario(objConexion ,parametrosUsuario);
+        return clsUsuarioBD.insertarUsuario(objConexion, objStatements, objRS, parametrosUsuario);
     }
 
     public int insertarIdPelicula(String nombreP, double precioP, double duracionP, int pegiPelicula, int puntuacionPelicula) throws SQLException {
@@ -70,5 +80,19 @@ public class clsDatos {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public ResultSet dameParametros(int _codigoConsulta){
 
+        if (_codigoConsulta == 0){
+            return clsUsuarioBD.consultaUsuario(objConexion,objStatements, objRS);
+        }else if (_codigoConsulta == 1){
+            return clsPeliculasBD.consultaPelicula(objConexion,objStatements, objRS);
+        }else if (_codigoConsulta == 2){
+            return clsVideojuegosBD.consultaVideojuego(objConexion,objStatements, objRS);
+        }else if (_codigoConsulta == 3){
+            return clsMusicaBD.consultaMusica(objConexion,objStatements, objRS);
+        }else {
+            return null;
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

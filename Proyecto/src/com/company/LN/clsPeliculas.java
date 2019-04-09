@@ -7,6 +7,7 @@ import static com.company.COMUN.clsConstantes.*;
  * los atributos, el contructor y el método para hacer la llamda a los datos.
  */
 
+
 public class clsPeliculas extends clsArticulo {
 
     /***
@@ -46,6 +47,14 @@ public class clsPeliculas extends clsArticulo {
         this.pegiP = _pegiPelicula;
         this.puntuacionP = _puntuacionPelicula;
     }
+
+    public clsPeliculas(String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
+
+        super(_nombreP,  _precioP, _duracionP);
+        this.pegiP = _pegiPelicula;
+        this.puntuacionP = _puntuacionPelicula;
+    }
+
 
     /**
      * Método para hacer la llamda desde LP obteniendo los datos de los atributos especificamente.

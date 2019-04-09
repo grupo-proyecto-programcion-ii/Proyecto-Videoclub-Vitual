@@ -3,8 +3,11 @@ package com.company.LN;
 import com.company.COMUN.itfProperty;
 import com.company.LD.clsDatos;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import static com.company.COMUN.clsConstantes.*;
 
 /**
  * ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
@@ -20,6 +23,14 @@ public class clsGestor {
     private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<>();
     private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<>();
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
+
+    /**
+     * Parámetros de mysql
+     */
+    private ResultSet usuariosBaseDatos;
+    private ResultSet peliculasBaseDatos;
+    private ResultSet videojuegosBaseDatos;
+    private ResultSet musicaBaseDatos;
 
     /**
      * Se instancia un objeto para crear la comunicación con la lógica de datos
@@ -50,6 +61,7 @@ public class clsGestor {
 
     public void anadirUsuario(String _id, String _contra) {
 
+
         try {
 
             objDatos.conectarBD();
@@ -57,16 +69,12 @@ public class clsGestor {
             clsUsuario objUsuario = new clsUsuario(_id, _contra);
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
-
             objDatos.desconectarBD();
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Fallo");
         }
     }
-
-
 
     /**
      * Método para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist
@@ -85,23 +93,41 @@ public class clsGestor {
         }
         return rUsuarios;
     }
+
+    public void cargarUsuarios(){
+
+        int codigoConsulta = 0; // 0 para hacer select de usuarios
+        try {
+            objDatos.conectarBD();
+            usuariosBaseDatos = objDatos.dameParametros(codigoConsulta);
+            while (usuariosBaseDatos.next()){
+                int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
+                String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
+                String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
+                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
+                listaUsuarios.add(objUsuario);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /***
      * Métodos para añador objetos de artículos al arraylist de artículos.
-     * @param _idPelicula
      * @param _nombreP
      * @param _precioP
      * @param _duracionP
      * @param _pegiPelicula
      * @param _puntuacionPelicula
      */
-    public void anadirPelicula(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
+    public void anadirPelicula(String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
         try {
 
             objDatos.conectarBD();
 
-            clsPeliculas objPelicula = new clsPeliculas(_idPelicula, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula);
+            clsPeliculas objPelicula = new clsPeliculas(_nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula);
             listaPeliculas.add(objPelicula);
             objPelicula.setId(objDatos.insertarIdPelicula(_nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula));
 
@@ -112,22 +138,22 @@ public class clsGestor {
         }
     }
 
-    public void anadirVideojuego(int _idVideojuego, String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego) throws SQLException, ClassNotFoundException {
+    public void anadirVideojuego(String _nombreV, double _precioV, double _duracionV, int _puntuacionVidejuego, int _pegiVidejuego) throws SQLException, ClassNotFoundException {
 
         objDatos.conectarBD();
 
-        clsVideojuegos objVidejuego = new clsVideojuegos(_idVideojuego, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
+        clsVideojuegos objVidejuego = new clsVideojuegos(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
         objVidejuego.setId(objDatos.insertarIdVidejuego(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
 
         objDatos.desconectarBD();
     }
 
-    public void anadirMusica_CD(int _idMusica, String   _nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito) throws SQLException, ClassNotFoundException {
+    public void anadirMusica_CD(String   _nombreM, double _precioM, double _duracionM, int _anio, String _artista, String _explicito) throws SQLException, ClassNotFoundException {
 
         objDatos.conectarBD();
 
-        clsMusica_CD objMusica = new clsMusica_CD(_idMusica, _nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
+        clsMusica_CD objMusica = new clsMusica_CD(_nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
         listaMusica.add(objMusica);
         objMusica.setId(objDatos.insertarIdMusica(_nombreM,_precioM, _duracionM, _anio, _artista, _explicito));
 
@@ -170,6 +196,69 @@ public class clsGestor {
         }
         return rMusica;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void cargarPeliculas(){
+
+        int codigoConsulta = 1; // 1 para hacer select de peliculas
+        try {
+            objDatos.conectarBD();
+            peliculasBaseDatos = objDatos.dameParametros(codigoConsulta);
+            while (peliculasBaseDatos.next()){
+                int id = peliculasBaseDatos.getInt(PELICULA_CODIGO_ID);
+                String nombre = peliculasBaseDatos.getString(PELICULA_NOMBRE);
+                int precio = peliculasBaseDatos.getInt(PELICULA_DURACION);
+                int duracion = peliculasBaseDatos.getInt(PELICULA_DURACION);
+                int pegi = peliculasBaseDatos.getInt(PELICULA_PEGI);
+                int puntuacion = peliculasBaseDatos.getInt(PELICULA_PUNTUACION);
+
+                clsPeliculas objPelicula = new clsPeliculas(id, nombre, precio, duracion, pegi, puntuacion);
+                listaPeliculas.add(objPelicula);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarVideojuegos(){
+
+        int codigoConsulta = 2; // 2 para hacer select de vidojuegos
+        try {
+            objDatos.conectarBD();
+            videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
+            while (usuariosBaseDatos.next()){
+                int id = usuariosBaseDatos.getInt(PELICULA_CODIGO_ID);
+                String nombre = usuariosBaseDatos.getString(PELICULA_NOMBRE);
+                String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
+                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
+                listaUsuarios.add(objUsuario);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarMusica(){
+
+        int codigoConsulta = 3; // 3 para hacer select de musica
+        try {
+            objDatos.conectarBD();
+            usuariosBaseDatos = objDatos.dameParametros(codigoConsulta);
+            while (usuariosBaseDatos.next()){
+                int id = usuariosBaseDatos.getInt(PELICULA_CODIGO_ID);
+                String nombre = usuariosBaseDatos.getString(PELICULA_NOMBRE);
+                String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
+                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
+                listaUsuarios.add(objUsuario);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
