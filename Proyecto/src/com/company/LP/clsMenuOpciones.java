@@ -2,10 +2,11 @@ package com.company.LP;
 
 import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
-import static com.company.COMUN.clsConstantes.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import static com.company.COMUN.clsConstantes.*;
 
 /**
  * La clase contiene un menu principal donde se centra en el registro, entrada y visualización del usuario.
@@ -102,7 +103,6 @@ public class clsMenuOpciones {
         for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
-                System.out.println("-------------------------------------------------------");
                 System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
                 System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
@@ -123,7 +123,7 @@ public class clsMenuOpciones {
                             System.out.println("----> 4. Visualizar lista peliculas a reservar");
                             System.out.println("----> 5. Visualizar lista videojuegos a reservar");
                             System.out.println("----> 6. Visualizar lista musica a reservar");
-                            System.out.println("----> 7. Visualizar lista todos los articulos a reservar");
+                            System.out.println("----> 7. Visualizar lista todos los articulos disponibles a reservar");
                             System.out.println("----> 8. Salir");
                             System.out.print("Opción:");
                             op2 = Utilidades.leerEntero();
@@ -270,6 +270,7 @@ public class clsMenuOpciones {
 
     public static void altaMusica_CD(clsGestor objG) throws SQLException, ClassNotFoundException {
 
+
         String nombreM = null;
         double precioM = 0;
         double duracionM = 0;
@@ -326,12 +327,12 @@ public class clsMenuOpciones {
         for (itfProperty videjuego : videojuegos) {
             System.out.println("VIDEOJUEGO");
             System.out.println();
-            System.out.println("Identificador Videojuego: " + videjuego.getPropertyA("IdentificadorV"));
-            System.out.println("Nombre Videojuego: " + videjuego.getPropertyA("NombreV"));
-            System.out.println("Precio Videojuego: " + videjuego.getPropertyA("PrecioV"));
-            System.out.println("Duración Videojuego: " + videjuego.getPropertyA("DuracionV"));
-            System.out.println("Puntuación Videojuego: " + videjuego.getPropertyA("PuntuacionV"));
-            System.out.println("Pegi Videojuego: " + videjuego.getPropertyA("PegiV"));
+            System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
+            System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
+            System.out.println("Duración Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
+            System.out.println("Puntuación Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
+            System.out.println("Pegi Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PEGI));
             System.out.println();
         }
 
@@ -345,13 +346,13 @@ public class clsMenuOpciones {
         for (itfProperty cd : musicas) {
             System.out.println("MUSICA");
             System.out.println();
-            System.out.println("Identificador Musica: " + cd.getPropertyA("IdentificadorM"));
-            System.out.println("Nombre Musica: " + cd.getPropertyA("NombreM"));
-            System.out.println("Precio Musica: " + cd.getPropertyA("PrecioM"));
-            System.out.println("Duración Musica: " + cd.getPropertyA("DuracionM"));
-            System.out.println("Año creación: " + cd.getPropertyA("Anio"));
-            System.out.println("Artista: " + cd.getPropertyA("artista"));
-            System.out.println("Estudio: " + cd.getPropertyA("Explicito"));
+            System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
+            System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
+            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
+            System.out.println("Duración Musica: " + cd.getPropertyA(MUSICA_DURACION));
+            System.out.println("Año creación: " + cd.getPropertyA(MUSICA_ANIO));
+            System.out.println("Artista: " + cd.getPropertyA(MUSICA_ARTISTA));
+            System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
         }
 
