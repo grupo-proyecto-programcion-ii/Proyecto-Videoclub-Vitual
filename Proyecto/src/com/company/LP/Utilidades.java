@@ -1,20 +1,20 @@
-﻿package com.company.LP;
+package com.company.LP;
 
 import java.io.*;
 
 /**
  * HolaEsta clase permite hacer uso de los dispositivos de entrada de forma muy sencilla.
- * Posee distintos m�todos p�blicos y est�ticos (por lo tanto no se necesita un
- * objeto como tal para acceder a ellos) para la lectura de los tipos de datos b�sicos
- * en Java. Adem�s, todos los m�todos tienen un control de errores mediante petici�n
- * sucesiva de introducci�n de dato hasta que estos sean correctos.
+ * Posee distintos m?todos p?blicos y est?ticos (por lo tanto no se necesita un
+ * objeto como tal para acceder a ellos) para la lectura de los tipos de datos b?sicos
+ * en Java. Adem?s, todos los m?todos tienen un control de errores mediante petici?n
+ * sucesiva de introducci?n de dato hasta que estos sean correctos.
  */
 public class Utilidades {
     /**
-     * Permite introducir por teclado en la consola un n�mero entero (32 bits = -2147483648 <-> 2147483648)
+     * Permite introducir por teclado en la consola un n?mero entero (32 bits = -2147483648 <-> 2147483648)
      * realizando las comprobaciones pertienentes.
      *
-     * @return Devuelve el n�mero entero que se haya introducido por teclado.
+     * @return Devuelve el n?mero entero que se haya introducido por teclado.
      */
     public static int leerEntero() {
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -27,7 +27,7 @@ public class Utilidades {
                 entero = new Integer(cadena);
                 error = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("No tecle� un n�mero entero-Repetir");
+                System.out.println("No tecle? un n?mero entero-Repetir");
             } catch (Exception e) {
                 System.out.println("Error de entrada-Repetir ");
             }
@@ -37,10 +37,10 @@ public class Utilidades {
     }
 
     /**
-     * Permite introducir por teclado en la consola un n�mero real realizando
+     * Permite introducir por teclado en la consola un n?mero real realizando
      * las comprobaciones pertienentes.
      *
-     * @return Devuelve el n�mero real que se haya introducido por teclado.
+     * @return Devuelve el n?mero real que se haya introducido por teclado.
      */
     public static double leerReal() {
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -53,7 +53,7 @@ public class Utilidades {
                 real = new Double(cadena);
                 error = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("No tecle� un n�mero real-Repetir ");
+                System.out.println("No tecle? un n?mero real-Repetir ");
             } catch (Exception e) {
                 System.out.println("Error de entrada-Repetir ");
             }
