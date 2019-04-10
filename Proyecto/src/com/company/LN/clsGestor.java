@@ -147,7 +147,6 @@ public class clsGestor {
         clsVideojuegos objVidejuego = new clsVideojuegos(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
         objVidejuego.setId(objDatos.insertarIdVidejuego(_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
-
         objDatos.desconectarBD();
     }
 
