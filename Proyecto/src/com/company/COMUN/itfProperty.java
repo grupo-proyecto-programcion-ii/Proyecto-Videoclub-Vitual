@@ -1,6 +1,5 @@
 package com.company.COMUN;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 /**
  * @author javier.cerro

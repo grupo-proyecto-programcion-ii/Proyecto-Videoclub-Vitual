@@ -1,7 +1,9 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
+
 import static com.company.COMUN.clsConstantes.*;
+import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
 
 /**

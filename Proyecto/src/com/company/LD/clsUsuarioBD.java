@@ -3,8 +3,7 @@ package com.company.LD;
 
 import java.sql.*;
 
-import static com.company.LD.clsConstantesBD.INSERT_USUARIO;
-import static com.company.LD.clsConstantesBD.SELECT_USUARIOS;
+import static com.company.LD.clsConstantesBD.*;
 
 public class clsUsuarioBD {
 
@@ -24,7 +23,6 @@ public class clsUsuarioBD {
         if (regActualizada == 1) {
 
             objRS = objStat.getGeneratedKeys();
-
             if (objRS.next()) {
 
                 idU = objRS.getInt(1);
@@ -33,7 +31,7 @@ public class clsUsuarioBD {
         return idU;
     }
 
-    public static ResultSet consultaUsuario(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+    public static ResultSet consultaUsuario(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS) {
 
         try {
             _objStat = _objCon.prepareStatement(SELECT_USUARIOS);

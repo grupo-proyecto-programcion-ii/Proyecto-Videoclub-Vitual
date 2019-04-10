@@ -1,6 +1,5 @@
 package com.company.LD;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class clsConstantesBD {
 
@@ -26,7 +25,7 @@ public class clsConstantesBD {
     public static final String INSERT_VIDEOJUEGO = "INSERT INTO videojuegos (nombre,precio,duracion,puntuacionV,pegiVidejuegos)VALUES(?,?,?,?,?)";
     public static final String SELECT_VIDEOJUEGOS = "SELECT * FROM videoclub.videojuegos";
 
-    public static final String INSERT_MUSICA = "INSERT INTO musica (nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?)";
+    public static final String INSERT_MUSICA = "INSERT INTO Música CD (nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_MUSICA = "SELECT * FROM videoclub.musica";
 
 

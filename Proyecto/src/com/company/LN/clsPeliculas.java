@@ -1,4 +1,5 @@
 package com.company.LN;
+
 import static com.company.COMUN.clsConstantes.*;
 
 
@@ -48,12 +49,14 @@ public class clsPeliculas extends clsArticulo {
         this.puntuacionP = _puntuacionPelicula;
     }
 
+
     public clsPeliculas(String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
         super(_nombreP,  _precioP, _duracionP);
         this.pegiP = _pegiPelicula;
         this.puntuacionP = _puntuacionPelicula;
     }
+
 
 
     /**

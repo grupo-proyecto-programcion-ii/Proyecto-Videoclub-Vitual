@@ -11,23 +11,24 @@ import static com.company.LD.clsConstantesBD.SELECT_PELICULAS;
 
 public class clsPeliculasBD {
 
-    public static int insertarPelicula(Connection objCon, Object[] parametrosPeliculas) throws SQLException {
+    public static int insertarPelicula(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosPeliculas) throws SQLException {
 
         int regActualizada = 0;
         int idP = 0;
 
-        PreparedStatement objStatements = objCon.prepareStatement(INSERT_PELICULA);
+        objStat = objCon.prepareStatement(INSERT_PELICULA, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStatements.setString(1,(String) parametrosPeliculas [0]); //nombre
-        objStatements.setDouble(2, (Double) parametrosPeliculas [1]);//precio
-        objStatements.setDouble(3, (Double) parametrosPeliculas [2]);//duración
-        objStatements.setInt(4, (Integer) parametrosPeliculas [3]);//pegi
-        objStatements.setInt(5, (Integer) parametrosPeliculas [4]);//puntuación
-        regActualizada = objStatements.executeUpdate();
+        objStat.setString(1,(String) parametrosPeliculas [0]); //nombre
+        objStat.setDouble(2, (Double) parametrosPeliculas [1]);//precio
+        objStat.setDouble(3, (Double) parametrosPeliculas [2]);//duración
+        objStat.setInt(4, (Integer) parametrosPeliculas [3]);//pegi
+        objStat.setInt(5, (Integer) parametrosPeliculas [4]);//puntuación
+        regActualizada = objStat.executeUpdate();
 
         if (regActualizada == 1) {
 
-            ResultSet objRS = objStatements.getGeneratedKeys();
+            objRS = objStat.getGeneratedKeys();
+
             if (objRS.next()) {
 
                 idP = objRS.getInt(1);

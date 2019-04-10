@@ -3,12 +3,12 @@ package com.company.LN;
 import com.company.COMUN.itfProperty;
 import com.company.LD.clsDatos;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static com.company.COMUN.clsConstantes.*;
+import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
 /**
  * ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
@@ -38,7 +38,6 @@ public class clsGestor {
      */
 
     private clsDatos objDatos = new clsDatos();
-
 
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta.
@@ -106,8 +105,8 @@ public class clsGestor {
                 int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
                 String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
                 String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
-                clsUsuario objUsuarioBD = new clsUsuario(id, nombre, contrasena);
-                listaUsuarios.add(objUsuarioBD);
+                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
+                listaUsuarios.add(objUsuario);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
@@ -160,7 +159,7 @@ public class clsGestor {
 
         objDatos.desconectarBD();
     }
-     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
@@ -208,8 +207,8 @@ public class clsGestor {
             while (peliculasBaseDatos.next()){
                 int id = peliculasBaseDatos.getInt(PELICULA_CODIGO_ID);
                 String nombre = peliculasBaseDatos.getString(PELICULA_NOMBRE);
-                int precio = peliculasBaseDatos.getInt(PELICULA_DURACION);
-                int duracion = peliculasBaseDatos.getInt(PELICULA_DURACION);
+                double precio = peliculasBaseDatos.getDouble(PELICULA_PRECIO);
+                double duracion = peliculasBaseDatos.getDouble(PELICULA_DURACION);
                 int pegi = peliculasBaseDatos.getInt(PELICULA_PEGI);
                 int puntuacion = peliculasBaseDatos.getInt(PELICULA_PUNTUACION);
 
@@ -231,10 +230,11 @@ public class clsGestor {
             while (videojuegosBaseDatos.next()){
                 int id = videojuegosBaseDatos.getInt(VIDEJUEGO_ID);
                 String nombre = videojuegosBaseDatos.getString(VIDEOJUEGO_NOMBRE);
-                int precio = peliculasBaseDatos.getInt(VIDEOJUEGO_PRECIO);
-                int duracion = peliculasBaseDatos.getInt(VIDEOJUEGO_DURACION);
-                int puntuacion = peliculasBaseDatos.getInt(VIDEOJUEGO_PUNTUACION);
-                int pegi = peliculasBaseDatos.getInt(VIDEOJUEGO_PEGI);
+                double precio = videojuegosBaseDatos.getDouble(VIDEOJUEGO_PRECIO);
+                double duracion = videojuegosBaseDatos.getDouble(VIDEOJUEGO_DURACION);
+                int puntuacion = videojuegosBaseDatos.getInt(VIDEOJUEGO_PEGI);
+                int pegi = videojuegosBaseDatos.getInt(VIDEOJUEGO_PEGI);
+
 
                 clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, nombre, precio, duracion, puntuacion, pegi);
                 listaVidejuegos.add(objVideojuegoBD);
@@ -254,13 +254,13 @@ public class clsGestor {
             while (musicaBaseDatos.next()){
                 int id = musicaBaseDatos.getInt(MUSICA_ID);
                 String nombre = musicaBaseDatos.getString(MUSICA_NOMBRE);
-                int precio = musicaBaseDatos.getInt(MUSICA_PRECIO);
-                int duracion = musicaBaseDatos.getInt(MUSICA_DURACION);
+                double precio = musicaBaseDatos.getDouble(MUSICA_PRECIO);
+                double duracion = musicaBaseDatos.getDouble(MUSICA_DURACION);
                 int anio = musicaBaseDatos.getInt(MUSICA_ANIO);
-                String artistas = musicaBaseDatos.getString(MUSICA_ARTISTA);
+                String artista = musicaBaseDatos.getString(MUSICA_ARTISTA);
                 String explicito = musicaBaseDatos.getString(MUSICA_EXPLICITO);
 
-                clsMusica_CD objMusicaBD = new clsMusica_CD(id, nombre, precio, duracion, anio, artistas, explicito);
+                clsMusica_CD objMusicaBD = new clsMusica_CD(id, nombre, precio, duracion, anio, artista, explicito );
                 listaMusica.add(objMusicaBD);
             }
             objDatos.desconectarBD();
@@ -277,13 +277,11 @@ public class clsGestor {
     }
 
     public void visualizarNumVideojuegos() {
-        System.out.println(listaVidejuegos.size() + " peliculas para reservar");
+        System.out.println(listaVidejuegos.size() + " videojuego para reservar");
     }
 
     public void visualizarNumCd() {
-        System.out.println(listaMusica.size() + " peliculas para reservar");
+        System.out.println(listaMusica.size() + " musica para reservar");
     }
 
 }
-
-

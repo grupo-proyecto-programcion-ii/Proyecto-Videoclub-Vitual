@@ -1,4 +1,5 @@
 package com.company.LN;
+
 import static com.company.COMUN.clsConstantes.*;
 
 /**

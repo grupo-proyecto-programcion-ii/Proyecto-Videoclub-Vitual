@@ -1,5 +1,7 @@
 package com.company.LN;
+
 import static com.company.COMUN.clsConstantes.*;
+import static com.company.COMUN.clsConstantes.MUSICA_EXPLICITO;
 
 /**
  * ésta clase contiene los atributos, el constructor y el método filtrar la llamda a los diferentes atributos

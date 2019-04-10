@@ -9,23 +9,23 @@ import static com.company.LD.clsConstantesBD.*;
 
 public class clsVideojuegosBD {
 
-    public static int insertarVieojuego(Connection objCon, Object[] parametrosVideojuegos) throws SQLException {
+    public static int insertarVieojuego(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosVideojuegos) throws SQLException {
 
         int regActualizada = 0;
         int idV = 0;
 
-        PreparedStatement objStatements = objCon.prepareStatement(INSERT_VIDEOJUEGO);
+       objStat = objCon.prepareStatement(INSERT_VIDEOJUEGO, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStatements.setString(1, (String) parametrosVideojuegos[0]); //nombre
-        objStatements.setDouble(2, (Double) parametrosVideojuegos[1]);//precio
-        objStatements.setDouble(3, (Double) parametrosVideojuegos[2]);//duración
-        objStatements.setInt(4, (Integer) parametrosVideojuegos[3]);//puntuación
-        objStatements.setInt(5, (Integer) parametrosVideojuegos[4]);//pegi
-        regActualizada = objStatements.executeUpdate();
+        objStat.setString(1, (String) parametrosVideojuegos[0]); //nombre
+        objStat.setDouble(2, (Integer) parametrosVideojuegos[1]);//precio
+        objStat.setDouble(3, (Double) parametrosVideojuegos[2]);//duración
+        objStat.setInt(4, (Integer) parametrosVideojuegos[3]);//puntuación
+        objStat.setInt(5, (Integer) parametrosVideojuegos[4]);//pegi
+        regActualizada = objStat.executeUpdate();
 
         if (regActualizada == 1) {
 
-            ResultSet objRS = objStatements.getGeneratedKeys();
+            objRS = objStat.getGeneratedKeys();
             if (objRS.next()) {
 
                 idV = objRS.getInt(1);
@@ -42,6 +42,7 @@ public class clsVideojuegosBD {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return _objRS;
     }
 }

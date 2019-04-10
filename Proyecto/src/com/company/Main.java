@@ -18,7 +18,9 @@ public class Main {
         // Creo y declaro el objeto, que serña objMenu*/
         clsMenuOpciones objMenu = new clsMenuOpciones();
 
+
         //Lamada al objeto
         objMenu.menuPrincipal();
     }
 }
+
