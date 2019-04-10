@@ -3,6 +3,7 @@ package com.company.LN;
 import com.company.COMUN.itfProperty;
 import com.company.LD.clsDatos;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class clsGestor {
      */
 
     private clsDatos objDatos = new clsDatos();
+
 
     /**
      * Con esta clase se visualiza el numero de usuarios dados de alta.
@@ -104,8 +106,8 @@ public class clsGestor {
                 int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
                 String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
                 String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
-                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
-                listaUsuarios.add(objUsuario);
+                clsUsuario objUsuarioBD = new clsUsuario(id, nombre, contrasena);
+                listaUsuarios.add(objUsuarioBD);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
@@ -212,8 +214,8 @@ public class clsGestor {
                 int pegi = peliculasBaseDatos.getInt(PELICULA_PEGI);
                 int puntuacion = peliculasBaseDatos.getInt(PELICULA_PUNTUACION);
 
-                clsPeliculas objPelicula = new clsPeliculas(id, nombre, precio, duracion, pegi, puntuacion);
-                listaPeliculas.add(objPelicula);
+                clsPeliculas objPeliculaBD = new clsPeliculas(id, nombre, precio, duracion, pegi, puntuacion);
+                listaPeliculas.add(objPeliculaBD);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
@@ -228,12 +230,15 @@ public class clsGestor {
             objDatos.conectarBD();
             videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (videojuegosBaseDatos.next()){
-                int id = videojuegosBaseDatos.getInt(PELICULA_CODIGO_ID);
-                String nombre = videojuegosBaseDatos.getString(PELICULA_NOMBRE);
-                int precio = peliculasBaseDatos.getInt(PELICULA_DURACION);
-                int duracion = peliculasBaseDatos.getInt(PELICULA_DURACION);
-                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
-                listaUsuarios.add(objUsuario);
+                int id = videojuegosBaseDatos.getInt(VIDEJUEGO_ID);
+                String nombre = videojuegosBaseDatos.getString(VIDEOJUEGO_NOMBRE);
+                int precio = peliculasBaseDatos.getInt(VIDEOJUEGO_PRECIO);
+                int duracion = peliculasBaseDatos.getInt(VIDEOJUEGO_DURACION);
+                int puntuacion = peliculasBaseDatos.getInt(VIDEOJUEGO_PUNTUACION);
+                int pegi = peliculasBaseDatos.getInt(VIDEOJUEGO_PEGI);
+
+                clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, nombre, precio, duracion, puntuacion, pegi);
+                listaVidejuegos.add(objVideojuegoBD);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
@@ -246,13 +251,18 @@ public class clsGestor {
         int codigoConsulta = 3; // 3 para hacer select de musica
         try {
             objDatos.conectarBD();
-            usuariosBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (usuariosBaseDatos.next()){
-                int id = usuariosBaseDatos.getInt(PELICULA_CODIGO_ID);
-                String nombre = usuariosBaseDatos.getString(PELICULA_NOMBRE);
-                String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
-                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
-                listaUsuarios.add(objUsuario);
+            musicaBaseDatos = objDatos.dameParametros(codigoConsulta);
+            while (musicaBaseDatos.next()){
+                int id = musicaBaseDatos.getInt(MUSICA_ID);
+                String nombre = musicaBaseDatos.getString(MUSICA_NOMBRE);
+                int precio = musicaBaseDatos.getInt(MUSICA_PRECIO);
+                int duracion = musicaBaseDatos.getInt(MUSICA_DURACION);
+                int anio = musicaBaseDatos.getInt(MUSICA_ANIO);
+                String artistas = musicaBaseDatos.getString(MUSICA_ARTISTA);
+                String explicito = musicaBaseDatos.getString(MUSICA_EXPLICITO);
+
+                clsMusica_CD objMusicaBD = new clsMusica_CD(id, nombre, precio, duracion, anio, artistas, explicito);
+                listaMusica.add(objMusicaBD);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {

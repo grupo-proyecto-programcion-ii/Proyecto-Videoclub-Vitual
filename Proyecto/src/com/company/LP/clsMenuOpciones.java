@@ -37,6 +37,9 @@ public class clsMenuOpciones {
         System.out.println("Cargando datos.....");
 
         objGestor.cargarUsuarios();
+        objGestor.cargarPeliculas();
+        objGestor.cargarVideojuegos();
+        objGestor.cargarMusica();
 
         do {
 
@@ -99,6 +102,7 @@ public class clsMenuOpciones {
         for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
+                System.out.println("-------------------------------------------------------");
                 System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
                 System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
@@ -116,10 +120,10 @@ public class clsMenuOpciones {
                             System.out.println("----> 1. Añadir Peliculas");
                             System.out.println("----> 2. Añadir CD_Musica");
                             System.out.println("----> 3. Añadir Videojuegos");
-                            System.out.println("----> 4. Visualizar lista peliculas reservados");
-                            System.out.println("----> 5. Visualizar lista videojuegos  reservados");
-                            System.out.println("----> 6. Visualizar lista musica reservados");
-                            System.out.println("----> 7. Visualizar lista todos los articulos reservados");
+                            System.out.println("----> 4. Visualizar lista peliculas a reservar");
+                            System.out.println("----> 5. Visualizar lista videojuegos a reservar");
+                            System.out.println("----> 6. Visualizar lista musica a reservar");
+                            System.out.println("----> 7. Visualizar lista todos los articulos a reservar");
                             System.out.println("----> 8. Salir");
                             System.out.print("Opción:");
                             op2 = Utilidades.leerEntero();

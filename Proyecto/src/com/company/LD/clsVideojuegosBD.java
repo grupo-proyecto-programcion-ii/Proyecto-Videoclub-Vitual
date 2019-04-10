@@ -17,7 +17,7 @@ public class clsVideojuegosBD {
         PreparedStatement objStatements = objCon.prepareStatement(INSERT_VIDEOJUEGO);
 
         objStatements.setString(1, (String) parametrosVideojuegos[0]); //nombre
-        objStatements.setDouble(2, (Integer) parametrosVideojuegos[1]);//precio
+        objStatements.setDouble(2, (Double) parametrosVideojuegos[1]);//precio
         objStatements.setDouble(3, (Double) parametrosVideojuegos[2]);//duración
         objStatements.setInt(4, (Integer) parametrosVideojuegos[3]);//puntuación
         objStatements.setInt(5, (Integer) parametrosVideojuegos[4]);//pegi
@@ -42,7 +42,6 @@ public class clsVideojuegosBD {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return _objRS;
     }
 }

@@ -17,11 +17,11 @@ public class clsMusicaBD {
         PreparedStatement objStatements = objCon.prepareStatement(INSERT_MUSICA);
 
         objStatements.setString(1,(String) parametrosMusica [0]); //nombre
-        objStatements.setDouble(2, (Integer) parametrosMusica [1]);//precio
+        objStatements.setDouble(2, (Double) parametrosMusica [1]);//precio
         objStatements.setDouble(3, (Double) parametrosMusica [2]);//duración
-        objStatements.setString(4, (String) parametrosMusica [3]);//artistas
-        objStatements.setInt(5, (Integer) parametrosMusica [4]);//año
-        objStatements.setString(5, (String) parametrosMusica [4]);//explicito
+        objStatements.setInt(4, (Integer) parametrosMusica [3]);//año
+        objStatements.setString(5, (String) parametrosMusica [4]);//artistas
+        objStatements.setString(6, (String) parametrosMusica [5]);//explicito
         regActualizada = objStatements.executeUpdate();
 
         if (regActualizada == 1) {
