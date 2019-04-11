@@ -374,7 +374,7 @@ public class clsMenuOpciones {
         visualizarVidejuegos(objG);
 
         objG.visualizarNumCd();
-        visualizarVidejuegos(objG);
+        visualizarMusica(objG);
 
     }
 }

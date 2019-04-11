@@ -164,7 +164,7 @@ public class clsGestor {
     /**
      * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
      *
-     * @return
+     * @return leerPeliculas
      */
 
     public ArrayList<itfProperty> leerPeliculas() {

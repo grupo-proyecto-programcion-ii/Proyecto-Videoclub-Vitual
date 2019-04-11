@@ -3,7 +3,7 @@ package com.company.LP;
 import java.io.*;
 
 /**
- * HolaEsta clase permite hacer uso de los dispositivos de entrada de forma muy sencilla.
+ * Esta clase permite hacer uso de los dispositivos de entrada de forma muy sencilla.
  * Posee distintos m?todos p?blicos y est?ticos (por lo tanto no se necesita un
  * objeto como tal para acceder a ellos) para la lectura de los tipos de datos b?sicos
  * en Java. Adem?s, todos los m?todos tienen un control de errores mediante petici?n
