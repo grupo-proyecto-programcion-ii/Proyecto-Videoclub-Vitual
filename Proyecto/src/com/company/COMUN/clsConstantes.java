@@ -28,4 +28,6 @@ public class clsConstantes {
     public static final String MUSICA_ARTISTA = "Artistas";
     public static final String MUSICA_EXPLICITO = "Explicito";
 
+    public static final String MENSAJE_ERROR = "Error..";
+
 }

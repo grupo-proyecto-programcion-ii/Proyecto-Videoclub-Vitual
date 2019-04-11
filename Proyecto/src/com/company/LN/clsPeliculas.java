@@ -4,11 +4,9 @@ import static com.company.COMUN.clsConstantes.*;
 
 
 /**
- *Esta clase hereda de la clase padre artículos. Hereda 4 atributos principales. Contiene
- * los atributos, el contructor y el método para hacer la llamda a los datos.
+ *Esta clase hereda de la clase padre articulos. Hereda 4 atributos principales. Contiene
+ * los atributos, el contructor y el metodo para hacer la llamda a los datos.
  */
-
-
 public class clsPeliculas extends clsArticulo {
 
     /***
@@ -35,12 +33,12 @@ public class clsPeliculas extends clsArticulo {
 
     /***
      * Contructor. Hereda con un super los 4 atributos principales.
-     * @param _idPelicula
-     * @param _nombreP
-     * @param _precioP
-     * @param _duracionP
-     * @param _pegiPelicula
-     * @param _puntuacionPelicula
+     * @param _idPelicula atributo
+     * @param _nombreP atributo
+     * @param _precioP atributo
+     * @param _duracionP atributo
+     * @param _pegiPelicula atributo
+     * @param _puntuacionPelicula atributo
      */
     public clsPeliculas(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
@@ -57,12 +55,10 @@ public class clsPeliculas extends clsArticulo {
         this.puntuacionP = _puntuacionPelicula;
     }
 
-
-
     /**
-     * Método para hacer la llamda desde LP obteniendo los datos de los atributos especificamente.
-     * @param obj_Propiedad
-     * @return
+     * Metodo para hacer la llamda desde LP obteniendo los datos de los atributos especificamente.
+     * @param obj_Propiedad objeto de la interfaz
+     * @return parametros a los atributos
      */
     @Override
     public Object getPropertyA(String obj_Propiedad) {
@@ -85,9 +81,9 @@ public class clsPeliculas extends clsArticulo {
     }
 
     /**
-     * Métodos de la clase interfaz itfProperty
-     * @param propiedad
-     * @return
+     * Metodos de la clase interfaz itfProperty
+     * @param propiedad objetos me los metodos de interfaz
+     * @return en este caso null
      */
     @Override
     public String getStringProperty(String propiedad) {

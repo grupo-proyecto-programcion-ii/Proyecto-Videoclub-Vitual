@@ -3,16 +3,17 @@ package com.company.LD;
 
 import java.sql.*;
 
+import static com.company.COMUN.clsConstantes.MENSAJE_ERROR;
 import static com.company.LD.clsConstantesBD.*;
 
 /**
- *Clase que cominucará los parámetros entre la lógica de negocio
- * y la lógica de presentación
+ *Clase que cominucara los parametros entre la logica de negocio
+ * y la logica de presentaci�n
  */
 public class clsDatos {
 
     /**
-     * Atributo para la conexión a la base de datos, un objeto
+     * Atributo para la conexion a la base de datos, un objeto
      * de tipo Connection
      */
     private Connection objConexion = null;
@@ -29,9 +30,9 @@ public class clsDatos {
     private ResultSet objRS = null;
 
     /**
-     * Método para establecer la conexión, antes se encontraba
-     * en clsConexión
-     * @throws SQLException
+     * Metodo para establecer la conexion, antes se encontraba
+     * en clsConexion
+     * @throws SQLException excepciones
      */
     public Connection conectarBD() throws SQLException, ClassNotFoundException {
 
@@ -40,7 +41,6 @@ public class clsDatos {
             Class.forName(DRIVER).newInstance();
             objConexion = DriverManager.getConnection(URL, USER, PASS);
         } catch (SQLException e) {
-            System.out.println("Ha fallado la conexión" + e);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -50,8 +50,8 @@ public class clsDatos {
     }
 
     /**
-     * Función para desconectar de la base de datos
-     * @throws SQLException
+     * Funcion para desconectar de la base de datos
+     * @throws SQLException excepeciones
      */
     public void desconectarBD() throws SQLException {
         objConexion.close();
@@ -95,4 +95,5 @@ public class clsDatos {
         }
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

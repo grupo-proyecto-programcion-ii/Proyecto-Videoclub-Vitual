@@ -3,8 +3,8 @@ package com.company.LN;
 import com.company.COMUN.itfProperty;
 
 /**
- * Todas las clases de objetos reciben Herencia de la clase clsArticulo,ya que todos
- * tienen los mismos atributos en común.
+ * Todas las clases de objetos reciben Herencia de la clase clsArticulo, ya que todos
+ * tienen los mismos atributos en comun.
  */
 
 public abstract class clsArticulo implements itfProperty {

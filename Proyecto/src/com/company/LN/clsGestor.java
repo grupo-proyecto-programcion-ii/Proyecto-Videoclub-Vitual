@@ -11,14 +11,14 @@ import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
 /**
- * ésta clase contiene los métodos donde se recojen los parámentros de los usuarios como objetos
- * e introduciéndolos en ArrayList.
+ * Esta clase contiene los metodos donde se recojen los paramentros de los usuarios como objetos
+ * e introduciendolos en ArrayList.
  */
 
 public class clsGestor {
     /**
-     * Instancia y declñaración de dos ArrayList que guardarán objetos. Uno guardará los objetos de usuarios
-     * y el otro artículos.
+     * Instancia y declaracion de dos ArrayList que guardarzn objetos. Uno guardara los objetos de usuarios
+     * y el otro articulos.
      */
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<>();
     private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<>();
@@ -26,7 +26,7 @@ public class clsGestor {
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
 
     /**
-     * Parámetros de mysql
+     * Parametros de mysql
      */
     private ResultSet usuariosBaseDatos;
     private ResultSet peliculasBaseDatos;
@@ -34,7 +34,7 @@ public class clsGestor {
     private ResultSet musicaBaseDatos;
 
     /**
-     * Se instancia un objeto para crear la comunicación con la lógica de datos
+     * Se instancia un objeto para crear la comunicacion con la logica de datos
      */
 
     private clsDatos objDatos = new clsDatos();
@@ -56,12 +56,11 @@ public class clsGestor {
     }
 
     /**
-     * Con éste método se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist específica
+     * Con este metodo se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist especifica
      * para una lista de usuarios.
      */
 
     public void anadirUsuario(String _id, String _contra) {
-
 
         try {
 
@@ -73,16 +72,16 @@ public class clsGestor {
             objDatos.desconectarBD();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Fallo");
+
         }
     }
 
     /**
-     * Método para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist
-     * que apunta a la interfaz itfProperty. Se recoje el array para copiar los objetos. Éste método es
+     * Metodo para hacer la llamda desde clsMenu. Para ello se declara e instancia un arraylist
+     * que apunta a la interfaz itfProperty. Se recoje el array para copiar los objetos. Este metodo es
      * de relevancia ya que, una vez que el usuario se ha registrado.
      *
-     * @return
+     * @return on objeto de tipo usuario
      */
 
     public ArrayList<itfProperty> leerUsuarios() {
@@ -115,12 +114,12 @@ public class clsGestor {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /***
-     * Métodos para añador objetos de artículos al arraylist de artículos.
-     * @param _nombreP
-     * @param _precioP
-     * @param _duracionP
-     * @param _pegiPelicula
-     * @param _puntuacionPelicula
+     * Métodos para anadir objetos de artículos al arraylist de articulos.
+     * @param _nombreP atributos pelicula
+     * @param _precioP atributos pelicula
+     * @param _duracionP atributos pelicula
+     * @param _pegiPelicula atributos pelicula
+     * @param _puntuacionPelicula atributos pelicula
      */
     public void anadirPelicula(String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
@@ -135,7 +134,6 @@ public class clsGestor {
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Error al insertar película");
         }
     }
 
@@ -162,7 +160,7 @@ public class clsGestor {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Método para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de artículos.
+     * Metodo para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de articulos.
      *
      * @return leerPeliculas
      */
@@ -284,4 +282,8 @@ public class clsGestor {
         System.out.println(listaMusica.size() + " musica para reservar");
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
+
+

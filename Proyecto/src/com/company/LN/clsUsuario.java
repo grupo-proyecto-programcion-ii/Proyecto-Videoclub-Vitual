@@ -7,7 +7,7 @@ import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
 
 /**
- * Ésta clase contiene atributos y el contructor para el usuario.
+ * Esta clase contiene atributos y el contructor para el usuario.
  */
 public class clsUsuario implements itfProperty {
 
@@ -44,9 +44,9 @@ public class clsUsuario implements itfProperty {
     }
 
     /***
-     * Contructor que recibe los parámetros para los atributos.
-     * @param _id
-     * @param _codigo
+     * Constructor que recibe los parametros para los atributos.
+     * @param _id atributo
+     * @param _codigo atributo
      */
     public clsUsuario(String _id, String _codigo) {
         this.identificador = _id;
@@ -60,8 +60,8 @@ public class clsUsuario implements itfProperty {
     }
     /**
      *Método para obtener los datos de los atributos de usuarios.
-     * @param propiedad
-     * @return
+     * @param propiedad objeto que tra la interfaz
+     * @return valores a los atributos
      */
     public Object getPropertyU(String propiedad){
 
@@ -75,9 +75,9 @@ public class clsUsuario implements itfProperty {
 
         return null;
     }/**
-     * Métodos de la clase interfaz itfProperty
-     * @param propiedad
-     * @return
+     * Metodos de la clase interfaz itfProperty
+     * @param propiedad objeto de interfaz
+     * @return valores a los atributos
      */
     @Override
     public String getStringProperty(String propiedad) {

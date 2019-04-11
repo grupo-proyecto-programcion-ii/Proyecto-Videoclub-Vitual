@@ -32,12 +32,12 @@ public class clsVideojuegos extends clsArticulo {
 
     /**
      * Contructor de clsVidejuegos que hereda 4 atributos de clsArticulo.
-     * @param _idPelicula
-     * @param _nombreV
-     * @param _precioP
-     * @param _duracionP
-     * @param puntuacionV
-     * @param pegiVideojuegos
+     * @param _idPelicula atributo
+     * @param _nombreV atributo
+     * @param _precioP atributo
+     * @param _duracionP atributo
+     * @param puntuacionV atributo
+     * @param pegiVideojuegos atributo
      */
     public clsVideojuegos(int _idPelicula, String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
 
@@ -55,8 +55,8 @@ public class clsVideojuegos extends clsArticulo {
 
     /**
      *Método para obtener los datos de los atributos de vidoejuegos.
-     * @param obj_Propiedad
-     * @return
+     * @param obj_Propiedad objeto que tra la interfaz
+     * @return valores a los atributos
      */
     @Override
     public Object getPropertyA(String obj_Propiedad) {
@@ -80,8 +80,8 @@ public class clsVideojuegos extends clsArticulo {
 
     /**
      * Métodos de la clase interfaz itfProperty
-     * @param propiedad
-     * @return
+     * @param propiedad objeto que tra la interfaz
+     * @return valores a los atributos
      */
     @Override
     public String getStringProperty(String propiedad) {

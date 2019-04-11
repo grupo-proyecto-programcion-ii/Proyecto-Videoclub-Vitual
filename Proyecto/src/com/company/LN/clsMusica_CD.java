@@ -4,7 +4,7 @@ import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.MUSICA_EXPLICITO;
 
 /**
- * ésta clase contiene los atributos, el constructor y el método filtrar la llamda a los diferentes atributos
+ * Esta clase contiene los atributos, el constructor y el metodo filtrar la llamda a los diferentes atributos
  * desde otras clases de el articulo Musica_CD.
  */
 
@@ -42,15 +42,15 @@ public class clsMusica_CD extends clsArticulo {
     }
 
     /**
-     * Contructor de la case. Se hace un super para hacer la llamda al contructor padre que es artículo.
-     * De ahí recibe los 4 atributos principales.
-     * @param _idPelicula
-     * @param _nombreM
-     * @param _precioP
-     * @param _duracionP
-     * @param _anio
-     * @param _artistas
-     * @param _explicito
+     * Contructor de la case. Se hace un super para hacer la llamda al contructor padre que es articulo.
+     * De ahi recibe los 4 atributos principales.
+     * @param _idPelicula atributo
+     * @param _nombreM atributo
+     * @param _precioP atributo
+     * @param _duracionP atributo
+     * @param _anio atributo
+     * @param _artistas atributo
+     * @param _explicito atributo
      */
     public clsMusica_CD(int _idPelicula, String _nombreM, double _precioP, double _duracionP, int _anio, String _artistas, String _explicito) {
 
@@ -69,10 +69,10 @@ public class clsMusica_CD extends clsArticulo {
     }
 
     /***
-     * Método para hacer las llamadas a los datos de los atributos específicamente. Los 4 primeros son geters
+     * Metodo para hacer las llamadas a los datos de los atributos especificamente. Los 4 primeros son geters
      * de los atributos padre.
-     * @param obj_Propiedad
-     * @return
+     * @param obj_Propiedad objeto de la interfaz
+     * @return parametros a los atributos
      */
     @Override
     public Object getPropertyA(String obj_Propiedad) {
@@ -97,9 +97,9 @@ public class clsMusica_CD extends clsArticulo {
     }
 
     /**
-     * Métodos de la clase interfaz itfProperty
-     * @param propiedad
-     * @return
+     * Metodos de la clase interfaz itfProperty
+     * @param propiedad objeto interfaces
+     * @return null
      */
     @Override
     public String getStringProperty(String propiedad) {

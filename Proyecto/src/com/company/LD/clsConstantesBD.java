@@ -4,8 +4,8 @@ package com.company.LD;
 public class clsConstantesBD {
 
     /**
-     *Constantes de usuario, contraseña, pueeto. nombre base de datos
-     * y dirección
+     *Constantes de usuario, contrasena, pueeto. nombre base de datos
+     * y direccion
      */
 
     public final static String USER = "root";
@@ -27,8 +27,5 @@ public class clsConstantesBD {
 
     public static final String INSERT_MUSICA = "INSERT INTO Música CD (nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_MUSICA = "SELECT * FROM videoclub.musica";
-
-
-
 }
 

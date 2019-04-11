@@ -9,25 +9,26 @@ import java.util.ArrayList;
 import static com.company.COMUN.clsConstantes.*;
 
 /**
- * La clase contiene un menu principal donde se centra en el registro, entrada y visualización del usuario.
- * Una vez el usuario se ha registrado y se ha "logeado" tiene disponibloe la opción de alquilar articulos
- * o un servicio de suscrición.
+ * La clase contiene un menu principal donde se centra en el registro, entrada y visualizaci�n del usuario.
+ * Una vez el usuario se ha registrado y se ha "logeado" tiene disponibloe la opcion de alquilar articulos
+ * o un servicio de suscripcion.
  */
 
 public class clsMenuOpciones {
 
     /**
-     * En éste menu principal se encargará de seleccionar todo lo que tiene que ver con el usuario
+     * En este menu principal se encargara de seleccionar lo que tiene que ver con los objetos de usuario
      */
 
     public void menuPrincipal() throws SQLException, ClassNotFoundException {
 
         int opcion = 0;
-        // Creo y declaro el objeto, que señala objGestor y objArticulo
+
+        // Creo y declaro el objeto, que senala objGestor y objArticulo
         clsGestor objGestor = new clsGestor();
 
         /**
-         * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los métodos contenidos
+         * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los metodos contenidos
          * en esa clase se pueden hacer las funciones principales.
          */
 
@@ -44,17 +45,17 @@ public class clsMenuOpciones {
 
         do {
 
-            System.out.println("Selecciona el tipo de una opción:");
+            System.out.println("Selecciona el tipo de una opcion:");
             System.out.println("----> 1. Entrar ");
             System.out.println("----> 2. Registrarse");
             System.out.println("----> 3. Visualizar Usuarios");
             System.out.println("----> 4. Salir");
-            System.out.print("Opción:");
+            System.out.print("Opcion:");
             opcion = Utilidades.leerEntero();
 
             /**
-             * La primera opción no está acabada, lo que quiero es que si el usuario se identifica
-             * con un usuario ya existente, puede seguir con los servicios. Aún no he sido capaz de comparar
+             * La primera opcion no esta acabada, lo que quiero es que si el usuario se identifica
+             * con un usuario ya existente, puede seguir con los servicios. Aun no he sido capaz de comparar
              * el nombre de usuario que escribe, con el nombre de usuario ya existente ne el arraylist
              *
              */
@@ -82,7 +83,7 @@ public class clsMenuOpciones {
      * Una vez el usuario se ha registrado se conprueban sus credenciales y se le da la posibilidad a disponer de
      * servicios.
      *
-     * @param objG
+     * @param objG que se le envia el objeto que apunta al gestor.
      */
 
     private void entrarUsuarios(clsGestor objG) throws SQLException, ClassNotFoundException {
@@ -97,35 +98,35 @@ public class clsMenuOpciones {
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
         id = Utilidades.leerCadena();
-        System.out.print("Contraseña: ");
+        System.out.print("Contrasena: ");
         contra = Utilidades.leerCadena();
 
         for (itfProperty usuario : lUsuarios) {
             if (contra.equals(usuario.getPropertyU(USUARIO_CONTRASENA)) & id.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
-                System.out.println("Contraseña correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
-                System.out.println("Tu código de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
+                System.out.println("Contrasena correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
+                System.out.println("Tu codigo de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
-                    System.out.println("----> 1. Alquilar artículos ");
-                    System.out.println("----> 2. Suscripcuón mensual");
+                    System.out.println("----> 1. Alquilar articulos ");
+                    System.out.println("----> 2. Suscripcion mensual");
                     System.out.println("----> 3. Salir");
-                    System.out.print("Opción:");
+                    System.out.print("Opcion:");
                     op = Utilidades.leerEntero();
 
                     if (op == 1) {
 
                         do {
-                            System.out.println("Selecciona el tipo de artículo a reservar: ");
-                            System.out.println("----> 1. Añadir Peliculas");
-                            System.out.println("----> 2. Añadir CD_Musica");
-                            System.out.println("----> 3. Añadir Videojuegos");
+                            System.out.println("Selecciona el tipo de articulo a reservar: ");
+                            System.out.println("----> 1. Anadir Peliculas");
+                            System.out.println("----> 2. Anadir CD_Musica");
+                            System.out.println("----> 3. Anadir Videojuegos");
                             System.out.println("----> 4. Visualizar lista peliculas a reservar");
                             System.out.println("----> 5. Visualizar lista videojuegos a reservar");
                             System.out.println("----> 6. Visualizar lista musica a reservar");
                             System.out.println("----> 7. Visualizar lista todos los articulos disponibles a reservar");
                             System.out.println("----> 8. Salir");
-                            System.out.print("Opción:");
+                            System.out.print("Opcion:");
                             op2 = Utilidades.leerEntero();
 
                             switch (op2) {
@@ -163,22 +164,22 @@ public class clsMenuOpciones {
 
                     } else {
 
-                        System.out.println("Suscripción mensual, todavia no se ha idea como funcionara..");
+                        System.out.println("Suscripcion mensual, todavia no se ha ideado como funcionara..");
                     }
 
                 } while (op != 3);
 
             } else {
-                System.out.println("Contraseña incorrecta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
+                System.out.println("Contrasena incorrecta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
             }
         }
     }
 
     /**
-     * Este método tiene la función de recibir los parámetros del usuario para después introducirlos en un array
+     * Este metodo tiene la funci�n de recibir los parametros del usuario para despues introducirlos en un array
      * en clsUsuario
      *
-     * @param objG
+     * @param objG que se le envia el objeto que apunta al gestor.
      */
 
     private static void altaUsuario(clsGestor objG) {
@@ -189,18 +190,18 @@ public class clsMenuOpciones {
         System.out.println("Introduce tus datos; ");
         System.out.print("Usuario: ");
         id = Utilidades.leerCadena();
-        System.out.print("Contraseña: ");
+        System.out.print("Contrasena: ");
         contra = Utilidades.leerCadena();
 
         objG.anadirUsuario(id, contra);
     }
 
     /**
-     * ésta función sierve para visualizar el usuario y un código aleatorio generado, éste código está
-     * pensado que sirva como etiqueta a la hora de seleccionar artículos. Una manera para saber qué
-     * usuarios tienen disponible la visibilidad de un artículo.
+     * Esta funcion sierve para visualizar el usuario y un codigo aleatorio generado, este codigo esta
+     * pensado que sirva como etiqueta a la hora de seleccionar articulos. Una manera para saber que
+     * usuarios tienen disponible la visibilidad de un articulo.
      *
-     * @param objG
+     * @param objG que se le envia el objeto que apunta al gestor.
      */
     private static void visulizarUsuarios(clsGestor objG) {
 
@@ -216,7 +217,7 @@ public class clsMenuOpciones {
      * altaPelicula, altaVideojuego y altaMusica simplemente recoje los datos para llevarlo a la base de datos
      * etc....
      *
-     * @param objG
+     * @param objG que se le envia el objeto que apunta al gestor.
      */
     private static void altaPelicula(clsGestor objG) {
 
@@ -227,16 +228,16 @@ public class clsMenuOpciones {
         int pegiPelicula = 0;
         int puntuacionPelicula = 0;
 
-        System.out.println("Introduce los datos de la película;");
+        System.out.println("Introduce los datos de la pelicula;");
         System.out.print("precio: ");
         precioP = Utilidades.leerReal();
         System.out.print("Nombre pelicula: ");
         nombreP = Utilidades.leerCadena();
-        System.out.print("duración(min.seg): ");
+        System.out.print("duracion(min.seg): ");
         duracionP = Utilidades.leerReal();
         System.out.print("pegi de la pelicula: ");
         pegiPelicula = Utilidades.leerEntero();
-        System.out.print("puntuación película: ");
+        System.out.print("puntuacion pelicula: ");
         puntuacionPelicula = Utilidades.leerEntero();
 
         objG.anadirPelicula(nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
@@ -257,9 +258,9 @@ public class clsMenuOpciones {
         precioV = Utilidades.leerReal();
         System.out.print("Nombre videojuego: ");
         nombreV = Utilidades.leerCadena();
-        System.out.print("duración(min.seg): ");
+        System.out.print("duracion(min.seg): ");
         duracionV = Utilidades.leerReal();
-        System.out.print("puntuación videojuego: ");
+        System.out.print("puntuacion videojuego: ");
         puntuacionVidejuego = Utilidades.leerEntero();
         System.out.print("pegi videojuego: ");
         pegiVidejuego = Utilidades.leerEntero();
@@ -282,11 +283,11 @@ public class clsMenuOpciones {
         System.out.println("Introduce los datos de la Musica;");
         System.out.print("precio: ");
         precioM = Utilidades.leerReal();
-        System.out.println("Nombre música CD: ");
+        System.out.println("Nombre musica CD: ");
         nombreM = Utilidades.leerCadena();
-        System.out.print("duración(min.seg): ");
+        System.out.print("duracion(min.seg): ");
         duracionM = Utilidades.leerReal();
-        System.out.print("año de salida: ");
+        System.out.print("ano de salida: ");
         anio = Utilidades.leerEntero();
         System.out.print("nombre del artista: ");
         artista = Utilidades.leerCadena();
@@ -311,9 +312,9 @@ public class clsMenuOpciones {
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
             System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
-            System.out.println("Duración Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
             System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
-            System.out.println("Puntuación Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
+            System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
         }
 
@@ -330,8 +331,8 @@ public class clsMenuOpciones {
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
             System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
-            System.out.println("Duración Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
-            System.out.println("Puntuación Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
+            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
+            System.out.println("Puntuacion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
             System.out.println("Pegi Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PEGI));
             System.out.println();
         }
@@ -349,8 +350,8 @@ public class clsMenuOpciones {
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
             System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
-            System.out.println("Duración Musica: " + cd.getPropertyA(MUSICA_DURACION));
-            System.out.println("Año creación: " + cd.getPropertyA(MUSICA_ANIO));
+            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION));
+            System.out.println("Ano creacion: " + cd.getPropertyA(MUSICA_ANIO));
             System.out.println("Artista: " + cd.getPropertyA(MUSICA_ARTISTA));
             System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
@@ -359,11 +360,11 @@ public class clsMenuOpciones {
     }
 
     /**
-     * éste método recorre el ArraylisT que se encuentra en clsGestor donde se encuentran todos los objetos
-     * de tipo artículo. Se ha utilizado una propiedad específica para hacer las llamdas a la infomación
+     * Este metodo recorre el ArraylisT que se encuentra en clsGestor donde se encuentran todos los objetos
+     * de tipo articulo. Se ha utilizado una propiedad especifica para hacer las llamdas a la infomacin
      * que contiene dicho array.
      *
-     * @param objG
+     * @param objG que se le envia el objeto que apunta al gestor.
      */
     public static void visualizarArticulos(clsGestor objG) {
 
