@@ -122,11 +122,12 @@ public class clsMenuOpciones {
                             System.out.println("----> 1. Anadir Peliculas");
                             System.out.println("----> 2. Anadir CD_Musica");
                             System.out.println("----> 3. Anadir Videojuegos");
-                            System.out.println("----> 4. Visualizar lista peliculas a reservar");
-                            System.out.println("----> 5. Visualizar lista videojuegos a reservar");
-                            System.out.println("----> 6. Visualizar lista musica a reservar");
-                            System.out.println("----> 7. Visualizar lista todos los articulos disponibles a reservar");
-                            System.out.println("----> 8. Salir");
+                            System.out.println("----> 4. Visualizar lista peliculas a reservar predeterminada");
+                            System.out.println("----> 5. Visualizar lista peliculas a reservar por puntuacion");
+                            System.out.println("----> 6. Visualizar lista videojuegos a reservar");
+                            System.out.println("----> 7. Visualizar lista musica a reservar");
+                            System.out.println("----> 8. Visualizar lista todos los articulos disponibles a reservar");
+                            System.out.println("----> 9. Salir");
                             System.out.print("Opcion:");
                             op2 = Utilidades.leerEntero();
 
@@ -145,23 +146,25 @@ public class clsMenuOpciones {
                                     visulalizarPeliculas(objG);
                                     break;
                                 case 5:
+                                   visualizarPelisPtos(objG);
+                                case 6:
                                     objG.visualizarNumVideojuegos();
                                     visualizarVidejuegos(objG);
                                     break;
-                                case 6:
+                                case 7:
                                     visualizarMusica(objG);
                                     break;
-                                case 7:
+                                case 8:
                                     objG.visualizarNumCd();
                                     visualizarArticulos(objG);
                                     break;
-                                case 8:
+                                case 9:
                                     System.out.println("Adios");
                                     break;
                             }
                             System.out.println();
 
-                        } while (op2 != 8);
+                        } while (op2 != 9);
 
                     } else {
 
@@ -357,7 +360,6 @@ public class clsMenuOpciones {
             System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
         }
-
     }
 
     /**
@@ -369,14 +371,34 @@ public class clsMenuOpciones {
      */
     public static void visualizarArticulos(clsGestor objG) {
 
-        objG.visualizarNumPeliculas();
+        System.out.println(objG.visualizarNumPeliculas()+" peliculas a reservar");
         visulalizarPeliculas(objG);
 
-        objG.visualizarNumVideojuegos();
+        System.out.println(objG.visualizarNumVideojuegos()+" videjuegos a reservar");
         visualizarVidejuegos(objG);
 
-        objG.visualizarNumCd();
+        System.out.println(objG.visualizarNumCd()+" canciones a reservar");
         visualizarMusica(objG);
 
+    }
+
+    private static void visualizarPelisPtos(clsGestor objG){
+
+        objG.visualizarNumPeliculas();
+        ArrayList<itfProperty> _peliculas = objG.listaPeliculasPuntos();
+
+        System.out.println("PELICULAS-----------------------------");
+        for (itfProperty pelicula : _peliculas) {
+
+            System.out.println("PELICULA");
+            System.out.println();
+            System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
+            System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
+            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
+            System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
+            System.out.println();
+        }
     }
 }

@@ -6,6 +6,7 @@ import com.company.LD.clsDatos;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
@@ -271,19 +272,38 @@ public class clsGestor {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void visualizarNumPeliculas() {
-        System.out.println(listaPeliculas.size() + " peliculas para reservar");
+    public int visualizarNumPeliculas() {
+      return listaPeliculas.size();
     }
 
-    public void visualizarNumVideojuegos() {
-        System.out.println(listaVidejuegos.size() + " videojuego para reservar");
+    public int visualizarNumVideojuegos() {
+        return listaVidejuegos.size();
     }
 
-    public void visualizarNumCd() {
-        System.out.println(listaMusica.size() + " musica para reservar");
+    public int visualizarNumCd() {
+      return listaMusica.size();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<itfProperty> listaPeliculasPuntos(){
+
+        clsPeliculasPtos peliculasPtos = new clsPeliculasPtos();
+        Collections.sort(listaPeliculas, peliculasPtos);
+
+        return leerPeliculasPuntos(listaPeliculas);
+    }
+
+    public ArrayList<itfProperty> leerPeliculasPuntos(ArrayList<clsPeliculas> _listaPeliculas) {
+
+        ArrayList<itfProperty> rPeliculasPuntos = new ArrayList<itfProperty>();
+
+        for (clsPeliculas pelicula : _listaPeliculas) {
+            rPeliculasPuntos.add(pelicula);
+        }
+        return rPeliculasPuntos;
+    }
+
 
 }
 

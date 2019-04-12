@@ -45,7 +45,6 @@ public class clsPeliculasBD {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return _objRS;
     }
 }
