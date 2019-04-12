@@ -11,10 +11,8 @@ import java.io.*;
  */
 public class Utilidades {
     /**
-     * Permite introducir por teclado en la consola un numero entero (32 bits = -2147483648 <-> 2147483648)
-     * realizando las comprobaciones pertienentes.
-     *
-     * @return Devuelve el numero entero que se haya introducido por teclado.
+     * Parametros
+     * @return valor de tipo int
      */
     public static int leerEntero() {
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -33,6 +31,7 @@ public class Utilidades {
             }
         }
         while (error);
+
         return entero.intValue();
     }
 
@@ -63,7 +62,7 @@ public class Utilidades {
     }
 
     /**
-     * Permite introducir por teclado en la consola un caracter (8 bits = -128 <-> 127)
+     * Permite introducir por teclado en la consola un caracter
      * realizando las comprobaciones pertienentes.
      *
      * @return Devuelve el caracter que se haya introducido por teclado.

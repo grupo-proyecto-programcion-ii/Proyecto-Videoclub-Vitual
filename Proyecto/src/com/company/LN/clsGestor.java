@@ -58,8 +58,9 @@ public class clsGestor {
     /**
      * Con este metodo se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist especifica
      * para una lista de usuarios.
+     * @param _id identificador de usuario
+     * @param _contra contrasena de usuario
      */
-
     public void anadirUsuario(String _id, String _contra) {
 
         try {

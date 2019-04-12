@@ -31,8 +31,10 @@ public class clsDatos {
 
     /**
      * Metodo para establecer la conexion, antes se encontraba
-     * en clsConexion
+     *      * en clsConexion
+     * @return objConexion
      * @throws SQLException excepciones
+     * @throws ClassNotFoundException excepciones de clase
      */
     public Connection conectarBD() throws SQLException, ClassNotFoundException {
 

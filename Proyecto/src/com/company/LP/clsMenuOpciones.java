@@ -18,8 +18,9 @@ public class clsMenuOpciones {
 
     /**
      * En este menu principal se encargara de seleccionar lo que tiene que ver con los objetos de usuario
+     * @throws SQLException excepcion de tipo clase SQL
+     * @throws ClassNotFoundException clase exception
      */
-
     public void menuPrincipal() throws SQLException, ClassNotFoundException {
 
         int opcion = 0;

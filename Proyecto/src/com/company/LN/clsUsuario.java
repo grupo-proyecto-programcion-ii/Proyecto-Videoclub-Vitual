@@ -76,34 +76,9 @@ public class clsUsuario implements itfProperty {
         return null;
     }/**
      * Metodos de la clase interfaz itfProperty
-     * @param propiedad objeto de interfaz
+     * @param obj_Propiedad objeto de interfaz
      * @return valores a los atributos
      */
-    @Override
-    public String getStringProperty(String propiedad) {
-        return null;
-    }
-
-    @Override
-    public Integer getIntegerProperty(String propiedad) {
-        return null;
-    }
-
-    @Override
-    public Float getFloatProperty(String propiedad) {
-        return null;
-    }
-
-    @Override
-    public Double getDoubleProperty(String propiedad) {
-        return null;
-    }
-
-    @Override
-    public char getCharProperty(String propiedad) {
-        return 0;
-    }
-
     @Override
     public Object getPropertyA(String obj_Propiedad) {
         return null;
