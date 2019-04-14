@@ -125,9 +125,11 @@ public class clsMenuOpciones {
                             System.out.println("----> 4. Visualizar lista peliculas a reservar predeterminada");
                             System.out.println("----> 5. Visualizar lista peliculas a reservar por puntuacion");
                             System.out.println("----> 6. Visualizar lista videojuegos a reservar");
-                            System.out.println("----> 7. Visualizar lista musica a reservar");
-                            System.out.println("----> 8. Visualizar lista todos los articulos disponibles a reservar");
-                            System.out.println("----> 9. Salir");
+                            System.out.println("----> 7. Visualizar lista videojuegos a reservar por puntuacion");
+                            System.out.println("----> 8. Visualizar lista musica a reservar");
+                            System.out.println("----> 9. Visualizar lista musica a reservar por anio");
+                            System.out.println("----> 10. Visualizar lista todos los articulos disponibles a reservar");
+                            System.out.println("----> 11. Salir");
                             System.out.print("Opcion:");
                             op2 = Utilidades.leerEntero();
 
@@ -147,24 +149,31 @@ public class clsMenuOpciones {
                                     break;
                                 case 5:
                                    visualizarPelisPtos(objG);
+                                   break;
                                 case 6:
                                     objG.visualizarNumVideojuegos();
                                     visualizarVidejuegos(objG);
                                     break;
                                 case 7:
-                                    visualizarMusica(objG);
+                                    visualizarVideojuegosPtos(objG);
                                     break;
                                 case 8:
+                                    visualizarMusica(objG);
+                                    break;
+                                case 9:
+                                    visualizarMusicaAnio(objG);
+                                    break;
+                                case 10:
                                     objG.visualizarNumCd();
                                     visualizarArticulos(objG);
                                     break;
-                                case 9:
+                                case 11:
                                     System.out.println("Adios");
                                     break;
                             }
                             System.out.println();
 
-                        } while (op2 != 9);
+                        } while (op2 != 11);
 
                     } else {
 
@@ -382,6 +391,12 @@ public class clsMenuOpciones {
 
     }
 
+
+    /**
+     * Metodos para mostrar los articulos con metodos de ordenacion dependiendo
+     * puntuacion o anio segun el caso
+     * @param objG objeto que apunta a clsGestor para hacer la llamada a los metodos necesarios
+     */
     private static void visualizarPelisPtos(clsGestor objG){
 
         objG.visualizarNumPeliculas();
@@ -398,6 +413,48 @@ public class clsMenuOpciones {
             System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
             System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
             System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
+            System.out.println();
+        }
+    }
+
+
+    private static void visualizarVideojuegosPtos(clsGestor objG){
+
+        objG.visualizarNumVideojuegos();
+        ArrayList<itfProperty> _videojuegos = objG.listaVideojuegosPuntos();
+
+        System.out.println("VIDEOJUEGOS-----------------------------");
+        for (itfProperty videjuego : _videojuegos) {
+            System.out.println("VIDEOJUEGO");
+            System.out.println();
+            System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
+            System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
+            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
+            System.out.println("Puntuacion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
+            System.out.println("Pegi Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PEGI));
+            System.out.println();
+        }
+
+
+    }
+
+    private static void visualizarMusicaAnio (clsGestor objG){
+
+        objG.visualizarNumCd();
+        ArrayList<itfProperty> _musicas = objG.listaMusicaAnio();
+
+        System.out.println("MUSICAS-----------------------------");
+        for (itfProperty cd : _musicas) {
+            System.out.println("MUSICA");
+            System.out.println();
+            System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
+            System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
+            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
+            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION));
+            System.out.println("Ano creacion: " + cd.getPropertyA(MUSICA_ANIO));
+            System.out.println("Artista: " + cd.getPropertyA(MUSICA_ARTISTA));
+            System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
         }
     }

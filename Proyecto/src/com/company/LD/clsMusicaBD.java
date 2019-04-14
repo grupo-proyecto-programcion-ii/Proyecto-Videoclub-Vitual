@@ -7,7 +7,21 @@ import java.sql.SQLException;
 
 import static com.company.LD.clsConstantesBD.*;
 
+/**
+ * Clase para insertar parametros en la base de datos y consultar los mismos de articulos musica
+ */
+
 public class clsMusicaBD {
+
+    /**
+     * Metedo para insertar parametros de en la base de datos
+     * @param objCon objeto de la conexion
+     * @param objStat objeto de los statments
+     * @param objRS objeto los resultados
+     * @param parametrosMusica parametros propio de la clase musica
+     * @return codigo id de musica ascendente
+     * @throws SQLException excepcion propia
+     */
 
     public static int insertarMusica(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosMusica) throws SQLException {
 
@@ -35,6 +49,13 @@ public class clsMusicaBD {
         return idM;
     }
 
+    /**
+     * Metodo para consultar datos, obtenerlos. Parametros de clase musica
+     * @param _objCon objeto de la conexion
+     * @param _objStat objeto de los statments
+     * @param _objRS objeto los resultados
+     * @return resulset
+     */
     public static ResultSet consultaMusica(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS) {
 
         try {

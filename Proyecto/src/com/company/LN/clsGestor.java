@@ -198,6 +198,11 @@ public class clsGestor {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Metodos para actualizar cargar actualizar los ArrayList obteniendo los datos de la base de datos
+     * para que se inicien datos una vez se comienza el programa
+     */
     public void cargarPeliculas(){
 
         int codigoConsulta = 1; // 1 para hacer select de peliculas
@@ -272,6 +277,11 @@ public class clsGestor {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Metodos para visualizar el numero de articulos en la logica de presentacion
+     * @return numero de peliculas, videojuegos y cds
+     */
+
     public int visualizarNumPeliculas() {
       return listaPeliculas.size();
     }
@@ -286,6 +296,10 @@ public class clsGestor {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Metodos para ordenar y leer los datos para la logica de presentacion
+     * @return ArrayLists de los datos ordenados
+     */
     public ArrayList<itfProperty> listaPeliculasPuntos(){
 
         clsPeliculasPtos peliculasPtos = new clsPeliculasPtos();
@@ -304,6 +318,47 @@ public class clsGestor {
         return rPeliculasPuntos;
     }
 
+
+
+
+    public ArrayList<itfProperty> listaVideojuegosPuntos(){
+
+        clsVideojuegosPtos videojuegosPtos = new clsVideojuegosPtos();
+        Collections.sort(listaVidejuegos, videojuegosPtos);
+
+        return leerVideojuegosPuntos(listaVidejuegos);
+    }
+
+    public ArrayList<itfProperty> leerVideojuegosPuntos(ArrayList<clsVideojuegos> _listaVideojuegos){
+
+        ArrayList<itfProperty> rVideojuegosPuntos = new ArrayList<itfProperty>();
+
+        for (clsVideojuegos vidojuego : _listaVideojuegos) {
+            rVideojuegosPuntos.add(vidojuego);
+        }return rVideojuegosPuntos;
+    }
+
+
+
+
+
+    public ArrayList<itfProperty> listaMusicaAnio (){
+
+        clsMusicaAnio musicaAnio = new clsMusicaAnio();
+        Collections.sort(listaMusica, musicaAnio);
+
+        return leerMusicaAnios(listaMusica);
+    }
+
+    public ArrayList<itfProperty> leerMusicaAnios(ArrayList<clsMusica_CD> _listaMusica) {
+
+        ArrayList<itfProperty> rMusicaAnios = new ArrayList<itfProperty>();
+
+        for (clsMusica_CD musica_cd : _listaMusica){
+            rMusicaAnios.add(musica_cd);
+        }
+        return rMusicaAnios;
+    }
 
 }
 

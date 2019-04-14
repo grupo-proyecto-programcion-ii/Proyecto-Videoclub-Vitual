@@ -84,4 +84,11 @@ public class clsUsuario implements itfProperty {
         return null;
     }
 
+
+    /**
+    @Override
+    public int compareTo(clsUsuario _objUsuario) {
+        return _objUsuario.codigoAleatoria.compareTo(this.codigoAleatoria);
+    }
+    */
 }

@@ -1,5 +1,9 @@
 package com.company.COMUN;
 
+
+/**
+ * Constantes de todas las carpetas en comun que abarca usuario y sus articulos
+ */
 public class clsConstantes {
 
     public static final String USUARIO_CODIGO_ID = "CodigoAleatoria";

@@ -61,6 +61,15 @@ public class clsDatos {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Metodos para insertar datos de cada articulo al mismo tiempo que se obtiene su id (primary key)
+     * que es autoincremental
+     * @param identificador artributo de nombre de usuario
+     * @param contrasena atributo de contrasena de usuario
+     * @return entrero
+     * @throws Exception propia de SQL
+     */
+
     public int insertarCodigoUsuario(String identificador,String contrasena ) throws Exception {
         Object[] parametrosUsuario = {identificador, contrasena};
         return clsUsuarioBD.insertarUsuario(objConexion, objStatements, objRS, parametrosUsuario);
@@ -81,6 +90,13 @@ public class clsDatos {
         return clsMusicaBD.insertarMusica(objConexion, objStatements, objRS, parametrosMusica);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Metodo para Resulset, obtener los parametros de las diferentes clases, se filtra para cargar los que se desea
+     * con un codigo propio
+     * @param _codigoConsulta entrero propio de cada clase
+     * @return String de parametros de base de datos
+     */
 
     public ResultSet dameParametros(int _codigoConsulta){
 
