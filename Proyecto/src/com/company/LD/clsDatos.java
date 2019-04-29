@@ -2,8 +2,9 @@ package com.company.LD;
 
 
 import java.sql.*;
+import java.util.Date;
 
-import static com.company.COMUN.clsConstantes.MENSAJE_ERROR;
+
 import static com.company.LD.clsConstantesBD.*;
 
 /**
@@ -75,18 +76,18 @@ public class clsDatos {
         return clsUsuarioBD.insertarUsuario(objConexion, objStatements, objRS, parametrosUsuario);
     }
 
-    public int insertarIdPelicula(String nombreP, double precioP, double duracionP, int pegiPelicula, int puntuacionPelicula) throws SQLException {
-        Object[] parametrosPeliculas = {nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula};
+    public int insertarIdPelicula(Date fechaSP, String nombreP, double precioP, double duracionP, int pegiPelicula, int puntuacionPelicula) throws SQLException {
+        Object[] parametrosPeliculas = {fechaSP, nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula};
         return clsPeliculasBD.insertarPelicula(objConexion, objStatements, objRS, parametrosPeliculas);
     }
 
-    public int insertarIdVidejuego(String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
-        Object[] parametrosVideojuegos = {nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego};
+    public int insertarIdVidejuego(Date fechaSV, String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
+        Object[] parametrosVideojuegos = {fechaSV, nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego};
         return clsVideojuegosBD.insertarVieojuego(objConexion, objStatements, objRS, parametrosVideojuegos);
     }
 
-    public int insertarIdMusica(String nombreM, double precioM, double duracionM, int anio, String artista, String explicito) throws SQLException {
-        Object[] parametrosMusica ={nombreM, precioM, duracionM, anio, artista, explicito};
+    public int insertarIdMusica(Date fechaSM, String nombreM, double precioM, double duracionM, int anio, String artista, String explicito) throws SQLException {
+        Object[] parametrosMusica ={fechaSM, nombreM, precioM, duracionM, anio, artista, explicito};
         return clsMusicaBD.insertarMusica(objConexion, objStatements, objRS, parametrosMusica);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

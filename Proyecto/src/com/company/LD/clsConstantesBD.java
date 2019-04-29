@@ -19,13 +19,13 @@ public class clsConstantesBD {
     public static final String INSERT_USUARIO = "INSERT INTO usuarios (identificador,contrasena)VALUES(?,?)";
     public static final String SELECT_USUARIOS = "SELECT * FROM videoclub.usuarios";
 
-    public static final String INSERT_PELICULA = "INSERT INTO peliculas (nombre,precio,duracion,pegiP,puntuacionP)VALUES(?,?,?,?,?)";
+    public static final String INSERT_PELICULA = "INSERT INTO peliculas (fechaDevP,nombre,precio,duracion,pegiP,puntuacionP)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_PELICULAS = "SELECT * FROM videoclub.peliculas";
 
-    public static final String INSERT_VIDEOJUEGO = "INSERT INTO videojuegos (nombre,precio,duracion,puntuacionV,pegiVidejuegos)VALUES(?,?,?,?,?)";
+    public static final String INSERT_VIDEOJUEGO = "INSERT INTO videojuegos (fechaDevV,nombre,precio,duracion,puntuacionV,pegiVidejuegos)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_VIDEOJUEGOS = "SELECT * FROM videoclub.videojuegos";
 
-    public static final String INSERT_MUSICA = "INSERT INTO Música CD (nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?)";
+    public static final String INSERT_MUSICA = "INSERT INTO musica (fechaDevM,nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?,?)";
     public static final String SELECT_MUSICA = "SELECT * FROM videoclub.musica";
 }
 

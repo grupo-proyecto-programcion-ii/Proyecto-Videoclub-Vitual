@@ -1,9 +1,8 @@
 package com.company.LD;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import static com.company.LD.clsConstantesBD.INSERT_PELICULA;
 import static com.company.LD.clsConstantesBD.SELECT_PELICULAS;
@@ -29,12 +28,35 @@ public class clsPeliculasBD {
 
         objStat = objCon.prepareStatement(INSERT_PELICULA, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStat.setString(1,(String) parametrosPeliculas [0]); //nombre
-        objStat.setDouble(2, (Double) parametrosPeliculas [1]);//precio
-        objStat.setDouble(3, (Double) parametrosPeliculas [2]);//duración
-        objStat.setInt(4, (Integer) parametrosPeliculas [3]);//pegi
-        objStat.setInt(5, (Integer) parametrosPeliculas [4]);//puntuación
+/**
+        objStat.setDate(1, (java.util.Date) parametrosPeliculas [0]); //fecha salida
+        objStat.setString(2,(String) parametrosPeliculas [1]); //nombre
+        objStat.setDouble(3, (Double) parametrosPeliculas [2]);//precio
+        objStat.setDouble(4, (Double) parametrosPeliculas [3]);//duración
+        objStat.setInt(5, (Integer) parametrosPeliculas [4]);//pegi
+        objStat.setInt(6, (Integer) parametrosPeliculas [5]);//puntuación
         regActualizada = objStat.executeUpdate();
+
+ */
+
+        for (int i = 0; i < parametrosPeliculas.length; i++) {
+            int j = i + 1;
+            if (parametrosPeliculas[i] instanceof String) {
+                objStat.setString(j, (String) parametrosPeliculas[i]);
+            } else if (parametrosPeliculas[i] instanceof Integer) {
+                objStat.setInt(j, (Integer) parametrosPeliculas[i]);
+            } else if (parametrosPeliculas[i] instanceof Double) {
+                objStat.setDouble(j, (Double) parametrosPeliculas[i]);
+            } else if (parametrosPeliculas[i] instanceof java.util.Date) {
+                java.util.Date date = (java.util.Date) parametrosPeliculas[i];
+                LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                int month = localDate.getMonthValue();
+                int day = localDate.getDayOfMonth();
+                int year = localDate.getYear();
+                java.sql.Date fechabd = new java.sql.Date(year, month, day);
+                objStat.setDate(j, fechabd);
+            }
+        }
 
         if (regActualizada == 1) {
 
@@ -47,7 +69,6 @@ public class clsPeliculasBD {
         }
         return idP;
     }
-
     /**
      * Metodo para consultar datos, obtenerlos. Parametros de clase clsPelicula
      * @param _objCon objeto de la conexion

@@ -11,13 +11,16 @@ public class clsConstantes {
     public static final String USUARIO_CONTRASENA = "Contrasena";
 
     public static final String PELICULA_CODIGO_ID = "id";
+    public static final String PELICULA_FECHA_DEV = "FechaDev";
     public static final String PELICULA_NOMBRE = "Nombre";
     public static final String PELICULA_PRECIO = "Precio";
     public static final String PELICULA_DURACION = "Duracion";
     public static final String PELICULA_PEGI = "PegiP";
     public static final String PELICULA_PUNTUACION = "PuntuacionP";
 
+
     public static final String VIDEJUEGO_ID = "id";
+    public static final String VIDEOJUEGO_FECHA_DEV = "FechaDev";
     public static final String VIDEOJUEGO_NOMBRE = "Nombre";
     public static final String VIDEOJUEGO_PRECIO = "Precio";
     public static final String VIDEOJUEGO_DURACION = "Duracion";
@@ -25,6 +28,7 @@ public class clsConstantes {
     public static final String VIDEOJUEGO_PEGI = "PegiVideojuegos";
 
     public static final String MUSICA_ID = "id";
+    public static final String MUSICA_FECHA_DEV = "FechaDev";
     public static final String MUSICA_NOMBRE = "Nombre";
     public static final String MUSICA_PRECIO = "Precio";
     public static final String MUSICA_DURACION = "Duracion";

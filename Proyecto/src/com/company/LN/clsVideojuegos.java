@@ -1,5 +1,6 @@
 package com.company.LN;
 
+import java.util.Date;
 import static com.company.COMUN.clsConstantes.*;
 
 /**
@@ -32,21 +33,21 @@ public class clsVideojuegos extends clsArticulo {
 
     /**
      * Contructor de clsVidejuegos que hereda 4 atributos de clsArticulo.
-     * @param _idPelicula atributo
+     * @param _idVidejuego atributo
      * @param _nombreV atributo
-     * @param _precioP atributo
-     * @param _duracionP atributo
+     * @param _precioV atributo
+     * @param _duracionV atributo
      * @param puntuacionV atributo
      * @param pegiVideojuegos atributo
      */
-    public clsVideojuegos(int _idPelicula, String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
+    public clsVideojuegos(int _idVidejuego, Date _fechaDevV, String _nombreV, double _precioV, double _duracionV, int puntuacionV, int pegiVideojuegos) {
 
-        super(_idPelicula,_nombreV,  _precioP, _duracionP);
+        super(_idVidejuego, _fechaDevV,_nombreV,  _precioV, _duracionV);
         this.puntuacionV = puntuacionV;
         this.pegiVideojuegos = pegiVideojuegos;
     }
 
-    public clsVideojuegos(String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
+    public clsVideojuegos(Date _fechaSV, String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
 
         super(_nombreV,  _precioP, _duracionP);
         this.puntuacionV = puntuacionV;
@@ -64,6 +65,8 @@ public class clsVideojuegos extends clsArticulo {
         switch (obj_Propiedad){
             case VIDEJUEGO_ID:
                 return this.getId();
+            case VIDEOJUEGO_FECHA_DEV:
+                return this.getFechaDev();
             case VIDEOJUEGO_NOMBRE:
                 return this.getNombre();
             case VIDEOJUEGO_PRECIO:

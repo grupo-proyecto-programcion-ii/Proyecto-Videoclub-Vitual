@@ -1,5 +1,6 @@
 package com.company.LN;
 
+import java.util.Date;
 import static com.company.COMUN.clsConstantes.*;
 
 
@@ -40,15 +41,16 @@ public class clsPeliculas extends clsArticulo {
      * @param _pegiPelicula atributo
      * @param _puntuacionPelicula atributo
      */
-    public clsPeliculas(int _idPelicula, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
-        super(_idPelicula,_nombreP,  _precioP, _duracionP);
+    public clsPeliculas(int _idPelicula,Date _fechaDevP , String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
+
+        super(_idPelicula, _fechaDevP,_nombreP,  _precioP, _duracionP);
         this.pegiP = _pegiPelicula;
         this.puntuacionP = _puntuacionPelicula;
     }
 
 
-    public clsPeliculas(String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
+    public clsPeliculas(Date _fechaS, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
         super(_nombreP,  _precioP, _duracionP);
         this.pegiP = _pegiPelicula;
@@ -66,6 +68,8 @@ public class clsPeliculas extends clsArticulo {
         switch (obj_Propiedad){
             case PELICULA_CODIGO_ID:
                 return this.getId();
+            case PELICULA_FECHA_DEV:
+                return this.getFechaDev();
             case PELICULA_NOMBRE:
                 return this.getNombre();
             case PELICULA_PRECIO:

@@ -1,9 +1,6 @@
 package com.company.LD;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import static com.company.LD.clsConstantesBD.*;
 
@@ -30,12 +27,13 @@ public class clsMusicaBD {
 
         objStat = objCon.prepareStatement(INSERT_MUSICA, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStat.setString(1, (String) parametrosMusica[0]); //nombre
-        objStat.setDouble(2, (Integer) parametrosMusica[1]);//precio
-        objStat.setDouble(3, (Double) parametrosMusica[2]);//duración
-        objStat.setString(4, (String) parametrosMusica[3]);//artistas
-        objStat.setInt(5, (Integer) parametrosMusica[4]);//año
-        objStat.setString(5, (String) parametrosMusica[4]);//explicito
+        objStat.setDate(1, (Date) parametrosMusica [0]); //fecha salida
+        objStat.setString(2, (String) parametrosMusica[1]); //nombre
+        objStat.setDouble(3, (Integer) parametrosMusica[2]);//precio
+        objStat.setDouble(4, (Double) parametrosMusica[3]);//duración
+        objStat.setString(5, (String) parametrosMusica[4]);//artistas
+        objStat.setInt(6, (Integer) parametrosMusica[5]);//año
+        objStat.setString(7, (String) parametrosMusica[6]);//explicito
         regActualizada = objStat.executeUpdate();
 
         if (regActualizada == 1) {

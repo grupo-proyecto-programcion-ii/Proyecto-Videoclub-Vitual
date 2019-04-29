@@ -2,6 +2,8 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 
+import java.util.Date;
+
 /**
  * Todas las clases de objetos reciben Herencia de la clase clsArticulo, ya que todos
  * tienen los mismos atributos en comun.
@@ -10,16 +12,19 @@ import com.company.COMUN.itfProperty;
 public abstract class clsArticulo implements itfProperty {
 
     private int id;
+    private Date fechaDev;
     private String nombre;
     private double precio;
     private double duracion;
 
-    public clsArticulo(int id, String nombre, double precio, double duracion) {
+    public clsArticulo(int id, Date fechaDev, String nombre, double precio, double duracion) {
 
         this.id = id;
+        this.fechaDev = fechaDev;
         this.nombre = nombre;
         this.precio = precio;
         this.duracion = duracion;
+
     }
 
     public clsArticulo(String nombreP, double precioP, double duracionP) {
@@ -57,5 +62,13 @@ public abstract class clsArticulo implements itfProperty {
 
     public void setDuracion(double duracion) {
         this.duracion = duracion;
+    }
+
+    public Date getFechaDev() {
+        return fechaDev;
+    }
+
+    public void setFechaDev(Date fechaDev) {
+        this.fechaDev = fechaDev;
     }
 }

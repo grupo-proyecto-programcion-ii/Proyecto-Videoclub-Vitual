@@ -4,7 +4,10 @@ import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
 
@@ -40,9 +43,9 @@ public class clsMenuOpciones {
         System.out.println("Cargando datos.....");
 
         objGestor.cargarUsuarios();
-        objGestor.cargarPeliculas();
-        objGestor.cargarVideojuegos();
-        objGestor.cargarMusica();
+        //objGestor.cargarPeliculas();
+        //objGestor.cargarVideojuegos();
+        //objGestor.cargarMusica();
 
         do {
 
@@ -195,7 +198,7 @@ public class clsMenuOpciones {
      * @param objG que se le envia el objeto que apunta al gestor.
      */
 
-    private static void altaUsuario(clsGestor objG) {
+    private void altaUsuario(clsGestor objG) {
 
         String id;
         String contra;
@@ -216,7 +219,7 @@ public class clsMenuOpciones {
      *
      * @param objG que se le envia el objeto que apunta al gestor.
      */
-    private static void visulizarUsuarios(clsGestor objG) {
+    private void visulizarUsuarios(clsGestor objG) {
 
         ArrayList<itfProperty> usuarios = objG.leerUsuarios();
 
@@ -232,7 +235,7 @@ public class clsMenuOpciones {
      *
      * @param objG que se le envia el objeto que apunta al gestor.
      */
-    private static void altaPelicula(clsGestor objG) {
+    private void altaPelicula(clsGestor objG) {
 
         String nombreP = null;
         double precioP = 0;
@@ -240,24 +243,34 @@ public class clsMenuOpciones {
 
         int pegiPelicula = 0;
         int puntuacionPelicula = 0;
+        Date fechaS = null;
 
-        System.out.println("Introduce los datos de la pelicula;");
-        System.out.print("precio: ");
-        precioP = Utilidades.leerReal();
-        System.out.print("Nombre pelicula: ");
-        nombreP = Utilidades.leerCadena();
-        System.out.print("duracion(min.seg): ");
-        duracionP = Utilidades.leerReal();
-        System.out.print("pegi de la pelicula: ");
-        pegiPelicula = Utilidades.leerEntero();
-        System.out.print("puntuacion pelicula: ");
-        puntuacionPelicula = Utilidades.leerEntero();
+        try {
+            System.out.println("Introduce los datos de la pelicula;");
+            System.out.print("Fecha de salida dd/MM/yyyy: ");
+            String fechaSalida = Utilidades.leerCadena();
+            fechaS = new SimpleDateFormat("dd/MM/yyyy").parse(fechaSalida);
+            System.out.print("precio: ");
+            precioP = Utilidades.leerReal();
+            System.out.print("Nombre pelicula: ");
+            nombreP = Utilidades.leerCadena();
+            System.out.print("duracion(min.seg): ");
+            duracionP = Utilidades.leerReal();
+            System.out.print("pegi de la pelicula: ");
+            pegiPelicula = Utilidades.leerEntero();
+            System.out.print("puntuacion pelicula: ");
+            puntuacionPelicula = Utilidades.leerEntero();
+            //Date fechaHoy = new Date("dd/MM/yyyy");
 
-        objG.anadirPelicula(nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        objG.anadirPelicula(fechaS, nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
 
     }
 
-    public static void altaVideojuego(clsGestor objG) throws SQLException, ClassNotFoundException {
+    public void altaVideojuego(clsGestor objG) throws SQLException, ClassNotFoundException {
 
         String nombreV = null;
         double precioV = 0;
@@ -267,6 +280,9 @@ public class clsMenuOpciones {
         int pegiVidejuego = 0;
 
         System.out.println("Introduce los datos del Videojuego;");
+        System.out.print("Fecha de salida(yyyy/MM/dd: ");
+        String fechaSalida = Utilidades.leerCadena();
+        Date fechaS = new Date(fechaSalida);
         System.out.print("precio: ");
         precioV = Utilidades.leerReal();
         System.out.print("Nombre videojuego: ");
@@ -277,13 +293,13 @@ public class clsMenuOpciones {
         puntuacionVidejuego = Utilidades.leerEntero();
         System.out.print("pegi videojuego: ");
         pegiVidejuego = Utilidades.leerEntero();
+        //Date fechaHoy = new Date("dd/MM/yyyy");
 
-        objG.anadirVideojuego(nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
+        objG.anadirVideojuego(fechaS ,nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
 
     }
 
-    public static void altaMusica_CD(clsGestor objG) throws SQLException, ClassNotFoundException {
-
+    public void altaMusica_CD(clsGestor objG) throws SQLException, ClassNotFoundException {
 
         String nombreM = null;
         double precioM = 0;
@@ -294,6 +310,9 @@ public class clsMenuOpciones {
         String explicito = null;
 
         System.out.println("Introduce los datos de la Musica;");
+        System.out.print("Fecha de salida(yyyy/MM/dd: ");
+        String fechaSalida = Utilidades.leerCadena();
+        Date fechaS = new Date(fechaSalida);
         System.out.print("precio: ");
         precioM = Utilidades.leerReal();
         System.out.println("Nombre musica CD: ");
@@ -307,12 +326,12 @@ public class clsMenuOpciones {
         System.out.print("explicito o estudio: ");
         explicito = Utilidades.leerCadena();
 
-        objG.anadirMusica_CD(nombreM, precioM, duracionM, anio, artista, explicito);
+        objG.anadirMusica_CD(fechaS ,nombreM, precioM, duracionM, anio, artista, explicito);
 
     }
 
 
-    public static void visulalizarPeliculas(clsGestor objG) {
+    public void visulalizarPeliculas(clsGestor objG) {
 
         objG.visualizarNumPeliculas();
         ArrayList<itfProperty> peliculas = objG.leerPeliculas();
@@ -322,6 +341,7 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA");
             System.out.println();
+            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_DEV));
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
             System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
@@ -330,10 +350,9 @@ public class clsMenuOpciones {
             System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
         }
-
     }
 
-    public static void visualizarVidejuegos(clsGestor objG) {
+    public void visualizarVidejuegos(clsGestor objG) {
 
         ArrayList<itfProperty> videojuegos = objG.leerVideojuegos();
 
@@ -341,6 +360,7 @@ public class clsMenuOpciones {
         for (itfProperty videjuego : videojuegos) {
             System.out.println("VIDEOJUEGO");
             System.out.println();
+            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_DEV));
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
             System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
@@ -352,7 +372,7 @@ public class clsMenuOpciones {
 
     }
 
-    public static void visualizarMusica(clsGestor objG) {
+    public void visualizarMusica(clsGestor objG) {
 
         ArrayList<itfProperty> musicas = objG.leerMusica();
 
@@ -360,6 +380,7 @@ public class clsMenuOpciones {
         for (itfProperty cd : musicas) {
             System.out.println("MUSICA");
             System.out.println();
+            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_DEV));
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
             System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
@@ -378,7 +399,7 @@ public class clsMenuOpciones {
      *
      * @param objG que se le envia el objeto que apunta al gestor.
      */
-    public static void visualizarArticulos(clsGestor objG) {
+    public void visualizarArticulos(clsGestor objG) {
 
         System.out.println(objG.visualizarNumPeliculas()+" peliculas a reservar");
         visulalizarPeliculas(objG);

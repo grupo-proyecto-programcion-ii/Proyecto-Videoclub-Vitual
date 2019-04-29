@@ -1,9 +1,6 @@
 package com.company.LD;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import static com.company.LD.clsConstantesBD.*;
 
@@ -28,11 +25,12 @@ public class clsVideojuegosBD {
 
        objStat = objCon.prepareStatement(INSERT_VIDEOJUEGO, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStat.setString(1, (String) parametrosVideojuegos[0]); //nombre
-        objStat.setDouble(2, (Integer) parametrosVideojuegos[1]);//precio
-        objStat.setDouble(3, (Double) parametrosVideojuegos[2]);//duración
-        objStat.setInt(4, (Integer) parametrosVideojuegos[3]);//puntuación
-        objStat.setInt(5, (Integer) parametrosVideojuegos[4]);//pegi
+        objStat.setDate(1, (Date) parametrosVideojuegos [0]); //fecha salida
+        objStat.setString(2, (String) parametrosVideojuegos[1]); //nombre
+        objStat.setDouble(3, (Integer) parametrosVideojuegos[2]);//precio
+        objStat.setDouble(4, (Double) parametrosVideojuegos[3]);//duración
+        objStat.setInt(5, (Integer) parametrosVideojuegos[4]);//puntuación
+        objStat.setInt(6, (Integer) parametrosVideojuegos[5]);//pegi
         regActualizada = objStat.executeUpdate();
 
         if (regActualizada == 1) {
