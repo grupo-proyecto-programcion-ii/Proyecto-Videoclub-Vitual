@@ -278,22 +278,29 @@ public class clsMenuOpciones {
 
         int puntuacionVidejuego = 0;
         int pegiVidejuego = 0;
+        Date fechaS = null;
 
-        System.out.println("Introduce los datos del Videojuego;");
-        System.out.print("Fecha de salida(yyyy/MM/dd: ");
-        String fechaSalida = Utilidades.leerCadena();
-        Date fechaS = new Date(fechaSalida);
-        System.out.print("precio: ");
-        precioV = Utilidades.leerReal();
-        System.out.print("Nombre videojuego: ");
-        nombreV = Utilidades.leerCadena();
-        System.out.print("duracion(min.seg): ");
-        duracionV = Utilidades.leerReal();
-        System.out.print("puntuacion videojuego: ");
-        puntuacionVidejuego = Utilidades.leerEntero();
-        System.out.print("pegi videojuego: ");
-        pegiVidejuego = Utilidades.leerEntero();
-        //Date fechaHoy = new Date("dd/MM/yyyy");
+        try {
+
+            System.out.println("Introduce los datos del Videojuego;");
+            System.out.print("Fecha de salida dd/MM/yyyy: ");
+            String fechaSalida = Utilidades.leerCadena();
+            fechaS = new SimpleDateFormat("dd/MM/yyyy").parse(fechaSalida);
+            System.out.print("precio: ");
+            precioV = Utilidades.leerReal();
+            System.out.print("Nombre videojuego: ");
+            nombreV = Utilidades.leerCadena();
+            System.out.print("duracion(min.seg): ");
+            duracionV = Utilidades.leerReal();
+            System.out.print("puntuacion videojuego: ");
+            puntuacionVidejuego = Utilidades.leerEntero();
+            System.out.print("pegi videojuego: ");
+            pegiVidejuego = Utilidades.leerEntero();
+            //Date fechaHoy = new Date("dd/MM/yyyy");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         objG.anadirVideojuego(fechaS ,nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego);
 
@@ -308,23 +315,29 @@ public class clsMenuOpciones {
         int anio = 0;
         String artista = null;
         String explicito = null;
+        Date fechaS = null;
 
-        System.out.println("Introduce los datos de la Musica;");
-        System.out.print("Fecha de salida(yyyy/MM/dd: ");
-        String fechaSalida = Utilidades.leerCadena();
-        Date fechaS = new Date(fechaSalida);
-        System.out.print("precio: ");
-        precioM = Utilidades.leerReal();
-        System.out.println("Nombre musica CD: ");
-        nombreM = Utilidades.leerCadena();
-        System.out.print("duracion(min.seg): ");
-        duracionM = Utilidades.leerReal();
-        System.out.print("ano de salida: ");
-        anio = Utilidades.leerEntero();
-        System.out.print("nombre del artista: ");
-        artista = Utilidades.leerCadena();
-        System.out.print("explicito o estudio: ");
-        explicito = Utilidades.leerCadena();
+        try {
+            System.out.println("Introduce los datos de la Musica;");
+            System.out.print("Fecha de salida dd/MM/yyyy: ");
+            String fechaSalida = Utilidades.leerCadena();
+            fechaS = new SimpleDateFormat("dd/MM/yyyy").parse(fechaSalida);
+            System.out.print("precio: ");
+            System.out.print("precio: ");
+            precioM = Utilidades.leerReal();
+            System.out.println("Nombre musica CD: ");
+            nombreM = Utilidades.leerCadena();
+            System.out.print("duracion(min.seg): ");
+            duracionM = Utilidades.leerReal();
+            System.out.print("ano de salida: ");
+            anio = Utilidades.leerEntero();
+            System.out.print("nombre del artista: ");
+            artista = Utilidades.leerCadena();
+            System.out.print("explicito o estudio: ");
+            explicito = Utilidades.leerCadena();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         objG.anadirMusica_CD(fechaS ,nombreM, precioM, duracionM, anio, artista, explicito);
 

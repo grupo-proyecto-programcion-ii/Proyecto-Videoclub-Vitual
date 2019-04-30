@@ -19,7 +19,7 @@ import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
 public class clsGestor {
     /**
-     * Instancia y declaracion de dos ArrayList que guardarzn objetos. Uno guardara los objetos de usuarios
+     * Instancia y declaracion de dos ArrayList que guardaran objetos. Uno guardara los objetos de usuarios
      * y el otro articulos.
      */
     private ArrayList<clsUsuario> listaUsuarios = new ArrayList<>();

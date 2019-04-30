@@ -63,7 +63,7 @@ public class clsMusica_CD extends clsArticulo {
 
     public clsMusica_CD(Date _fechaSM, String _nombreM, double _precioP, double _duracionP, int _anio, String _artistas, String _explicito) {
 
-        super(_nombreM, _precioP, _duracionP);
+        super(_fechaSM ,_nombreM, _precioP, _duracionP);
         this.anio = _anio;
         this.artistas = _artistas;
         this.explicito = _explicito;

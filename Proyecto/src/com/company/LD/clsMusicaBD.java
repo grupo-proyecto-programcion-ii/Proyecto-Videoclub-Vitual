@@ -1,6 +1,8 @@
 package com.company.LD;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import static com.company.LD.clsConstantesBD.*;
 
@@ -27,7 +29,15 @@ public class clsMusicaBD {
 
         objStat = objCon.prepareStatement(INSERT_MUSICA, PreparedStatement.RETURN_GENERATED_KEYS);
 
-        objStat.setDate(1, (Date) parametrosMusica [0]); //fecha salida
+
+        java.util.Date fechaS = (java.util.Date) parametrosMusica[0];
+        LocalDate localDate = fechaS.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int dia = localDate.getDayOfMonth();
+        int mes = localDate.getMonthValue();
+        int anio = localDate.getYear();
+        java.sql.Date fechasql = new java.sql.Date(anio, mes, dia); //Orden permitido por SQL
+
+        objStat.setDate(1, fechasql); //fecha salida
         objStat.setString(2, (String) parametrosMusica[1]); //nombre
         objStat.setDouble(3, (Integer) parametrosMusica[2]);//precio
         objStat.setDouble(4, (Double) parametrosMusica[3]);//duración

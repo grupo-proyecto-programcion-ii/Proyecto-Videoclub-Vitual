@@ -49,7 +49,7 @@ public class clsVideojuegos extends clsArticulo {
 
     public clsVideojuegos(Date _fechaSV, String _nombreV, double _precioP, double _duracionP, int puntuacionV, int pegiVideojuegos) {
 
-        super(_nombreV,  _precioP, _duracionP);
+        super(_fechaSV ,_nombreV,  _precioP, _duracionP);
         this.puntuacionV = puntuacionV;
         this.pegiVideojuegos = pegiVideojuegos;
     }

@@ -52,7 +52,7 @@ public class clsPeliculas extends clsArticulo {
 
     public clsPeliculas(Date _fechaS, String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
-        super(_nombreP,  _precioP, _duracionP);
+        super(_fechaS ,_nombreP,  _precioP, _duracionP);
         this.pegiP = _pegiPelicula;
         this.puntuacionP = _puntuacionPelicula;
     }
