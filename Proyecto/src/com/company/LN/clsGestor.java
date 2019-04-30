@@ -5,6 +5,8 @@ import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -147,7 +149,7 @@ public class clsGestor {
 
         clsVideojuegos objVidejuego = new clsVideojuegos(_fechaSV, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
-        objVidejuego.setId(objDatos.insertarIdVidejuego(_fechaSV ,_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
+        objVidejuego.setId(objDatos.insertarIdVideojuego(_fechaSV ,_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
         objDatos.desconectarBD();
     }
 
@@ -220,14 +222,14 @@ public class clsGestor {
             peliculasBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (peliculasBaseDatos.next()){
                 int id = peliculasBaseDatos.getInt(PELICULA_CODIGO_ID);
-                Date fechaDev = peliculasBaseDatos.getDate(PELICULA_FECHA_DEV);
+                java.sql.Date fechasql = peliculasBaseDatos.getDate(PELICULA_FECHA_DEV);
                 String nombre = peliculasBaseDatos.getString(PELICULA_NOMBRE);
                 double precio = peliculasBaseDatos.getDouble(PELICULA_PRECIO);
                 double duracion = peliculasBaseDatos.getDouble(PELICULA_DURACION);
                 int pegi = peliculasBaseDatos.getInt(PELICULA_PEGI);
                 int puntuacion = peliculasBaseDatos.getInt(PELICULA_PUNTUACION);
 
-                clsPeliculas objPeliculaBD = new clsPeliculas(id, fechaDev,nombre, precio, duracion, pegi, puntuacion);
+                clsPeliculas objPeliculaBD = new clsPeliculas(id, fechasql,nombre, precio, duracion, pegi, puntuacion);
                 listaPeliculas.add(objPeliculaBD);
             }
             objDatos.desconectarBD();
@@ -244,15 +246,14 @@ public class clsGestor {
             videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (videojuegosBaseDatos.next()){
                 int id = videojuegosBaseDatos.getInt(VIDEJUEGO_ID);
-                Date fechaDev = videojuegosBaseDatos.getDate(VIDEOJUEGO_FECHA_DEV);
+                java.sql.Date fechasql = videojuegosBaseDatos.getDate(VIDEOJUEGO_FECHA_DEV);
                 String nombre = videojuegosBaseDatos.getString(VIDEOJUEGO_NOMBRE);
                 double precio = videojuegosBaseDatos.getDouble(VIDEOJUEGO_PRECIO);
                 double duracion = videojuegosBaseDatos.getDouble(VIDEOJUEGO_DURACION);
-                int puntuacion = videojuegosBaseDatos.getInt(VIDEOJUEGO_PEGI);
+                int puntuacion = videojuegosBaseDatos.getInt(VIDEOJUEGO_PUNTUACION);
                 int pegi = videojuegosBaseDatos.getInt(VIDEOJUEGO_PEGI);
 
-
-                clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, fechaDev,nombre, precio, duracion, puntuacion, pegi);
+                clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, fechasql,nombre, precio, duracion, puntuacion, pegi);
                 listaVidejuegos.add(objVideojuegoBD);
             }
             objDatos.desconectarBD();
@@ -269,7 +270,7 @@ public class clsGestor {
             musicaBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (musicaBaseDatos.next()){
                 int id = musicaBaseDatos.getInt(MUSICA_ID);
-                Date fechaDev = musicaBaseDatos.getDate(MUSICA_FECHA_DEV);
+                java.sql.Date fechasql = musicaBaseDatos.getDate(MUSICA_FECHA_DEV);
                 String nombre = musicaBaseDatos.getString(MUSICA_NOMBRE);
                 double precio = musicaBaseDatos.getDouble(MUSICA_PRECIO);
                 double duracion = musicaBaseDatos.getDouble(MUSICA_DURACION);
@@ -277,7 +278,7 @@ public class clsGestor {
                 String artista = musicaBaseDatos.getString(MUSICA_ARTISTA);
                 String explicito = musicaBaseDatos.getString(MUSICA_EXPLICITO);
 
-                clsMusica_CD objMusicaBD = new clsMusica_CD(id, fechaDev,nombre, precio, duracion, anio, artista, explicito);
+                clsMusica_CD objMusicaBD = new clsMusica_CD(id, fechasql,nombre, precio, duracion, anio, artista, explicito);
                 listaMusica.add(objMusicaBD);
             }
             objDatos.desconectarBD();

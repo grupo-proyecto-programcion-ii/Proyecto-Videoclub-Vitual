@@ -3,6 +3,8 @@ package com.company.COMUN;
 
 /**
  * Constantes de todas las carpetas en comun que abarca usuario y sus articulos
+ *
+ * IMPORTANTE los nombres de los atributos sean iguales que en la base de datos
  */
 public class clsConstantes {
 
@@ -11,7 +13,7 @@ public class clsConstantes {
     public static final String USUARIO_CONTRASENA = "Contrasena";
 
     public static final String PELICULA_CODIGO_ID = "id";
-    public static final String PELICULA_FECHA_DEV = "FechaDev";
+    public static final String PELICULA_FECHA_DEV = "FechaDevP";
     public static final String PELICULA_NOMBRE = "Nombre";
     public static final String PELICULA_PRECIO = "Precio";
     public static final String PELICULA_DURACION = "Duracion";
@@ -20,7 +22,7 @@ public class clsConstantes {
 
 
     public static final String VIDEJUEGO_ID = "id";
-    public static final String VIDEOJUEGO_FECHA_DEV = "FechaDev";
+    public static final String VIDEOJUEGO_FECHA_DEV = "FechaDevV";
     public static final String VIDEOJUEGO_NOMBRE = "Nombre";
     public static final String VIDEOJUEGO_PRECIO = "Precio";
     public static final String VIDEOJUEGO_DURACION = "Duracion";
@@ -28,7 +30,7 @@ public class clsConstantes {
     public static final String VIDEOJUEGO_PEGI = "PegiVideojuegos";
 
     public static final String MUSICA_ID = "id";
-    public static final String MUSICA_FECHA_DEV = "FechaDev";
+    public static final String MUSICA_FECHA_DEV = "FechaDevM";
     public static final String MUSICA_NOMBRE = "Nombre";
     public static final String MUSICA_PRECIO = "Precio";
     public static final String MUSICA_DURACION = "Duracion";

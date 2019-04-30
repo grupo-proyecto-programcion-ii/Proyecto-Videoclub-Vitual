@@ -20,7 +20,7 @@ public class clsVideojuegosBD {
      * @return codigo id de musica ascendente
      * @throws SQLException excepcion propia
      */
-    public static int insertarVieojuego(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosVideojuegos) throws SQLException {
+    public static int insertarVideojuego(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosVideojuegos) throws SQLException {
 
         int regActualizada = 0;
         int idV = 0;

@@ -43,9 +43,9 @@ public class clsMenuOpciones {
         System.out.println("Cargando datos.....");
 
         objGestor.cargarUsuarios();
-        //objGestor.cargarPeliculas();
-        //objGestor.cargarVideojuegos();
-        //objGestor.cargarMusica();
+        objGestor.cargarPeliculas();
+        objGestor.cargarVideojuegos();
+        objGestor.cargarMusica();
 
         do {
 

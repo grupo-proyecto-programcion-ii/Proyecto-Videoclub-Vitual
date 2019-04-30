@@ -81,9 +81,9 @@ public class clsDatos {
         return clsPeliculasBD.insertarPelicula(objConexion, objStatements, objRS, parametrosPeliculas);
     }
 
-    public int insertarIdVidejuego(Date fechaSV, String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
+    public int insertarIdVideojuego(Date fechaSV, String nombreV, double precioV, double duracionV, int puntuacionVidejuego, int pegiVidejuego) throws SQLException {
         Object[] parametrosVideojuegos = {fechaSV, nombreV, precioV, duracionV, puntuacionVidejuego, pegiVidejuego};
-        return clsVideojuegosBD.insertarVieojuego(objConexion, objStatements, objRS, parametrosVideojuegos);
+        return clsVideojuegosBD.insertarVideojuego(objConexion, objStatements, objRS, parametrosVideojuegos);
     }
 
     public int insertarIdMusica(Date fechaSM, String nombreM, double precioM, double duracionM, int anio, String artista, String explicito) throws SQLException {
