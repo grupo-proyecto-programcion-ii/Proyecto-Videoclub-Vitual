@@ -43,10 +43,8 @@ public class clsDatos {
 
             Class.forName(DRIVER).newInstance();
             objConexion = DriverManager.getConnection(URL, USER, PASS);
-        } catch (SQLException e) {
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (SQLException ignored) {
+        } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
         return objConexion;

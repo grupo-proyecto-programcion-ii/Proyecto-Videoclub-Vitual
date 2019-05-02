@@ -4,9 +4,11 @@ import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
@@ -42,10 +44,7 @@ public class clsMenuOpciones {
         System.out.println();
         System.out.println("Cargando datos.....");
 
-        objGestor.cargarUsuarios();
-        objGestor.cargarPeliculas();
-        objGestor.cargarVideojuegos();
-        objGestor.cargarMusica();
+       objGestor.cargarDatos();
 
         do {
 
@@ -113,8 +112,9 @@ public class clsMenuOpciones {
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
                     System.out.println("----> 1. Alquilar articulos ");
-                    System.out.println("----> 2. Suscripcion mensual");
-                    System.out.println("----> 3. Salir");
+                    System.out.println("----> 2. Visualizar articulos alquilados ");
+                    System.out.println("----> 3. Suscripcion mensual");
+                    System.out.println("----> 4. Salir");
                     System.out.print("Opcion:");
                     op = Utilidades.leerEntero();
 
@@ -122,9 +122,9 @@ public class clsMenuOpciones {
 
                         do {
                             System.out.println("Selecciona el tipo de articulo a reservar: ");
-                            System.out.println("----> 1. Anadir Peliculas");
-                            System.out.println("----> 2. Anadir CD_Musica");
-                            System.out.println("----> 3. Anadir Videojuegos");
+                            System.out.println("----> 1. Anadir Peliculas a la base de datos");
+                            System.out.println("----> 2. Anadir CD_Musica a la base de datos");
+                            System.out.println("----> 3. Anadir Videojuegos a la base de datos");
                             System.out.println("----> 4. Visualizar lista peliculas a reservar predeterminada");
                             System.out.println("----> 5. Visualizar lista peliculas a reservar por puntuacion");
                             System.out.println("----> 6. Visualizar lista videojuegos a reservar");
@@ -132,7 +132,11 @@ public class clsMenuOpciones {
                             System.out.println("----> 8. Visualizar lista musica a reservar");
                             System.out.println("----> 9. Visualizar lista musica a reservar por anio");
                             System.out.println("----> 10. Visualizar lista todos los articulos disponibles a reservar");
-                            System.out.println("----> 11. Salir");
+                            System.out.println("----> 11. Visualizar lista todos los articulos disponibles a reservar");
+                            System.out.println("----> 12. Alquilar Peliculas de la lista");
+                            System.out.println("----> 13. Alquilar Videjuegos de la lista");
+                            System.out.println("----> 14. Alquilar Musica de la lista");
+                            System.out.println("----> 15. Salir");
                             System.out.print("Opcion:");
                             op2 = Utilidades.leerEntero();
 
@@ -171,15 +175,26 @@ public class clsMenuOpciones {
                                     visualizarArticulos(objG);
                                     break;
                                 case 11:
+                                    alquilarPelicula(objG);
+                                    break;
+                                case 12:
+                                    break;
+                                case 13:
+                                    break;
+                                case 14:
                                     System.out.println("Adios");
                                     break;
                             }
                             System.out.println();
 
-                        } while (op2 != 11);
+                        } while (op2 != 15);
 
-                    } else {
+                    } else if (op == 2){
+                       // switch ()
 
+
+
+                    }else if (op == 3){
                         System.out.println("Suscripcion mensual, todavia no se ha ideado como funcionara..");
                     }
 
@@ -323,7 +338,6 @@ public class clsMenuOpciones {
             String fechaSalida = Utilidades.leerCadena();
             fechaS = new SimpleDateFormat("dd/MM/yyyy").parse(fechaSalida);
             System.out.print("precio: ");
-            System.out.print("precio: ");
             precioM = Utilidades.leerReal();
             System.out.println("Nombre musica CD: ");
             nombreM = Utilidades.leerCadena();
@@ -357,8 +371,8 @@ public class clsMenuOpciones {
             System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_DEV));
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
-            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
-            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO)+"$");
+            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION)+" horas");
             System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
             System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
@@ -371,13 +385,14 @@ public class clsMenuOpciones {
 
         System.out.println("VIDEOJUEGOS-----------------------------");
         for (itfProperty videjuego : videojuegos) {
+
             System.out.println("VIDEOJUEGO");
             System.out.println();
             System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_DEV));
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
-            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
-            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO)+"$");
+            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION)+" horas");
             System.out.println("Puntuacion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
             System.out.println("Pegi Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PEGI));
             System.out.println();
@@ -391,14 +406,15 @@ public class clsMenuOpciones {
 
         System.out.println("MUSICAS-----------------------------");
         for (itfProperty cd : musicas) {
+
             System.out.println("MUSICA");
             System.out.println();
             System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_DEV));
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
-            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
-            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION));
-            System.out.println("Ano creacion: " + cd.getPropertyA(MUSICA_ANIO));
+            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO)+"$");
+            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION)+" horas");
+            System.out.println("Anio creacion: " + cd.getPropertyA(MUSICA_ANIO));
             System.out.println("Artista: " + cd.getPropertyA(MUSICA_ARTISTA));
             System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
@@ -441,10 +457,11 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA");
             System.out.println();
+            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_DEV));
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
-            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO));
-            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION));
+            System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO)+"$");
+            System.out.println("Duracion Pelicula: " + pelicula.getPropertyA(PELICULA_DURACION)+" horas");
             System.out.println("Pegi Pelicula: " + pelicula.getPropertyA(PELICULA_PEGI));
             System.out.println("Puntuacion Pelicula: " + pelicula.getPropertyA(PELICULA_PUNTUACION));
             System.out.println();
@@ -459,12 +476,14 @@ public class clsMenuOpciones {
 
         System.out.println("VIDEOJUEGOS-----------------------------");
         for (itfProperty videjuego : _videojuegos) {
+
             System.out.println("VIDEOJUEGO");
             System.out.println();
+            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_DEV));
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
-            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO));
-            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION));
+            System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO)+"$");
+            System.out.println("Duracion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_DURACION)+" horas");
             System.out.println("Puntuacion Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PUNTUACION));
             System.out.println("Pegi Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PEGI));
             System.out.println();
@@ -480,16 +499,56 @@ public class clsMenuOpciones {
 
         System.out.println("MUSICAS-----------------------------");
         for (itfProperty cd : _musicas) {
+
             System.out.println("MUSICA");
             System.out.println();
+            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_DEV));
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
-            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO));
-            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION));
-            System.out.println("Ano creacion: " + cd.getPropertyA(MUSICA_ANIO));
+            System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO)+"$");
+            System.out.println("Duracion Musica: " + cd.getPropertyA(MUSICA_DURACION)+" horas");
+            System.out.println("Anio creacion: " + cd.getPropertyA(MUSICA_ANIO));
             System.out.println("Artista: " + cd.getPropertyA(MUSICA_ARTISTA));
             System.out.println("Estudio: " + cd.getPropertyA(MUSICA_EXPLICITO));
             System.out.println();
         }
+    }
+
+    private static void alquilarPelicula(clsGestor objG){
+
+        System.out.println("Seleccione el numero de peliculas  a alquilar");
+        int numero = Utilidades.leerEntero();
+        int recuento = 0;
+
+        System.out.println("Indique la cantidad de dias que quiere alquilar");
+        int dias = Utilidades.leerEntero();
+
+        do {
+            recuento++;
+            try {
+                Date fechaHoy = new Date();
+                DateFormat miFormato = DateFormat.getDateInstance(DateFormat.SHORT);
+                Calendar calendario = Calendar.getInstance();
+                calendario.setTime(fechaHoy);
+                calendario.add(Calendar.DATE, dias); 
+                String fechaDevS = miFormato.format(calendario.getTime());
+                Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
+
+
+                System.out.println("Introduce el numero de id del articulo:");
+                int id = Utilidades.leerEntero();
+                objG.anadirAlquilerP(id, fechaDev2);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        } while (recuento < numero);
+
+    }
+    private static void alquilarVideojuego(clsGestor objG){
+
+    }
+    private static void alquilarMusica(clsGestor objG){
+
     }
 }

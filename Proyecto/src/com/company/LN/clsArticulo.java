@@ -9,7 +9,7 @@ import java.util.Date;
  * tienen los mismos atributos en comun.
  */
 
-public abstract class clsArticulo implements itfProperty {
+public class clsArticulo implements itfProperty {
 
     private int id;
     private Date fechaDev;
@@ -75,5 +75,15 @@ public abstract class clsArticulo implements itfProperty {
 
     public void setFechaDev(Date fechaDev) {
         this.fechaDev = fechaDev;
+    }
+
+    @Override
+    public Object getPropertyU(String objPropiedad) {
+        return null;
+    }
+
+    @Override
+    public Object getPropertyA(String obj_Propiedad) {
+        return null;
     }
 }

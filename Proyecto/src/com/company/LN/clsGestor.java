@@ -5,8 +5,6 @@ import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -99,7 +97,7 @@ public class clsGestor {
         return rUsuarios;
     }
 
-    public void cargarUsuarios(){
+    private void cargarUsuarios(){
 
         int codigoConsulta = 0; // 0 para hacer select de usuarios
         try {
@@ -214,7 +212,7 @@ public class clsGestor {
      * Metodos para actualizar cargar actualizar los ArrayList obteniendo los datos de la base de datos
      * para que se inicien datos una vez se comienza el programa
      */
-    public void cargarPeliculas(){
+    private void cargarPeliculas(){
 
         int codigoConsulta = 1; // 1 para hacer select de peliculas
         try {
@@ -238,7 +236,7 @@ public class clsGestor {
         }
     }
 
-    public void cargarVideojuegos(){
+    private void cargarVideojuegos(){
 
         int codigoConsulta = 2; // 2 para hacer select de vidojuegos
         try {
@@ -262,7 +260,7 @@ public class clsGestor {
         }
     }
 
-    public void cargarMusica(){
+    private void cargarMusica(){
 
         int codigoConsulta = 3; // 3 para hacer select de musica
         try {
@@ -285,6 +283,14 @@ public class clsGestor {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void cargarDatos(){
+
+        cargarUsuarios();
+        cargarPeliculas();
+        cargarVideojuegos();
+        cargarMusica();
     }
 
 
@@ -371,6 +377,10 @@ public class clsGestor {
             rMusicaAnios.add(musica_cd);
         }
         return rMusicaAnios;
+    }
+
+    public void anadirAlquilerP(int id, Date fechaDev2){
+
     }
 
 }
