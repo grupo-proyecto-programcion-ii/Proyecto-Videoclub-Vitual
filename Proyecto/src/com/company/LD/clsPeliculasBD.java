@@ -29,13 +29,19 @@ public class clsPeliculasBD {
         objStat = objCon.prepareStatement(INSERT_PELICULA, PreparedStatement.RETURN_GENERATED_KEYS);
 
         java.util.Date fechaS = (java.util.Date) parametrosPeliculas[0];
+
+        /**
         LocalDate localDate = fechaS.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         int dia = localDate.getDayOfMonth();
         int mes = localDate.getMonthValue();
         int anio = localDate.getYear();
         java.sql.Date fechasql = new java.sql.Date(anio, mes, dia); //Orden permitido por SQL
+ */
 
-        objStat.setDate(1, fechasql); //fecha salida
+        java.sql.Date fechasql = new java.sql.Date(fechaS.getTime());
+        System.out.println(fechasql);
+        System.out.println(fechaS);
+        objStat.setDate(1, fechasql, java.util.Calendar.getInstance()); //fecha salida
         objStat.setString(2,(String) parametrosPeliculas [1]); //nombre
         objStat.setDouble(3, (Double) parametrosPeliculas [2]);//precio
         objStat.setDouble(4, (Double) parametrosPeliculas [3]);//duración

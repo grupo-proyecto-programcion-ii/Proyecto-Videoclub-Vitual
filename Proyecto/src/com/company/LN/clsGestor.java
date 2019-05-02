@@ -346,8 +346,8 @@ public class clsGestor {
 
         ArrayList<itfProperty> rVideojuegosPuntos = new ArrayList<itfProperty>();
 
-        for (clsVideojuegos vidojuego : _listaVideojuegos) {
-            rVideojuegosPuntos.add(vidojuego);
+        for (clsVideojuegos videojuego : _listaVideojuegos) {
+            rVideojuegosPuntos.add(videojuego);
         }return rVideojuegosPuntos;
     }
 
