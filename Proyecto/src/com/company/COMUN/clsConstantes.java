@@ -39,5 +39,6 @@ public class clsConstantes {
     public static final String MUSICA_EXPLICITO = "Explicito";
 
     public static final String MENSAJE_ERROR = "Error..";
+    public static final String MENSAJE_ERROR2 = "No se encontró ese ID..";
 
 }

@@ -18,6 +18,10 @@ public class clsUsuario implements itfProperty {
     private String identificador = null;
     private String contrasena = null;
 
+    public clsUsuario() {
+
+    }
+
 
     public int getCodigoAleatoria() {
         return codigoAleatoria;

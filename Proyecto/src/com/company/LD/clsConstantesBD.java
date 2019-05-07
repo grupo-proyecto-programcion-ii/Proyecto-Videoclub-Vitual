@@ -27,5 +27,8 @@ public class clsConstantesBD {
 
     public static final String INSERT_MUSICA = "INSERT INTO musica (fechaDevM,nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?,?)";
     public static final String SELECT_MUSICA = "SELECT * FROM videoclub.musica";
+
+    public static final String  INSERT_ALQUILER_PELICULA = "INSERT INTO usuarios_has_peliculas (usuarios_codigoAleatorio, peliculas_id, peliculas_fechaDevP) VALUES (?,?,?)";
+    public static final String SELECT_ALQUILER_PELICULAS = "SELECT * FROM videoclub.usuarios_has_peliculas";
 }
 

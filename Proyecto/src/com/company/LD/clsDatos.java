@@ -85,8 +85,13 @@ public class clsDatos {
     }
 
     public int insertarIdMusica(Date fechaSM, String nombreM, double precioM, double duracionM, int anio, String artista, String explicito) throws SQLException {
-        Object[] parametrosMusica ={fechaSM, nombreM, precioM, duracionM, anio, artista, explicito};
+        Object[] parametrosMusica = {fechaSM, nombreM, precioM, duracionM, anio, artista, explicito};
         return clsMusicaBD.insertarMusica(objConexion, objStatements, objRS, parametrosMusica);
+    }
+
+    public void insertarAlquilerP(int codigo, int id, Date fechaDev) throws SQLException {
+        Object[] parametrosAlquilerP = {codigo, id, fechaDev};
+        clsAlquilarPeliculasBD.insertAlquilerP(objConexion, objStatements, objRS, parametrosAlquilerP);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

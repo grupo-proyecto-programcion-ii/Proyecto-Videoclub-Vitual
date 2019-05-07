@@ -1,1 +1,2 @@
- DELETE FROM peliculas WHERE ID = 1;
+SELECT * FROM videoclub.usuarios_has_peliculas; 
+DELETE FROM peliculas WHERE ID = 1;

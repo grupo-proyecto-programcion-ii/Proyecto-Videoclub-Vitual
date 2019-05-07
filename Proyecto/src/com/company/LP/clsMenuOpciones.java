@@ -109,6 +109,7 @@ public class clsMenuOpciones {
 
                 System.out.println("Contrasena correcta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
                 System.out.println("Tu codigo de usuario es "+ usuario.getPropertyU(USUARIO_CODIGO_ID));
+
                 do {
                     System.out.println("Selecciona el servicio que deseas:");
                     System.out.println("----> 1. Alquilar articulos ");
@@ -132,7 +133,6 @@ public class clsMenuOpciones {
                             System.out.println("----> 8. Visualizar lista musica a reservar");
                             System.out.println("----> 9. Visualizar lista musica a reservar por anio");
                             System.out.println("----> 10. Visualizar lista todos los articulos disponibles a reservar");
-                            System.out.println("----> 11. Visualizar lista todos los articulos disponibles a reservar");
                             System.out.println("----> 12. Alquilar Peliculas de la lista");
                             System.out.println("----> 13. Alquilar Videjuegos de la lista");
                             System.out.println("----> 14. Alquilar Musica de la lista");
@@ -175,9 +175,9 @@ public class clsMenuOpciones {
                                     visualizarArticulos(objG);
                                     break;
                                 case 11:
-                                    alquilarPelicula(objG);
                                     break;
                                 case 12:
+                                    altaAlquilerP(objG, id);
                                     break;
                                 case 13:
                                     break;
@@ -357,6 +357,38 @@ public class clsMenuOpciones {
 
     }
 
+    private static void altaAlquilerP(clsGestor objG, String indentificador){
+
+        System.out.println("Seleccione el numero de peliculas  a alquilar");
+        int numero = Utilidades.leerEntero();
+        int recuento = 0;
+
+        System.out.println("Indique la cantidad de dias que quiere alquilar");
+        int dias = Utilidades.leerEntero();
+
+        do {
+            recuento++;
+            try {
+                Date fechaHoy = new Date();
+                DateFormat miFormato = DateFormat.getDateInstance(DateFormat.SHORT);
+                Calendar calendario = Calendar.getInstance();
+                calendario.setTime(fechaHoy);
+                calendario.add(Calendar.DATE, dias);
+                String fechaDevS = miFormato.format(calendario.getTime());
+                Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
+
+
+                System.out.println("Introduce el numero de id del articulo:");
+                int id = Utilidades.leerEntero();
+                objG.anadirAlquilerP(indentificador, id, fechaDev2);
+            } catch (ParseException | SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        } while (recuento < numero);
+
+    }
+
 
     public void visulalizarPeliculas(clsGestor objG) {
 
@@ -514,41 +546,11 @@ public class clsMenuOpciones {
         }
     }
 
-    private static void alquilarPelicula(clsGestor objG){
-
-        System.out.println("Seleccione el numero de peliculas  a alquilar");
-        int numero = Utilidades.leerEntero();
-        int recuento = 0;
-
-        System.out.println("Indique la cantidad de dias que quiere alquilar");
-        int dias = Utilidades.leerEntero();
-
-        do {
-            recuento++;
-            try {
-                Date fechaHoy = new Date();
-                DateFormat miFormato = DateFormat.getDateInstance(DateFormat.SHORT);
-                Calendar calendario = Calendar.getInstance();
-                calendario.setTime(fechaHoy);
-                calendario.add(Calendar.DATE, dias); 
-                String fechaDevS = miFormato.format(calendario.getTime());
-                Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
-
-
-                System.out.println("Introduce el numero de id del articulo:");
-                int id = Utilidades.leerEntero();
-                objG.anadirAlquilerP(id, fechaDev2);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-        } while (recuento < numero);
-
-    }
     private static void alquilarVideojuego(clsGestor objG){
 
     }
     private static void alquilarMusica(clsGestor objG){
 
     }
+
 }

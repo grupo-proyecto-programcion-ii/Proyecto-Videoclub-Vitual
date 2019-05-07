@@ -84,6 +84,7 @@ public class clsPeliculas extends clsArticulo {
         return null;
     }
 
+
     /**
      * Metodos de la clase interfaz itfProperty
      * @param objPropiedad objetos me los metodos de interfaz

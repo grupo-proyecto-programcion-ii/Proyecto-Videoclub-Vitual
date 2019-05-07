@@ -26,6 +26,7 @@ public class clsGestor {
     private ArrayList<clsPeliculas> listaPeliculas = new ArrayList<>();
     private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<>();
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
+    private ArrayList<clsAlquilarPeliculas> listaAlquilerPelis = new ArrayList<>();
 
     /**
      * Parametros de mysql
@@ -45,7 +46,6 @@ public class clsGestor {
      * Con esta clase se visualiza el numero de usuarios dados de alta.
      */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     public void visualizarNumUsuarios() {
 
         if (listaUsuarios.size() == 1) {
@@ -60,7 +60,8 @@ public class clsGestor {
     /**
      * Con este metodo se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist especifica
      * para una lista de usuarios.
-     * @param _id identificador de usuario
+     *
+     * @param _id     identificador de usuario
      * @param _contra contrasena de usuario
      */
     public void anadirUsuario(String _id, String _contra) {
@@ -73,6 +74,8 @@ public class clsGestor {
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
             objDatos.desconectarBD();
+
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -97,13 +100,13 @@ public class clsGestor {
         return rUsuarios;
     }
 
-    private void cargarUsuarios(){
+    private void cargarUsuarios() {
 
         int codigoConsulta = 0; // 0 para hacer select de usuarios
         try {
             objDatos.conectarBD();
             usuariosBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (usuariosBaseDatos.next()){
+            while (usuariosBaseDatos.next()) {
                 int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
                 String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
                 String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
@@ -116,6 +119,7 @@ public class clsGestor {
         }
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     /***
      * Métodos para anadir objetos de artículos al arraylist de articulos.
      * @param _fechaSP atributo de tipo Date
@@ -136,6 +140,8 @@ public class clsGestor {
             objPelicula.setId(objDatos.insertarIdPelicula(_fechaSP, _nombreP, _precioP, _duracionP, _pegiPelicula, _puntuacionPelicula));
 
             objDatos.desconectarBD();
+
+            Collections.sort(listaPeliculas);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -147,7 +153,7 @@ public class clsGestor {
 
         clsVideojuegos objVidejuego = new clsVideojuegos(_fechaSV, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego);
         listaVidejuegos.add(objVidejuego);
-        objVidejuego.setId(objDatos.insertarIdVideojuego(_fechaSV ,_nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
+        objVidejuego.setId(objDatos.insertarIdVideojuego(_fechaSV, _nombreV, _precioV, _duracionV, _puntuacionVidejuego, _pegiVidejuego));
         objDatos.desconectarBD();
     }
 
@@ -157,16 +163,39 @@ public class clsGestor {
 
         clsMusica_CD objMusica = new clsMusica_CD(_fechaSM, _nombreM, _precioM, _duracionM, _anio, _artista, _explicito);
         listaMusica.add(objMusica);
-        objMusica.setId(objDatos.insertarIdMusica(_fechaSM ,_nombreM,_precioM, _duracionM, _anio, _artista, _explicito ));
+        objMusica.setId(objDatos.insertarIdMusica(_fechaSM, _nombreM, _precioM, _duracionM, _anio, _artista, _explicito));
 
         objDatos.desconectarBD();
     }
+
+    public void anadirAlquilerP(String indentificador, int _id, Date _fechaDev) throws SQLException, ClassNotFoundException {
+
+        objDatos.conectarBD();
+
+        for (clsPeliculas pelicula : listaPeliculas) {
+            if (_id == pelicula.getId()) {
+
+                for (clsUsuario usuario : listaUsuarios){
+
+                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))){
+
+                        int codigo = usuario.getCodigoAleatoria();
+                        clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
+                        listaAlquilerPelis.add(objAP);
+                        objDatos.insertarAlquilerP(codigo, _id, _fechaDev);
+                    }
+                }
+            }
+
+            objDatos.desconectarBD();
+        }
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
-    public Date anadirFechaDev(int dias){
+     public Date anadirFechaDev(int dias){
 
-        return
-    }
+     return
+     }
      */
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -212,13 +241,13 @@ public class clsGestor {
      * Metodos para actualizar cargar actualizar los ArrayList obteniendo los datos de la base de datos
      * para que se inicien datos una vez se comienza el programa
      */
-    private void cargarPeliculas(){
+    private void cargarPeliculas() {
 
         int codigoConsulta = 1; // 1 para hacer select de peliculas
         try {
             objDatos.conectarBD();
             peliculasBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (peliculasBaseDatos.next()){
+            while (peliculasBaseDatos.next()) {
                 int id = peliculasBaseDatos.getInt(PELICULA_CODIGO_ID);
                 java.sql.Date fechasql = peliculasBaseDatos.getDate(PELICULA_FECHA_DEV);
                 String nombre = peliculasBaseDatos.getString(PELICULA_NOMBRE);
@@ -227,7 +256,7 @@ public class clsGestor {
                 int pegi = peliculasBaseDatos.getInt(PELICULA_PEGI);
                 int puntuacion = peliculasBaseDatos.getInt(PELICULA_PUNTUACION);
 
-                clsPeliculas objPeliculaBD = new clsPeliculas(id, fechasql,nombre, precio, duracion, pegi, puntuacion);
+                clsPeliculas objPeliculaBD = new clsPeliculas(id, fechasql, nombre, precio, duracion, pegi, puntuacion);
                 listaPeliculas.add(objPeliculaBD);
             }
             objDatos.desconectarBD();
@@ -236,13 +265,13 @@ public class clsGestor {
         }
     }
 
-    private void cargarVideojuegos(){
+    private void cargarVideojuegos() {
 
         int codigoConsulta = 2; // 2 para hacer select de vidojuegos
         try {
             objDatos.conectarBD();
             videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (videojuegosBaseDatos.next()){
+            while (videojuegosBaseDatos.next()) {
                 int id = videojuegosBaseDatos.getInt(VIDEJUEGO_ID);
                 java.sql.Date fechasql = videojuegosBaseDatos.getDate(VIDEOJUEGO_FECHA_DEV);
                 String nombre = videojuegosBaseDatos.getString(VIDEOJUEGO_NOMBRE);
@@ -251,7 +280,7 @@ public class clsGestor {
                 int puntuacion = videojuegosBaseDatos.getInt(VIDEOJUEGO_PUNTUACION);
                 int pegi = videojuegosBaseDatos.getInt(VIDEOJUEGO_PEGI);
 
-                clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, fechasql,nombre, precio, duracion, puntuacion, pegi);
+                clsVideojuegos objVideojuegoBD = new clsVideojuegos(id, fechasql, nombre, precio, duracion, puntuacion, pegi);
                 listaVidejuegos.add(objVideojuegoBD);
             }
             objDatos.desconectarBD();
@@ -260,13 +289,13 @@ public class clsGestor {
         }
     }
 
-    private void cargarMusica(){
+    private void cargarMusica() {
 
         int codigoConsulta = 3; // 3 para hacer select de musica
         try {
             objDatos.conectarBD();
             musicaBaseDatos = objDatos.dameParametros(codigoConsulta);
-            while (musicaBaseDatos.next()){
+            while (musicaBaseDatos.next()) {
                 int id = musicaBaseDatos.getInt(MUSICA_ID);
                 java.sql.Date fechasql = musicaBaseDatos.getDate(MUSICA_FECHA_DEV);
                 String nombre = musicaBaseDatos.getString(MUSICA_NOMBRE);
@@ -276,7 +305,7 @@ public class clsGestor {
                 String artista = musicaBaseDatos.getString(MUSICA_ARTISTA);
                 String explicito = musicaBaseDatos.getString(MUSICA_EXPLICITO);
 
-                clsMusica_CD objMusicaBD = new clsMusica_CD(id, fechasql,nombre, precio, duracion, anio, artista, explicito);
+                clsMusica_CD objMusicaBD = new clsMusica_CD(id, fechasql, nombre, precio, duracion, anio, artista, explicito);
                 listaMusica.add(objMusicaBD);
             }
             objDatos.desconectarBD();
@@ -285,7 +314,7 @@ public class clsGestor {
         }
     }
 
-    public void cargarDatos(){
+    public void cargarDatos() {
 
         cargarUsuarios();
         cargarPeliculas();
@@ -298,11 +327,12 @@ public class clsGestor {
 
     /**
      * Metodos para visualizar el numero de articulos en la logica de presentacion
+     *
      * @return numero de peliculas, videojuegos y cds
      */
 
     public int visualizarNumPeliculas() {
-      return listaPeliculas.size();
+        return listaPeliculas.size();
     }
 
     public int visualizarNumVideojuegos() {
@@ -310,16 +340,20 @@ public class clsGestor {
     }
 
     public int visualizarNumCd() {
-      return listaMusica.size();
+        return listaMusica.size();
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodos para ordenar y leer los datos para la logica de presentacion
+     *
      * @return ArrayLists de los datos ordenados
      */
-    public ArrayList<itfProperty> listaPeliculasPuntos(){
+    public ArrayList<itfProperty> listaPeliculasPuntos() {
 
         clsPeliculasPtos peliculasPtos = new clsPeliculasPtos();
         Collections.sort(listaPeliculas, peliculasPtos);
@@ -338,9 +372,7 @@ public class clsGestor {
     }
 
 
-
-
-    public ArrayList<itfProperty> listaVideojuegosPuntos(){
+    public ArrayList<itfProperty> listaVideojuegosPuntos() {
 
         clsVideojuegosPtos videojuegosPtos = new clsVideojuegosPtos();
         Collections.sort(listaVidejuegos, videojuegosPtos);
@@ -348,20 +380,18 @@ public class clsGestor {
         return leerVideojuegosPuntos(listaVidejuegos);
     }
 
-    public ArrayList<itfProperty> leerVideojuegosPuntos(ArrayList<clsVideojuegos> _listaVideojuegos){
+    public ArrayList<itfProperty> leerVideojuegosPuntos(ArrayList<clsVideojuegos> _listaVideojuegos) {
 
         ArrayList<itfProperty> rVideojuegosPuntos = new ArrayList<itfProperty>();
 
         for (clsVideojuegos videojuego : _listaVideojuegos) {
             rVideojuegosPuntos.add(videojuego);
-        }return rVideojuegosPuntos;
+        }
+        return rVideojuegosPuntos;
     }
 
 
-
-
-
-    public ArrayList<itfProperty> listaMusicaAnio (){
+    public ArrayList<itfProperty> listaMusicaAnio() {
 
         clsMusicaAnio musicaAnio = new clsMusicaAnio();
         Collections.sort(listaMusica, musicaAnio);
@@ -373,16 +403,9 @@ public class clsGestor {
 
         ArrayList<itfProperty> rMusicaAnios = new ArrayList<itfProperty>();
 
-        for (clsMusica_CD musica_cd : _listaMusica){
+        for (clsMusica_CD musica_cd : _listaMusica) {
             rMusicaAnios.add(musica_cd);
         }
         return rMusicaAnios;
     }
-
-    public void anadirAlquilerP(int id, Date fechaDev2){
-
-    }
-
 }
-
-
