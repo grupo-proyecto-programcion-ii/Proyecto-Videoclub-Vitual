@@ -182,13 +182,15 @@ public class clsGestor {
                         int codigo = usuario.getCodigoAleatoria();
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
-                        objDatos.insertarAlquilerP(codigo, _id, _fechaDev);
+                        objAP.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
+
                     }
                 }
             }
 
-            objDatos.desconectarBD();
+
         }
+        objDatos.desconectarBD();
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
@@ -249,7 +251,7 @@ public class clsGestor {
             peliculasBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (peliculasBaseDatos.next()) {
                 int id = peliculasBaseDatos.getInt(PELICULA_CODIGO_ID);
-                java.sql.Date fechasql = peliculasBaseDatos.getDate(PELICULA_FECHA_DEV);
+                java.sql.Date fechasql = peliculasBaseDatos.getDate(PELICULA_FECHA_SALIDA);
                 String nombre = peliculasBaseDatos.getString(PELICULA_NOMBRE);
                 double precio = peliculasBaseDatos.getDouble(PELICULA_PRECIO);
                 double duracion = peliculasBaseDatos.getDouble(PELICULA_DURACION);
@@ -273,7 +275,7 @@ public class clsGestor {
             videojuegosBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (videojuegosBaseDatos.next()) {
                 int id = videojuegosBaseDatos.getInt(VIDEJUEGO_ID);
-                java.sql.Date fechasql = videojuegosBaseDatos.getDate(VIDEOJUEGO_FECHA_DEV);
+                java.sql.Date fechasql = videojuegosBaseDatos.getDate(VIDEOJUEGO_FECHA_SALIDA);
                 String nombre = videojuegosBaseDatos.getString(VIDEOJUEGO_NOMBRE);
                 double precio = videojuegosBaseDatos.getDouble(VIDEOJUEGO_PRECIO);
                 double duracion = videojuegosBaseDatos.getDouble(VIDEOJUEGO_DURACION);
@@ -297,7 +299,7 @@ public class clsGestor {
             musicaBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (musicaBaseDatos.next()) {
                 int id = musicaBaseDatos.getInt(MUSICA_ID);
-                java.sql.Date fechasql = musicaBaseDatos.getDate(MUSICA_FECHA_DEV);
+                java.sql.Date fechasql = musicaBaseDatos.getDate(MUSICA_FECHA_SALIDA);
                 String nombre = musicaBaseDatos.getString(MUSICA_NOMBRE);
                 double precio = musicaBaseDatos.getDouble(MUSICA_PRECIO);
                 double duracion = musicaBaseDatos.getDouble(MUSICA_DURACION);

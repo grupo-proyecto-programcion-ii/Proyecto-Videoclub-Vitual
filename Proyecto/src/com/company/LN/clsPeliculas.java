@@ -68,8 +68,8 @@ public class clsPeliculas extends clsArticulo {
         switch (obj_Propiedad){
             case PELICULA_CODIGO_ID:
                 return this.getId();
-            case PELICULA_FECHA_DEV:
-                return this.getFechaDev();
+            case PELICULA_FECHA_SALIDA:
+                return this.getFechaS();
             case PELICULA_NOMBRE:
                 return this.getNombre();
             case PELICULA_PRECIO:

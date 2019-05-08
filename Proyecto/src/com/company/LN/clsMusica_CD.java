@@ -81,8 +81,8 @@ public class clsMusica_CD extends clsArticulo {
         switch (obj_Propiedad){
             case MUSICA_ID:
                 return this.getId();
-            case MUSICA_FECHA_DEV:
-                return this.getFechaDev();
+            case MUSICA_FECHA_SALIDA:
+                return this.getFechaS();
             case  MUSICA_NOMBRE:
                 return this.getNombre();
             case MUSICA_PRECIO:

@@ -65,8 +65,8 @@ public class clsVideojuegos extends clsArticulo {
         switch (obj_Propiedad){
             case VIDEJUEGO_ID:
                 return this.getId();
-            case VIDEOJUEGO_FECHA_DEV:
-                return this.getFechaDev();
+            case VIDEOJUEGO_FECHA_SALIDA:
+                return this.getFechaS();
             case VIDEOJUEGO_NOMBRE:
                 return this.getNombre();
             case VIDEOJUEGO_PRECIO:

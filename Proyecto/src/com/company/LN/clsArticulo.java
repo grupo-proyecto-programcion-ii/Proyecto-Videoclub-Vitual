@@ -12,24 +12,24 @@ import java.util.Date;
 public class clsArticulo implements itfProperty, Comparable<clsArticulo> {
 
     private int id;
-    private Date fechaDev;
+    private Date fechaS;
     private String nombre;
     private double precio;
     private double duracion;
 
-    public clsArticulo(int id, Date fechaDev, String nombre, double precio, double duracion) {
+    public clsArticulo(int id, Date fechaS, String nombre, double precio, double duracion) {
 
         this.id = id;
-        this.fechaDev = fechaDev;
+        this.fechaS = fechaS;
         this.nombre = nombre;
         this.precio = precio;
         this.duracion = duracion;
 
     }
 
-    public clsArticulo(Date fechaDev ,String nombre, double precio, double duracion) {
+    public clsArticulo(Date fechaS ,String nombre, double precio, double duracion) {
 
-        this.fechaDev = fechaDev;
+        this.fechaS = fechaS;
         this.nombre = nombre;
         this.precio = precio;
         this.duracion = duracion;
@@ -69,13 +69,14 @@ public class clsArticulo implements itfProperty, Comparable<clsArticulo> {
         this.duracion = duracion;
     }
 
-    public Date getFechaDev() {
-        return fechaDev;
+    public Date getFechaS() {
+        return fechaS;
     }
 
-    public void setFechaDev(Date fechaDev) {
-        this.fechaDev = fechaDev;
+    public void setFechaS(Date fechaS) {
+        this.fechaS = fechaS;
     }
+
 
     @Override
     public Object getPropertyU(String objPropiedad) {

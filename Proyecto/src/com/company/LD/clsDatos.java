@@ -89,9 +89,9 @@ public class clsDatos {
         return clsMusicaBD.insertarMusica(objConexion, objStatements, objRS, parametrosMusica);
     }
 
-    public void insertarAlquilerP(int codigo, int id, Date fechaDev) throws SQLException {
+    public int insertarAlquilerP(int codigo, int id, Date fechaDev) throws SQLException {
         Object[] parametrosAlquilerP = {codigo, id, fechaDev};
-        clsAlquilarPeliculasBD.insertAlquilerP(objConexion, objStatements, objRS, parametrosAlquilerP);
+        return clsAlquilarPeliculasBD.insertAlquilerP(objConexion, objStatements, objRS, parametrosAlquilerP);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

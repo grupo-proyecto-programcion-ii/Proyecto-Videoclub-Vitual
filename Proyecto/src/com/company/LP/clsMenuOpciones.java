@@ -280,7 +280,7 @@ public class clsMenuOpciones {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
+        
         objG.anadirPelicula(fechaS, nombreP, precioP, duracionP, pegiPelicula, puntuacionPelicula);
 
     }
@@ -353,6 +353,7 @@ public class clsMenuOpciones {
             e.printStackTrace();
         }
 
+
         objG.anadirMusica_CD(fechaS ,nombreM, precioM, duracionM, anio, artista, explicito);
 
     }
@@ -369,6 +370,7 @@ public class clsMenuOpciones {
         do {
             recuento++;
             try {
+
                 Date fechaHoy = new Date();
                 DateFormat miFormato = DateFormat.getDateInstance(DateFormat.SHORT);
                 Calendar calendario = Calendar.getInstance();
@@ -376,10 +378,11 @@ public class clsMenuOpciones {
                 calendario.add(Calendar.DATE, dias);
                 String fechaDevS = miFormato.format(calendario.getTime());
                 Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
-
+                System.out.println(fechaDev2);
 
                 System.out.println("Introduce el numero de id del articulo:");
                 int id = Utilidades.leerEntero();
+
                 objG.anadirAlquilerP(indentificador, id, fechaDev2);
             } catch (ParseException | SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
@@ -400,7 +403,7 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA");
             System.out.println();
-            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_DEV));
+            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_SALIDA));
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
             System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO)+"$");
@@ -420,7 +423,7 @@ public class clsMenuOpciones {
 
             System.out.println("VIDEOJUEGO");
             System.out.println();
-            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_DEV));
+            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_SALIDA));
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
             System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO)+"$");
@@ -441,7 +444,7 @@ public class clsMenuOpciones {
 
             System.out.println("MUSICA");
             System.out.println();
-            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_DEV));
+            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_SALIDA));
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
             System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO)+"$");
@@ -489,7 +492,7 @@ public class clsMenuOpciones {
 
             System.out.println("PELICULA");
             System.out.println();
-            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_DEV));
+            System.out.println("Fecha de salida: " + pelicula.getPropertyA(PELICULA_FECHA_SALIDA));
             System.out.println("Identificador Pelicula: " + pelicula.getPropertyA(PELICULA_CODIGO_ID));
             System.out.println("Nombre Pelicula: " + pelicula.getPropertyA(PELICULA_NOMBRE));
             System.out.println("Precio Pelicula: " + pelicula.getPropertyA(PELICULA_PRECIO)+"$");
@@ -511,7 +514,7 @@ public class clsMenuOpciones {
 
             System.out.println("VIDEOJUEGO");
             System.out.println();
-            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_DEV));
+            System.out.println("Fecha de salida: " + videjuego.getPropertyA(VIDEOJUEGO_FECHA_SALIDA));
             System.out.println("Identificador Videojuego: " + videjuego.getPropertyA(VIDEJUEGO_ID));
             System.out.println("Nombre Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_NOMBRE));
             System.out.println("Precio Videojuego: " + videjuego.getPropertyA(VIDEOJUEGO_PRECIO)+"$");
@@ -534,7 +537,7 @@ public class clsMenuOpciones {
 
             System.out.println("MUSICA");
             System.out.println();
-            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_DEV));
+            System.out.println("Fecha de salida: " + cd.getPropertyA(MUSICA_FECHA_SALIDA));
             System.out.println("Identificador Musica: " + cd.getPropertyA(MUSICA_ID));
             System.out.println("Nombre Musica: " + cd.getPropertyA(MUSICA_NOMBRE));
             System.out.println("Precio Musica: " + cd.getPropertyA(MUSICA_PRECIO)+"$");

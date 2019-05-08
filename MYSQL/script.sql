@@ -1,7 +1,3 @@
+#select * from videoclub.musica
 
-
-
-INSERT INTO peliculas (fechaDevP, nombre, precio, duracion, pegiP, puntuacionP) 
-values ('2017/01/01', "La caída", 20, 2.4, 18, 92);
-
-SELECT * FROM videoclub.peliculas;
+INSERT INTO videoclub.usuarios_has_peliculas VALUES (null,2, 3, "1992-03-01");
