@@ -93,6 +93,11 @@ public class clsDatos {
         Object[] parametrosAlquilerP = {codigo, id, fechaDev};
         return clsAlquilarPeliculasBD.insertAlquilerP(objConexion, objStatements, objRS, parametrosAlquilerP);
     }
+
+    public void eliminarAlquilerP() throws SQLException {
+        int id = 5;
+        clsAlquilarPeliculasBD.deletePelicula(objConexion, objStatements, objRS, id);
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**

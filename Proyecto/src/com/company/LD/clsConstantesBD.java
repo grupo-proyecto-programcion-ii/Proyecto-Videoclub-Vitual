@@ -30,5 +30,6 @@ public class clsConstantesBD {
 
     public static final String  INSERT_ALQUILER_PELICULA = "INSERT INTO usuarios_has_peliculas (usuarios_codigoAleatoria, peliculas_id, fecha_devolucionP) VALUES (?,?,?)";
     public static final String SELECT_ALQUILER_PELICULAS = "SELECT * FROM videoclub.usuarios_has_peliculas";
+    public static final String DELETE_PELICULA = "DELETE FROM usuarios_has_peliculas WHERE idAlquiler = ?";
 }
 

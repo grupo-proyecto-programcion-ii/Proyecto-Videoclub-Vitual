@@ -175,9 +175,9 @@ public class clsGestor {
         for (clsPeliculas pelicula : listaPeliculas) {
             if (_id == pelicula.getId()) {
 
-                for (clsUsuario usuario : listaUsuarios){
+                for (clsUsuario usuario : listaUsuarios) {
 
-                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))){
+                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
 
                         int codigo = usuario.getCodigoAleatoria();
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
@@ -191,6 +191,19 @@ public class clsGestor {
 
         }
         objDatos.desconectarBD();
+    }
+
+    public void eliminarAlquilerPelis() {
+
+        try {
+            objDatos.conectarBD();
+            objDatos.eliminarAlquilerP();
+            objDatos.desconectarBD();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**

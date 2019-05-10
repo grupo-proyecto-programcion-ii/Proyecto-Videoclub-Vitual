@@ -1,2 +1,6 @@
 SELECT * FROM videoclub.usuarios_has_peliculas; 
+SELECT * FROM videoclub.musica
+
 DELETE FROM peliculas WHERE ID = 1;
+
+INSERT INTO videoclub.musica (fechaDevM,nombre,precio,duracion,artistas,anio,explicito) VALUES ("1997-08-02", "SFV", 3, 4.8, "EV", 1002, "SDVEW")

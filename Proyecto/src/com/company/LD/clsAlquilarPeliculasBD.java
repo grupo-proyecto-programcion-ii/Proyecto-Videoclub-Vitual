@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static com.company.LD.clsConstantesBD.DELETE_PELICULA;
 import static com.company.LD.clsConstantesBD.INSERT_ALQUILER_PELICULA;
 
 public class clsAlquilarPeliculasBD {
@@ -38,5 +39,17 @@ public class clsAlquilarPeliculasBD {
             }
         }
         return idP;
+    }
+
+    public static void deletePelicula(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
+
+        objStat = objCon.prepareStatement("DELETE FROM usuarios_has_peliculas WHERE idAlquiler = ?");
+
+        objStat.setInt(1, id);//usuarios_codigo_aleatorio
+
+        objStat.executeUpdate();
+
+
+
     }
 }
