@@ -43,7 +43,7 @@ public class clsAlquilarPeliculasBD {
 
     public static void deletePelicula(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 
-        objStat = objCon.prepareStatement("DELETE FROM usuarios_has_peliculas WHERE idAlquiler = ?");
+        objStat = objCon.prepareStatement(DELETE_PELICULA);
 
         objStat.setInt(1, id);//usuarios_codigo_aleatorio
 

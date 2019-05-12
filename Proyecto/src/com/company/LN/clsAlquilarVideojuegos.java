@@ -6,28 +6,11 @@ import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
 
-public class clsAlquilarVideojuegos implements itfProperty {
+public class clsAlquilarVideojuegos extends clsAlquiler implements itfProperty {
 
-    private int idAlquiler;
-    private int usuarios_codigo;
     private int videojuego_id;
-    private Date videojuegos_fechaDevP;
+    private Date videojuegos_fechaDevV;
 
-    public int getIdAlquiler() {
-        return idAlquiler;
-    }
-
-    public void setIdAlquiler(int idAlquiler) {
-        this.idAlquiler = idAlquiler;
-    }
-
-    public int getUsuarios_codigo() {
-        return usuarios_codigo;
-    }
-
-    public void setUsuarios_codigo(int usuarios_codigo) {
-        this.usuarios_codigo = usuarios_codigo;
-    }
 
     public int getVideojuego_id() {
         return videojuego_id;
@@ -38,25 +21,25 @@ public class clsAlquilarVideojuegos implements itfProperty {
     }
 
     public Date getVideojuegos_fechaDevP() {
-        return videojuegos_fechaDevP;
+        return videojuegos_fechaDevV;
     }
 
     public void setVideojuegos_fechaDevP(Date videojuegos_fechaDevP) {
-        this.videojuegos_fechaDevP = videojuegos_fechaDevP;
+        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
     }
 
     public clsAlquilarVideojuegos(int idAlquiler, int usuarios_codigo, int videojuego_id, Date videojuegos_fechaDevP) {
-        this.idAlquiler = idAlquiler;
-        this.usuarios_codigo = usuarios_codigo;
+        super(idAlquiler, usuarios_codigo);
         this.videojuego_id = videojuego_id;
-        this.videojuegos_fechaDevP = videojuegos_fechaDevP;
+        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
     }
 
-    public clsAlquilarVideojuegos(int usuarios_codigo, int videojuego_id, Date videojuegos_fechaDevP) {
-        this.usuarios_codigo = usuarios_codigo;
+    public clsAlquilarVideojuegos( int usuarios_codigo, int videojuego_id, Date videojuegos_fechaDevP) {
+        super(usuarios_codigo);
         this.videojuego_id = videojuego_id;
-        this.videojuegos_fechaDevP = videojuegos_fechaDevP;
+        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
     }
+
 
     public clsAlquilarVideojuegos() {
     }

@@ -10,28 +10,11 @@ import static com.company.COMUN.clsConstantes.*;
  * Clase que alberga atributos para alquilar peliculas además de sus método
  */
 
-public class clsAlquilarPeliculas implements itfProperty {
+public class clsAlquilarPeliculas extends clsAlquiler implements itfProperty {
 
-    private int idAlquiler;
-    private int usuarios_codigo;
     private int peliculas_id;
     private Date peliculas_fechaDevP;
 
-    public int getIdAlquiler() {
-        return idAlquiler;
-    }
-
-    public void setIdAlquiler(int idAlquiler) {
-        this.idAlquiler = idAlquiler;
-    }
-
-    public int getUsuarios_codigo() {
-        return usuarios_codigo;
-    }
-
-    public void setUsuarios_codigo(int usuarios_codigo) {
-        this.usuarios_codigo = usuarios_codigo;
-    }
 
     public int getPeliculas_id() {
         return peliculas_id;
@@ -51,17 +34,16 @@ public class clsAlquilarPeliculas implements itfProperty {
 
 
     public clsAlquilarPeliculas(int idAlquiler, int usuarios_codigo, int peliculas_id, Date peliculas_fechaDevP) {
-        this.idAlquiler = idAlquiler;
-        this.usuarios_codigo = usuarios_codigo;
+        super(idAlquiler, usuarios_codigo);
         this.peliculas_id = peliculas_id;
         this.peliculas_fechaDevP = peliculas_fechaDevP;
     }
 
+    public clsAlquilarPeliculas(int codigo, int peliculas_id, Date peliculas_fechaDevP) {
+        super(codigo);
+        this.peliculas_id = peliculas_id;
+        this.peliculas_fechaDevP = peliculas_fechaDevP;
 
-    public clsAlquilarPeliculas(int codigo, int id, Date fechaDev) {
-        this.usuarios_codigo = codigo;
-        this.peliculas_id = id;
-        this.peliculas_fechaDevP = fechaDev;
     }
 
     public clsAlquilarPeliculas() {
