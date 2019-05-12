@@ -27,6 +27,7 @@ public class clsGestor {
     private ArrayList<clsVideojuegos> listaVidejuegos = new ArrayList<>();
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
     private ArrayList<clsAlquilarPeliculas> listaAlquilerPelis = new ArrayList<>();
+    private ArrayList<clsAlquilarVideojuegos> listaAlquilerVidejuegos = new ArrayList<>();
 
     /**
      * Parametros de mysql
@@ -183,6 +184,31 @@ public class clsGestor {
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
                         objAP.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
+
+                    }
+                }
+            }
+
+
+        }
+        objDatos.desconectarBD();
+    }
+
+    public void anadirAlquilerV(String indentificador, int _id, Date _fechaDev) throws SQLException, ClassNotFoundException {
+
+        objDatos.conectarBD();
+
+        for (clsVideojuegos videojuego : listaVidejuegos) {
+            if (_id == videojuego.getId()) {
+
+                for (clsUsuario usuario : listaUsuarios) {
+
+                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
+
+                        int codigo = usuario.getCodigoAleatoria();
+                       // clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(codigo, _id, _fechaDev);
+                       // listaAlquilerVidejuegos.add(objAV);
+                       // objAV.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
 
                     }
                 }

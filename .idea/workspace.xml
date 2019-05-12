@@ -2,77 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a4cca6e-0a4a-4750-a3a7-708db7e19037" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MYSQL/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MYSQL/script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MYSQL/videoclub.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/MYSQL/videoclub.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MYSQL/videoclub.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/MYSQL/videoclub.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LD/clsConstantesBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LD/clsConstantesBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LD/clsDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LD/clsDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsArticulo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsGestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsGestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsMusica_CD.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsMusica_CD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsPeliculas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsPeliculas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsVideojuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsVideojuegos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsMenuOpciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsMenuOpciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/allclasses-noframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/COMUN/clsConstantes.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/COMUN/clsConstantes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/COMUN/itfProperty.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/COMUN/itfProperty.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/COMUN/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsConstantesBD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsConstantesBD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsDatos.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsDatos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsMusicaBD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsMusicaBD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsPeliculasBD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsPeliculasBD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsUsuarioBD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsUsuarioBD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/clsVideojuegosBD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/clsVideojuegosBD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LD/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LD/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsArticulo.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsArticulo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsGestor.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsGestor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsMusica_CD.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsMusica_CD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsPeliculas.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsPeliculas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsUsuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/clsVideojuegos.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/clsVideojuegos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LN/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LN/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LP/Utilidades.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LP/Utilidades.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LP/clsMenuOpciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LP/clsMenuOpciones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LP/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LP/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LP/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LP/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/LP/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/LP/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/company/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/com/company/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/deprecated-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/member-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/package-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/type-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Proyecto/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor" />
@@ -107,7 +37,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,10 +102,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -209,9 +140,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25378788" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -239,10 +169,10 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Proyecto/src/com/company/LN/clsArticulo.java">
+    <entry file="file://$PROJECT_DIR$/Proyecto/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proyecto/src/com/company/Main.java">
+    <entry file="file://$PROJECT_DIR$/Proyecto/src/com/company/LN/clsArticulo.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>

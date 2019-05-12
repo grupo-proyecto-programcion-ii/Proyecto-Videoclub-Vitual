@@ -196,7 +196,7 @@ public class clsMenuOpciones {
                         System.out.println("Suscripcion mensual, todavia no se ha ideado como funcionara..");
                     }
 
-                } while (op != 3);
+                } while (op != 4);
 
             } else {
                 System.out.println("Contrasena incorrecta en unuario: " + usuario.getPropertyU(USUARIO_IDENTIFICADOR));
@@ -350,10 +350,7 @@ public class clsMenuOpciones {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
         objG.anadirMusica_CD(fechaS, nombreM, precioM, duracionM, anio, artista, explicito);
-
     }
 
     private static void altaAlquilerP(clsGestor objG, String indentificador) {
@@ -369,25 +366,76 @@ public class clsMenuOpciones {
             recuento++;
             try {
 
-                Date fechaHoy = new Date();
-                SimpleDateFormat miFormato = new SimpleDateFormat("dd/MM/yyyy");
-                Calendar calendario = Calendar.getInstance();
-                calendario.setTime(fechaHoy);
-                calendario.add(Calendar.DATE, dias);
-                String fechaDevS = miFormato.format(calendario.getTime());
-                Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
-                System.out.println(fechaDev2);
-
                 System.out.println("Introduce el numero de id del articulo:");
                 int id = Utilidades.leerEntero();
 
-                objG.anadirAlquilerP(indentificador, id, fechaDev2);
-            } catch (ParseException | SQLException | ClassNotFoundException e) {
+                objG.anadirAlquilerP(indentificador, id, fechaDevolucion(dias));
+            } catch (SQLException | ClassNotFoundException | ParseException e) {
                 e.printStackTrace();
             }
 
         } while (recuento < numero);
+    }
 
+    private static void altaAlquilerV(clsGestor objG, String indentificador) {
+
+        System.out.println("Seleccione el numero de videojeugos a alquilar:");
+        int numero = Utilidades.leerEntero();
+        int recuento = 0;
+
+        System.out.println("Indique la cantidad de dias que quiere alquilar:");
+        int dias = Utilidades.leerEntero();
+
+        do {
+            recuento++;
+            try {
+
+                System.out.println("Introduce el numero de id del articulo:");
+                int id = Utilidades.leerEntero();
+
+                objG.anadirAlquilerP(indentificador, id, fechaDevolucion(dias));
+            } catch (SQLException | ClassNotFoundException | ParseException e) {
+                e.printStackTrace();
+            }
+
+        } while (recuento < numero);
+    }
+
+    private static void altaAlquilerM(clsGestor objG, String indentificador) {
+
+        System.out.println("Seleccione el numero de videojeugos a alquilar");
+        int numero = Utilidades.leerEntero();
+        int recuento = 0;
+
+        System.out.println("Indique la cantidad de dias que quiere alquilar");
+        int dias = Utilidades.leerEntero();
+
+        do {
+            recuento++;
+            try {
+
+                System.out.println("Introduce el numero de id del articulo:");
+                int id = Utilidades.leerEntero();
+
+                objG.anadirAlquilerP(indentificador, id, fechaDevolucion(dias));
+            } catch (SQLException | ClassNotFoundException | ParseException e) {
+                e.printStackTrace();
+            }
+
+        } while (recuento < numero);
+    }
+
+    public static Date fechaDevolucion(int _dias) throws ParseException {
+
+        Date fechaHoy = new Date();
+        SimpleDateFormat miFormato = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(fechaHoy);
+        calendario.add(Calendar.DATE, _dias);
+        String fechaDevS = miFormato.format(calendario.getTime());
+        Date fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
+
+        return fechaDev2;
     }
 
 
@@ -547,13 +595,4 @@ public class clsMenuOpciones {
             System.out.println();
         }
     }
-
-    private static void alquilarVideojuego(clsGestor objG) {
-
-    }
-
-    private static void alquilarMusica(clsGestor objG) {
-
-    }
-
 }
