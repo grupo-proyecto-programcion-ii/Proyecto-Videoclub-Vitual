@@ -5,6 +5,7 @@ import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -28,6 +29,8 @@ public class clsGestor {
     private ArrayList<clsMusica_CD> listaMusica = new ArrayList<>();
     private ArrayList<clsAlquilarPeliculas> listaAlquilerPelis = new ArrayList<>();
     private ArrayList<clsAlquilarVideojuegos> listaAlquilerVidejuegos = new ArrayList<>();
+    private ArrayList<clsAlquilarMusica> listaAlquilerMusica = new ArrayList<>();
+
 
     /**
      * Parametros de mysql
@@ -36,17 +39,21 @@ public class clsGestor {
     private ResultSet peliculasBaseDatos;
     private ResultSet videojuegosBaseDatos;
     private ResultSet musicaBaseDatos;
+    private ResultSet alquilerPeliculasBD;
+    private ResultSet alquilerVidejuegosBD;
+    private ResultSet alquilerMusicaBD;
 
     /**
      * Se instancia un objeto para crear la comunicacion con la logica de datos
      */
-
     private clsDatos objDatos = new clsDatos();
 
-    /**
-     * Con esta clase se visualiza el numero de usuarios dados de alta.
-     */
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Con este metodo se visualiza el numero de usuarios dados de alta.
+     */
     public void visualizarNumUsuarios() {
 
         if (listaUsuarios.size() == 1) {
@@ -174,70 +181,59 @@ public class clsGestor {
         objDatos.conectarBD();
 
         for (clsPeliculas pelicula : listaPeliculas) {
-            if (_id == pelicula.getId()) {
-
-                for (clsUsuario usuario : listaUsuarios) {
-
-                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
-
+            for (clsUsuario usuario : listaUsuarios) {
+                for (clsAlquilarPeliculas alquilarPelicula : listaAlquilerPelis) {
+                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) & _id == pelicula.getId()) {
                         int codigo = usuario.getCodigoAleatoria();
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
                         objAP.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
-
                     }
                 }
+
             }
-
-
         }
         objDatos.desconectarBD();
     }
+
 
     public void anadirAlquilerV(String indentificador, int _id, Date _fechaDev) throws SQLException, ClassNotFoundException {
 
         objDatos.conectarBD();
 
         for (clsVideojuegos videojuego : listaVidejuegos) {
-            if (_id == videojuego.getId()) {
+            for (clsUsuario usuario : listaUsuarios) {
+                if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) & _id == videojuego.getId()) {
 
-                for (clsUsuario usuario : listaUsuarios) {
-
-                    if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
-
-                        int codigo = usuario.getCodigoAleatoria();
-                       // clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(codigo, _id, _fechaDev);
-                       // listaAlquilerVidejuegos.add(objAV);
-                       // objAV.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
-
-                    }
+                    int codigo = usuario.getCodigoAleatoria();
+                    clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(codigo, _id, _fechaDev);
+                    listaAlquilerVidejuegos.add(objAV);
+                    objAV.setIdAlquiler(objDatos.insertarAlquilerV(codigo, _id, _fechaDev));
                 }
             }
-
-
         }
         objDatos.desconectarBD();
     }
 
-    public void eliminarAlquilerPelis() {
+    public void anadirAlquilerM(String indentificador, int _id, Date _fechaDev) throws SQLException, ClassNotFoundException {
 
-        try {
-            objDatos.conectarBD();
-            objDatos.eliminarAlquilerP();
-            objDatos.desconectarBD();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        objDatos.conectarBD();
+
+        for (clsMusica_CD cd : listaMusica) {
+            for (clsUsuario usuario : listaUsuarios) {
+                if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) & _id == cd.getId()) {
+
+                    int codigo = usuario.getCodigoAleatoria();
+                    clsAlquilarMusica objAM = new clsAlquilarMusica(codigo, _id, _fechaDev);
+                    listaAlquilerMusica.add(objAM);
+                    objAM.setIdAlquiler(objDatos.insertarAlquilerM(codigo, _id, _fechaDev));
+                }
+            }
         }
+        objDatos.desconectarBD();
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /**
-     public Date anadirFechaDev(int dias){
 
-     return
-     }
-     */
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -355,12 +351,111 @@ public class clsGestor {
         }
     }
 
+    private void cargarAlquilerP() {
+
+        int codigoConsulta = 4; // 4 para hacer select de alquiler peliculas
+        try {
+            objDatos.conectarBD();
+            alquilerPeliculasBD = objDatos.dameParametros(codigoConsulta);
+            while (alquilerPeliculasBD.next()) {
+                int idAquiler = alquilerPeliculasBD.getInt(ALQUILER_PELICULA_ID);
+                int usuarios_codigo = alquilerPeliculasBD.getInt(ALQUILER_PELICULA_USUARIOS_CODIGO);
+                int pelicula_id = alquilerPeliculasBD.getInt(ALQUILER_PELICULA_ID_PROPIA);
+                java.sql.Date fechasqlP = alquilerPeliculasBD.getDate(ALQUILER_PELICULA_FECHADEV);
+
+                clsAlquilarPeliculas objAlquilerPBD = new clsAlquilarPeliculas(idAquiler, usuarios_codigo, pelicula_id, fechasqlP);
+                listaAlquilerPelis.add(objAlquilerPBD);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarAlquilerV() {
+
+        int codigoConsulta = 5; // 5 para hacer select de alquiler videojuego
+        try {
+            objDatos.conectarBD();
+            alquilerVidejuegosBD = objDatos.dameParametros(codigoConsulta);
+            while (alquilerVidejuegosBD.next()) {
+                int idAquiler = alquilerVidejuegosBD.getInt(ALQUILER_VIDEOJUEGO_ID);
+                int usuarios_codigo = alquilerVidejuegosBD.getInt(ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO);
+                int videojuego_id = alquilerVidejuegosBD.getInt(ALQUILER_VIDEOJUEGO_ID_PROPIA);
+                java.sql.Date fechasqlV = alquilerVidejuegosBD.getDate(ALQUILER_VIDEOJUEGO_FECHADEV);
+
+                clsAlquilarVideojuegos objAlquilerVBD = new clsAlquilarVideojuegos(idAquiler, usuarios_codigo, videojuego_id, fechasqlV);
+                listaAlquilerVidejuegos.add(objAlquilerVBD);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarAlquilerM() {
+
+        int codigoConsulta = 6; // 6 para hacer select de alquiler musica
+        try {
+            objDatos.conectarBD();
+            alquilerMusicaBD = objDatos.dameParametros(codigoConsulta);
+            while (alquilerMusicaBD.next()) {
+                int idAquiler = alquilerMusicaBD.getInt(ALQUILER_MUSICA_ID);
+                int usuarios_codigo = alquilerMusicaBD.getInt(ALQUILER_MUSICA_USUARIOS_CODIGO);
+                int musica_id = alquilerMusicaBD.getInt(ALQUILER_MUSICA_ID_PROPIA);
+                java.sql.Date fechasqlM = alquilerMusicaBD.getDate(ALQUILER_MUSICA_FECHADEV);
+
+                clsAlquilarMusica objAlquilerMBD = new clsAlquilarMusica(idAquiler, usuarios_codigo, musica_id, fechasqlM);
+                listaAlquilerMusica.add(objAlquilerMBD);
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void cargarDatos() {
 
         cargarUsuarios();
         cargarPeliculas();
         cargarVideojuegos();
         cargarMusica();
+        cargarAlquilerP();
+        cargarAlquilerV();
+        cargarAlquilerM();
+        eliminarAlquiler();
+    }
+
+    public void eliminarAlquiler() {
+
+        try {
+
+            objDatos.conectarBD();
+            Date fechaHoy = new Date();
+
+            for (clsAlquilarPeliculas pelicula : listaAlquilerPelis) {
+                if (pelicula.getFecha_DevolucionP().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerP(pelicula.getIdAlquiler());
+                }
+
+            }
+
+            for (clsAlquilarVideojuegos videojuego : listaAlquilerVidejuegos) {
+                if (videojuego.getFecha_DevolucionV().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerV(videojuego.getIdAlquiler());
+                }
+            }
+
+            for (clsAlquilarMusica cd : listaAlquilerMusica) {
+                if (cd.getFecha_DevolucionM().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerM(cd.getIdAlquiler());
+                }
+            }
+
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 

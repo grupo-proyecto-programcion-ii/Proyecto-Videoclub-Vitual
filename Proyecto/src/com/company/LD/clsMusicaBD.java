@@ -33,8 +33,8 @@ public class clsMusicaBD {
         objStat.setString(2, (String) parametrosMusica[1]); //nombre
         objStat.setDouble(3, (Double) parametrosMusica[2]);//precio
         objStat.setDouble(4, (Double) parametrosMusica[3]);//duración
-        objStat.setString(5, (String) parametrosMusica[4]);//artistas
-        objStat.setInt(6, (Integer) parametrosMusica[5]);//año
+        objStat.setInt(5, (Integer) parametrosMusica[4]);//anio
+        objStat.setString(6, (String) parametrosMusica[5]);//artistas
         objStat.setString(7, (String) parametrosMusica[6]);//explicito
         regActualizada = objStat.executeUpdate();
 

@@ -38,20 +38,20 @@ public class clsConstantes {
     public static final String MUSICA_ARTISTA = "Artistas";
     public static final String MUSICA_EXPLICITO = "Explicito";
 
-    public static final String ALQUILER_PELICULA_ID = "IdAlquiler_P";
-    public static final String ALQUILER_PELICULA_USUARIOS_CODIGO = "Usuarios_Codigo";
+    public static final String ALQUILER_PELICULA_ID = "IdAlquiler";
+    public static final String ALQUILER_PELICULA_USUARIOS_CODIGO = "Usuarios_CodigoAleatoria";
     public static final String ALQUILER_PELICULA_ID_PROPIA = "Peliculas_Id";
-    public static final String ALQUILER_PELICULA_FECHADEV = "Peliculas_FechaDevP";
+    public static final String ALQUILER_PELICULA_FECHADEV = "Fecha_DevolucionP";
 
-    public static final String ALQUILER_VIDEOJUEGO_ID = "IdAlquiler_V";
-    public static final String ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO = "Usuarios_Codigo";
+    public static final String ALQUILER_VIDEOJUEGO_ID = "IdAlquiler";
+    public static final String ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO = "Usuarios_CodigoAleatoria";
     public static final String ALQUILER_VIDEOJUEGO_ID_PROPIA = "Videojuegos_Id";
-    public static final String ALQUILER_VIDEOJUEGO_FECHADEV = "Videojuegos_FechaDevP";
+    public static final String ALQUILER_VIDEOJUEGO_FECHADEV = "Fecha_DevolucionV";
 
-    public static final String ALQUILER_MUSICA_ID = "IdAlquiler_V";
-    public static final String ALQUILER_MUSICA_USUARIOS_CODIGO = "Usuarios_Codigo";
+    public static final String ALQUILER_MUSICA_ID = "IdAlquiler";
+    public static final String ALQUILER_MUSICA_USUARIOS_CODIGO = "Usuarios_CodigoAleatoria";
     public static final String ALQUILER_MUSICA_ID_PROPIA = "Musica_Id";
-    public static final String ALQUILER_MUSICA_FECHADEV = "Musica_FechaDevP";
+    public static final String ALQUILER_MUSICA_FECHADEV = "Fecha_DevolucionM";
 
     public static final String MENSAJE_ERROR = "Error..";
     public static final String MENSAJE_ERROR2 = "No se encontró ese ID..";

@@ -8,7 +8,7 @@ import java.util.Date;
 import static com.company.LD.clsConstantesBD.*;
 
 /**
- *Clase que cominucara los parametros entre la logica de negocio
+ * Clase que cominucara los parametros entre la logica de negocio
  * y la logica de presentación
  */
 public class clsDatos {
@@ -32,9 +32,10 @@ public class clsDatos {
 
     /**
      * Metodo para establecer la conexion, antes se encontraba
-     *      * en clsConexion
+     * * en clsConexion
+     *
      * @return objConexion
-     * @throws SQLException excepciones
+     * @throws SQLException           excepciones
      * @throws ClassNotFoundException excepciones de clase
      */
     public Connection conectarBD() throws SQLException, ClassNotFoundException {
@@ -52,6 +53,7 @@ public class clsDatos {
 
     /**
      * Funcion para desconectar de la base de datos
+     *
      * @throws SQLException excepeciones
      */
     public void desconectarBD() throws SQLException {
@@ -63,13 +65,14 @@ public class clsDatos {
     /**
      * Metodos para insertar datos de cada articulo al mismo tiempo que se obtiene su id (primary key)
      * que es autoincremental
+     *
      * @param identificador artributo de nombre de usuario
-     * @param contrasena atributo de contrasena de usuario
+     * @param contrasena    atributo de contrasena de usuario
      * @return entrero
      * @throws Exception propia de SQL
      */
 
-    public int insertarCodigoUsuario(String identificador,String contrasena ) throws Exception {
+    public int insertarCodigoUsuario(String identificador, String contrasena) throws Exception {
         Object[] parametrosUsuario = {identificador, contrasena};
         return clsUsuarioBD.insertarUsuario(objConexion, objStatements, objRS, parametrosUsuario);
     }
@@ -94,33 +97,59 @@ public class clsDatos {
         return clsAlquilarPeliculasBD.insertAlquilerP(objConexion, objStatements, objRS, parametrosAlquilerP);
     }
 
-    public void eliminarAlquilerP() throws SQLException {
-        int id = 5;
-        clsAlquilarPeliculasBD.deletePelicula(objConexion, objStatements, objRS, id);
+    public int insertarAlquilerV(int codigo, int id, Date fechaDev) throws SQLException {
+        Object[] parametrosAlquilerV = {codigo, id, fechaDev};
+        return clsAlquilarVideojuegosBD.insertAlquilerV(objConexion, objStatements, objRS, parametrosAlquilerV);
+    }
+
+    public int insertarAlquilerM(int codigo, int id, Date fechaDev) throws SQLException {
+        Object[] parametrosAlquilerM = {codigo, id, fechaDev};
+        return clsAlquilarMusicaBD.insertAlquilerM(objConexion, objStatements, objRS, parametrosAlquilerM);
+    }
+
+
+    public void eliminarAlquilerP(int _idAlquiler) throws SQLException {
+        clsAlquilarPeliculasBD.deletePelicula(objConexion, objStatements, objRS, _idAlquiler);
+    }
+
+    public void eliminarAlquilerV(int _idAlquiler) throws SQLException {
+        clsAlquilarVideojuegosBD.deleteVideojuego(objConexion, objStatements, objRS, _idAlquiler);
+    }
+
+    public void eliminarAlquilerM(int _idAlquiler) throws SQLException {
+        clsAlquilarMusicaBD.deleteMusica(objConexion, objStatements, objRS, _idAlquiler);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodo para Resulset, obtener los parametros de las diferentes clases, se filtra para cargar los que se desea
      * con un codigo propio
+     *
      * @param _codigoConsulta entrero propio de cada clase
      * @return String de parametros de base de datos
      */
 
-    public ResultSet dameParametros(int _codigoConsulta){
+    public ResultSet dameParametros(int _codigoConsulta) {
 
-        if (_codigoConsulta == 0){
-            return clsUsuarioBD.consultaUsuario(objConexion,objStatements, objRS);
-        }else if (_codigoConsulta == 1){
-            return clsPeliculasBD.consultaPelicula(objConexion,objStatements, objRS);
-        }else if (_codigoConsulta == 2){
-            return clsVideojuegosBD.consultaVideojuego(objConexion,objStatements, objRS);
-        }else if (_codigoConsulta == 3){
-            return clsMusicaBD.consultaMusica(objConexion,objStatements, objRS);
-        }else {
+        if (_codigoConsulta == 0) {
+            return clsUsuarioBD.consultaUsuario(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 1) {
+            return clsPeliculasBD.consultaPelicula(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 2) {
+            return clsVideojuegosBD.consultaVideojuego(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 3) {
+            return clsMusicaBD.consultaMusica(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 4) {
+            return clsAlquilarPeliculasBD.consultaAlquilerP(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 5) {
+            return clsAlquilarVideojuegosBD.consultaAlquilerV(objConexion, objStatements, objRS);
+        } else if (_codigoConsulta == 6) {
+            return clsAlquilarMusicaBD.consultaAlquilerM(objConexion, objStatements, objRS);
+        } else {
             return null;
         }
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

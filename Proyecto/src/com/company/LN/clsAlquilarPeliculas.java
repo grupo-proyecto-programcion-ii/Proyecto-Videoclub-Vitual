@@ -13,7 +13,7 @@ import static com.company.COMUN.clsConstantes.*;
 public class clsAlquilarPeliculas extends clsAlquiler implements itfProperty {
 
     private int peliculas_id;
-    private Date peliculas_fechaDevP;
+    private Date fecha_DevolucionP;
 
 
     public int getPeliculas_id() {
@@ -24,25 +24,25 @@ public class clsAlquilarPeliculas extends clsAlquiler implements itfProperty {
         this.peliculas_id = peliculas_id;
     }
 
-    public Date getPeliculas_fechaDevP() {
-        return peliculas_fechaDevP;
+
+    public Date getFecha_DevolucionP() {
+        return fecha_DevolucionP;
     }
 
-    public void setPeliculas_fechaDevP(Date peliculas_fechaDevP) {
-        this.peliculas_fechaDevP = peliculas_fechaDevP;
+    public void setFecha_DevolucionP(Date fecha_DevolucionP) {
+        this.fecha_DevolucionP = fecha_DevolucionP;
     }
 
-
-    public clsAlquilarPeliculas(int idAlquiler, int usuarios_codigo, int peliculas_id, Date peliculas_fechaDevP) {
+    public clsAlquilarPeliculas(int idAlquiler, int usuarios_codigo, int peliculas_id, Date fecha_DevolucionP) {
         super(idAlquiler, usuarios_codigo);
         this.peliculas_id = peliculas_id;
-        this.peliculas_fechaDevP = peliculas_fechaDevP;
+        this.fecha_DevolucionP = fecha_DevolucionP;
     }
 
-    public clsAlquilarPeliculas(int codigo, int peliculas_id, Date peliculas_fechaDevP) {
+    public clsAlquilarPeliculas(int codigo, int peliculas_id, Date fecha_DevolucionP) {
         super(codigo);
         this.peliculas_id = peliculas_id;
-        this.peliculas_fechaDevP = peliculas_fechaDevP;
+        this.fecha_DevolucionP = fecha_DevolucionP;
 
     }
 
@@ -67,7 +67,7 @@ public class clsAlquilarPeliculas extends clsAlquiler implements itfProperty {
             case ALQUILER_PELICULA_ID_PROPIA:
                 return this.getPeliculas_id();
             case ALQUILER_PELICULA_FECHADEV:
-                return this.getPeliculas_fechaDevP();
+                return this.getFecha_DevolucionP();
         }
         return null;
     }

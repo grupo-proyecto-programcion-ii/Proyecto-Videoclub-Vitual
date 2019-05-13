@@ -9,7 +9,7 @@ import static com.company.COMUN.clsConstantes.*;
 public class clsAlquilarVideojuegos extends clsAlquiler implements itfProperty {
 
     private int videojuego_id;
-    private Date videojuegos_fechaDevV;
+    private Date fecha_DevolucionV;
 
 
     public int getVideojuego_id() {
@@ -20,24 +20,24 @@ public class clsAlquilarVideojuegos extends clsAlquiler implements itfProperty {
         this.videojuego_id = videojuego_id;
     }
 
-    public Date getVideojuegos_fechaDevP() {
-        return videojuegos_fechaDevV;
+    public Date getFecha_DevolucionV() {
+        return fecha_DevolucionV;
     }
 
-    public void setVideojuegos_fechaDevP(Date videojuegos_fechaDevP) {
-        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
+    public void setFecha_DevolucionV(Date fecha_DevolucionV) {
+        this.fecha_DevolucionV = fecha_DevolucionV;
     }
 
-    public clsAlquilarVideojuegos(int idAlquiler, int usuarios_codigo, int videojuego_id, Date videojuegos_fechaDevP) {
+    public clsAlquilarVideojuegos(int idAlquiler, int usuarios_codigo, int videojuego_id, Date fecha_DevolucionV) {
         super(idAlquiler, usuarios_codigo);
         this.videojuego_id = videojuego_id;
-        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
+        this.fecha_DevolucionV = fecha_DevolucionV;
     }
 
-    public clsAlquilarVideojuegos( int usuarios_codigo, int videojuego_id, Date videojuegos_fechaDevP) {
+    public clsAlquilarVideojuegos( int usuarios_codigo, int videojuego_id, Date fecha_DevolucionV) {
         super(usuarios_codigo);
         this.videojuego_id = videojuego_id;
-        this.videojuegos_fechaDevV = videojuegos_fechaDevP;
+        this.fecha_DevolucionV = fecha_DevolucionV;
     }
 
 
@@ -61,7 +61,7 @@ public class clsAlquilarVideojuegos extends clsAlquiler implements itfProperty {
             case ALQUILER_VIDEOJUEGO_ID_PROPIA:
                 return this.getVideojuego_id();
             case ALQUILER_VIDEOJUEGO_FECHADEV:
-                return this.getVideojuegos_fechaDevP();
+                return this.getFecha_DevolucionV();
         }
         return null;
     }

@@ -25,11 +25,19 @@ public class clsConstantesBD {
     public static final String INSERT_VIDEOJUEGO = "INSERT INTO videojuegos (fechaSalida,nombre,precio,duracion,puntuacionV,pegiVideojuegos)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_VIDEOJUEGOS = "SELECT * FROM videoclub.videojuegos";
 
-    public static final String INSERT_MUSICA = "INSERT INTO musica (fechaSalida,nombre,precio,duracion,artistas,anio,explicito)VALUES(?,?,?,?,?,?,?)";
+    public static final String INSERT_MUSICA = "INSERT INTO musica (fechaSalida,nombre,precio,duracion,anio,artistas,explicito)VALUES(?,?,?,?,?,?,?)";
     public static final String SELECT_MUSICA = "SELECT * FROM videoclub.musica";
 
-    public static final String  INSERT_ALQUILER_PELICULA = "INSERT INTO usuarios_has_peliculas (usuarios_codigoAleatoria, peliculas_id, fecha_devolucionP) VALUES (?,?,?)";
+    public static final String INSERT_ALQUILER_PELICULA = "INSERT INTO usuarios_has_peliculas (usuarios_codigoAleatoria, peliculas_id, fecha_devolucionP) VALUES (?,?,?)";
     public static final String SELECT_ALQUILER_PELICULAS = "SELECT * FROM videoclub.usuarios_has_peliculas";
     public static final String DELETE_PELICULA = "DELETE FROM usuarios_has_peliculas WHERE idAlquiler = ?";
+
+    public static final String INSERT_ALQUILER_VIDEOJUEGO = "INSERT INTO usuarios_has_videojuegos (usuarios_codigoAleatoria, videojuegos_id, fecha_devolucionV) VALUES (?,?,?)";
+    public static final String SELECT_ALQUILER_VIDEOJUEGOS = "SELECT * FROM videoclub.usuarios_has_videojuegos";
+    public static final String DELETE_VIDEOJUEGO = "DELETE FROM usuarios_has_videojuegos WHERE idAlquiler = ?";
+
+    public static final String INSERT_ALQUILER_MUSICA = "INSERT INTO musica_has_usuarios (usuarios_codigoAleatoria, musica_id, fecha_devolucionM) VALUES (?,?,?)";
+    public static final String SELECT_ALQUILER_MUSICA = "SELECT * FROM videoclub.musica_has_usuarios";
+    public static final String DELETE_MUSICA = "DELETE FROM musica_has_usuarios WHERE idAlquiler = ?";
 }
 

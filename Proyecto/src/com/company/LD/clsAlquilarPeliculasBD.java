@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.company.LD.clsConstantesBD.DELETE_PELICULA;
-import static com.company.LD.clsConstantesBD.INSERT_ALQUILER_PELICULA;
+import static com.company.LD.clsConstantesBD.*;
 
 public class clsAlquilarPeliculasBD {
 
@@ -41,6 +40,17 @@ public class clsAlquilarPeliculasBD {
         return idP;
     }
 
+    public static ResultSet consultaAlquilerP(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+
+        try {
+            _objStat = _objCon.prepareStatement(SELECT_ALQUILER_PELICULAS);
+            _objRS = _objStat.executeQuery(SELECT_ALQUILER_PELICULAS);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return _objRS;
+    }
+
     public static void deletePelicula(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 
         objStat = objCon.prepareStatement(DELETE_PELICULA);
@@ -48,8 +58,6 @@ public class clsAlquilarPeliculasBD {
         objStat.setInt(1, id);//usuarios_codigo_aleatorio
 
         objStat.executeUpdate();
-
-
 
     }
 }

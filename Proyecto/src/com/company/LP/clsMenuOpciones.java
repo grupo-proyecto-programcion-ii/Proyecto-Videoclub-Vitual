@@ -44,7 +44,6 @@ public class clsMenuOpciones {
         System.out.println();
         System.out.println("Cargando datos.....");
         objGestor.cargarDatos();
-
         do {
 
             System.out.println("Selecciona el tipo de una opcion:");
@@ -132,10 +131,10 @@ public class clsMenuOpciones {
                             System.out.println("----> 8. Visualizar lista musica a reservar");
                             System.out.println("----> 9. Visualizar lista musica a reservar por anio");
                             System.out.println("----> 10. Visualizar lista todos los articulos disponibles a reservar");
-                            System.out.println("----> 12. Alquilar Peliculas de la lista");
-                            System.out.println("----> 13. Alquilar Videjuegos de la lista");
-                            System.out.println("----> 14. Alquilar Musica de la lista");
-                            System.out.println("----> 15. Salir");
+                            System.out.println("----> 11. Alquilar Peliculas de la lista");
+                            System.out.println("----> 12. Alquilar Videjuegos de la lista");
+                            System.out.println("----> 13. Alquilar Musica de la lista");
+                            System.out.println("----> 14. Salir");
                             System.out.print("Opcion:");
                             op2 = Utilidades.leerEntero();
 
@@ -174,11 +173,13 @@ public class clsMenuOpciones {
                                     visualizarArticulos(objG);
                                     break;
                                 case 11:
-                                    break;
-                                case 12:
                                     altaAlquilerP(objG, id);
                                     break;
+                                case 12:
+                                    altaAlquilerV(objG, id);
+                                    break;
                                 case 13:
+                                    altaAlquilerM(objG, id);
                                     break;
                                 case 14:
                                     System.out.println("Adios");
@@ -186,7 +187,7 @@ public class clsMenuOpciones {
                             }
                             System.out.println();
 
-                        } while (op2 != 15);
+                        } while (op2 != 14);
 
                     } else if (op == 2) {
                         // switch ()
@@ -355,11 +356,11 @@ public class clsMenuOpciones {
 
     private static void altaAlquilerP(clsGestor objG, String indentificador) {
 
-        System.out.println("Seleccione el numero de peliculas  a alquilar");
+        System.out.println("Seleccione el numero de peliculas  a alquilar:");
         int numero = Utilidades.leerEntero();
         int recuento = 0;
 
-        System.out.println("Indique la cantidad de dias que quiere alquilar");
+        System.out.println("Indique la cantidad de dias que quiere alquilar:");
         int dias = Utilidades.leerEntero();
 
         do {
@@ -393,7 +394,7 @@ public class clsMenuOpciones {
                 System.out.println("Introduce el numero de id del articulo:");
                 int id = Utilidades.leerEntero();
 
-                objG.anadirAlquilerP(indentificador, id, fechaDevolucion(dias));
+                objG.anadirAlquilerV(indentificador, id, fechaDevolucion(dias));
             } catch (SQLException | ClassNotFoundException | ParseException e) {
                 e.printStackTrace();
             }
@@ -403,11 +404,11 @@ public class clsMenuOpciones {
 
     private static void altaAlquilerM(clsGestor objG, String indentificador) {
 
-        System.out.println("Seleccione el numero de videojeugos a alquilar");
+        System.out.println("Seleccione el numero de videojeugos a alquilar:");
         int numero = Utilidades.leerEntero();
         int recuento = 0;
 
-        System.out.println("Indique la cantidad de dias que quiere alquilar");
+        System.out.println("Indique la cantidad de dias que quiere alquilar:");
         int dias = Utilidades.leerEntero();
 
         do {
@@ -417,7 +418,7 @@ public class clsMenuOpciones {
                 System.out.println("Introduce el numero de id del articulo:");
                 int id = Utilidades.leerEntero();
 
-                objG.anadirAlquilerP(indentificador, id, fechaDevolucion(dias));
+                objG.anadirAlquilerM(indentificador, id, fechaDevolucion(dias));
             } catch (SQLException | ClassNotFoundException | ParseException e) {
                 e.printStackTrace();
             }
