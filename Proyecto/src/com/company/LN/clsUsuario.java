@@ -2,6 +2,8 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 
+import java.util.Date;
+
 import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
 
@@ -17,6 +19,11 @@ public class clsUsuario implements itfProperty {
     private int codigoAleatoria;
     private String identificador = null;
     private String contrasena = null;
+    String nombre = null;
+    String apellidos = null;
+    String correoE = null;
+    private String numeroTarjeta;
+    Date fechaNacimiento;
 
     public clsUsuario() {
 
@@ -76,7 +83,6 @@ public class clsUsuario implements itfProperty {
             case USUARIO_CONTRASENA: return this.getContrasena();
 
         }
-
         return null;
     }/**
      * Metodos de la clase interfaz itfProperty
