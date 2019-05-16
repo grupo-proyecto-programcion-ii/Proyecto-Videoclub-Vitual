@@ -216,14 +216,38 @@ public class clsMenuOpciones {
 
         String id;
         String contra;
+        String nombre = null;
+        String apellidos = null;
+        String correoE = null;
+        String numeroTarjeta = null;
+        Date fechaNacimiento;
 
-        System.out.println("Introduce tus datos; ");
-        System.out.print("Usuario: ");
-        id = Utilidades.leerCadena();
-        System.out.print("Contrasena: ");
-        contra = Utilidades.leerCadena();
+        try {
+            System.out.println("Introduce tus datos; ");
+            System.out.print("Usuario: ");
+            id = Utilidades.leerCadena();
+            System.out.print("Contrasena: ");
+            contra = Utilidades.leerCadena();
+            System.out.print("Indica tu nombre: ");
+            nombre = Utilidades.leerCadena();
+            System.out.print("Indica tus apellidos: ");
+            apellidos = Utilidades.leerCadena();
+            System.out.print("Introduce tu correo: ");
+            correoE = Utilidades.leerCadena();
+            System.out.print("Introduce la tarjeta de credito: ");
+            numeroTarjeta = Utilidades.leerCadena();
+            System.out.print("Introduce tu fecha de nacimiento: ");
+            String fechaN = Utilidades.leerCadena();
+            fechaNacimiento = new SimpleDateFormat("dd/MM/yyyy").parse(fechaN);
 
-        objG.anadirUsuario(id, contra);
+
+            objG.anadirUsuario(id, contra, nombre, apellidos, correoE, numeroTarjeta, fechaNacimiento);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     /**

@@ -66,22 +66,18 @@ public class clsGestor {
         }
     }
 
-    /**
-     * Con este metodo se recojen los datos del usuario en forma de objetos. Se introduce en un arraylist especifica
-     * para una lista de usuarios.
-     *
-     * @param _id     identificador de usuario
-     * @param _contra contrasena de usuario
-     */
-    public void anadirUsuario(String _id, String _contra) {
+
+    public void anadirUsuario(String _id, String _contra, String _nombre,String _apellidos,String _correoE,String _numeroTarjeta,Date _fechaNacimiento) {
 
         try {
 
             objDatos.conectarBD();
 
-            clsUsuario objUsuario = new clsUsuario(_id, _contra);
+            clsUsuario objUsuario = new clsUsuario(_id, _contra, );
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
+
+
             objDatos.desconectarBD();
 
 

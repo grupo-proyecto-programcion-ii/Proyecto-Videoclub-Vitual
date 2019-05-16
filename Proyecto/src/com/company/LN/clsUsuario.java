@@ -19,16 +19,13 @@ public class clsUsuario implements itfProperty {
     private int codigoAleatoria;
     private String identificador = null;
     private String contrasena = null;
-    String nombre = null;
-    String apellidos = null;
-    String correoE = null;
+    private String nombre = null;
+    private String apellidos = null;
+    private String correoE = null;
     private String numeroTarjeta;
-    Date fechaNacimiento;
-
-    public clsUsuario() {
-
-    }
-
+    private Date fechaNacimiento;
+    private double costeTotal;
+    private boolean suscripcion = false;
 
     public int getCodigoAleatoria() {
         return codigoAleatoria;
@@ -54,38 +51,115 @@ public class clsUsuario implements itfProperty {
         this.contrasena = _contrasena;
     }
 
-    /***
-     * Constructor que recibe los parametros para los atributos.
-     * @param _id atributo
-     * @param _codigo atributo
-     */
-    public clsUsuario(String _id, String _codigo) {
-        this.identificador = _id;
-        this.contrasena = _codigo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public clsUsuario(int codigoA, String _id, String _codigo) {
-        this.codigoAleatoria = codigoA;
-        this.identificador = _id;
-        this.contrasena = _codigo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCorreoE() {
+        return correoE;
+    }
+
+    public void setCorreoE(String correoE) {
+        this.correoE = correoE;
+    }
+
+    public String getNumeroTarjeta() {
+        return numeroTarjeta;
+    }
+
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public double getCosteTotal() {
+        return costeTotal;
+    }
+
+    public void setCosteTotal(double costeTotal) {
+        this.costeTotal = costeTotal;
+    }
+
+    public boolean isSuscripcion() {
+        return suscripcion;
+    }
+
+    public void setSuscripcion(boolean suscripcion) {
+        this.suscripcion = suscripcion;
+    }
+
+
+    public clsUsuario(String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion) {
+        this.identificador = identificador;
+        this.contrasena = contrasena;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoE = correoE;
+        this.numeroTarjeta = numeroTarjeta;
+        this.fechaNacimiento = fechaNacimiento;
+        this.costeTotal = costeTotal;
+        this.suscripcion = suscripcion;
+    }
+
+    public clsUsuario(int codigoAleatoria, String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion) {
+        this.codigoAleatoria = codigoAleatoria;
+        this.identificador = identificador;
+        this.contrasena = contrasena;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoE = correoE;
+        this.numeroTarjeta = numeroTarjeta;
+        this.fechaNacimiento = fechaNacimiento;
+        this.costeTotal = costeTotal;
+        this.suscripcion = suscripcion;
+    }
+
+    public clsUsuario() {
+
+    }
+
     /**
-     *Método para obtener los datos de los atributos de usuarios.
+     * Método para obtener los datos de los atributos de usuarios.
+     *
      * @param propiedad objeto que tra la interfaz
      * @return valores a los atributos
      */
-    public Object getPropertyU(String propiedad){
+    public Object getPropertyU(String propiedad) {
 
-        switch(propiedad)
-        {
-            case USUARIO_CODIGO_ID: return this.getCodigoAleatoria();
-            case USUARIO_IDENTIFICADOR: return 	this.getIdentificador();
-            case USUARIO_CONTRASENA: return this.getContrasena();
+        switch (propiedad) {
+            case USUARIO_CODIGO_ID:
+                return this.getCodigoAleatoria();
+            case USUARIO_IDENTIFICADOR:
+                return this.getIdentificador();
+            case USUARIO_CONTRASENA:
+                return this.getContrasena();
 
         }
         return null;
-    }/**
+    }
+
+    /**
      * Metodos de la clase interfaz itfProperty
+     *
      * @param obj_Propiedad objeto de interfaz
      * @return valores a los atributos
      */
