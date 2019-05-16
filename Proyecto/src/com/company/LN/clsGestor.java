@@ -66,20 +66,52 @@ public class clsGestor {
         }
     }
 
+    private double calculoCosteTotal(boolean _estadoSuscipcion) {
+        double costeTotal = 0;
+        if (_estadoSuscipcion == false) {
+            for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
+                for (clsPeliculas pelicula : listaPeliculas) {
+                    if (pelicula.getId() == alquilerPelicula.getPeliculas_id()) {
+                        costeTotal = costeTotal + pelicula.getPrecio();
+                    }
+                }
+            }
+            for (clsAlquilarVideojuegos alquilerVideojuego : listaAlquilerVidejuegos) {
+                for (clsVideojuegos videojuego : listaVidejuegos) {
+                    if (videojuego.getId() == alquilerVideojuego.getVideojuego_id()) {
+                        costeTotal = costeTotal + videojuego.getPrecio();
+                    }
+                }
+            }
+            for (clsAlquilarMusica alquilerMusica : listaAlquilerMusica) {
+                for (clsMusica_CD cd : listaMusica) {
+                    if (cd.getId() == alquilerMusica.getMusica_id()) {
+                        costeTotal = costeTotal + cd.getPrecio();
+                    }
+                }
+            }
+        } else if (_estadoSuscipcion == true) {
+            costeTotal = 40;
+        }
+        return costeTotal;
+    }
 
-    public void anadirUsuario(String _id, String _contra, String _nombre,String _apellidos,String _correoE,String _numeroTarjeta,Date _fechaNacimiento) {
+
+    public void anadirUsuario(String _id, String _contra, String _nombre, String _apellidos, String _correoE,
+                              String _numeroTarjeta, Date _fechaNacimiento, boolean _suscripcion) {
 
         try {
 
             objDatos.conectarBD();
 
-            clsUsuario objUsuario = new clsUsuario(_id, _contra, );
+            clsUsuario objUsuario = new clsUsuario(_id, _contra, _nombre, _apellidos, _correoE,
+                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion);
             listaUsuarios.add(objUsuario);
-            objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra));
+            objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra, _nombre, _apellidos, _correoE,
+                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion));
 
 
             objDatos.desconectarBD();
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,8 +147,8 @@ public class clsGestor {
                 int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
                 String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
                 String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
-                clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
-                listaUsuarios.add(objUsuario);
+                // clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
+                // listaUsuarios.add(objUsuario);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {

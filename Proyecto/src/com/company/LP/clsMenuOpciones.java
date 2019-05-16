@@ -221,6 +221,7 @@ public class clsMenuOpciones {
         String correoE = null;
         String numeroTarjeta = null;
         Date fechaNacimiento;
+        boolean suscrpcion;
 
         try {
             System.out.println("Introduce tus datos; ");
@@ -239,9 +240,17 @@ public class clsMenuOpciones {
             System.out.print("Introduce tu fecha de nacimiento: ");
             String fechaN = Utilidades.leerCadena();
             fechaNacimiento = new SimpleDateFormat("dd/MM/yyyy").parse(fechaN);
+            System.out.println("Desea suscripcion?: ");
+            String respuesta = Utilidades.leerCadena();
+
+            if (respuesta.equals("Si")){
+                suscrpcion = true;
+            }else {
+                suscrpcion = false;
+            }
 
 
-            objG.anadirUsuario(id, contra, nombre, apellidos, correoE, numeroTarjeta, fechaNacimiento);
+            objG.anadirUsuario(id, contra, nombre, apellidos, correoE, numeroTarjeta, fechaNacimiento, suscrpcion);
 
         } catch (ParseException e) {
             e.printStackTrace();

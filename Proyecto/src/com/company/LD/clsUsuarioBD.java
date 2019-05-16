@@ -28,6 +28,17 @@ public class clsUsuarioBD {
 
         objStat.setString(1, (String) _parametrosUsuario[0]); //identificador
         objStat.setString(2, (String) _parametrosUsuario[1]); //contrasena
+        objStat.setString(3, (String) _parametrosUsuario[2]); //nombre
+        objStat.setString(4, (String) _parametrosUsuario[3]); //apellidos
+        objStat.setString(5, (String) _parametrosUsuario[4]); //correo electronico
+        objStat.setString(6, (String) _parametrosUsuario[5]); //numero tarjeta
+
+        java.util.Date fechaN = (java.util.Date) _parametrosUsuario[6];
+        java.sql.Date fechasqlN = new java.sql.Date(fechaN.getTime());
+
+        objStat.setDate(7, fechasqlN, java.util.Calendar.getInstance()); //fecha nacimiento
+        objStat.setDouble(8, (Double) _parametrosUsuario[7]); //coste total
+        objStat.setBoolean(9,(Boolean) _parametrosUsuario[8]); //estado suscripcion
 
         regActualizada = objStat.executeUpdate();
 

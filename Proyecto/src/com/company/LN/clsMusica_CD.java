@@ -53,17 +53,17 @@ public class clsMusica_CD extends clsArticulo {
      * @param _artistas atributo
      * @param _explicito atributo
      */
-    public clsMusica_CD(int _idPelicula,  Date _fechaDevM,String _nombreM, double _precioP, double _duracionP, int _anio, String _artistas, String _explicito) {
+    public clsMusica_CD(int _idPelicula,  Date _fechaDevM,String _nombreM, double _precioM, double _duracionM, int _anio, String _artistas, String _explicito) {
 
-        super(_idPelicula, _fechaDevM,_nombreM, _precioP, _duracionP);
+        super(_idPelicula, _fechaDevM,_nombreM, _precioM, _duracionM);
         this.anio = _anio;
         this.artistas = _artistas;
         this.explicito = _explicito;
     }
 
-    public clsMusica_CD(Date _fechaSM, String _nombreM, double _precioP, double _duracionP, int _anio, String _artistas, String _explicito) {
+    public clsMusica_CD(Date _fechaSM, String _nombreM, double _precioM, double _duracionM, int _anio, String _artistas, String _explicito) {
 
-        super(_fechaSM ,_nombreM, _precioP, _duracionP);
+        super(_fechaSM ,_nombreM, _precioM, _duracionM);
         this.anio = _anio;
         this.artistas = _artistas;
         this.explicito = _explicito;
