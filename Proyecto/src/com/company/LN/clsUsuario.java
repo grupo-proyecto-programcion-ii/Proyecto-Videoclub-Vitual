@@ -27,6 +27,8 @@ public class clsUsuario implements itfProperty {
     private double costeTotal;
     private boolean suscripcion = false;
 
+    private Date fechaSuscripcion;
+
     public int getCodigoAleatoria() {
         return codigoAleatoria;
     }
@@ -107,8 +109,16 @@ public class clsUsuario implements itfProperty {
         this.suscripcion = suscripcion;
     }
 
+    public Date getFechaSuscripcion() {
+        return fechaSuscripcion;
+    }
 
-    public clsUsuario(String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion) {
+    public void setFechaSuscripcion(Date fechaSuscripcion) {
+        this.fechaSuscripcion = fechaSuscripcion;
+    }
+
+
+    public clsUsuario(String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
         this.identificador = identificador;
         this.contrasena = contrasena;
         this.nombre = nombre;
@@ -118,9 +128,10 @@ public class clsUsuario implements itfProperty {
         this.fechaNacimiento = fechaNacimiento;
         this.costeTotal = costeTotal;
         this.suscripcion = suscripcion;
+        this.fechaSuscripcion = fechaSuscripcion;
     }
 
-    public clsUsuario(int codigoAleatoria, String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion) {
+    public clsUsuario(int codigoAleatoria, String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
         this.codigoAleatoria = codigoAleatoria;
         this.identificador = identificador;
         this.contrasena = contrasena;
@@ -131,6 +142,7 @@ public class clsUsuario implements itfProperty {
         this.fechaNacimiento = fechaNacimiento;
         this.costeTotal = costeTotal;
         this.suscripcion = suscripcion;
+        this.fechaSuscripcion = fechaSuscripcion;
     }
 
     public clsUsuario() {
@@ -147,11 +159,25 @@ public class clsUsuario implements itfProperty {
 
         switch (propiedad) {
             case USUARIO_CODIGO_ID:
-                return this.getCodigoAleatoria();
+                return this.codigoAleatoria;
             case USUARIO_IDENTIFICADOR:
-                return this.getIdentificador();
+                return this.identificador;
             case USUARIO_CONTRASENA:
-                return this.getContrasena();
+                return this.contrasena;
+            case USUARIO_NOMBRE:
+                return this.nombre;
+            case USUARIO_APELLIDOS:
+                return this.apellidos;
+            case USUARIO_CORREO:
+                return this.correoE;
+            case USUARIO_TARJETA:
+                return this.numeroTarjeta;
+            case USUARIO_FECHA_NACIMINETO:
+                return this.fechaNacimiento;
+            case USUARIO_COSTE_TOTAL:
+                return this.costeTotal;
+            case USUARIO_SUSCRIPCION:
+                return this.suscripcion;
 
         }
         return null;

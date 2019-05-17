@@ -251,6 +251,7 @@ public class clsMenuOpciones {
 
 
             objG.anadirUsuario(id, contra, nombre, apellidos, correoE, numeroTarjeta, fechaNacimiento, suscrpcion);
+            objG.anadirSuscripcion(id);
 
         } catch (ParseException e) {
             e.printStackTrace();

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5a4cca6e-0a4a-4750-a3a7-708db7e19037" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsUsuario.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +39,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -142,7 +144,7 @@
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2689394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27272728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

@@ -11,6 +11,15 @@ public class clsConstantes {
     public static final String USUARIO_CODIGO_ID = "CodigoAleatoria";
     public static final String USUARIO_IDENTIFICADOR = "Identificador";
     public static final String USUARIO_CONTRASENA = "Contrasena";
+    public static final String USUARIO_NOMBRE = "Nombre";
+    public static final String USUARIO_APELLIDOS = "Apellidos";
+    public static final String USUARIO_CORREO = "CorreoE";
+    public static final String USUARIO_TARJETA = "NumeroTarjeta";
+    public static final String USUARIO_FECHA_NACIMINETO = "FechaNacimiento";
+    public static final String USUARIO_COSTE_TOTAL = "CosteTotal";
+    public static final String USUARIO_SUSCRIPCION = "Suscripcion";
+    public static final String USUARIO_FECHA_SUSCRIPCION = "fechaSuscripcion";
+
 
     public static final String PELICULA_CODIGO_ID = "id";
     public static final String PELICULA_FECHA_SALIDA = "FechaSalida";

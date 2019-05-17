@@ -6,8 +6,10 @@ import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 
@@ -104,8 +106,10 @@ public class clsGestor {
 
             objDatos.conectarBD();
 
+
+
             clsUsuario objUsuario = new clsUsuario(_id, _contra, _nombre, _apellidos, _correoE,
-                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion);
+                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion, null);
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra, _nombre, _apellidos, _correoE,
                     _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion));
@@ -299,6 +303,43 @@ public class clsGestor {
 
     public void anadirSuscripcion(String identificador) {
 
+        try {
+            for (clsUsuario usuario : listaUsuarios){
+                if (usuario.getIdentificador().equals(identificador) && usuario.isSuscripcion() == true){
+                    for (clsPeliculas pelicula : listaPeliculas) {
+                        anadirAlquilerP(usuario.getIdentificador(), pelicula.getId(), calcularFechaSuscripcion());
+                    }
+                    for (clsVideojuegos videojuego : listaVidejuegos) {
+                        anadirAlquilerP(usuario.getIdentificador(), videojuego.getId(), calcularFechaSuscripcion());
+                    }
+                    for (clsMusica_CD cd : listaMusica) {
+                        anadirAlquilerP(usuario.getIdentificador(), cd.getId(), calcularFechaSuscripcion());
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Date calcularFechaSuscripcion(){
+
+        Date fechaDev2 = null;
+        try {
+            Date fechaHoy = new Date();
+            SimpleDateFormat miFormato = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar calendario = Calendar.getInstance();
+            calendario.setTime(fechaHoy);
+            calendario.add(Calendar.DATE, 30);
+            String fechaDevS = miFormato.format(calendario.getTime());
+            fechaDev2 = new SimpleDateFormat("dd/MM/yyyy").parse(fechaDevS);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return fechaDev2;
     }
 
 
@@ -494,6 +535,8 @@ public class clsGestor {
         cargarAlquilerV();
         cargarAlquilerM();
         eliminarAlquiler();
+
+
     }
 
     private void eliminarAlquiler() {
@@ -502,21 +545,24 @@ public class clsGestor {
             objDatos.conectarBD();
             Date fechaHoy = new Date();
 
-            for (clsAlquilarPeliculas pelicula : listaAlquilerPelis) {
-                if (pelicula.getFecha_DevolucionP().compareTo(fechaHoy) < 0) {
-                    objDatos.eliminarAlquilerP(pelicula.getIdAlquiler());
+            for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
+                if (alquilerPelicula.getFecha_DevolucionP().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerP(alquilerPelicula.getIdAlquiler());
+                    listaAlquilerPelis.remove(alquilerPelicula);
                 }
             }
 
-            for (clsAlquilarVideojuegos videojuego : listaAlquilerVidejuegos) {
-                if (videojuego.getFecha_DevolucionV().compareTo(fechaHoy) < 0) {
-                    objDatos.eliminarAlquilerV(videojuego.getIdAlquiler());
+            for (clsAlquilarVideojuegos alquilerVideojuego : listaAlquilerVidejuegos) {
+                if (alquilerVideojuego.getFecha_DevolucionV().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerV(alquilerVideojuego.getIdAlquiler());
+                    listaAlquilerVidejuegos.remove(alquilerVideojuego);
                 }
             }
 
-            for (clsAlquilarMusica cd : listaAlquilerMusica) {
-                if (cd.getFecha_DevolucionM().compareTo(fechaHoy) < 0) {
-                    objDatos.eliminarAlquilerM(cd.getIdAlquiler());
+            for (clsAlquilarMusica alquilerCd : listaAlquilerMusica) {
+                if (alquilerCd.getFecha_DevolucionM().compareTo(fechaHoy) < 0) {
+                    objDatos.eliminarAlquilerM(alquilerCd.getIdAlquiler());
+                    listaAlquilerMusica.remove(alquilerCd);
                 }
             }
             objDatos.desconectarBD();
