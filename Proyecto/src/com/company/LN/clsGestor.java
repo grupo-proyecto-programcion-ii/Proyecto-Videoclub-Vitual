@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.function.BinaryOperator;
 
 import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
@@ -100,19 +101,17 @@ public class clsGestor {
 
 
     public void anadirUsuario(String _id, String _contra, String _nombre, String _apellidos, String _correoE,
-                              String _numeroTarjeta, Date _fechaNacimiento, boolean _suscripcion) {
+                              String _numeroTarjeta, Date _fechaNacimiento, boolean _suscripcion, Date fechaHoy) {
 
         try {
 
             objDatos.conectarBD();
 
-
-
             clsUsuario objUsuario = new clsUsuario(_id, _contra, _nombre, _apellidos, _correoE,
-                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion, null);
+                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), false, fechaHoy);
             listaUsuarios.add(objUsuario);
             objUsuario.setCodigoAleatoria(objDatos.insertarCodigoUsuario(_id, _contra, _nombre, _apellidos, _correoE,
-                    _numeroTarjeta, _fechaNacimiento, calculoCosteTotal(_suscripcion), _suscripcion));
+                    _numeroTarjeta, _fechaNacimiento, 0, false, fechaHoy));
 
 
             objDatos.desconectarBD();
@@ -149,10 +148,20 @@ public class clsGestor {
             usuariosBaseDatos = objDatos.dameParametros(codigoConsulta);
             while (usuariosBaseDatos.next()) {
                 int id = usuariosBaseDatos.getInt(USUARIO_CODIGO_ID);
-                String nombre = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
+                String identificador = usuariosBaseDatos.getString(USUARIO_IDENTIFICADOR);
                 String contrasena = usuariosBaseDatos.getString(USUARIO_CONTRASENA);
-                // clsUsuario objUsuario = new clsUsuario(id, nombre, contrasena);
-                // listaUsuarios.add(objUsuario);
+                String nombre = usuariosBaseDatos.getString(USUARIO_NOMBRE);
+                String apellidos = usuariosBaseDatos.getString(USUARIO_APELLIDOS);
+                String correoE = usuariosBaseDatos.getString(USUARIO_CORREO);
+                String numeroTarjeta = usuariosBaseDatos.getString(USUARIO_TARJETA);
+                java.sql.Date fechaNacimiento = usuariosBaseDatos.getDate(USUARIO_FECHA_NACIMINETO);
+                double costeTotal = usuariosBaseDatos.getDouble(USUARIO_COSTE_TOTAL);
+                boolean suscripcion = usuariosBaseDatos.getBoolean(USUARIO_SUSCRIPCION);
+                java.sql.Date fechaSuscripcion = usuariosBaseDatos.getDate(USUARIO_FECHA_SUSCRIPCION);
+
+                clsUsuario objUsuario = new clsUsuario(id, identificador, contrasena, nombre, apellidos, correoE, numeroTarjeta,
+                        fechaNacimiento, costeTotal, suscripcion,fechaSuscripcion);
+                listaUsuarios.add(objUsuario);
             }
             objDatos.desconectarBD();
         } catch (SQLException | ClassNotFoundException e) {
@@ -222,6 +231,9 @@ public class clsGestor {
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
                         objAP.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
+
+                        Double costeTotal = usuario.getCosteTotal();
+                        costeTotal = costeTotal + pelicula.getPrecio();
                     }
                 }
             }
@@ -244,6 +256,9 @@ public class clsGestor {
                     clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(codigo, _id, _fechaDev);
                     listaAlquilerVidejuegos.add(objAV);
                     objAV.setIdAlquiler(objDatos.insertarAlquilerV(codigo, _id, _fechaDev));
+
+                    Double costeTotal = usuario.getCosteTotal();
+                    costeTotal = costeTotal + videojuego.getPrecio();
                 }
             }
         }
@@ -262,6 +277,9 @@ public class clsGestor {
                     clsAlquilarMusica objAM = new clsAlquilarMusica(codigo, _id, _fechaDev);
                     listaAlquilerMusica.add(objAM);
                     objAM.setIdAlquiler(objDatos.insertarAlquilerM(codigo, _id, _fechaDev));
+
+                    Double costeTotal = usuario.getCosteTotal();
+                    costeTotal = costeTotal + cd.getPrecio();
                 }
             }
         }

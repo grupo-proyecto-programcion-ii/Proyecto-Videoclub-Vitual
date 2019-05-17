@@ -40,6 +40,11 @@ public class clsUsuarioBD {
         objStat.setDouble(8, (Double) _parametrosUsuario[7]); //coste total
         objStat.setBoolean(9,(Boolean) _parametrosUsuario[8]); //estado suscripcion
 
+        java.util.Date fechaS = (java.util.Date) _parametrosUsuario[9];
+        java.sql.Date fechasqlS = new java.sql.Date(fechaS.getTime());
+
+        objStat.setDate(10, fechasqlS, java.util.Calendar.getInstance()); //fecha suscripcion
+
         regActualizada = objStat.executeUpdate();
 
         if (regActualizada == 1) {

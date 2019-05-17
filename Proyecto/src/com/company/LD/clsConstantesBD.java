@@ -16,7 +16,7 @@ public class clsConstantesBD {
     public final static String URL = "jdbc:mysql://" + DIRECTION + ":" + PORT + "/" + DATABASE + "?useTimezone=true&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true";
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-    public static final String INSERT_USUARIO = "INSERT INTO usuarios (identificador,contrasena,nombre,apellidos,correoE,numeroTarjeta,fechaNacimiento,costeTotal,suscripcion)VALUES(?,?,?,?,?,?,?,?,?)";
+    public static final String INSERT_USUARIO = "INSERT INTO usuarios (identificador,contrasena,nombre,apellidos,correoE,numeroTarjeta,fechaNacimiento,costeTotal,suscripcion,fechaSuscripcion)VALUES(?,?,?,?,?,?,?,?,?,?)";
     public static final String SELECT_USUARIOS = "SELECT * FROM videoclub.usuarios";
 
     public static final String INSERT_PELICULA = "INSERT INTO peliculas (fechaSalida,nombre,precio,duracion,pegiP,puntuacionP)VALUES(?,?,?,?,?,?)";

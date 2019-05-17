@@ -18,7 +18,7 @@ public class clsConstantes {
     public static final String USUARIO_FECHA_NACIMINETO = "FechaNacimiento";
     public static final String USUARIO_COSTE_TOTAL = "CosteTotal";
     public static final String USUARIO_SUSCRIPCION = "Suscripcion";
-    public static final String USUARIO_FECHA_SUSCRIPCION = "fechaSuscripcion";
+    public static final String USUARIO_FECHA_SUSCRIPCION = "FechaSuscripcion";
 
 
     public static final String PELICULA_CODIGO_ID = "id";

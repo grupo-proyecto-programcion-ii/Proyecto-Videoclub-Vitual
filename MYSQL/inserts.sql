@@ -4,12 +4,12 @@
 #SELECT*FROM videojuegos;
 
 #ALTER TABLE usuarios ADD suscripcion boolean;
-#select*FROM usuarios;
+#select*FROM videoclub.usuarios;
 #ALTER TABLE videoclub.usuarios ADD suscripcion BOOLEAN default FALSE;
+#DESC videoclub.usuarios;
 #
-DESC videoclub.usuarios;
-INSERT INTO videoclub.usuarios (codigoAleatoria, identificador, contrasena, nombre,
- apellidos, correoE, numeroTarjeta, fechaNacimiento, costeTotal, suscripcion)
- VALUES (3, "rgt", "rgb", "rbt", "grb", "tb", "fhn", "1996/05/09", 56, null);
+INSERT INTO videoclub.usuarios (identificador, contrasena, nombre,
+ apellidos, correoE, numeroTarjeta, fechaNacimiento, costeTotal, suscripcion, fechaSuscripcion)
+ VALUES ("rgt", "rgb", "rbt", "grb", "tb", "fhn", "1996/05/09", 56,false, "18/01/1997");
 #
-select*FROM videoclub.usuarios;
+#select*FROM videoclub.usuarios;

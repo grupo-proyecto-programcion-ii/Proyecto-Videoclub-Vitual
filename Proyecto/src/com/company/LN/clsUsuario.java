@@ -26,7 +26,6 @@ public class clsUsuario implements itfProperty {
     private Date fechaNacimiento;
     private double costeTotal;
     private boolean suscripcion = false;
-
     private Date fechaSuscripcion;
 
     public int getCodigoAleatoria() {
@@ -118,7 +117,10 @@ public class clsUsuario implements itfProperty {
     }
 
 
-    public clsUsuario(String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
+    public clsUsuario(String identificador, String contrasena,
+                      String nombre, String apellidos, String correoE,
+                      String numeroTarjeta, Date fechaNacimiento,
+                      double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
         this.identificador = identificador;
         this.contrasena = contrasena;
         this.nombre = nombre;
@@ -131,7 +133,9 @@ public class clsUsuario implements itfProperty {
         this.fechaSuscripcion = fechaSuscripcion;
     }
 
-    public clsUsuario(int codigoAleatoria, String identificador, String contrasena, String nombre, String apellidos, String correoE, String numeroTarjeta, Date fechaNacimiento, double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
+    public clsUsuario(int codigoAleatoria, String identificador, String contrasena, String nombre,
+                      String apellidos, String correoE, String numeroTarjeta,
+                      Date fechaNacimiento, double costeTotal, boolean suscripcion, Date fechaSuscripcion) {
         this.codigoAleatoria = codigoAleatoria;
         this.identificador = identificador;
         this.contrasena = contrasena;
@@ -178,6 +182,8 @@ public class clsUsuario implements itfProperty {
                 return this.costeTotal;
             case USUARIO_SUSCRIPCION:
                 return this.suscripcion;
+            case USUARIO_FECHA_SUSCRIPCION:
+                return this.fechaSuscripcion;
 
         }
         return null;

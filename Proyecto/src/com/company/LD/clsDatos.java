@@ -69,8 +69,8 @@ public class clsDatos {
      */
 
     public int insertarCodigoUsuario(String _id, String _contra, String _nombre,String _apellidos,String _correoE,String _numeroTarjeta,
-                                     Date _fechaNacimiento, double _costeTotal, boolean _suscripcion) throws Exception {
-        Object[] parametrosUsuario = {_id, _contra, _nombre, _apellidos, _correoE, _numeroTarjeta, _fechaNacimiento, _costeTotal, _suscripcion};
+                                     Date _fechaNacimiento, double _costeTotal, boolean _suscripcion, Date fechaSuscripcion) throws Exception {
+        Object[] parametrosUsuario = {_id, _contra, _nombre, _apellidos, _correoE, _numeroTarjeta, _fechaNacimiento, _costeTotal, _suscripcion, fechaSuscripcion};
         return clsUsuarioBD.insertarUsuario(objConexion, objStatements, objRS, parametrosUsuario);
     }
 
