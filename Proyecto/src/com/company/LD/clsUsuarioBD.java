@@ -77,12 +77,17 @@ public class clsUsuarioBD {
         return _objRS;
     }
 
-    public static void updateAltaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+    public static void updateAltaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS, int _codigoA, boolean suscripcion, java.util.Date fechaS){
+        _objStat = _objCon.prepareStatement(UPDATE_ALTA_SUSCRIPCION);
 
+        _objStat.setInt(1, _codigoA);//usuarios_codigo_aleatorio
+        _objStat.setInt(1, _codigoA);//usuarios_codigo_aleatorio
+
+        objStat.executeUpdate();
     }
 
-    public static void updateBajaSsuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
-        
+    public static void updateBajaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+
     }
 
 

@@ -18,6 +18,10 @@ public class clsConstantesBD {
 
     public static final String INSERT_USUARIO = "INSERT INTO usuarios (identificador,contrasena,nombre,apellidos,correoE,numeroTarjeta,fechaNacimiento,costeTotal,suscripcion,fechaSuscripcion)VALUES(?,?,?,?,?,?,?,?,?,?)";
     public static final String SELECT_USUARIOS = "SELECT * FROM videoclub.usuarios";
+    public static final String UPDATE_COSTE_TOTAL = "UPDATE videoclub.usuarios SET costeTotal = ?, WHERE codigoAleatoria = ?";
+    public static final String UPDATE_ALTA_SUSCRIPCION = "UPDATE videoclub.usuarios SET suscripcion = ?, fechaSuscripcion = ? WHERE codigoAleatoria = ?";
+    public static final String UPDATE_BAJA_SUSCRIPCION = "UPDATE videoclub.usuarios SET suscripcion = ? WHERE codigoAleatoria = ?";
+
 
     public static final String INSERT_PELICULA = "INSERT INTO peliculas (fechaSalida,nombre,precio,duracion,pegiP,puntuacionP)VALUES(?,?,?,?,?,?)";
     public static final String SELECT_PELICULAS = "SELECT * FROM videoclub.peliculas";

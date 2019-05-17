@@ -146,7 +146,16 @@ public class clsDatos {
             return null;
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void insertarUpdateAltaS(int _codigoA, boolean suscripcion, Date fechaS){
+        clsUsuarioBD.updateAltaSuscripcion(objConexion, objStatements, objRS, _codigoA, suscripcion, fechaS);
+    }
+
+    public void insertarUpdateBajaS(){
+
+    }
 
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
