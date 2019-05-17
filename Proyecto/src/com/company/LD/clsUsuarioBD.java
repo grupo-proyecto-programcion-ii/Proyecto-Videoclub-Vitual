@@ -77,4 +77,13 @@ public class clsUsuarioBD {
         return _objRS;
     }
 
+    public static void updateAltaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+
+    }
+
+    public static void updateBajaSsuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+        
+    }
+
+
 }

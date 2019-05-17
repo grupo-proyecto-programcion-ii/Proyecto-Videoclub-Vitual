@@ -227,13 +227,14 @@ public class clsGestor {
                 for (clsUsuario usuario : listaUsuarios) {
                     if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == pelicula.getId() && compararIdAlquilerP(_id) == true) {
 
-                        int codigo = usuario.getCodigoAleatoria();
-                        clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(codigo, _id, _fechaDev);
+                        //int codigo = usuario.getCodigoAleatoria();
+                        clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(usuario.getCodigoAleatoria(), _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
-                        objAP.setIdAlquiler(objDatos.insertarAlquilerP(codigo, _id, _fechaDev));
+                        objAP.setIdAlquiler(objDatos.insertarAlquilerP(usuario.getCodigoAleatoria(), _id, _fechaDev));
 
-                        Double costeTotal = usuario.getCosteTotal();
-                        costeTotal = costeTotal + pelicula.getPrecio();
+                        usuario.setCosteTotal(usuario.getCosteTotal() + pelicula.getPrecio());
+                        System.out.println(usuario.getCosteTotal());
+                        //UPDATE de coste total en la base de datos
                     }
                 }
             }
@@ -252,13 +253,14 @@ public class clsGestor {
             for (clsUsuario usuario : listaUsuarios) {
                 if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == videojuego.getId() && compararIdAlquilerV(_id) == true) {
 
-                    int codigo = usuario.getCodigoAleatoria();
-                    clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(codigo, _id, _fechaDev);
+                    //int codigo = usuario.getCodigoAleatoria();
+                    clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(usuario.getCodigoAleatoria(), _id, _fechaDev);
                     listaAlquilerVidejuegos.add(objAV);
-                    objAV.setIdAlquiler(objDatos.insertarAlquilerV(codigo, _id, _fechaDev));
+                    objAV.setIdAlquiler(objDatos.insertarAlquilerV(usuario.getCodigoAleatoria(), _id, _fechaDev));
 
-                    Double costeTotal = usuario.getCosteTotal();
-                    costeTotal = costeTotal + videojuego.getPrecio();
+                    usuario.setCosteTotal(usuario.getCosteTotal() + videojuego.getPrecio());
+                    System.out.println(usuario.getCosteTotal());
+                    //UPDATE de coste total en la base de datos
                 }
             }
         }
@@ -273,13 +275,15 @@ public class clsGestor {
             for (clsUsuario usuario : listaUsuarios) {
                 if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == cd.getId() && compararIdAlquilerM(_id) == true) {
 
-                    int codigo = usuario.getCodigoAleatoria();
-                    clsAlquilarMusica objAM = new clsAlquilarMusica(codigo, _id, _fechaDev);
+                    //int codigo = usuario.getCodigoAleatoria();
+                    clsAlquilarMusica objAM = new clsAlquilarMusica(usuario.getCodigoAleatoria(), _id, _fechaDev);
                     listaAlquilerMusica.add(objAM);
-                    objAM.setIdAlquiler(objDatos.insertarAlquilerM(codigo, _id, _fechaDev));
+                    objAM.setIdAlquiler(objDatos.insertarAlquilerM(usuario.getCodigoAleatoria(), _id, _fechaDev));
+                    System.out.println(usuario.getCosteTotal());
 
-                    Double costeTotal = usuario.getCosteTotal();
-                    costeTotal = costeTotal + cd.getPrecio();
+                    usuario.setCosteTotal(usuario.getCosteTotal() + cd.getPrecio());
+                    System.out.println(usuario.getCosteTotal());
+                    //UPDATE de coste total en la base de datos
                 }
             }
         }
@@ -318,7 +322,7 @@ public class clsGestor {
         }
         return retorno;
     }
-
+/**
     public void anadirSuscripcion(String identificador) {
 
         try {
@@ -339,6 +343,17 @@ public class clsGestor {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+ */
+
+    public void comprobarSuscripcion(){
+        Date fechaHoy = new Date();
+        for(clsUsuario usuario : listaUsuarios){
+            if(usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0){
+                usuario.setSuscripcion(false);
+
+            }
         }
     }
 
