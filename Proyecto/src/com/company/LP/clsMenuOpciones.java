@@ -33,6 +33,10 @@ public class clsMenuOpciones {
         // Creo y declaro el objeto, que senala objGestor y objArticulo
         clsGestor objGestor = new clsGestor();
 
+        clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);
+        objVentanaInicio.setVisible(true);
+
+
         /**
          * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los metodos contenidos
          * en esa clase se pueden hacer las funciones principales.

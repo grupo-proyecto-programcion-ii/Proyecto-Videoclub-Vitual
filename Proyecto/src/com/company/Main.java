@@ -1,5 +1,6 @@
 package com.company;
 import com.company.LP.clsMenuOpciones;
+import com.company.LP.clsVentanaInicio;
 
 import java.sql.SQLException;
 
@@ -20,6 +21,7 @@ public class Main<result> {
 
         //Lamada al objeto
         objMenu.menuPrincipal();
+
     }
 
 }
