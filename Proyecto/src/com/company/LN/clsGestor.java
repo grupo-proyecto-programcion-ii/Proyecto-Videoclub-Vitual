@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.function.BinaryOperator;
 
 import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
@@ -70,6 +69,7 @@ public class clsGestor {
     }
 
     private double calculoCosteTotal(boolean _estadoSuscipcion) {
+
         double costeTotal = 0;
         if (_estadoSuscipcion == false) {
             for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
@@ -160,7 +160,7 @@ public class clsGestor {
                 java.sql.Date fechaSuscripcion = usuariosBaseDatos.getDate(USUARIO_FECHA_SUSCRIPCION);
 
                 clsUsuario objUsuario = new clsUsuario(id, identificador, contrasena, nombre, apellidos, correoE, numeroTarjeta,
-                        fechaNacimiento, costeTotal, suscripcion,fechaSuscripcion);
+                        fechaNacimiento, costeTotal, suscripcion, fechaSuscripcion);
                 listaUsuarios.add(objUsuario);
             }
             objDatos.desconectarBD();
@@ -234,7 +234,7 @@ public class clsGestor {
 
                         usuario.setCosteTotal(usuario.getCosteTotal() + pelicula.getPrecio());
                         System.out.println(usuario.getCosteTotal());
-                        //UPDATE de coste total en la base de datos
+                        objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                     }
                 }
             }
@@ -261,6 +261,7 @@ public class clsGestor {
                     usuario.setCosteTotal(usuario.getCosteTotal() + videojuego.getPrecio());
                     System.out.println(usuario.getCosteTotal());
                     //UPDATE de coste total en la base de datos
+                    objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                 }
             }
         }
@@ -284,6 +285,7 @@ public class clsGestor {
                     usuario.setCosteTotal(usuario.getCosteTotal() + cd.getPrecio());
                     System.out.println(usuario.getCosteTotal());
                     //UPDATE de coste total en la base de datos
+                    objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                 }
             }
         }
@@ -322,42 +324,40 @@ public class clsGestor {
         }
         return retorno;
     }
-/**
+
     public void anadirSuscripcion(String identificador) {
 
         try {
-            for (clsUsuario usuario : listaUsuarios){
-                if (usuario.getIdentificador().equals(identificador) && usuario.isSuscripcion() == true){
-                    for (clsPeliculas pelicula : listaPeliculas) {
-                        anadirAlquilerP(usuario.getIdentificador(), pelicula.getId(), calcularFechaSuscripcion());
-                    }
-                    for (clsVideojuegos videojuego : listaVidejuegos) {
-                        anadirAlquilerP(usuario.getIdentificador(), videojuego.getId(), calcularFechaSuscripcion());
-                    }
-                    for (clsMusica_CD cd : listaMusica) {
-                        anadirAlquilerP(usuario.getIdentificador(), cd.getId(), calcularFechaSuscripcion());
-                    }
+            objDatos.conectarBD();
+
+            for (clsUsuario usuario : listaUsuarios) {
+                if (usuario.getIdentificador().equals(identificador)) {
+                    usuario.setSuscripcion(true);
+                    usuario.setCosteTotal(calculoCosteTotal(usuario.isSuscripcion()));
+                    usuario.setFechaSuscripcion(calcularFechaSuscripcion());
+                    objDatos.insertarUpdateAltaS(usuario.getCodigoAleatoria(), usuario.isSuscripcion(),
+                            usuario.getFechaSuscripcion(), calculoCosteTotal(usuario.isSuscripcion()));
                 }
             }
+            objDatos.desconectarBD();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
- */
 
-    public void comprobarSuscripcion(){
+    public void comprobarSuscripcion() {
         Date fechaHoy = new Date();
-        for(clsUsuario usuario : listaUsuarios){
-            if(usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0){
+        for (clsUsuario usuario : listaUsuarios) {
+            if (usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0) {
                 usuario.setSuscripcion(false);
 
             }
         }
     }
 
-    private Date calcularFechaSuscripcion(){
+    private Date calcularFechaSuscripcion() {
 
         Date fechaDev2 = null;
         try {
@@ -561,6 +561,7 @@ public class clsGestor {
     public void cargarDatos() {
 
         cargarUsuarios();
+        comprobarSuscripcion();
         cargarPeliculas();
         cargarVideojuegos();
         cargarMusica();

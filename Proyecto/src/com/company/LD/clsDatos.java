@@ -148,8 +148,13 @@ public class clsDatos {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void insertarUpdateAltaS(int _codigoA, boolean suscripcion, Date fechaS){
-        clsUsuarioBD.updateAltaSuscripcion(objConexion, objStatements, objRS, _codigoA, suscripcion, fechaS);
+    public void insertarUpdateCoste(double coste, int codigoAleatoria){
+        clsUsuarioBD.updateCosteTotal(objConexion, objStatements, objRS, coste, codigoAleatoria);
+    }
+
+    public void insertarUpdateAltaS(int _codigoA, boolean suscripcion, Date fechaS, double costeT){
+        Object[] parametrosAltaS = {costeT, suscripcion, fechaS, _codigoA};
+        clsUsuarioBD.updateAltaSuscripcion(objConexion, objStatements, objRS, parametrosAltaS);
     }
 
     public void insertarUpdateBajaS(){

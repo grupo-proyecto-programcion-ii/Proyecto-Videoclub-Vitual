@@ -77,18 +77,42 @@ public class clsUsuarioBD {
         return _objRS;
     }
 
-    public static void updateAltaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS, int _codigoA, boolean suscripcion, java.util.Date fechaS){
-        _objStat = _objCon.prepareStatement(UPDATE_ALTA_SUSCRIPCION);
+    public static void updateAltaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS,Object [] parametrosUS){
 
-        _objStat.setInt(1, _codigoA);//usuarios_codigo_aleatorio
-        _objStat.setInt(1, _codigoA);//usuarios_codigo_aleatorio
+        try {
+            _objStat = _objCon.prepareStatement(UPDATE_ALTA_SUSCRIPCION);
 
-        objStat.executeUpdate();
+            _objStat.setDouble(1,(double) parametrosUS[0]);//coste total
+            _objStat.setBoolean(2,(boolean) parametrosUS[1]);//suscripcion
+
+            java.util.Date fechaSuscripcion = (java.util.Date) parametrosUS[2];
+            java.sql.Date fechasqlS = new java.sql.Date(fechaSuscripcion.getTime());
+
+            _objStat.setDate(3, fechasqlS, java.util.Calendar.getInstance()); //fecha suscripcion
+            _objStat.setInt(4, (int) parametrosUS[3]); //codigo aleatorio
+
+            _objStat.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void updateBajaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
 
     }
 
+    public static void updateCosteTotal(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS, double costeT, int codigoA){
+        try {
+            _objStat = _objCon.prepareStatement(UPDATE_COSTE_TOTAL);
 
+            _objStat.setDouble(1,costeT);//coste total
+            _objStat.setInt(2,codigoA);//codigo aleatorio
+
+            _objStat.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

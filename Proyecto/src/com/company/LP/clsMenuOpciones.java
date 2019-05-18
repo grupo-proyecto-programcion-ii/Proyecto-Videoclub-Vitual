@@ -194,7 +194,7 @@ public class clsMenuOpciones {
 
 
                     } else if (op == 3) {
-                        System.out.println("Suscripcion mensual, todavia no se ha ideado como funcionara..");
+                        altaSuscripcion(objG, id);
                     }
 
                 } while (op != 4);
@@ -450,6 +450,10 @@ public class clsMenuOpciones {
             }
 
         } while (recuento < numero);
+    }
+
+    public void altaSuscripcion(clsGestor objG, String identificador){
+        objG.anadirSuscripcion(identificador);
     }
 
     public static Date fechaDevolucion(int _dias) throws ParseException {
