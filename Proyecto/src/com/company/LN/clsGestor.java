@@ -352,6 +352,7 @@ public class clsGestor {
         for (clsUsuario usuario : listaUsuarios) {
             if (usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0) {
                 usuario.setSuscripcion(false);
+                objDatos.insertarUpdateBajaS(usuario.isSuscripcion(), usuario.getCodigoAleatoria());
 
             }
         }

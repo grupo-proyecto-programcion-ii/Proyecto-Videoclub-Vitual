@@ -157,8 +157,9 @@ public class clsDatos {
         clsUsuarioBD.updateAltaSuscripcion(objConexion, objStatements, objRS, parametrosAltaS);
     }
 
-    public void insertarUpdateBajaS(){
-
+    public void insertarUpdateBajaS(boolean suscripcion,int _codigoA){
+        Object [] parametrosBajaS = {suscripcion, _codigoA};
+        clsUsuarioBD.updateBajaSuscripcion(objConexion, objStatements, objRS, parametrosBajaS);
     }
 
 }

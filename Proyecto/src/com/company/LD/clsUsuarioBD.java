@@ -98,8 +98,18 @@ public class clsUsuarioBD {
         }
     }
 
-    public static void updateBajaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
+    public static void updateBajaSuscripcion(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS, Object[] parametrosBS){
+        try {
+            _objStat = _objCon.prepareStatement(UPDATE_BAJA_SUSCRIPCION);
 
+            _objStat.setBoolean(1,(boolean) parametrosBS[0]);//estado suscripcion
+            _objStat.setInt(2,(int) parametrosBS[1]);//codigo usuario
+
+            _objStat.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void updateCosteTotal(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS, double costeT, int codigoA){
