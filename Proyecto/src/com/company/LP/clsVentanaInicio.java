@@ -3,47 +3,77 @@ package com.company.LP;
 import com.company.LN.clsGestor;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.GroupLayout.Alignment;
 
 public class clsVentanaInicio extends JFrame implements ActionListener, WindowListener {
 
-    private JPanel contentPane;
+    private JPanel panelDeContenido;
+    private JButton btnInicioS;
+    private JButton btnRegistrate;
+    private JButton btnSalir;
+    private JLabel label;
+
     private final String INICIAR_SESION = "Iniciar sesion";
     private final String REGISTRARSE = "Registate";
     private final String SALIR = "Salir";
 
-    public clsVentanaInicio(clsGestor objGestor) {
+    private static final String AC_BOTON_INICIO = "botonInicio";
+    private static final String AC_BOTON_REGISTRO = "botonRegistro";
+
+
+
+   /* public clsVentanaInicio(clsGestor objGestor) {
         ventanaInicial();
+    }*/
+
+    public clsVentanaInicio(clsGestor objGestor) {
+
+        this.setTitle("Akira Videoclub");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new GridBagLayout());
+        getContentPane().add(new JLabel(new ImageIcon("/COMUN/portada.jpg")));
+
+
+        panelDeContenido = new JPanel();
+        panelDeContenido.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(panelDeContenido);
+        panelDeContenido.setLayout(null);
+
+        label = new JLabel("");
+        label.setBounds(-294, -342, 1694, 1080);
+        label.setIcon(new ImageIcon(clsVentanaInicio.class.getResource("/com/company/COMUN/portada.jpg")));
+        panelDeContenido.add(label);
+
+        btnInicioS = new JButton(INICIAR_SESION);
+        btnInicioS.setForeground(Color.BLUE);
+        btnInicioS.setBackground(Color.PINK);
+        btnInicioS.setBounds(557, 185, 281, 52);
+        panelDeContenido.add(btnInicioS);
+
+        btnRegistrate = new JButton(REGISTRARSE);
+        btnRegistrate.setForeground(Color.BLUE);
+        btnRegistrate.setBackground(Color.PINK);
+        btnRegistrate.setBounds(557, 265, 281, 52);
+        panelDeContenido.add(btnRegistrate);
+
+        btnSalir = new JButton(SALIR);
+        btnSalir.setForeground(Color.BLUE);
+        btnSalir.setBackground(Color.PINK);
+        btnSalir.setBounds(600, 200, 281, 52);
+        panelDeContenido.add(btnSalir);
+
+        this.setSize(1920, 1080);/*Tama�o en pixel*/
     }
-
-    private void ventanaInicial() {
-        
-
-        JFrame frame = new JFrame("Hola");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
-
-        frame.setSize(1920, 1080);/*Tama�o en pixel*/
-
-        frame.setVisible(true);
-    }
-
-
-
-
-
-
-
-
-
-
 
 
     /**
@@ -53,7 +83,22 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
 
+            case AC_BOTON_INICIO:
+                clsVentanaEntrar ve = new clsVentanaEntrar();
+              //  ve.setVisible(true);
+                this.dispose();
+                break;
+            case AC_BOTON_REGISTRO:
+                clsVentanaRegistrar vr = new clsVentanaRegistrar();
+                //vr.setVisible(true);
+                this.dispose();
+                break;
+            case SALIR:
+                this.dispose();
+                break;
+        }
     }
 
     /**

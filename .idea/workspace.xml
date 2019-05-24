@@ -2,9 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a4cca6e-0a4a-4750-a3a7-708db7e19037" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsPruebas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/COMUN/clsConstantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LN/clsUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/COMUN/clsConstantes.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/COMUN/clsConstantes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/COMUN/itfProperty.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/COMUN/itfProperty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/EXCEPCIONES/clsIdAlquilerRepetido.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/EXCEPCIONES/clsIdAlquilerRepetido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarMusicaBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarMusicaBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarPeliculasBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarPeliculasBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarVideojuegosBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsAlquilarVideojuegosBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsConstantesBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsConstantesBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsMusicaBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsMusicaBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsPeliculasBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsPeliculasBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsUsuarioBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsUsuarioBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsVideojuegosBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LD/clsVideojuegosBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarMusica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarMusica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarPeliculas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarPeliculas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarVideojuegos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquilarVideojuegos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsAlquiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsArticulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsArticulo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsGestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsGestor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsMusicaAnio.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsMusicaAnio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsMusica_CD.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsMusica_CD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsPeliculas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsPeliculas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsPeliculasPtos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsPeliculasPtos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsVideojuegos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsVideojuegos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsVideojuegosPtos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LN/clsVideojuegosPtos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/Utilidades.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/Utilidades.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsMenuOpciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsMenuOpciones.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaEntrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaEntrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/LP/clsVentanaRegistrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/out/production/Proyecto/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsMenuOpciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsMenuOpciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsVentanaInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/src/com/company/LP/clsVentanaInicio.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +71,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -142,9 +174,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27272728" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27651516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

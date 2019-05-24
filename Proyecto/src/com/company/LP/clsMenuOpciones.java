@@ -36,6 +36,9 @@ public class clsMenuOpciones {
         clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);
         objVentanaInicio.setVisible(true);
 
+        //clsPruebas prueba = new clsPruebas(objGestor);
+        //prueba.setVisible(true);
+
 
         /**
          * Se crea el objGestor que apunta a la clase clsGestor. Por medio de los metodos contenidos
