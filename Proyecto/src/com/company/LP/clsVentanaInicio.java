@@ -9,13 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import javax.imageio.ImageIO;
-import javax.swing.GroupLayout.Alignment;
 
 public class clsVentanaInicio extends JFrame implements ActionListener, WindowListener {
+
+    private clsGestor objGestor;
 
     private JPanel panelDeContenido;
     private JButton btnInicioS;
@@ -29,14 +26,12 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
 
     private static final String AC_BOTON_INICIO = "botonInicio";
     private static final String AC_BOTON_REGISTRO = "botonRegistro";
+    private static final String AC_BOTON_SALIR = "botonSalir";
 
 
+    public clsVentanaInicio(clsGestor _objGestor) {
 
-   /* public clsVentanaInicio(clsGestor objGestor) {
-        ventanaInicial();
-    }*/
-
-    public clsVentanaInicio(clsGestor objGestor) {
+        objGestor = _objGestor;
 
         this.setTitle("Akira Videoclub");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,30 +44,40 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
         setContentPane(panelDeContenido);
         panelDeContenido.setLayout(null);
 
+        btnInicioS = new JButton(INICIAR_SESION);
+        btnInicioS.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnInicioS.setForeground(Color.BLUE);
+        btnInicioS.setBackground(Color.PINK);
+        btnInicioS.setBounds(514, 184, 281, 52);
+        btnInicioS.setActionCommand(AC_BOTON_INICIO);
+        btnInicioS.addActionListener(this);
+        panelDeContenido.add(btnInicioS);
+
+        btnRegistrate = new JButton(REGISTRARSE);
+        btnRegistrate.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnRegistrate.setForeground(Color.BLUE);
+        btnRegistrate.setBackground(Color.PINK);
+        btnRegistrate.setBounds(514, 258, 281, 52);
+        btnRegistrate.setActionCommand(AC_BOTON_REGISTRO);
+        btnRegistrate.addActionListener(this);
+        panelDeContenido.add(btnRegistrate);
+
+        btnSalir = new JButton(SALIR);
+        btnSalir.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnSalir.setForeground(Color.BLUE);
+        btnSalir.setBackground(Color.PINK);
+        btnSalir.setBounds(514, 337, 281, 52);
+        btnSalir.setActionCommand(AC_BOTON_SALIR);
+        btnSalir.addActionListener(this);
+        panelDeContenido.add(btnSalir);
+        
         label = new JLabel("");
         label.setBounds(-294, -342, 1694, 1080);
         label.setIcon(new ImageIcon(clsVentanaInicio.class.getResource("/com/company/COMUN/portada.jpg")));
         panelDeContenido.add(label);
 
-        btnInicioS = new JButton(INICIAR_SESION);
-        btnInicioS.setForeground(Color.BLUE);
-        btnInicioS.setBackground(Color.PINK);
-        btnInicioS.setBounds(557, 185, 281, 52);
-        panelDeContenido.add(btnInicioS);
+            this.setSize(1920, 1080);/*Tamanio en pixel*/
 
-        btnRegistrate = new JButton(REGISTRARSE);
-        btnRegistrate.setForeground(Color.BLUE);
-        btnRegistrate.setBackground(Color.PINK);
-        btnRegistrate.setBounds(557, 265, 281, 52);
-        panelDeContenido.add(btnRegistrate);
-
-        btnSalir = new JButton(SALIR);
-        btnSalir.setForeground(Color.BLUE);
-        btnSalir.setBackground(Color.PINK);
-        btnSalir.setBounds(600, 200, 281, 52);
-        panelDeContenido.add(btnSalir);
-
-        this.setSize(1920, 1080);/*Tama�o en pixel*/
     }
 
 
@@ -86,16 +91,17 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
         switch (e.getActionCommand()) {
 
             case AC_BOTON_INICIO:
-                clsVentanaEntrar ve = new clsVentanaEntrar();
-              //  ve.setVisible(true);
+                clsVentanaValidar objVentanaValidar = new clsVentanaValidar(objGestor);
+                objVentanaValidar.setVisible(true);
+                objVentanaValidar.setExtendedState(6);
                 this.dispose();
                 break;
             case AC_BOTON_REGISTRO:
                 clsVentanaRegistrar vr = new clsVentanaRegistrar();
                 //vr.setVisible(true);
-                this.dispose();
+                //this.dispose();
                 break;
-            case SALIR:
+            case AC_BOTON_SALIR:
                 this.dispose();
                 break;
         }
@@ -119,7 +125,7 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
      */
     @Override
     public void windowClosing(WindowEvent e) {
-
+    	
     }
 
     /**

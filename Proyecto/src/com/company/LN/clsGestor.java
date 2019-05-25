@@ -68,6 +68,7 @@ public class clsGestor {
         }
     }
 
+
     private double calculoCosteTotal(boolean _estadoSuscipcion) {
 
         double costeTotal = 0;
