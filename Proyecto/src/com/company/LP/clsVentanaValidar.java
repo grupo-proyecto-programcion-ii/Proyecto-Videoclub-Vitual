@@ -17,78 +17,78 @@ import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
 public class clsVentanaValidar extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
-	
-	private JPasswordField textoContrasena;
-	private JTextField textoIdentificador;
-	JButton btnIniciar;
-	JButton btnAtras;
-	
-	private final String INICIAR = "Iniciar";
+
+    private JPasswordField textoContrasena;
+    private JTextField textoIdentificador;
+    JButton btnIniciar;
+    JButton btnAtras;
+
+    private final String INICIAR = "Iniciar";
     private final String ATRAS = "Atras";
-	
-	private static final String AC_BOTON_INICIAR = "botonIniciar";
+
+    private static final String AC_BOTON_INICIAR = "botonIniciar";
     private static final String AC_BOTON_ATRAS = "botonAtras";
-	
-    public clsVentanaValidar(clsGestor _objGestor){
+
+    public clsVentanaValidar(clsGestor _objGestor) {
 
         objGestor = _objGestor;
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new GridBagLayout());
-    	
-    	getContentPane().setLayout(null);
-    	
-    	JPanel panel = new JPanel();
-    	panel.setForeground(Color.WHITE);
-    	panel.setBounds(0, 0, 1364, 749);
-    	getContentPane().add(panel);
-    	panel.setLayout(null);
-    	
-    	JLabel lblIntroduceElUsuario = new JLabel("Introduce el usuario:");
-    	lblIntroduceElUsuario.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-    	lblIntroduceElUsuario.setForeground(Color.YELLOW);
-    	lblIntroduceElUsuario.setBounds(428, 204, 366, 14);
-    	panel.add(lblIntroduceElUsuario);
-    	
-    	JLabel lblIntroduceLaContrasea = new JLabel("Introduce la contrasena:");
-    	lblIntroduceLaContrasea.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-    	lblIntroduceLaContrasea.setForeground(Color.YELLOW);
-    	lblIntroduceLaContrasea.setBounds(428, 306, 366, 14);
-    	panel.add(lblIntroduceLaContrasea);
+
+        getContentPane().setLayout(null);
+
+        JPanel panel = new JPanel();
+        panel.setForeground(Color.WHITE);
+        panel.setBounds(0, 0, 1364, 749);
+        getContentPane().add(panel);
+        panel.setLayout(null);
+
+        JLabel lblIntroduceElUsuario = new JLabel("Introduce el usuario:");
+        lblIntroduceElUsuario.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        lblIntroduceElUsuario.setForeground(Color.YELLOW);
+        lblIntroduceElUsuario.setBounds(428, 204, 366, 14);
+        panel.add(lblIntroduceElUsuario);
+
+        JLabel lblIntroduceLaContrasea = new JLabel("Introduce la contrasena:");
+        lblIntroduceLaContrasea.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        lblIntroduceLaContrasea.setForeground(Color.YELLOW);
+        lblIntroduceLaContrasea.setBounds(428, 306, 366, 14);
+        panel.add(lblIntroduceLaContrasea);
 
         textoContrasena = new JPasswordField();
         textoContrasena.setBounds(428, 331, 366, 20);
-    	panel.add(textoContrasena   );
+        panel.add(textoContrasena);
 
         textoIdentificador = new JTextField();
         textoIdentificador.setBounds(428, 229, 366, 20);
-    	panel.add(textoIdentificador);
+        panel.add(textoIdentificador);
         textoIdentificador.setColumns(10);
-    	
-    	btnIniciar = new JButton(INICIAR);
-    	btnIniciar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-    	btnIniciar.setForeground(Color.BLUE);
-    	btnIniciar.setBackground(Color.PINK);
-    	btnIniciar.setBounds(428, 376, 175, 33);
+
+        btnIniciar = new JButton(INICIAR);
+        btnIniciar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnIniciar.setForeground(Color.BLUE);
+        btnIniciar.setBackground(Color.PINK);
+        btnIniciar.setBounds(428, 376, 175, 33);
         btnIniciar.setActionCommand(AC_BOTON_INICIAR);
         btnIniciar.addActionListener(this);
-    	panel.add(btnIniciar);
-    	
-    	btnAtras = new JButton(ATRAS);
-    	btnAtras.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-    	btnAtras.setForeground(Color.BLUE);
-    	btnAtras.setBackground(Color.PINK);
-    	btnAtras.setBounds(628, 376, 166, 33);
+        panel.add(btnIniciar);
+
+        btnAtras = new JButton(ATRAS);
+        btnAtras.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnAtras.setForeground(Color.BLUE);
+        btnAtras.setBackground(Color.PINK);
+        btnAtras.setBounds(628, 376, 166, 33);
         btnAtras.setActionCommand(AC_BOTON_ATRAS);
         btnAtras.addActionListener(this);
-    	panel.add(btnAtras);
-    	
-    	JLabel lblImagenValidacion = new JLabel("Imagen validacion");
-    	lblImagenValidacion.setIcon(new ImageIcon(clsVentanaValidar.class.getResource("/com/company/COMUN/validacion.jpg")));
-    	lblImagenValidacion.setBounds(0, 0, 1364, 749);
-    	panel.add(lblImagenValidacion);
+        panel.add(btnAtras);
 
-    	this.setSize(1920, 1080);/*Tamanio en pixel*/
+        JLabel lblImagenValidacion = new JLabel("Imagen validacion");
+        lblImagenValidacion.setIcon(new ImageIcon(clsVentanaValidar.class.getResource("/com/company/COMUN/validacion.jpg")));
+        lblImagenValidacion.setBounds(0, 0, 1364, 749);
+        panel.add(lblImagenValidacion);
+
+        this.setSize(1920, 1080);/*Tamanio en pixel*/
 
     }
 
@@ -101,7 +101,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        switch (e.getActionCommand()){
+        switch (e.getActionCommand()) {
             case AC_BOTON_INICIAR:
 
                 try {
@@ -110,13 +110,13 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                     ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
                     for (itfProperty usuario : lUsuarios) {
                         if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) && textoIdentificador.getText().equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
-                        estado = true;
+                            estado = true;
                         }
                     }
 
-                    if (estado == true){
+                    if (estado == true) {
                         //ventana clsMenu
-                    }else {
+                    } else {
                         javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena incrorrenta");
                         clsVentanaValidar objVentanaValidar = new clsVentanaValidar(objGestor);
                         objVentanaValidar.setVisible(true);
@@ -132,7 +132,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                 this.dispose();
                 break;
             case AC_BOTON_ATRAS:
-                clsVentanaInicio objVentanaInicio =  new clsVentanaInicio(objGestor);
+                clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);
                 objVentanaInicio.setVisible(true);
                 objVentanaInicio.setExtendedState(6);
                 this.dispose();

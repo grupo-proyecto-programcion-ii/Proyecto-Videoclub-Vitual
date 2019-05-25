@@ -20,9 +20,9 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
     private JButton btnSalir;
     private JLabel label;
 
-    private final String INICIAR_SESION = "Iniciar sesion";
-    private final String REGISTRARSE = "Registate";
-    private final String SALIR = "Salir";
+    private static final String INICIAR_SESION = "Iniciar sesion";
+    private static final String REGISTRARSE = "Registate";
+    private static final String SALIR = "Salir";
 
     private static final String AC_BOTON_INICIO = "botonInicio";
     private static final String AC_BOTON_REGISTRO = "botonRegistro";
@@ -97,9 +97,10 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
                 this.dispose();
                 break;
             case AC_BOTON_REGISTRO:
-                clsVentanaRegistrar vr = new clsVentanaRegistrar();
-                //vr.setVisible(true);
-                //this.dispose();
+                clsVentanaRegistrar objVenatanaRegistrar = new clsVentanaRegistrar(objGestor);
+                objVenatanaRegistrar.setVisible(true);
+                objVenatanaRegistrar.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_SALIR:
                 this.dispose();
