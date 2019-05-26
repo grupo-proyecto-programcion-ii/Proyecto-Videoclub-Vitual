@@ -70,13 +70,13 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
         btnSalir.setActionCommand(AC_BOTON_SALIR);
         btnSalir.addActionListener(this);
         panelDeContenido.add(btnSalir);
-        
+
         label = new JLabel("");
         label.setBounds(-294, -342, 1694, 1080);
         label.setIcon(new ImageIcon(clsVentanaInicio.class.getResource("/com/company/COMUN/portada.jpg")));
         panelDeContenido.add(label);
 
-            this.setSize(1920, 1080);/*Tamanio en pixel*/
+        this.setSize(1920, 1080);/*Tamanio en pixel*/
 
     }
 
@@ -126,7 +126,7 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
      */
     @Override
     public void windowClosing(WindowEvent e) {
-    	
+
     }
 
     /**

@@ -349,13 +349,22 @@ public class clsGestor {
     }
 
     public void comprobarSuscripcion() {
-        Date fechaHoy = new Date();
-        for (clsUsuario usuario : listaUsuarios) {
-            if (usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0) {
-                usuario.setSuscripcion(false);
-                objDatos.insertarUpdateBajaS(usuario.isSuscripcion(), usuario.getCodigoAleatoria());
 
+        try {
+            objDatos.conectarBD();
+            Date fechaHoy = new Date();
+            for (clsUsuario usuario : listaUsuarios) {
+                if (usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0) {
+                    usuario.setSuscripcion(false);
+                    objDatos.insertarUpdateBajaS(usuario.isSuscripcion(), usuario.getCodigoAleatoria());
+
+                }
             }
+            objDatos.desconectarBD();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

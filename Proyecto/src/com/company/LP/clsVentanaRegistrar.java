@@ -28,7 +28,7 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     private static final String REGISTRARSE = "Registrarse";
     private static final String ATRAS = "Atras";
 
-    private static final String AC_BOTON_REGISTRAR = "botonRegistrar";
+    private static final String AC_BOTON_REGISTRAR_USUARIO = "botonRegistrar";
     private static final String AC_BOTON_ATRAS = "botonAtras";
 
     private JPanel panelDeContenido;
@@ -43,7 +43,7 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     private JTextField textNombre;
     private JTextField textApellidos;
     private JTextField textIdentificador;
-    private JTextField textContrasena;
+    private JPasswordField textContrasena;
     private JTextField textNumeroTarjeta;
     private JTextField textFechaNacimiento;
     private JTextField textCorreoElectronico;
@@ -66,119 +66,123 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
         getContentPane().add(panelDeContenido);
         panelDeContenido.setLayout(null);
 
-        lblItrouceDatos = new JLabel(INTRODUCE_DATOS);
-        lblItrouceDatos.setForeground(new Color(0, 0, 0));
-        lblItrouceDatos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 30));
-        lblItrouceDatos.setBounds(364, 122, 707, 33);
-        panelDeContenido.add(lblItrouceDatos);
-
-        lblNombre = new JLabel(NOMBRE);
-        lblNombre.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblNombre.setBounds(392, 204, 366, 14);
-        panelDeContenido.add(lblNombre);
-
-        lblApellidos = new JLabel(APELLIDOS);
-        lblApellidos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblApellidos.setBounds(702, 204, 366, 14);
-        panelDeContenido.add(lblApellidos);
-
-        lblUsuario = new JLabel(USUARIO);
-        lblUsuario.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblUsuario.setBounds(392, 301, 455, 14);
-        panelDeContenido.add(lblUsuario);
-
-        lblPassword = new JLabel(CONTRASENA);
-        lblPassword.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblPassword.setBounds(392, 362, 366, 14);
-        panelDeContenido.add(lblPassword);
-
-        lblCorreo = new JLabel(CORREO_E);
-        lblCorreo.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblCorreo.setBounds(392, 548, 366, 14);
-        panelDeContenido.add(lblCorreo);
-
-        lblNumeroTarjeta = new JLabel(NUMERO_T);
-        lblNumeroTarjeta.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblNumeroTarjeta.setBounds(392, 463, 366, 14);
-        panelDeContenido.add(lblNumeroTarjeta);
-
-        lblFechaNacimiento = new JLabel(FECHA_NACIMIENTO);
-        lblFechaNacimiento.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
-        lblFechaNacimiento.setBounds(778, 548, 389, 14);
-        panelDeContenido.add(lblFechaNacimiento);
-
-        textNombre = new JTextField();
-        textNombre.setForeground(Color.BLUE);
-        textNombre.setBackground(Color.LIGHT_GRAY);
-        textNombre.setBounds(392, 229, 252, 20);
-        panelDeContenido.add(textNombre);
-        textNombre.setColumns(10);
-
-        textApellidos = new JTextField();
-        textApellidos.setForeground(Color.BLUE);
-        textApellidos.setColumns(10);
-        textApellidos.setBackground(Color.LIGHT_GRAY);
-        textApellidos.setBounds(712, 229, 252, 20);
-        panelDeContenido.add(textApellidos);
-
-        textIdentificador = new JTextField();
-        textIdentificador.setForeground(Color.BLUE);
-        textIdentificador.setColumns(10);
-        textIdentificador.setBackground(Color.LIGHT_GRAY);
-        textIdentificador.setBounds(392, 326, 434, 20);
-        panelDeContenido.add(textIdentificador);
-
-        textContrasena = new JTextField();
-        textContrasena.setForeground(Color.BLUE);
-        textContrasena.setColumns(10);
-        textContrasena.setBackground(Color.LIGHT_GRAY);
-        textContrasena.setBounds(392, 387, 434, 20);
-        panelDeContenido.add(textContrasena);
-
-        textNumeroTarjeta = new JTextField();
-        textNumeroTarjeta.setForeground(Color.BLUE);
-        textNumeroTarjeta.setColumns(10);
-        textNumeroTarjeta.setBackground(Color.LIGHT_GRAY);
-        textNumeroTarjeta.setBounds(392, 501, 415, 20);
-        panelDeContenido.add(textNumeroTarjeta);
-
-        textFechaNacimiento = new JTextField();
-        textFechaNacimiento.setForeground(Color.BLUE);
-        textFechaNacimiento.setColumns(10);
-        textFechaNacimiento.setBackground(Color.LIGHT_GRAY);
-        textFechaNacimiento.setBounds(778, 573, 225, 20);
-        panelDeContenido.add(textFechaNacimiento);
-
-        textCorreoElectronico = new JTextField();
-        textCorreoElectronico.setForeground(Color.BLUE);
-        textCorreoElectronico.setColumns(10);
-        textCorreoElectronico.setBackground(Color.LIGHT_GRAY);
-        textCorreoElectronico.setBounds(392, 573, 366, 20);
-        panelDeContenido.add(textCorreoElectronico);
-
         btnValidar = new JButton(REGISTRARSE);
+        btnValidar.setBounds(363, 613, 276, 47);
         btnValidar.setForeground(Color.WHITE);
         btnValidar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnValidar.setBackground(Color.BLACK);
-        btnValidar.setActionCommand(AC_BOTON_REGISTRAR);
-        btnValidar.setBounds(392, 626, 281, 52);
+        btnValidar.setActionCommand(AC_BOTON_REGISTRAR_USUARIO);
+        btnValidar.addActionListener(this);//importante para que escuche el boton en la ventana
         panelDeContenido.add(btnValidar);
 
         btnAtras = new JButton(ATRAS);
+        btnAtras.setBounds(681, 613, 276, 47);
         btnAtras.setForeground(Color.WHITE);
         btnAtras.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnAtras.setBackground(Color.BLACK);
         btnAtras.setActionCommand(AC_BOTON_ATRAS);
-        btnAtras.setBounds(752, 626, 281, 52);
+        btnAtras.addActionListener(this);
         panelDeContenido.add(btnAtras);
 
+        lblItrouceDatos = new JLabel(INTRODUCE_DATOS);
+        lblItrouceDatos.setBounds(363, 80, 616, 33);
+        lblItrouceDatos.setForeground(new Color(0, 0, 0));
+        lblItrouceDatos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 30));
+        panelDeContenido.add(lblItrouceDatos);
 
+        lblNombre = new JLabel(NOMBRE);
+        lblNombre.setBounds(361, 191, 389, 22);
+        lblNombre.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblNombre);
+
+        lblApellidos = new JLabel(APELLIDOS);
+        lblApellidos.setBounds(702, 191, 445, 22);
+        lblApellidos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblApellidos);
+
+        lblUsuario = new JLabel(USUARIO);
+        lblUsuario.setBounds(364, 313, 386, 22);
+        lblUsuario.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblUsuario);
+
+        lblPassword = new JLabel(CONTRASENA);
+        lblPassword.setBounds(364, 365, 389, 22);
+        lblPassword.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblPassword);
+
+        lblNumeroTarjeta = new JLabel(NUMERO_T);
+        lblNumeroTarjeta.setBounds(363, 438, 389, 22);
+        lblNumeroTarjeta.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblNumeroTarjeta);
+
+        lblCorreo = new JLabel(CORREO_E);
+        lblCorreo.setBounds(363, 502, 389, 22);
+        lblCorreo.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblCorreo);
+
+        lblFechaNacimiento = new JLabel(FECHA_NACIMIENTO);
+        lblFechaNacimiento.setBounds(758, 502, 389, 22);
+        lblFechaNacimiento.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        panelDeContenido.add(lblFechaNacimiento);
+
+        textNombre = new JTextField();
+        textNombre.setBounds(364, 224, 205, 20);
+        textNombre.setForeground(Color.BLUE);
+        textNombre.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textNombre);
+        textNombre.setColumns(10);
+
+        textApellidos = new JTextField();
+        textApellidos.setBounds(702, 224, 277, 20);
+        textApellidos.setForeground(Color.BLUE);
+        textApellidos.setColumns(10);
+        textApellidos.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textApellidos);
+
+        textIdentificador = new JTextField();
+        textIdentificador.setBounds(363, 340, 435, 20);
+        textIdentificador.setForeground(Color.BLUE);
+        textIdentificador.setColumns(10);
+        textIdentificador.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textIdentificador);
+
+        textContrasena = new JPasswordField();
+        textContrasena.setBounds(363, 392, 435, 20);
+        textContrasena.setForeground(Color.BLUE);
+        textContrasena.setColumns(10);
+        textContrasena.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textContrasena);
+
+        textNumeroTarjeta = new JTextField();
+        textNumeroTarjeta.setBounds(363, 471, 435, 20);
+        textNumeroTarjeta.setForeground(Color.BLUE);
+        textNumeroTarjeta.setColumns(10);
+        textNumeroTarjeta.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textNumeroTarjeta);
+
+        textCorreoElectronico = new JTextField();
+        textCorreoElectronico.setBounds(363, 535, 389, 20);
+        textCorreoElectronico.setForeground(Color.BLUE);
+        textCorreoElectronico.setColumns(10);
+        textCorreoElectronico.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textCorreoElectronico);
+
+        textFechaNacimiento = new JTextField();
+        textFechaNacimiento.setBounds(758, 535, 373, 20);
+        textFechaNacimiento.setForeground(Color.BLUE);
+        textFechaNacimiento.setColumns(10);
+        textFechaNacimiento.setBackground(Color.LIGHT_GRAY);
+        panelDeContenido.add(textFechaNacimiento);
     }
+
+    //FALTA HASHET DE COMPROBACION DE USUARIOS
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         switch (e.getActionCommand()) {
-            case AC_BOTON_REGISTRAR:
+
+            case AC_BOTON_REGISTRAR_USUARIO:
 
                 Date fechaNacimiento = null;
                 try {
@@ -199,6 +203,7 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
                     ex.printStackTrace();
                 }
                 break;
+
             case AC_BOTON_ATRAS:
                 clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);
                 objVentanaInicio.setVisible(true);
@@ -206,7 +211,6 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
                 this.dispose();
                 break;
         }
-
     }
 
     /**

@@ -27,7 +27,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
     private final String ATRAS = "Atras";
 
     private static final String AC_BOTON_INICIAR = "botonIniciar";
-    private static final String AC_BOTON_ATRAS = "botonAtras";
+    private static final String AC_BOTON_ATRAS2 = "botonAtras";
 
     public clsVentanaValidar(clsGestor _objGestor) {
 
@@ -79,7 +79,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
         btnAtras.setForeground(Color.BLUE);
         btnAtras.setBackground(Color.PINK);
         btnAtras.setBounds(628, 376, 166, 33);
-        btnAtras.setActionCommand(AC_BOTON_ATRAS);
+        btnAtras.setActionCommand(AC_BOTON_ATRAS2);
         btnAtras.addActionListener(this);
         panel.add(btnAtras);
 
@@ -113,7 +113,6 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                             estado = true;
                         }
                     }
-
                     if (estado == true) {
                         //ventana clsMenu
                     } else {
@@ -124,18 +123,19 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                         this.dispose();
                         break;
                     }
-
                 } catch (Exception ex) {
                     javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena incrorrenta");
                     ex.printStackTrace();
                 }
                 this.dispose();
                 break;
-            case AC_BOTON_ATRAS:
+
+            case AC_BOTON_ATRAS2:
                 clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);
                 objVentanaInicio.setVisible(true);
                 objVentanaInicio.setExtendedState(6);
                 this.dispose();
+                break;
         }
 
     }
