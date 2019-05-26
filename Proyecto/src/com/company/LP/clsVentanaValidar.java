@@ -18,16 +18,16 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
 
     private clsGestor objGestor;
 
-    private JPasswordField textoContrasena;
-    private JTextField textoIdentificador;
-    JButton btnIniciar;
-    JButton btnAtras;
-
     private final String INICIAR = "Iniciar";
     private final String ATRAS = "Atras";
 
     private static final String AC_BOTON_INICIAR = "botonIniciar";
     private static final String AC_BOTON_ATRAS2 = "botonAtras";
+
+    private JPasswordField textoContrasena;
+    private JTextField textoIdentificador;
+    JButton btnIniciar;
+    JButton btnAtras;
 
     public clsVentanaValidar(clsGestor _objGestor) {
 
@@ -109,22 +109,23 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                     boolean estado = false;
                     ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
                     for (itfProperty usuario : lUsuarios) {
-                        if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) && textoIdentificador.getText().equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
+                        if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) &&
+                                textoIdentificador.getText().equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
                             estado = true;
                         }
                     }
                     if (estado == true) {
-                        //ventana clsMenu
+                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor);
+                        //objVentanaMenu.setVisible(true);
+                        //objVentanaMenu.setExtendedState(6);
                     } else {
                         javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena incrorrenta");
                         clsVentanaValidar objVentanaValidar = new clsVentanaValidar(objGestor);
                         objVentanaValidar.setVisible(true);
                         objVentanaValidar.setExtendedState(6);
-                        this.dispose();
                         break;
                     }
                 } catch (Exception ex) {
-                    javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena incrorrenta");
                     ex.printStackTrace();
                 }
                 this.dispose();

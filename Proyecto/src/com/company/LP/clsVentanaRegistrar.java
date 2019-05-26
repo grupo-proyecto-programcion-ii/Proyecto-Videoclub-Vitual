@@ -24,7 +24,6 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     private static final String CORREO_E = "Correo electronico:";
     private static final String NUMERO_T = "Numero tarjeta de credito:";
     private static final String FECHA_NACIMIENTO = "Fecha de nacimiento (dd/MM/yyyy):";
-
     private static final String REGISTRARSE = "Registrarse";
     private static final String ATRAS = "Atras";
 
