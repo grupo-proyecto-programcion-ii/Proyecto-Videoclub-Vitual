@@ -116,8 +116,8 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                     }
                     if (estado == true) {
                         clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor);
-                        //objVentanaMenu.setVisible(true);
-                        //objVentanaMenu.setExtendedState(6);
+                        objVentanaMenu.setVisible(true);
+                        objVentanaMenu.setExtendedState(6);
                     } else {
                         javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena incrorrenta");
                         clsVentanaValidar objVentanaValidar = new clsVentanaValidar(objGestor);
