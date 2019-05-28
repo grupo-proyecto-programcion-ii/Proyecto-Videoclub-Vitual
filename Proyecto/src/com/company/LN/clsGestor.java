@@ -141,6 +141,8 @@ public class clsGestor {
         return rUsuarios;
     }
 
+
+
     private void cargarUsuarios() {
 
         int codigoConsulta = 0; // 0 para hacer select de usuarios

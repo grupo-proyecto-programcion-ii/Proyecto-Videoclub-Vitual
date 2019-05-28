@@ -23,10 +23,14 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
     private static final String AC_BOTON_INICIAR = "botonIniciar";
     private static final String AC_BOTON_ATRAS2 = "botonAtras";
 
+    private JPanel panel;
+    private JLabel lblIntroduceElUsuario;
+    private JLabel lblIntroduceLaContrasea;
     private JPasswordField textoContrasena;
     private JTextField textoIdentificador;
-    JButton btnIniciar;
-    JButton btnAtras;
+    private JButton btnIniciar;
+    private JButton btnAtras;
+    private JLabel lblImagenValidacion;
 
     public clsVentanaValidar(clsGestor _objGestor) {
 
@@ -37,19 +41,19 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
 
         getContentPane().setLayout(null);
 
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setForeground(Color.WHITE);
         panel.setBounds(0, 0, 1364, 749);
         getContentPane().add(panel);
         panel.setLayout(null);
 
-        JLabel lblIntroduceElUsuario = new JLabel("Introduce el usuario:");
+        lblIntroduceElUsuario = new JLabel("Introduce el usuario:");
         lblIntroduceElUsuario.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         lblIntroduceElUsuario.setForeground(Color.YELLOW);
         lblIntroduceElUsuario.setBounds(428, 204, 366, 14);
         panel.add(lblIntroduceElUsuario);
 
-        JLabel lblIntroduceLaContrasea = new JLabel("Introduce la contrasena:");
+        lblIntroduceLaContrasea = new JLabel("Introduce la contrasena:");
         lblIntroduceLaContrasea.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         lblIntroduceLaContrasea.setForeground(Color.YELLOW);
         lblIntroduceLaContrasea.setBounds(428, 306, 366, 14);
@@ -82,7 +86,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
         btnAtras.addActionListener(this);
         panel.add(btnAtras);
 
-        JLabel lblImagenValidacion = new JLabel("Imagen validacion");
+        lblImagenValidacion = new JLabel("Imagen validacion");
         lblImagenValidacion.setIcon(new ImageIcon(clsVentanaValidar.class.getResource("/com/company/COMUN/validacion.jpg")));
         lblImagenValidacion.setBounds(0, 0, 1364, 749);
         panel.add(lblImagenValidacion);
@@ -102,9 +106,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
 
         switch (e.getActionCommand()) {
             case AC_BOTON_INICIAR:
-
                 try {
-
                     boolean estado = false;
                     boolean suscripcion = false;
                     ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
@@ -112,14 +114,10 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                         if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) &&
                                 textoIdentificador.getText().equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
                             estado = true;
-
-                            if (usuario.getPropertyEstadoS() == true){
-                                suscripcion = true;
-                            }
                         }
                     }
                     if (estado == true) {
-                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, suscripcion, textoIdentificador.getText());
+                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, textoIdentificador.getText());
                         objVentanaMenu.setVisible(true);
                         objVentanaMenu.setExtendedState(6);
                     } else {
