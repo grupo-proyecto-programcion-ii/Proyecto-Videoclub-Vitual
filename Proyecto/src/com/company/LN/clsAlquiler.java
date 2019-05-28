@@ -46,4 +46,10 @@ public class clsAlquiler implements itfProperty {
     public Object getPropertyA(String obj_Propiedad) {
         return null;
     }
+
+    @Override
+    public boolean getPropertyEstadoS() {
+        return false;
+    }
+
 }

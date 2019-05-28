@@ -89,6 +89,11 @@ public class clsArticulo implements itfProperty, Comparable<clsArticulo> {
     }
 
     @Override
+    public boolean getPropertyEstadoS() {
+        return false;
+    }
+
+    @Override
     public int compareTo(clsArticulo o) {
         return this.nombre.compareTo(o.nombre);
     }

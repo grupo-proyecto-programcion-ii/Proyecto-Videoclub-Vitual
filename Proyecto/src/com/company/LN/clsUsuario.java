@@ -200,4 +200,9 @@ public class clsUsuario implements itfProperty {
         return null;
     }
 
+    @Override
+    public boolean getPropertyEstadoS() {
+        return this.suscripcion;
+    }
+
 }

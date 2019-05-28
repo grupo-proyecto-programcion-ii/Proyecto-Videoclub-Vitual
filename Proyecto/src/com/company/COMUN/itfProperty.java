@@ -2,13 +2,13 @@ package com.company.COMUN;
 
 
 /**
- * @author javier.cerro
- * Interfaz para la independencia entre la LN y la LP.
  */
 public interface itfProperty {
 
-    public Object getPropertyU (String objPropiedad);
+    public Object getPropertyU (String Propiedad);
 
-    public Object getPropertyA (String obj_Propiedad);
+    public Object getPropertyA (String _Propiedad);
+
+    public boolean getPropertyEstadoS ();
 
 }

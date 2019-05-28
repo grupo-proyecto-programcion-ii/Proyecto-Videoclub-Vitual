@@ -12,6 +12,7 @@ import java.awt.event.WindowListener;
 public class clsVentanaMenu extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
+    private boolean estado;
 
     private JPanel panelDeContenido;
     private JButton btnAlquilarA;
@@ -37,9 +38,10 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
 
-    public clsVentanaMenu(clsGestor _objGestor) {
+    public clsVentanaMenu(clsGestor _objGestor, boolean _estado) {
 
         objGestor = _objGestor;
+        estado = _estado;
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
@@ -136,6 +138,7 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
         lblImagenSuscripcion.setIcon(new ImageIcon(clsVentanaMenu.class.getResource("/com/company/COMUN/imagenSuscripcion.jpg")));
         lblImagenSuscripcion.setBounds(690, 0, 674, 752);
         panelDeContenido.add(lblImagenSuscripcion);
+
     }
 
 
@@ -151,14 +154,16 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
         switch (e.getActionCommand()) {
 
             case AC_BOTON_ALQUILAR:
+
                 break;
             case AC_BOTON_SUSCRIBIR:
-                clsVentanaSuscripcion objVentanaSuscripcion = new clsVentanaSuscripcion(objGestor);
+                clsVentanaSuscripcion objVentanaSuscripcion = new clsVentanaSuscripcion(objGestor, estado);
                 objVentanaSuscripcion.setVisible(true);
                 objVentanaSuscripcion.setExtendedState(6);
                 this.dispose();
                 break;
             case AC_BOTON_VISUALIZAR:
+
                 break;
             case AC_BOTON_VOLVER:
                 clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);

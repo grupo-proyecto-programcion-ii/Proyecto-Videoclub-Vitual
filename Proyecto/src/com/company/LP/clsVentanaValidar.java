@@ -11,8 +11,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
-import static com.company.COMUN.clsConstantes.USUARIO_CONTRASENA;
-import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
+import static com.company.COMUN.clsConstantes.*;
 
 public class clsVentanaValidar extends JFrame implements ActionListener, WindowListener {
 
@@ -107,15 +106,20 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                 try {
 
                     boolean estado = false;
+                    boolean suscripcion = false;
                     ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
                     for (itfProperty usuario : lUsuarios) {
                         if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) &&
                                 textoIdentificador.getText().equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR))) {
                             estado = true;
+
+                            if (usuario.getPropertyEstadoS() == true){
+                                suscripcion = true;
+                            }
                         }
                     }
                     if (estado == true) {
-                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor);
+                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, suscripcion);
                         objVentanaMenu.setVisible(true);
                         objVentanaMenu.setExtendedState(6);
                     } else {
