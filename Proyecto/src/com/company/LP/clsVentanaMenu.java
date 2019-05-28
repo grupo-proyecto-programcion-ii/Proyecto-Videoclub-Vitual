@@ -13,6 +13,7 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
     private clsGestor objGestor;
     private boolean estado;
+    private String id;
 
     private JPanel panelDeContenido;
     private JButton btnAlquilarA;
@@ -38,10 +39,11 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
 
-    public clsVentanaMenu(clsGestor _objGestor, boolean _estado) {
+    public clsVentanaMenu(clsGestor _objGestor, boolean _estado, String _id) {
 
         objGestor = _objGestor;
         estado = _estado;
+        id = _id;
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
@@ -157,7 +159,7 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
                 break;
             case AC_BOTON_SUSCRIBIR:
-                clsVentanaSuscripcion objVentanaSuscripcion = new clsVentanaSuscripcion(objGestor, estado);
+                clsVentanaSuscripcion objVentanaSuscripcion = new clsVentanaSuscripcion(objGestor, estado, id);
                 objVentanaSuscripcion.setVisible(true);
                 objVentanaSuscripcion.setExtendedState(6);
                 this.dispose();

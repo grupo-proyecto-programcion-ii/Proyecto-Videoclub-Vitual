@@ -193,9 +193,9 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
                             textNumeroTarjeta.getText(), fechaNacimiento, false, fechaHoy);
 
 
-                    clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, false);
-                    //objVentanaMenu.setVisible(true);
-                    //objVentanaMenu.setExtendedState(6);
+                    clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, false, textIdentificador.getText());
+                    objVentanaMenu.setVisible(true);
+                    objVentanaMenu.setExtendedState(6);
                     this.dispose();
 
                 } catch (ParseException ex) {

@@ -76,7 +76,7 @@ public class clsGestor {
             for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
                 for (clsPeliculas pelicula : listaPeliculas) {
                     if (pelicula.getId() == alquilerPelicula.getPeliculas_id()) {
-                        costeTotal = costeTotal + pelicula.getPrecio();
+                        costeTotal = costeTotal + (pelicula.getPrecio());
                     }
                 }
             }
@@ -95,7 +95,7 @@ public class clsGestor {
                 }
             }
         } else if (_estadoSuscipcion == true) {
-            costeTotal = 40;
+            costeTotal = 60;
         }
         return costeTotal;
     }

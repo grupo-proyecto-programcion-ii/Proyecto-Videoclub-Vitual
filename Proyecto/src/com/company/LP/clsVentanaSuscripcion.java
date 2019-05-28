@@ -1,6 +1,7 @@
 package com.company.LP;
 
 
+import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
 
 import javax.swing.*;
@@ -9,28 +10,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+
+import static com.company.COMUN.clsConstantes.USUARIO_FECHA_SUSCRIPCION;
+import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
 
 
 public class clsVentanaSuscripcion extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
     private boolean estado;
+    private String id;
 
     private JPanel panelDeContenido;
-    JTextArea textAreaDescripcion;
-    JRadioButton rBtnSi;
-    JRadioButton rBtnNo;
-    ButtonGroup grupoSuscripcion;
-    JLabel label;
+    private JTextArea textAreaDescripcion;
+    private JRadioButton rBtnSi;
+    private JRadioButton rBtnNo;
+    private ButtonGroup grupoSuscripcion;
+    private JLabel label;
+    private JButton btnVolver;
 
     private static final String AC_RBOTON_SUSCRIBIR = "botonSuscribir";
     private static final String AC_RBOTON_NO_SUSCRIBIR = "botonNoSuscribir";
     private static final String AC_BOTON_ATRAS = "botonAtras";
 
-    public clsVentanaSuscripcion(clsGestor _objGestor, boolean _estado) {
+    public clsVentanaSuscripcion(clsGestor _objGestor, boolean _estado, String _id) {
 
         objGestor = _objGestor;
         estado = _estado;
+        id = _id;
 
 
         this.setSize(1920, 1080);
@@ -83,6 +91,16 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         grupoSuscripcion.add(rBtnSi);
         grupoSuscripcion.add(rBtnNo);
 
+        btnVolver = new JButton("Volver a la pantalla de menu");
+        btnVolver.setForeground(Color.WHITE);
+        btnVolver.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnVolver.setBackground(Color.BLACK);
+        btnVolver.setActionCommand("botonVolver");
+        btnVolver.setBounds(402, 633, 465, 31);
+        btnVolver.setActionCommand(AC_BOTON_ATRAS);
+        btnVolver.addActionListener(this);
+        panelDeContenido.add(btnVolver);
+
         label = new JLabel("");
         label.setIcon(new ImageIcon(clsVentanaSuscripcion.class.getResource("/com/company/COMUN/imagenAlquilar.jpg")));
         label.setBounds(-69, -685, 1433, 1434);
@@ -101,13 +119,29 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
 
         switch (e.getActionCommand()) {
             case AC_RBOTON_SUSCRIBIR:
-
+                objGestor.anadirSuscripcion(id);
+                ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
+                for (itfProperty usuario : lUsuarios) {
+                    if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                                "Su suscripcion esta dada de alta hasta el dia " +
+                                        usuario.getPropertyU(USUARIO_FECHA_SUSCRIPCION));
+                    }
+                }
                 break;
             case AC_RBOTON_NO_SUSCRIBIR:
-
+                ArrayList<itfProperty> lUsuarios2 = objGestor.leerUsuarios();
+                for (itfProperty usuario : lUsuarios2) {
+                    if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                                "Su suscripcion esta dada de alta hasta el dia " +
+                                        usuario.getPropertyU(USUARIO_FECHA_SUSCRIPCION));
+                    }
+                }
+                rBtnSi.setSelected(true);
                 break;
             case AC_BOTON_ATRAS:
-                clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, estado);
+                clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, estado, id);
                 objVentanaMenu.setVisible(true);
                 objVentanaMenu.setExtendedState(6);
                 this.dispose();

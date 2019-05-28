@@ -119,7 +119,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
                         }
                     }
                     if (estado == true) {
-                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, suscripcion);
+                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, suscripcion, textoIdentificador.getText());
                         objVentanaMenu.setVisible(true);
                         objVentanaMenu.setExtendedState(6);
                     } else {
