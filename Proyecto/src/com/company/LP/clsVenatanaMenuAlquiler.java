@@ -14,6 +14,14 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
     private clsGestor objGestor;
     private String id;
 
+    private JPanel panel;
+    private JButton btnMostrarArticulos;
+    private JButton btnMostrarPeliculas;
+    private JButton btnMostrarVideojuegos;
+    private JButton btnMostrarMusica;
+    private JButton btnSalir;
+    private JLabel label;
+
     private static final String AC_BOTON_MOSTRAR_ARTICULOS = "botonMostrarArticulos";
     private static final String AC_BOTON_MOSTRAR_PELICULAS = "botonMostrarPeliculas";
     private static final String AC_BOTON_MOSTRAR_VIDEOJUEGOS = "botonMostrarVideojuegos";
@@ -25,6 +33,66 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
 
         objGestor = _objGestor;
         id = _id;
+        
+        this.setSize(1920, 1080);
+        getContentPane().setLayout(null);
+        
+        panel = new JPanel();
+        panel.setBounds(0, 0, 1364, 749);
+        getContentPane().add(panel);
+        panel.setLayout(null);
+        
+        btnMostrarArticulos = new JButton("Mostrar  todos los articulos disponibles");
+        btnMostrarArticulos.setForeground(Color.WHITE);
+        btnMostrarArticulos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnMostrarArticulos.setBackground(new Color(165, 42, 42));
+        btnMostrarArticulos.setActionCommand(AC_BOTON_MOSTRAR_ARTICULOS);
+        btnMostrarArticulos.addActionListener(this);
+        btnMostrarArticulos.setBounds(422, 191, 550, 50);
+        panel.add(btnMostrarArticulos);
+        
+        btnMostrarPeliculas = new JButton("Mostrar todas las peliculas disponibles");
+        btnMostrarPeliculas.setForeground(Color.WHITE);
+        btnMostrarPeliculas.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnMostrarPeliculas.setBackground(new Color(165, 42, 42));
+        btnMostrarPeliculas.setActionCommand(AC_BOTON_MOSTRAR_PELICULAS);
+        btnMostrarPeliculas.addActionListener(this);
+        btnMostrarPeliculas.setBounds(422, 346, 550, 50);
+        panel.add(btnMostrarPeliculas);
+        
+        btnMostrarVideojuegos = new JButton("Mostrar todas los videojuegos disponibles");
+        btnMostrarVideojuegos.setForeground(Color.WHITE);
+        btnMostrarVideojuegos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnMostrarVideojuegos.setBackground(new Color(165, 42, 42));
+        btnMostrarVideojuegos.setActionCommand(AC_BOTON_MOSTRAR_VIDEOJUEGOS);
+        btnMostrarVideojuegos.addActionListener(this);
+        btnMostrarVideojuegos.setBounds(422, 425, 550, 50);
+        panel.add(btnMostrarVideojuegos);
+        
+        btnMostrarMusica = new JButton("Mostrar toda la musica disponible");
+        btnMostrarMusica.setForeground(Color.WHITE);
+        btnMostrarMusica.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnMostrarMusica.setBackground(new Color(165, 42, 42));
+        btnMostrarMusica.setActionCommand(AC_BOTON_MOSTRAR_MUSICA);
+        btnMostrarMusica.addActionListener(this);
+        btnMostrarMusica.setBounds(422, 497, 550, 50);
+        panel.add(btnMostrarMusica);
+        
+        btnSalir = new JButton("volver");
+        btnSalir.setForeground(Color.WHITE);
+        btnSalir.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnSalir.setBackground(new Color(165, 42, 42));
+        btnSalir.setActionCommand(AC_BOTON_VOLVER);
+        btnSalir.addActionListener(this);
+        btnSalir.setBounds(558, 599, 282, 50);
+        panel.add(btnSalir);
+        
+        label = new JLabel("");
+        label.setBounds(0, 11, 1375, 769);
+        panel.add(label);
+        label.setIcon(new ImageIcon(clsVenatanaMenuAlquiler.class.getResource("/com/company/COMUN/imagenMenuAlquiler.jpg")));
+        
+        
 
     }
 
@@ -38,16 +106,28 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
 
         switch (e.getActionCommand()) {
             case AC_BOTON_MOSTRAR_ARTICULOS:
-
+                clsVenatanaVisualizarArticulos objVisualizarArticulos = new clsVenatanaVisualizarArticulos(objGestor, id, 1);
+                objVisualizarArticulos.setVisible(true);
+                objVisualizarArticulos.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_MOSTRAR_PELICULAS:
-
+                clsVenatanaVisualizarArticulos objVisualizarArticulos1 = new clsVenatanaVisualizarArticulos(objGestor, id, 2);
+                objVisualizarArticulos1.setVisible(true);
+                objVisualizarArticulos1.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_MOSTRAR_VIDEOJUEGOS:
-
+                clsVenatanaVisualizarArticulos objVisualizarArticulos3 = new clsVenatanaVisualizarArticulos(objGestor, id, 3);
+                objVisualizarArticulos3.setVisible(true);
+                objVisualizarArticulos3.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_MOSTRAR_MUSICA:
-
+                clsVenatanaVisualizarArticulos objVisualizarArticulos4 = new clsVenatanaVisualizarArticulos(objGestor, id, 4);
+                objVisualizarArticulos4.setVisible(true);
+                objVisualizarArticulos4.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_VOLVER:
                 clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, id);

@@ -154,7 +154,10 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
         switch (e.getActionCommand()) {
 
             case AC_BOTON_ALQUILAR:
-
+                clsVenatanaMenuAlquiler objVenatanMenuAlquiler = new clsVenatanaMenuAlquiler(objGestor, id);
+                objVenatanMenuAlquiler.setVisible(true);
+                objVenatanMenuAlquiler.setExtendedState(6);
+                this.dispose();
                 break;
             case AC_BOTON_SUSCRIBIR:
                 clsVentanaSuscripcion objVentanaSuscripcion = new clsVentanaSuscripcion(objGestor, id);

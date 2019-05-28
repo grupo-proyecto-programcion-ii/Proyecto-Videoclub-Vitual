@@ -45,7 +45,7 @@ public class clsMenuOpciones {
          * en esa clase se pueden hacer las funciones principales.
          */
 
-        /*
+        /**
         System.out.println("***************" +
                 "BIENVENIDO AL VIDEOCLUB VIRTUAL" +
                 "*****************");
@@ -68,7 +68,7 @@ public class clsMenuOpciones {
              * el nombre de usuario que escribe, con el nombre de usuario ya existente ne el arraylist
              *
              */
-              /*
+            /**
             switch (opcion) {
                 case 1:
                     entrarUsuarios(objGestor);
@@ -87,7 +87,7 @@ public class clsMenuOpciones {
             System.out.println();
         } while (opcion != 4);
 
-               */
+        */
     }
 
     /**
