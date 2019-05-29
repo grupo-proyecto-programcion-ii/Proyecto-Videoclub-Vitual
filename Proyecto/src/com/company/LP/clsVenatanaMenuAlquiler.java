@@ -88,7 +88,7 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
         panel.add(btnSalir);
         
         label = new JLabel("");
-        label.setBounds(0, 11, 1375, 769);
+        label.setBounds(0, 0, 1375, 780);
         panel.add(label);
         label.setIcon(new ImageIcon(clsVenatanaMenuAlquiler.class.getResource("/com/company/COMUN/imagenMenuAlquiler.jpg")));
         

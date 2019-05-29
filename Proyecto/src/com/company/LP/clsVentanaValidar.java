@@ -22,6 +22,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
 
     private static final String AC_BOTON_INICIAR = "botonIniciar";
     private static final String AC_BOTON_ATRAS2 = "botonAtras";
+    private static final String ENTER_LOGIN = "enter";
 
     private JPanel panel;
     private JLabel lblIntroduceElUsuario;
