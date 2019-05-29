@@ -52,6 +52,8 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
         objGestor = _objGestor;
         identificador = _identificador;
 
+
+
         if (codigo == 1) {
 
             setTitle((String) articulo.getPropertyA(PELICULA_NOMBRE));
@@ -305,6 +307,11 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
      */
     @Override
     public void windowClosing(WindowEvent e) {
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 

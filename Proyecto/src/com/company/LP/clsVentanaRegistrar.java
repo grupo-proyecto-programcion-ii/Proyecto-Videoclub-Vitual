@@ -57,6 +57,7 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
+        addWindowListener(this);
 
         panelDeContenido = new JPanel();
         panelDeContenido.setBackground(new Color(255, 255, 255));
@@ -242,6 +243,11 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     @Override
     public void windowClosed(WindowEvent e) {
 
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     /**

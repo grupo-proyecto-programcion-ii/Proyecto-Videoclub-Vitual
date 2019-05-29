@@ -27,6 +27,8 @@ public class clsVentanaMenuVisualizar extends JFrame implements ActionListener, 
         objGestor = _objGestor;
         id = _id;
 
+        addWindowListener(this);
+
 
     }
 
@@ -80,6 +82,12 @@ public class clsVentanaMenuVisualizar extends JFrame implements ActionListener, 
      */
     @Override
     public void windowClosing(WindowEvent e) {
+
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 

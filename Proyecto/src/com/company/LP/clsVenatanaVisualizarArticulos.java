@@ -39,6 +39,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
+        addWindowListener(this);
 
         panel = new JPanel();
         panel.setBackground(Color.LIGHT_GRAY);
@@ -237,6 +238,11 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
     @Override
     public void windowClosing(WindowEvent e) {
 
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     /**

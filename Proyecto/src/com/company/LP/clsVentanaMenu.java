@@ -45,6 +45,7 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
+        addWindowListener(this);
 
         panelDeContenido = new JPanel();
         panelDeContenido.setBounds(0, 0, 1364, 749);
@@ -196,6 +197,12 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
      */
     @Override
     public void windowClosing(WindowEvent e) {
+
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 

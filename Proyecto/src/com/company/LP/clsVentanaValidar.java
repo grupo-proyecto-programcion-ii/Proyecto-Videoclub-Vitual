@@ -39,8 +39,8 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new GridBagLayout());
-
         getContentPane().setLayout(null);
+        addWindowListener(this);
 
         panel = new JPanel();
         panel.setForeground(Color.WHITE);
@@ -162,6 +162,11 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
      */
     @Override
     public void windowClosing(WindowEvent e) {
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 

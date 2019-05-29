@@ -37,7 +37,7 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new GridBagLayout());
         getContentPane().add(new JLabel(new ImageIcon("/COMUN/portada.jpg")));
-
+        addWindowListener(this);
 
         panelDeContenido = new JPanel();
         panelDeContenido.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -88,6 +88,7 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+
         switch (e.getActionCommand()) {
 
             case AC_BOTON_INICIO:
@@ -126,6 +127,12 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
      */
     @Override
     public void windowClosing(WindowEvent e) {
+
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 

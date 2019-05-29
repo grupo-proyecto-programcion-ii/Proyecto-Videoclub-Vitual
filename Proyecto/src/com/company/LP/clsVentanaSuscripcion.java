@@ -47,6 +47,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
+        addWindowListener(this);
 
         panelDeContenido = new JPanel();
         panelDeContenido.setBounds(0, 0, 1364, 749);
@@ -106,7 +107,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         txtrSuCosteTotal.setBackground(Color.WHITE);
         txtrSuCosteTotal.setBounds(764, 454, 590, 31);
         panelDeContenido.add(txtrSuCosteTotal);
-        
+
         JButton btnForzarBajaSuscripcion = new JButton("Forzar baja suscripcion");
         btnForzarBajaSuscripcion.setForeground(Color.WHITE);
         btnForzarBajaSuscripcion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
@@ -122,7 +123,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
 
     }
 
-    private void leerDatos(String id){
+    private void leerDatos(String id) {
         ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
         for (itfProperty usuario : lUsuarios) {
             if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
@@ -133,7 +134,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         }
     }
 
-    private void estadoSeleccionado(){
+    private void estadoSeleccionado() {
 
         if (estado == true) {
             rBtnSi.setSelected(true);
@@ -159,7 +160,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
                 objGestor.anadirSuscripcion(id);
                 javax.swing.JOptionPane.showMessageDialog(this,
                         "Su suscripcion esta dada de alta hasta el dia " +
-                                fechaS+" tendras ahora acceso a todo el contenido por 60$");
+                                fechaS + " tendras ahora acceso a todo el contenido por 60$");
                 estado = true;
                 estadoSeleccionado();
                 break;
@@ -203,7 +204,11 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
      */
     @Override
     public void windowClosing(WindowEvent e) {
-
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     /**
