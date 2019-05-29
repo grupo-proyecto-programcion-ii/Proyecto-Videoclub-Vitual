@@ -8,21 +8,20 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 import static com.company.COMUN.clsConstantes.*;
 
 
-public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFrameListener, ActionListener, WindowListener {
+public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListener, MouseListener, InternalFrameListener, ActionListener, WindowListener {
 
     private clsGestor objGestor;
     private String id;
     private JPanel panel;
 
+
+    private ArrayList<JInternalFrame> listaInternalFrames = new ArrayList<>();
     private JInternalFrame internalFrame;
     private JPanel panelInternoP;
     private JLabel lblFechaSalida;
@@ -73,7 +72,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
         for (itfProperty pelicula : peliculas) {
 
+            /**
             internalFrame = new JInternalFrame((String) pelicula.getPropertyA(PELICULA_NOMBRE));
+            listaInternalFrames.add(internalFrame);
             internalFrame.setClosable(true);
             internalFrame.setBounds(66, 189, 305, 143);
             panel.add(internalFrame);
@@ -119,7 +120,12 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
             chckbxAlquilar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 11));
             chckbxAlquilar.setBackground(Color.LIGHT_GRAY);
             chckbxAlquilar.setBounds(21, 83, 97, 23);
+            chckbxAlquilar.addItemListener(this);
             panelInternoP.add(chckbxAlquilar);
+
+            if (chckbxAlquilar.isSelected() == true) {
+                System.out.println("hola");
+            }
 
             spinDias = new JSpinner();
             spinDias.setModel(new SpinnerListModel(new String[]{"1", "2", "3", "4", "5", "7", "10", "15"}));
@@ -132,6 +138,12 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
             lblDias.setBounds(124, 86, 272, 12);
             panelInternoP.add(lblDias);
             internalFrame.setVisible(true);
+             */
+
+            internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1);
+            listaInternalFrames.add(internalP);
+            panel.add(internalP);
+            internalP.setVisible(true);
 
         }
     }
@@ -140,8 +152,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
 
         ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
         for (itfProperty videojuego : videojuegos) {
-
+            /**
             internalFrame = new JInternalFrame((String) videojuego.getPropertyA(VIDEOJUEGO_NOMBRE));
+            listaInternalFrames.add(internalFrame);
             internalFrame.setClosable(true);
             internalFrame.setBounds(437, 89, 305, 143);
             panel.add(internalFrame);
@@ -200,6 +213,12 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
             lblDias.setBounds(124, 86, 272, 12);
             panelInternoP.add(lblDias);
             internalFrame.setVisible(true);
+            */
+
+            internalArticulo internal = new internalArticulo(videojuego, objGestor, 2);
+            listaInternalFrames.add(internal);
+            panel.add(internal);
+            internal.setVisible(true);
 
         }
 
@@ -209,8 +228,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
 
         ArrayList<itfProperty> musicas = objGestor.leerMusica();
         for (itfProperty musica : musicas) {
-
+            /**
             internalFrame = new JInternalFrame((String) musica.getPropertyA(MUSICA_NOMBRE));
+            listaInternalFrames.add(internalFrame);
             internalFrame.setClosable(true);
             internalFrame.setBounds(766, 89, 305, 143);
             panel.add(internalFrame);
@@ -269,6 +289,12 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
             lblDias.setBounds(124, 86, 272, 12);
             panelInternoP.add(lblDias);
             internalFrame.setVisible(true);
+            */
+            internalArticulo internalM = new internalArticulo(musica, objGestor, 3);
+            listaInternalFrames.add(internalM);
+            panel.add(internalM);
+            internalM.setVisible(true);
+
 
         }
 
@@ -406,5 +432,73 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements InternalFr
     public void internalFrameOpened(InternalFrameEvent e) {
         // TODO Auto-generated method stub
 
+    }
+
+    /**
+     * Invoked when the mouse button has been clicked (pressed
+     * and released) on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        switch (e.getButton()) {
+
+        }
+    }
+
+    /**
+     * Invoked when a mouse button has been pressed on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when a mouse button has been released on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when the mouse enters a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when the mouse exits a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when an item has been selected or deselected by the user.
+     * The code written for this method performs the operations
+     * that need to occur when an item is selected (or deselected).
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (chckbxAlquilar.isSelected()) {
+            System.out.println("Hola");
+        }
     }
 }
