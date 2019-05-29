@@ -11,17 +11,22 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+import static com.company.COMUN.clsConstantes.USUARIO_COSTE_TOTAL;
+import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
+
 public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListener, MouseListener, InternalFrameListener, ActionListener, WindowListener {
 
     private clsGestor objGestor;
     private String id;
     private int recuentoH;
     private int recuentoV;
+    private double costeTotal;
 
     private JPanel panel;
     private ArrayList<JInternalFrame> listaInternalFrames = new ArrayList<>();
     private JButton btnVolver;
     private JLabel label;
+    private JLabel lblCosteTotalActual;
 
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
@@ -30,6 +35,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
 
         objGestor = _objGestor;
         id = _id;
+        leerDatos(_id);
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
@@ -48,6 +54,13 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         btnVolver.addActionListener(this);
         btnVolver.setBounds(10, 653, 282, 50);
         panel.add(btnVolver);
+        
+        lblCosteTotalActual = new JLabel("Coste total actual: "+ costeTotal+"$");
+        lblCosteTotalActual.setForeground(Color.WHITE);
+        lblCosteTotalActual.setBackground(Color.WHITE);
+        lblCosteTotalActual.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 22));
+        lblCosteTotalActual.setBounds(302, 651, 546, 52);
+        panel.add(lblCosteTotalActual);
 
         label = new JLabel("");
         label.setIcon(new ImageIcon(clsVenatanaVisualizarArticulos.class.getResource("/com/company/COMUN/imagenFondoAlquilar.jpg")));
@@ -65,20 +78,44 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
                 ventanaPeliculas();
                 break;
             case 3:
-                ventanaVideojuegos();
+                ventanaPeliculasPtos();
                 break;
             case 4:
+                ventanaVideojuegos();
+                break;
+            case 5:
+                ventanaVideojuegosPtos();
+                break;
+            case 6:
                 ventanaMusica();
                 break;
+            case 7:
+                ventanaMusicaAnio();
+                break;
         }
-        System.out.println(recuentoH);
-        System.out.println(recuentoV);
     }
 
     private void ventanaPeliculas() {
 
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
         for (itfProperty pelicula : peliculas) {
+
+            internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalP);
+            panel.add(internalP);
+            internalP.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
+    private void ventanaPeliculasPtos() {
+
+        ArrayList<itfProperty> _peliculas = objGestor.listaPeliculasPuntos();
+        for (itfProperty pelicula : _peliculas) {
 
             internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
             listaInternalFrames.add(internalP);
@@ -109,6 +146,23 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    private void ventanaVideojuegosPtos() {
+
+        ArrayList<itfProperty> _videojuegos = objGestor.listaVideojuegosPuntos();
+        for (itfProperty videojuego : _videojuegos) {
+
+            internalArticulo internal = new internalArticulo(videojuego, objGestor, 2, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internal);
+            panel.add(internal);
+            internal.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
     private void ventanaMusica() {
 
         ArrayList<itfProperty> musicas = objGestor.leerMusica();
@@ -126,13 +180,39 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    private void ventanaMusicaAnio() {
+
+        ArrayList<itfProperty> _musicas = objGestor.listaMusicaAnio();
+        for (itfProperty musica : _musicas) {
+
+            internalArticulo internalM = new internalArticulo(musica, objGestor, 3, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalM);
+            panel.add(internalM);
+            internalM.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
+    private void leerDatos(String id){
+        ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
+        for (itfProperty usuario : lUsuarios) {
+            if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
+                costeTotal = (Double) usuario.getPropertyU(USUARIO_COSTE_TOTAL);
+            }
+        }
+    }
+
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
             case AC_BOTON_VOLVER:
-                clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, id);
-                objVentanaMenu.setVisible(true);
-                objVentanaMenu.setExtendedState(6);
+                clsVenatanaMenuAlquiler objVentanaMenuAlquiler = new clsVenatanaMenuAlquiler(objGestor, id);
+                objVentanaMenuAlquiler.setVisible(true);
+                objVentanaMenuAlquiler.setExtendedState(6);
                 this.dispose();
                 break;
         }

@@ -17,15 +17,21 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
     private JPanel panel;
     private JButton btnMostrarArticulos;
     private JButton btnMostrarPeliculas;
+    private JButton btnPeliculasPtos;
     private JButton btnMostrarVideojuegos;
+    private JButton btnVideojuegosPtos;
     private JButton btnMostrarMusica;
+    private JButton btnMusicaAnio;
     private JButton btnSalir;
     private JLabel label;
 
     private static final String AC_BOTON_MOSTRAR_ARTICULOS = "botonMostrarArticulos";
     private static final String AC_BOTON_MOSTRAR_PELICULAS = "botonMostrarPeliculas";
+    private static final String AC_BOTON_MOSTRAR_PELICULAS_POR_PUNTOS = "botonMostrarPeliculasPtos";
     private static final String AC_BOTON_MOSTRAR_VIDEOJUEGOS = "botonMostrarVideojuegos";
+    private static final String AC_BOTON_MOSTRAR_VIDEOJUEGOS_POR_PUNTOS = "botonMostrarVideojuegosPtos";
     private static final String AC_BOTON_MOSTRAR_MUSICA = "botonMostrarMusica";
+    private static final String AC_BOTON_MOSTRAR_MUSICA_POR_ANIO = "botonMostrarMusicaAnio";
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
 
@@ -48,36 +54,64 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
         btnMostrarArticulos.setBackground(new Color(165, 42, 42));
         btnMostrarArticulos.setActionCommand(AC_BOTON_MOSTRAR_ARTICULOS);
         btnMostrarArticulos.addActionListener(this);
-        btnMostrarArticulos.setBounds(422, 191, 550, 50);
+        btnMostrarArticulos.setBounds(410, 191, 550, 50);
         panel.add(btnMostrarArticulos);
         
-        btnMostrarPeliculas = new JButton("Mostrar todas las peliculas disponibles");
+        btnMostrarPeliculas = new JButton("Mostrar peliculas disponibles");
         btnMostrarPeliculas.setForeground(Color.WHITE);
         btnMostrarPeliculas.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnMostrarPeliculas.setBackground(new Color(165, 42, 42));
         btnMostrarPeliculas.setActionCommand(AC_BOTON_MOSTRAR_PELICULAS);
         btnMostrarPeliculas.addActionListener(this);
-        btnMostrarPeliculas.setBounds(422, 346, 550, 50);
+        btnMostrarPeliculas.setBounds(749, 346, 550, 50);
         panel.add(btnMostrarPeliculas);
+
+        btnPeliculasPtos = new JButton("Mostrar peliculas por puntos");
+        btnPeliculasPtos.setForeground(Color.WHITE);
+        btnPeliculasPtos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnPeliculasPtos.setBackground(new Color(165, 42, 42));
+        btnPeliculasPtos.setActionCommand(AC_BOTON_MOSTRAR_PELICULAS_POR_PUNTOS);
+        btnPeliculasPtos.addActionListener(this);
+        btnPeliculasPtos.setBounds(70, 346, 550, 50);
+        panel.add(btnPeliculasPtos);
         
-        btnMostrarVideojuegos = new JButton("Mostrar todas los videojuegos disponibles");
+        btnMostrarVideojuegos = new JButton("Mostrar videojuegos disponibles");
         btnMostrarVideojuegos.setForeground(Color.WHITE);
         btnMostrarVideojuegos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnMostrarVideojuegos.setBackground(new Color(165, 42, 42));
         btnMostrarVideojuegos.setActionCommand(AC_BOTON_MOSTRAR_VIDEOJUEGOS);
         btnMostrarVideojuegos.addActionListener(this);
-        btnMostrarVideojuegos.setBounds(422, 425, 550, 50);
+        btnMostrarVideojuegos.setBounds(749, 424, 550, 50);
         panel.add(btnMostrarVideojuegos);
-        
-        btnMostrarMusica = new JButton("Mostrar toda la musica disponible");
+
+        btnVideojuegosPtos = new JButton("Mostrar videojuegos por puntos");
+        btnVideojuegosPtos.setForeground(Color.WHITE);
+        btnVideojuegosPtos.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnVideojuegosPtos.setBackground(new Color(165, 42, 42));
+        btnVideojuegosPtos.setActionCommand(AC_BOTON_MOSTRAR_VIDEOJUEGOS_POR_PUNTOS);
+        btnVideojuegosPtos.addActionListener(this);
+        btnVideojuegosPtos.setBounds(70, 424, 550, 50);
+        panel.add(btnVideojuegosPtos);
+
+
+        btnMostrarMusica = new JButton("Mostrar musica disponible");
         btnMostrarMusica.setForeground(Color.WHITE);
         btnMostrarMusica.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnMostrarMusica.setBackground(new Color(165, 42, 42));
         btnMostrarMusica.setActionCommand(AC_BOTON_MOSTRAR_MUSICA);
         btnMostrarMusica.addActionListener(this);
-        btnMostrarMusica.setBounds(422, 497, 550, 50);
+        btnMostrarMusica.setBounds(749, 497, 550, 50);
         panel.add(btnMostrarMusica);
-        
+
+        btnMusicaAnio = new JButton("Mostrar toda la musica disponible por anio");
+        btnMusicaAnio.setForeground(Color.WHITE);
+        btnMusicaAnio.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnMusicaAnio.setBackground(new Color(165, 42, 42));
+        btnMusicaAnio.setActionCommand(AC_BOTON_MOSTRAR_MUSICA_POR_ANIO);
+        btnMusicaAnio.addActionListener(this);
+        btnMusicaAnio.setBounds(70, 497, 550, 50);
+        panel.add(btnMusicaAnio);
+
         btnSalir = new JButton("volver");
         btnSalir.setForeground(Color.WHITE);
         btnSalir.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
@@ -86,13 +120,11 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
         btnSalir.addActionListener(this);
         btnSalir.setBounds(558, 599, 282, 50);
         panel.add(btnSalir);
-        
+
         label = new JLabel("");
         label.setBounds(0, 0, 1375, 780);
         panel.add(label);
         label.setIcon(new ImageIcon(clsVenatanaMenuAlquiler.class.getResource("/com/company/COMUN/imagenMenuAlquiler.jpg")));
-        
-        
 
     }
 
@@ -105,6 +137,7 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
+
             case AC_BOTON_MOSTRAR_ARTICULOS:
                 clsVenatanaVisualizarArticulos objVisualizarArticulos = new clsVenatanaVisualizarArticulos(objGestor, id, 1);
                 objVisualizarArticulos.setVisible(true);
@@ -117,16 +150,34 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
                 objVisualizarArticulos1.setExtendedState(6);
                 this.dispose();
                 break;
+            case AC_BOTON_MOSTRAR_PELICULAS_POR_PUNTOS:
+                clsVenatanaVisualizarArticulos objVisualizarArticulos2 = new clsVenatanaVisualizarArticulos(objGestor, id, 3);
+                objVisualizarArticulos2.setVisible(true);
+                objVisualizarArticulos2.setExtendedState(6);
+                this.dispose();
+                break;
             case AC_BOTON_MOSTRAR_VIDEOJUEGOS:
-                clsVenatanaVisualizarArticulos objVisualizarArticulos3 = new clsVenatanaVisualizarArticulos(objGestor, id, 3);
+                clsVenatanaVisualizarArticulos objVisualizarArticulos3 = new clsVenatanaVisualizarArticulos(objGestor, id, 4);
                 objVisualizarArticulos3.setVisible(true);
                 objVisualizarArticulos3.setExtendedState(6);
                 this.dispose();
                 break;
-            case AC_BOTON_MOSTRAR_MUSICA:
-                clsVenatanaVisualizarArticulos objVisualizarArticulos4 = new clsVenatanaVisualizarArticulos(objGestor, id, 4);
+            case AC_BOTON_MOSTRAR_VIDEOJUEGOS_POR_PUNTOS:
+                clsVenatanaVisualizarArticulos objVisualizarArticulos4 = new clsVenatanaVisualizarArticulos(objGestor, id, 5);
                 objVisualizarArticulos4.setVisible(true);
                 objVisualizarArticulos4.setExtendedState(6);
+                this.dispose();
+                break;
+            case AC_BOTON_MOSTRAR_MUSICA:
+                clsVenatanaVisualizarArticulos objVisualizarArticulos5 = new clsVenatanaVisualizarArticulos(objGestor, id, 6);
+                objVisualizarArticulos5.setVisible(true);
+                objVisualizarArticulos5.setExtendedState(6);
+                this.dispose();
+                break;
+            case AC_BOTON_MOSTRAR_MUSICA_POR_ANIO:
+                clsVenatanaVisualizarArticulos objVisualizarArticulos6 = new clsVenatanaVisualizarArticulos(objGestor, id, 7);
+                objVisualizarArticulos6.setVisible(true);
+                objVisualizarArticulos6.setExtendedState(6);
                 this.dispose();
                 break;
             case AC_BOTON_VOLVER:
@@ -135,7 +186,6 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
                 objVentanaMenu.setExtendedState(6);
                 this.dispose();
                 break;
-
         }
 
     }

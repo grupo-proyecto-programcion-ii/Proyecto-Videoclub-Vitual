@@ -25,14 +25,10 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
     private String identificador;
     private int id;
 
-    //private int recuento = 0;
-
     int dimensionHorizontal = 307;
     int dimensionVertical = 143;
     int puntoInicioX = 10;
     int puntoInicioY = 11;
-
-    private int saltoDeColumna = 0;
 
     private JPanel panelInternoP;
     private JLabel lblFechaSalida;
@@ -280,7 +276,7 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
             case AC_BOTON_ALQUILAR:
                 try {
 
-                    objGestor.anadirAlquilerP(identificador, id, fechaDevolucion(5));
+                    objGestor.anadirAlquilerP(identificador, id, fechaDevolucion((int)spinDias.getValue()));
 
                 } catch (SQLException | ClassNotFoundException | ParseException ex) {
                     ex.printStackTrace();

@@ -54,24 +54,11 @@ public class clsGestor {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /**
-     * Con este metodo se visualiza el numero de usuarios dados de alta.
-     */
-    public void visualizarNumUsuarios() {
-
-        if (listaUsuarios.size() == 1) {
-            System.out.println(listaUsuarios.size() + " usuario dado de alta");
-        } else if (listaUsuarios.size() == 0) {
-            System.out.println("Ningún usuario dado de alta");
-        } else {
-            System.out.println(listaUsuarios.size() + " usuarios dados de alta");
-        }
-    }
-
 
     private double calculoCosteTotal(boolean _estadoSuscipcion) {
 
         double costeTotal = 0;
+
         if (_estadoSuscipcion == false) {
             for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
                 for (clsPeliculas pelicula : listaPeliculas) {
@@ -140,7 +127,6 @@ public class clsGestor {
         }
         return rUsuarios;
     }
-
 
 
     private void cargarUsuarios() {
@@ -343,9 +329,7 @@ public class clsGestor {
                 }
             }
             objDatos.desconectarBD();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -363,12 +347,29 @@ public class clsGestor {
                 }
             }
             objDatos.desconectarBD();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
+
+
+    public void bajaSuscripcion(String _identificador) {
+
+        try {
+            objDatos.conectarBD();
+            for (clsUsuario usuario : listaUsuarios) {
+                if (usuario.getIdentificador().equals(_identificador)) {
+                    usuario.setSuscripcion(false);
+                    objDatos.insertarUpdateBajaS(usuario.isSuscripcion(), usuario.getCodigoAleatoria());
+                }
+            }
+            objDatos.desconectarBD();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        comprobarSuscripcion();
+    }
+
 
     private Date calcularFechaSuscripcion() {
 
@@ -389,8 +390,8 @@ public class clsGestor {
     }
 
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodo para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de articulos.
@@ -428,7 +429,7 @@ public class clsGestor {
         return rMusica;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodos para actualizar cargar actualizar los ArrayList obteniendo los datos de la base de datos
@@ -618,7 +619,7 @@ public class clsGestor {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodos para visualizar el numero de articulos en la logica de presentacion
@@ -638,10 +639,10 @@ public class clsGestor {
         return listaMusica.size();
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Metodos para ordenar y leer los datos para la logica de presentacion

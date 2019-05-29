@@ -106,6 +106,14 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         txtrSuCosteTotal.setBackground(Color.WHITE);
         txtrSuCosteTotal.setBounds(764, 454, 590, 31);
         panelDeContenido.add(txtrSuCosteTotal);
+        
+        JButton btnForzarBajaSuscripcion = new JButton("Forzar baja suscripcion");
+        btnForzarBajaSuscripcion.setForeground(Color.WHITE);
+        btnForzarBajaSuscripcion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
+        btnForzarBajaSuscripcion.setBackground(Color.BLACK);
+        btnForzarBajaSuscripcion.setActionCommand("botonVolver");
+        btnForzarBajaSuscripcion.setBounds(378, 536, 505, 70);
+        panelDeContenido.add(btnForzarBajaSuscripcion);
 
         label = new JLabel("");
         label.setIcon(new ImageIcon(clsVentanaSuscripcion.class.getResource("/com/company/COMUN/imagenAlquilar.jpg")));

@@ -21,7 +21,7 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
     private JLabel label;
 
     private static final String INICIAR_SESION = "Iniciar sesion";
-    private static final String REGISTRARSE = "Registate";
+    private static final String REGISTRARSE = "Registrate";
     private static final String SALIR = "Salir";
 
     private static final String AC_BOTON_INICIO = "botonInicio";
