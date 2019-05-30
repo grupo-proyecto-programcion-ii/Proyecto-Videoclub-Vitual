@@ -10,13 +10,23 @@ import java.util.Date;
  */
 
 public class clsArticulo implements itfProperty, Comparable<clsArticulo> {
-
+    /**
+     * Atributos de articulos que hereda los todos los articulos
+     */
     private int id;
     private Date fechaS;
     private String nombre;
     private double precio;
     private double duracion;
 
+    /**
+     * Contructor principal de articulos
+     * @param id id
+     * @param fechaS fecha
+     * @param nombre nombre
+     * @param precio precio
+     * @param duracion duracion
+     */
     public clsArticulo(int id, Date fechaS, String nombre, double precio, double duracion) {
 
         this.id = id;
@@ -27,6 +37,13 @@ public class clsArticulo implements itfProperty, Comparable<clsArticulo> {
 
     }
 
+    /**
+     * Constructor secuendario
+     * @param fechaS fecha
+     * @param nombre nombre
+     * @param precio precio
+     * @param duracion duracion
+     */
     public clsArticulo(Date fechaS ,String nombre, double precio, double duracion) {
 
         this.fechaS = fechaS;

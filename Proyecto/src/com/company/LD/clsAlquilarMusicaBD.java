@@ -7,8 +7,19 @@ import java.sql.SQLException;
 
 import static com.company.LD.clsConstantesBD.*;
 
+/**
+ * Clase para los metodos de alquilar musica que interactua con la base de datos
+ */
 public class clsAlquilarMusicaBD {
-
+    /**
+     * Metodo para insertar datos de alquiler en la base de tados
+     * @param objCon objeto conexion
+     * @param objStat objeto del statment
+     * @param objRS objeto de resultset
+     * @param parametrosAlquilerM parametros de alquiler que se introduce
+     * @return devuelve la id de la tabla
+     * @throws SQLException excepcion
+     */
     public static int insertAlquilerM(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosAlquilerM) throws SQLException {
 
         int regActualizada = 0;
@@ -40,6 +51,13 @@ public class clsAlquilarMusicaBD {
         return idP;
     }
 
+    /**
+     * Metodo para obtener datos de alquiler musica de la base de datos, RESULSET
+     * @param _objCon objeto conexion
+     * @param _objStat objeto de statment
+     * @param _objRS objeto del resultset
+     * @return devuelve un ResultSet
+     */
     public static ResultSet consultaAlquilerM(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
 
         try {
@@ -51,6 +69,14 @@ public class clsAlquilarMusicaBD {
         return _objRS;
     }
 
+    /**
+     * Metodo para eliminar datos de la base de datos
+     * @param objCon objeto conexion
+     * @param objStat objeto del statment
+     * @param objRS objeto del resultsrt
+     * @param id id de usuario
+     * @throws SQLException excepcion
+     */
     public static void deleteMusica(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 
         objStat = objCon.prepareStatement(DELETE_MUSICA);

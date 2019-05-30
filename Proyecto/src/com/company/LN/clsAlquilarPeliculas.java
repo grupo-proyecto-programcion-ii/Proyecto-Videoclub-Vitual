@@ -7,7 +7,7 @@ import java.util.Date;
 import static com.company.COMUN.clsConstantes.*;
 
 /**
- * Clase que alberga atributos para alquilar peliculas además de sus método
+ * Clase que alberga atributos para alquilar peliculas ademas de sus metodos
  */
 
 public class clsAlquilarPeliculas extends clsAlquiler implements itfProperty {

@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import static com.company.COMUN.clsConstantes.USUARIO_COSTE_TOTAL;
 import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
 
+/**
+ * Clase para la ventana de visualizacionde los articulos. Dentro de ella de encuentras las
+ * ventanas menores que contienen los datos de los articulos
+ */
 public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListener, MouseListener, InternalFrameListener, ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -30,7 +34,13 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
 
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
-
+    /**
+     * Constructor de la clase
+     * @param _objGestor objeto para los metodos de gestor
+     * @param _id identidicador del usuario logeado
+     * @param codigo codigo que se le transmite desde la ventana anterior para ejecitar
+     *               las ventanas interiores seleccionadas
+     */
     public clsVenatanaVisualizarArticulos(clsGestor _objGestor, String _id, int codigo) {
 
         objGestor = _objGestor;
@@ -96,6 +106,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de peliculas
+     */
     private void ventanaPeliculas() {
 
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
@@ -113,6 +126,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de peliculas ordenada por puntos
+     */
     private void ventanaPeliculasPtos() {
 
         ArrayList<itfProperty> _peliculas = objGestor.listaPeliculasPuntos();
@@ -130,6 +146,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de videojuegos
+     */
     private void ventanaVideojuegos() {
 
         ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
@@ -147,6 +166,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de videojuegos por puntos
+     */
     private void ventanaVideojuegosPtos() {
 
         ArrayList<itfProperty> _videojuegos = objGestor.listaVideojuegosPuntos();
@@ -164,6 +186,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de musica
+     */
     private void ventanaMusica() {
 
         ArrayList<itfProperty> musicas = objGestor.leerMusica();
@@ -181,6 +206,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para mostrar la ventana de musica ordenada por anio
+     */
     private void ventanaMusicaAnio() {
 
         ArrayList<itfProperty> _musicas = objGestor.listaMusicaAnio();
@@ -198,6 +226,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para leer los datos del usuario logeado anteriormente
+     * @param id
+     */
     private void leerDatos(String id){
         ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
         for (itfProperty usuario : lUsuarios) {
@@ -207,6 +239,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Metodo para la escucha de selecciones de botones
+     * @param e e
+     */
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {

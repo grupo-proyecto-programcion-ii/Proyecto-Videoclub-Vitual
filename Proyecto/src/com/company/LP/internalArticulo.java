@@ -19,6 +19,10 @@ import com.company.LN.clsGestor;
 import static com.company.COMUN.clsConstantes.*;
 import static com.company.COMUN.clsConstantes.PELICULA_PUNTUACION;
 
+/**
+ * Clase que crea las ventanas de articulos sobre la ventana principal de
+ * "clsVentanaVisualizarArticulos
+ */
 public class internalArticulo extends JInternalFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -53,7 +57,7 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
     private Integer currentValue;
 
     /**
-     * Create the frame.
+     * Creacion de las ventanas, constructor de la clase
      */
     public internalArticulo(itfProperty articulo, clsGestor _objGestor, int codigo, String _identificador, int recuentoHorizontal, int recuentoVertical) {
 
@@ -264,6 +268,13 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
         }
     }
 
+    /**
+     * Metodo para sumar la fecha a la base de datos dependiendo de los dias que el
+     * usuario reserve un articulo
+     * @param _dias variable de los dias seleccionados
+     * @return fecha de la base de datos
+     * @throws ParseException excepcion por fallo
+     */
     public static Date fechaDevolucion(int _dias) throws ParseException {
 
         Date fechaHoy = new Date();

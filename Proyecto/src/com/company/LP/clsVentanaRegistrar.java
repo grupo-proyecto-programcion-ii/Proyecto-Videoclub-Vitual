@@ -15,6 +15,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Clase para la ventana de registro del usuario
+ */
 public class clsVentanaRegistrar extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -52,7 +55,10 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     private JButton btnValidar;
     private JButton btnAtras;
 
-
+    /**
+     * Contructor de la calse
+     * @param _objGestor objeto que apunta al gestor
+     */
     public clsVentanaRegistrar(clsGestor _objGestor) {
 
         objGestor = _objGestor;
@@ -178,7 +184,12 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
         panelDeContenido.add(textFechaNacimiento);
     }
 
-
+    /**
+     * Metodo para equalsHasCodeSet, se comprueba si existe un usuario con nombre de usuario
+     * y contrasena antes de registrar
+     * @param _usuario
+     * @return
+     */
     private boolean existe(clsUsuario _usuario) {
 
         boolean retorno = false;
@@ -193,7 +204,10 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
         return retorno;
     }
 
-
+    /**
+     * Metodo de la escucha de botones
+     * @param e e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 

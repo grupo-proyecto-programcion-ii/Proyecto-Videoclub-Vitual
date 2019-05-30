@@ -6,7 +6,9 @@ import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
 
-
+/**
+ * Clase para los alquileres de tipo musica
+ */
 public class clsAlquilarMusica extends clsAlquiler implements itfProperty {
 
     private int musica_id;
@@ -28,12 +30,25 @@ public class clsAlquilarMusica extends clsAlquiler implements itfProperty {
         this.fecha_DevolucionM = fecha_DevolucionM;
     }
 
+    /**
+     * Contructor principal
+     * @param idAlquiler id
+     * @param usuarios_codigo ca
+     * @param musica_id mi
+     * @param fecha_DevolucionM f
+     */
     public clsAlquilarMusica(int idAlquiler, int usuarios_codigo, int musica_id, Date fecha_DevolucionM) {
         super(idAlquiler, usuarios_codigo);
         this.musica_id = musica_id;
         this.fecha_DevolucionM = fecha_DevolucionM;
     }
 
+    /**
+     * Contructor secundario
+     * @param codigo codigo
+     * @param musica_id id
+     * @param fecha_DevolucionM fecha
+     */
     public clsAlquilarMusica(int codigo, int musica_id, Date fecha_DevolucionM) {
         super(codigo);
         this.musica_id = musica_id;

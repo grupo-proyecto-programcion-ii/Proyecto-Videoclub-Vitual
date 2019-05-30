@@ -15,7 +15,9 @@ import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
 
-
+/**
+ * Clase para la ventana de suscripcion mensual de la aplicacion
+ */
 public class clsVentanaSuscripcion extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -40,7 +42,11 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
     private static final String AC_BOTON_DESUSUCRIBIR = "botonDesuscribir";
     private static final String AC_BOTON_ATRAS = "botonAtras";
 
-
+    /**
+     * Metodo de constructor de la clase
+     * @param _objGestor objeto que apunta al gestor
+     * @param _id identificador del usuario
+     */
     public clsVentanaSuscripcion(clsGestor _objGestor, String _id) {
 
         objGestor = _objGestor;
@@ -127,6 +133,10 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
 
     }
 
+    /**
+     * Metodo para obtener los datos del usuario sabiendo el identificador
+     * @param id identificador del usuario logeado
+     */
     private void leerDatos(String id) {
         ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
         for (itfProperty usuario : lUsuarios) {
@@ -139,6 +149,10 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         }
     }
 
+    /**
+     * Metodo parra que el radioButton se quede seleccionado dependiendo del estado
+     * de suscripcion
+     */
     private void estadoSeleccionado() {
 
         if (estado == true) {

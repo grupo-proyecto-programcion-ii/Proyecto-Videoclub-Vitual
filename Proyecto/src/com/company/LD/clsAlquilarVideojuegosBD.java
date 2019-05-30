@@ -7,8 +7,20 @@ import java.sql.SQLException;
 
 import static com.company.LD.clsConstantesBD.*;
 
+/**
+ * Clase para los metodos de alquilar videojuegos que interactua con la base de datos
+ */
 public class clsAlquilarVideojuegosBD {
 
+    /**
+     * Metodo para insertar los datos de alquiler
+     * @param objCon objeto conexion
+     * @param objStat objeto statment
+     * @param objRS objetoresultset
+     * @param parametrosAlquilerV parametros de alquiler videojuegos que se le introduce
+     * @return id de la tabla alquiler
+     * @throws SQLException excepcion
+     */
     public static int insertAlquilerV(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosAlquilerV) throws SQLException {
 
         int regActualizada = 0;
@@ -40,6 +52,13 @@ public class clsAlquilarVideojuegosBD {
         return idP;
     }
 
+    /**
+     * Obtener datos de la tabla alquiler videojeugos
+     * @param _objCon objconexion
+     * @param _objStat objstatment
+     * @param _objRS objresultset
+     * @return resultset
+     */
     public static ResultSet consultaAlquilerV(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
 
         try {
@@ -51,6 +70,14 @@ public class clsAlquilarVideojuegosBD {
         return _objRS;
     }
 
+    /**
+     * metodo para eliminr alquileres de videojuegos de la base de datos
+     * @param objCon objconexion
+     * @param objStat objeto statment
+     * @param objRS objetorsult
+     * @param id id del usuario
+     * @throws SQLException
+     */
     public static void deleteVideojuego(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 
         objStat = objCon.prepareStatement(DELETE_VIDEOJUEGO);

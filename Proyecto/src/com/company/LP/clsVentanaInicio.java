@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * Clase para la ventana de inicio de aplicacion
+ */
 public class clsVentanaInicio extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -28,7 +31,10 @@ public class clsVentanaInicio extends JFrame implements ActionListener, WindowLi
     private static final String AC_BOTON_REGISTRO = "botonRegistro";
     private static final String AC_BOTON_SALIR = "botonSalir";
 
-
+    /**
+     * Contructor de la clase
+     * @param _objGestor objeto que apunta la gestor
+     */
     public clsVentanaInicio(clsGestor _objGestor) {
 
         objGestor = _objGestor;

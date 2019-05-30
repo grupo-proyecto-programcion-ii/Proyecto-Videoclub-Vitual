@@ -7,8 +7,20 @@ import java.sql.SQLException;
 
 import static com.company.LD.clsConstantesBD.*;
 
-public class clsAlquilarPeliculasBD {
+/**
+ * Clase para los metodos de alquilar peliculas que interactua con la base de datos
+ */
 
+public class clsAlquilarPeliculasBD {
+    /**
+     * Metooo principal para introducir datos de alquiler p
+     * @param objCon objeto conexxion
+     * @param objStat objeto del statment
+     * @param objRS objeto del resultSet
+     * @param parametrosAlquilerP parametros de alquiler peliculas
+     * @return id de la tabla alquiler peliculas
+     * @throws SQLException excepcion
+     */
     public static int insertAlquilerP(Connection objCon, PreparedStatement objStat, ResultSet objRS, Object[] parametrosAlquilerP) throws SQLException {
 
         int regActualizada = 0;
@@ -40,6 +52,13 @@ public class clsAlquilarPeliculasBD {
         return idP;
     }
 
+    /**
+     * Metodo para obtener daros
+     * @param _objCon objcon
+     * @param _objStat objs
+     * @param _objRS objrs
+     * @return rsultset
+     */
     public static ResultSet consultaAlquilerP(Connection _objCon, PreparedStatement _objStat, ResultSet _objRS){
 
         try {
@@ -51,6 +70,14 @@ public class clsAlquilarPeliculasBD {
         return _objRS;
     }
 
+    /**
+     * Metodo para eliminar pelicula de alquiler
+     * @param objCon objCon
+     * @param objStat starment
+     * @param objRS objeto resultset
+     * @param id id del usuario
+     * @throws SQLException excepcion
+     */
     public static void deletePelicula(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 
         objStat = objCon.prepareStatement(DELETE_PELICULA);

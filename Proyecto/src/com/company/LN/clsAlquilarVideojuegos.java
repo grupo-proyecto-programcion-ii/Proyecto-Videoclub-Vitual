@@ -6,6 +6,9 @@ import java.util.Date;
 
 import static com.company.COMUN.clsConstantes.*;
 
+/**
+ * Clase par los objetos alquiler de tipo videojuegos
+ */
 public class clsAlquilarVideojuegos extends clsAlquiler implements itfProperty {
 
     private int videojuego_id;

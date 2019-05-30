@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 import static com.company.COMUN.clsConstantes.*;
 
+/**
+ * Clase para validar la entrada de un usuario registrado anteriormente
+ */
 public class clsVentanaValidar extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -33,6 +36,10 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
     private JButton btnAtras;
     private JLabel lblImagenValidacion;
 
+    /**
+     * Constructor de la clase
+     * @param _objGestor objeto que apunta al gestor
+     */
     public clsVentanaValidar(clsGestor _objGestor) {
 
         objGestor = _objGestor;

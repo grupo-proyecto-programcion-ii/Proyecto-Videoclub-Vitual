@@ -9,11 +9,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * Clase para el menu de alquiler. Existe un conjunto de botones donde se eligue el tipo
+ * de articulos de ver y en un orden elegido.
+ */
 public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, WindowListener {
 
+    /**
+     * Objeto para llamar a los metodos de gestor
+     */
     private clsGestor objGestor;
     private String id;
 
+    /**
+     * Declaracion de los nombres de lo objetos de interfaz grafica
+     */
     private JPanel panel;
     private JButton btnMostrarArticulos;
     private JButton btnMostrarPeliculas;
@@ -25,6 +35,9 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
     private JButton btnSalir;
     private JLabel label;
 
+    /**
+     * Constantes para los textos de los botones
+     */
     private static final String AC_BOTON_MOSTRAR_ARTICULOS = "botonMostrarArticulos";
     private static final String AC_BOTON_MOSTRAR_PELICULAS = "botonMostrarPeliculas";
     private static final String AC_BOTON_MOSTRAR_PELICULAS_POR_PUNTOS = "botonMostrarPeliculasPtos";
@@ -34,7 +47,12 @@ public class clsVenatanaMenuAlquiler extends JFrame implements ActionListener, W
     private static final String AC_BOTON_MOSTRAR_MUSICA_POR_ANIO = "botonMostrarMusicaAnio";
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
-
+    /**
+     * Contructor de la clase
+     * @param _objGestor se para el objeto que apunto a clsGestor
+     * @param _id se para el identificador para leer los datos del usuario
+     *            determinado
+     */
     public clsVenatanaMenuAlquiler(clsGestor _objGestor, String _id) {
 
         objGestor = _objGestor;

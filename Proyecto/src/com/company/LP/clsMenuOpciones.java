@@ -20,7 +20,9 @@ public class clsMenuOpciones {
      */
     public void menuPrincipal(){
 
-
+        /**
+         * Objeto gestor para cargar los datos una vez que empieza el programa
+         */
         clsGestor objGestor = new clsGestor();
 
         try {

@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * Clase para la ventana del menu principal de la aplicacion
+ */
 public class clsVentanaMenu extends JFrame implements ActionListener, WindowListener {
 
     private clsGestor objGestor;
@@ -37,7 +40,11 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
     private static final String AC_BOTON_SUSCRIBIR = "botonSuscribir";
     private static final String AC_BOTON_VOLVER = "botonVolver";
 
-
+    /**
+     * Constructor de la clase
+     * @param _objGestor objeto que apunta al gestor
+     * @param _id identificador del gestor
+     */
     public clsVentanaMenu(clsGestor _objGestor, String _id) {
 
         objGestor = _objGestor;
@@ -167,7 +174,9 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
                 this.dispose();
                 break;
             case AC_BOTON_VISUALIZAR:
-
+                clsVentanaMenuVisualizar objVentanaMenuVisualizar = new clsVentanaMenuVisualizar(objGestor, id);
+                objVentanaMenuVisualizar.setVisible(true);
+                objVentanaMenuVisualizar.setExtendedState(6);
                 break;
             case AC_BOTON_VOLVER:
                 clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);

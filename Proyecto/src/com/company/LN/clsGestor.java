@@ -54,7 +54,11 @@ public class clsGestor {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+    /**
+     * Metodo para cambiar el atributo costeTotal dependiendo de su estado de suscripcion
+     * @param _estadoSuscipcion estado siscripcion
+     * @return coste total
+     */
     private double calculoCosteTotal(boolean _estadoSuscipcion) {
 
         double costeTotal = 0;
@@ -87,6 +91,11 @@ public class clsGestor {
         return costeTotal;
     }
 
+    /**
+     * Metodo para actualizar el coste de los usuarios
+     * @param _estado suscripcion
+     * @param _codigoAleatorio codigo de usuario
+     */
     public void actualizarCosteTotal(boolean _estado, int _codigoAleatorio) {
 
         try {
@@ -97,7 +106,18 @@ public class clsGestor {
 
     }
 
-
+    /**
+     * Metodo para anadir usuarios a la base de datos
+     * @param _id atributo id
+     * @param _contra atributo contrasena
+     * @param _nombre atributo nombre
+     * @param _apellidos atributo apellidos
+     * @param _correoE atributo correo
+     * @param _numeroTarjeta atributo numero tarjeta
+     * @param _fechaNacimiento atributo fecha nacimiento
+     * @param _suscripcion atributo estado suscripcioon
+     * @param fechaHoy atributo de la fecha actual
+     */
     public void anadirUsuario(String _id, String _contra, String _nombre, String _apellidos, String _correoE,
                               String _numeroTarjeta, Date _fechaNacimiento, boolean _suscripcion, Date fechaHoy) {
 
@@ -138,7 +158,9 @@ public class clsGestor {
         return rUsuarios;
     }
 
-
+    /**
+     * Meotodo para cargar en memoria los datos de usuarios en la base de daros
+     */
     private void cargarUsuarios() {
 
         int codigoConsulta = 0; // 0 para hacer select de usuarios
@@ -170,7 +192,7 @@ public class clsGestor {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /***
-     * Métodos para anadir objetos de artículos al arraylist de articulos.
+     * Métodos para anadir objetos de artículos al arraylist de articulos y alquileres
      * @param _fechaSP atributo de tipo Date
      * @param _nombreP atributos pelicula
      * @param _precioP atributos pelicula
@@ -289,6 +311,11 @@ public class clsGestor {
         objDatos.desconectarBD();
     }
 
+    /**
+     * Metodos para comprar id recogido de alquileres p
+     * @param _idRecogido id
+     * @return boolean
+     */
     private boolean compararIdAlquilerP(int _idRecogido) {
 
         boolean retorno = true;
@@ -322,6 +349,10 @@ public class clsGestor {
         return retorno;
     }
 
+    /**
+     * Metodo para cambiar el estado de suscripcion de usuario
+     * @param identificador identificador
+     */
     public void anadirSuscripcion(String identificador) {
 
         try {
@@ -342,6 +373,10 @@ public class clsGestor {
         }
     }
 
+    /**
+     * Metodo para comprobar el estado de suscripcion (1que no se ha caducado)
+     * antes de cargar los datos
+     */
     public void comprobarSuscripcion() {
 
         try {
@@ -360,7 +395,10 @@ public class clsGestor {
         }
     }
 
-
+    /**
+     * Metodo para eliminar la suscripcion de la base de daros una vez se ha dado de baja
+     * @param _identificador identificador
+     */
     public void bajaSuscripcion(String _identificador) {
 
         try {
@@ -378,7 +416,11 @@ public class clsGestor {
         comprobarSuscripcion();
     }
 
-
+    /**
+     * Metodo para calcular la fecha de suscripcion dependiento de la fecha en el que
+     * el usuario se da de alta
+     * @return fecha
+     */
     private Date calcularFechaSuscripcion() {
 
         Date fechaDev2 = null;
@@ -402,7 +444,7 @@ public class clsGestor {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Metodo para levar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de articulos.
+     * Metodos para llevar a la clase clsMenu un arrayList que "copia" los objetos de el arraylist de articulos.
      *
      * @return leerPeliculas
      */
@@ -437,10 +479,37 @@ public class clsGestor {
         return rMusica;
     }
 
+    public ArrayList<itfProperty> leerAlquilerP(){
+        ArrayList<itfProperty> rAlquilerP = new ArrayList<>();
+
+        for (clsAlquilarPeliculas alquilerP :listaAlquilerPelis){
+            rAlquilerP.add(alquilerP);
+        }
+        return rAlquilerP;
+    }
+
+    public ArrayList<itfProperty> leerAlquilerV(){
+        ArrayList<itfProperty> rAlquilerV = new ArrayList<>();
+
+        for (clsAlquilarVideojuegos alquilerV :listaAlquilerVidejuegos){
+            rAlquilerV.add(alquilerV);
+        }
+        return rAlquilerV;
+    }
+
+    public ArrayList<itfProperty> leerAlquilerM(){
+        ArrayList<itfProperty> rAlquilerM = new ArrayList<>();
+
+        for (clsAlquilarMusica alquilerM :listaAlquilerMusica){
+            rAlquilerM.add(alquilerM);
+        }
+        return rAlquilerM;
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Metodos para actualizar cargar actualizar los ArrayList obteniendo los datos de la base de datos
+     * Metodos para cargar los ArrayList obteniendo los datos de la base de datos
      * para que se inicien datos una vez se comienza el programa
      */
     private void cargarPeliculas() {
@@ -579,9 +648,11 @@ public class clsGestor {
         }
     }
 
-
+    /**
+     * Metodo principal para cargar todos los datos y comprobarlos una vez que inicia la
+     * aplicacion
+     */
     public void cargarDatos() {
-
         cargarUsuarios();
         comprobarSuscripcion();
         cargarPeliculas();
@@ -591,10 +662,11 @@ public class clsGestor {
         cargarAlquilerV();
         cargarAlquilerM();
         eliminarAlquiler();
-
-
     }
 
+    /**
+     * Metodo para eliminar aquellos alquileres que estan fuera de plazo
+     */
     private void eliminarAlquiler() {
 
         try {

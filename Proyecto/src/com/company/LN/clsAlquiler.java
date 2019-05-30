@@ -2,12 +2,22 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 
+/**
+ * Clase principal de alquiler
+ */
 public class clsAlquiler implements itfProperty {
 
+    /**
+     * Atributos de alquiler que heredaran todo los articulos
+     */
     private int idAlquiler;
     private int usuarios_codigo;
 
 
+    /**
+     * geters y setters para los atributos de alquiler
+     * @return id
+     */
     public int getIdAlquiler() {
         return idAlquiler;
     }
