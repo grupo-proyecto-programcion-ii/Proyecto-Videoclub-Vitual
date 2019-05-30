@@ -109,7 +109,7 @@ public class clsVentanaValidar extends JFrame implements ActionListener, WindowL
             case AC_BOTON_INICIAR:
                 try {
                     boolean estado = false;
-                    boolean suscripcion = false;
+
                     ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
                     for (itfProperty usuario : lUsuarios) {
                         if (textoContrasena.getText().equals(usuario.getPropertyU(USUARIO_CONTRASENA)) &&

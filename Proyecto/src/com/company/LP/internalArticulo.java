@@ -188,6 +188,8 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
             lblDias.setBounds(124, 86, 272, 12);
             panelInternoV.add(lblDias);
 
+            id = (int) articulo.getPropertyA(VIDEJUEGO_ID);
+
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal), puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
             getContentPane().setLayout(null);
@@ -252,6 +254,8 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
             lblDias.setBounds(124, 86, 272, 12);
             panelInternoM.add(lblDias);
 
+            id = (int) articulo.getPropertyA(MUSICA_ID);
+
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal),
                     puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
@@ -305,6 +309,7 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
                 }
                 break;
             case AC_BOTON_ALQUILAR_MUSICA:
+
                 try {
                     objGestor.anadirAlquilerM(identificador, id, fechaDevolucion((int)spinDiasM.getValue()));
                 } catch (SQLException ex) {
