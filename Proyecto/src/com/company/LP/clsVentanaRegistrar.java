@@ -1,6 +1,8 @@
 package com.company.LP;
 
+import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
+import com.company.LN.clsUsuario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +12,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+
+import static com.company.COMUN.clsConstantes.*;
 
 public class clsVentanaRegistrar extends JFrame implements ActionListener, WindowListener {
 
@@ -175,7 +181,21 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
         panelDeContenido.add(textFechaNacimiento);
     }
 
-    //FALTA HASHET DE COMPROBACION DE USUARIOS
+
+    private boolean existe(clsUsuario _usuario) {
+
+        boolean retorno = false;
+
+        ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
+        for (itfProperty usuario : lUsuarios) {
+            if (usuario.equals(_usuario)) {
+                return true;
+            }
+        }
+
+        return retorno;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -187,17 +207,32 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
                 Date fechaNacimiento = null;
                 try {
                     fechaNacimiento = new SimpleDateFormat("dd/MM/yyyy").parse(textFechaNacimiento.getText());
-
                     Date fechaHoy = new Date();
-                    objGestor.anadirUsuario(textIdentificador.getText(), textContrasena.getText(),
+
+                    clsUsuario objUsuario = new clsUsuario(1, textIdentificador.getText(), textContrasena.getText(),
                             textNombre.getText(), textApellidos.getText(), textCorreoElectronico.getText(),
-                            textNumeroTarjeta.getText(), fechaNacimiento, false, fechaHoy);
+                            textNumeroTarjeta.getText(), fechaNacimiento, 1, false, fechaHoy);
+
+                    if (existe(objUsuario) == false) {
+
+                        objGestor.anadirUsuario(textIdentificador.getText(), textContrasena.getText(),
+                                textNombre.getText(), textApellidos.getText(), textCorreoElectronico.getText(),
+                                textNumeroTarjeta.getText(), fechaNacimiento, false, fechaHoy);
 
 
-                    clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, textIdentificador.getText());
-                    objVentanaMenu.setVisible(true);
-                    objVentanaMenu.setExtendedState(6);
-                    this.dispose();
+                        clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, textIdentificador.getText());
+                        objVentanaMenu.setVisible(true);
+                        objVentanaMenu.setExtendedState(6);
+                        this.dispose();
+
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(this, "error, usuario o contrasena ya existentes!");
+                        clsVentanaRegistrar objVenatanaRegistrar = new clsVentanaRegistrar(objGestor);
+                        objVenatanaRegistrar.setVisible(true);
+                        objVenatanaRegistrar.setExtendedState(6);
+                        this.dispose();
+                        break;
+                    }
 
                 } catch (ParseException ex) {
                     ex.printStackTrace();
@@ -231,6 +266,11 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
      */
     @Override
     public void windowClosing(WindowEvent e) {
+        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
 
     }
 
@@ -243,11 +283,6 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
     @Override
     public void windowClosed(WindowEvent e) {
 
-        int eleccion = JOptionPane.showConfirmDialog(this, "¿Estas seguro?", "Salir",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
-        if (eleccion == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
     }
 
     /**
