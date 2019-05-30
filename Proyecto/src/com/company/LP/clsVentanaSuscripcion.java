@@ -23,6 +23,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
     private boolean estado;
     private double costeT;
     private Date fechaS;
+    private int codigoAleatorio;
 
     private JPanel panelDeContenido;
     private JTextArea textAreaDescripcion;
@@ -32,9 +33,11 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
     private JLabel label;
     private JButton btnVolver;
     private JTextArea txtrSuCosteTotal;
+    private JButton btnForzarBajaSuscripcion;
 
     private static final String AC_RBOTON_SUSCRIBIR = "botonSuscribir";
     private static final String AC_RBOTON_NO_SUSCRIBIR = "botonNoSuscribir";
+    private static final String AC_BOTON_DESUSUCRIBIR = "botonDesuscribir";
     private static final String AC_BOTON_ATRAS = "botonAtras";
 
 
@@ -108,11 +111,12 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         txtrSuCosteTotal.setBounds(764, 454, 590, 31);
         panelDeContenido.add(txtrSuCosteTotal);
 
-        JButton btnForzarBajaSuscripcion = new JButton("Forzar baja suscripcion");
+        btnForzarBajaSuscripcion = new JButton("Forzar baja suscripcion");
         btnForzarBajaSuscripcion.setForeground(Color.WHITE);
         btnForzarBajaSuscripcion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 20));
         btnForzarBajaSuscripcion.setBackground(Color.BLACK);
-        btnForzarBajaSuscripcion.setActionCommand("botonVolver");
+        btnForzarBajaSuscripcion.setActionCommand(AC_BOTON_DESUSUCRIBIR);
+        btnForzarBajaSuscripcion.addActionListener(this);
         btnForzarBajaSuscripcion.setBounds(378, 536, 505, 70);
         panelDeContenido.add(btnForzarBajaSuscripcion);
 
@@ -130,6 +134,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
                 estado = (boolean) usuario.getPropertyU(USUARIO_SUSCRIPCION);
                 fechaS = (Date) usuario.getPropertyU(USUARIO_FECHA_SUSCRIPCION);
                 costeT = (Double) usuario.getPropertyU(USUARIO_COSTE_TOTAL);
+                codigoAleatorio = (int) usuario.getPropertyU(USUARIO_CODIGO_ID);
             }
         }
     }
@@ -158,6 +163,7 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
         switch (e.getActionCommand()) {
             case AC_RBOTON_SUSCRIBIR:
                 objGestor.anadirSuscripcion(id);
+                objGestor.actualizarCosteTotal(false,   codigoAleatorio);
                 javax.swing.JOptionPane.showMessageDialog(this,
                         "Su suscripcion esta dada de alta hasta el dia " +
                                 fechaS + " tendras ahora acceso a todo el contenido por 60$");
@@ -174,6 +180,12 @@ public class clsVentanaSuscripcion extends JFrame implements ActionListener, Win
                             "Actualmente la suscripcion no esta dado de alta");
                 }
                 estadoSeleccionado();
+                break;
+            case AC_BOTON_DESUSUCRIBIR:
+                objGestor.bajaSuscripcion(id);
+                objGestor.actualizarCosteTotal(false,   codigoAleatorio);
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Se ha desuscrito de la aplicacion");
                 break;
             case AC_BOTON_ATRAS:
                 clsVentanaMenu objVentanaMenu = new clsVentanaMenu(objGestor, id);

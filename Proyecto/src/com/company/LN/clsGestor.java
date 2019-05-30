@@ -87,6 +87,16 @@ public class clsGestor {
         return costeTotal;
     }
 
+    public void actualizarCosteTotal(boolean _estado, int _codigoAleatorio) {
+
+        try {
+            objDatos.insertarUpdateCoste(calculoCosteTotal(_estado), _codigoAleatorio);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void anadirUsuario(String _id, String _contra, String _nombre, String _apellidos, String _correoE,
                               String _numeroTarjeta, Date _fechaNacimiento, boolean _suscripcion, Date fechaHoy) {
@@ -216,7 +226,7 @@ public class clsGestor {
                 for (clsUsuario usuario : listaUsuarios) {
                     if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == pelicula.getId() && compararIdAlquilerP(_id) == true) {
 
-                        //int codigo = usuario.getCodigoAleatoria();
+
                         clsAlquilarPeliculas objAP = new clsAlquilarPeliculas(usuario.getCodigoAleatoria(), _id, _fechaDev);
                         listaAlquilerPelis.add(objAP);
                         objAP.setIdAlquiler(objDatos.insertarAlquilerP(usuario.getCodigoAleatoria(), _id, _fechaDev));
@@ -242,14 +252,13 @@ public class clsGestor {
             for (clsUsuario usuario : listaUsuarios) {
                 if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == videojuego.getId() && compararIdAlquilerV(_id) == true) {
 
-                    //int codigo = usuario.getCodigoAleatoria();
+
                     clsAlquilarVideojuegos objAV = new clsAlquilarVideojuegos(usuario.getCodigoAleatoria(), _id, _fechaDev);
                     listaAlquilerVidejuegos.add(objAV);
                     objAV.setIdAlquiler(objDatos.insertarAlquilerV(usuario.getCodigoAleatoria(), _id, _fechaDev));
 
                     usuario.setCosteTotal(usuario.getCosteTotal() + videojuego.getPrecio());
                     System.out.println(usuario.getCosteTotal());
-                    //UPDATE de coste total en la base de datos
                     objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                 }
             }
@@ -265,7 +274,7 @@ public class clsGestor {
             for (clsUsuario usuario : listaUsuarios) {
                 if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == cd.getId() && compararIdAlquilerM(_id) == true) {
 
-                    //int codigo = usuario.getCodigoAleatoria();
+
                     clsAlquilarMusica objAM = new clsAlquilarMusica(usuario.getCodigoAleatoria(), _id, _fechaDev);
                     listaAlquilerMusica.add(objAM);
                     objAM.setIdAlquiler(objDatos.insertarAlquilerM(usuario.getCodigoAleatoria(), _id, _fechaDev));
@@ -273,7 +282,6 @@ public class clsGestor {
 
                     usuario.setCosteTotal(usuario.getCosteTotal() + cd.getPrecio());
                     System.out.println(usuario.getCosteTotal());
-                    //UPDATE de coste total en la base de datos
                     objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                 }
             }

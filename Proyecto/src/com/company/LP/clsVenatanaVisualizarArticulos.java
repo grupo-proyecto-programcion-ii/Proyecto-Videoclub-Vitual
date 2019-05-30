@@ -118,10 +118,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         ArrayList<itfProperty> _peliculas = objGestor.listaPeliculasPuntos();
         for (itfProperty pelicula : _peliculas) {
 
-            internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
-            listaInternalFrames.add(internalP);
-            panel.add(internalP);
-            internalP.setVisible(true);
+            internalArticulo _internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+            listaInternalFrames.add(_internalP);
+            panel.add(_internalP);
+            _internalP.setVisible(true);
             recuentoH++;
             if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
                 recuentoV++;
@@ -135,10 +135,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
         for (itfProperty videojuego : videojuegos) {
 
-            internalArticulo internal = new internalArticulo(videojuego, objGestor, 2, id, recuentoH, recuentoV);
-            listaInternalFrames.add(internal);
-            panel.add(internal);
-            internal.setVisible(true);
+            internalArticulo internalV = new internalArticulo(videojuego, objGestor, 2, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalV);
+            panel.add(internalV);
+            internalV.setVisible(true);
             recuentoH++;
             if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
                 recuentoV++;
@@ -152,10 +152,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         ArrayList<itfProperty> _videojuegos = objGestor.listaVideojuegosPuntos();
         for (itfProperty videojuego : _videojuegos) {
 
-            internalArticulo internal = new internalArticulo(videojuego, objGestor, 2, id, recuentoH, recuentoV);
-            listaInternalFrames.add(internal);
-            panel.add(internal);
-            internal.setVisible(true);
+            internalArticulo _internalV = new internalArticulo(videojuego, objGestor, 2, id, recuentoH, recuentoV);
+            listaInternalFrames.add(_internalV);
+            panel.add(_internalV);
+            _internalV.setVisible(true);
             recuentoH++;
             if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
                 recuentoV++;
@@ -186,10 +186,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         ArrayList<itfProperty> _musicas = objGestor.listaMusicaAnio();
         for (itfProperty musica : _musicas) {
 
-            internalArticulo internalM = new internalArticulo(musica, objGestor, 3, id, recuentoH, recuentoV);
-            listaInternalFrames.add(internalM);
-            panel.add(internalM);
-            internalM.setVisible(true);
+            internalArticulo _internalM = new internalArticulo(musica, objGestor, 3, id, recuentoH, recuentoV);
+            listaInternalFrames.add(_internalM);
+            panel.add(_internalM);
+            _internalM.setVisible(true);
             recuentoH++;
             if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
                 recuentoV++;

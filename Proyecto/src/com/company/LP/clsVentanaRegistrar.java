@@ -14,9 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-
-import static com.company.COMUN.clsConstantes.*;
 
 public class clsVentanaRegistrar extends JFrame implements ActionListener, WindowListener {
 

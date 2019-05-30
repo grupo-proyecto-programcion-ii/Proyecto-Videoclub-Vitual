@@ -25,23 +25,31 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
     private String identificador;
     private int id;
 
-    int dimensionHorizontal = 307;
-    int dimensionVertical = 143;
-    int puntoInicioX = 10;
-    int puntoInicioY = 11;
+    private int dimensionHorizontal = 307;
+    private int dimensionVertical = 143;
+    private int puntoInicioX = 10;
+    private  int puntoInicioY = 11;
 
     private JPanel panelInternoP;
+    private JPanel panelInternoV;
+    private JPanel panelInternoM;
     private JLabel lblFechaSalida;
     private JLabel lblPrecio;
     private JLabel lblDuracion;
     private JLabel lPegi;
     private JLabel lblPuntuacion;
     private JLabel lblReservar;
-    private JSpinner spinDias;
+    private JSpinner spinDiasP;
+    private JSpinner spinDiasV;
+    private JSpinner spinDiasM;
     private JLabel lblDias;
-    private JButton btnAlquilar;
+    private JButton btnAlquilarP;
+    private JButton btnAlquilarV;
+    private JButton btnAlquilarM;
 
-    private static final String AC_BOTON_ALQUILAR = "botonAlquilar";
+    private static final String AC_BOTON_ALQUILAR_PELICULA = "botonAlquilarPelicula";
+    private static final String AC_BOTON_ALQUILAR_VIDEOJUEGO = "botonAlquilarVideojuego";
+    private static final String AC_BOTON_ALQUILAR_MUSICA = "botonAlquilarMusica";
     private Integer currentValue;
 
     /**
@@ -93,21 +101,20 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
             lblReservar.setBounds(0, 57, 279, 12);
             panelInternoP.add(lblReservar);
 
-            btnAlquilar = new JButton("Alquilar");
-            btnAlquilar.setBackground(new Color(238, 130,   238));
-            btnAlquilar.setForeground(new Color(0, 0, 0));
-            btnAlquilar.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
-            btnAlquilar.setBounds(10, 82, 104, 23);
-            btnAlquilar.setActionCommand(AC_BOTON_ALQUILAR);
-            btnAlquilar.addActionListener(this);
-            panelInternoP.add(btnAlquilar);
+            btnAlquilarP = new JButton("Alquilar");
+            btnAlquilarP.setBackground(new Color(238, 130,   238));
+            btnAlquilarP.setForeground(new Color(0, 0, 0));
+            btnAlquilarP.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
+            btnAlquilarP.setBounds(10, 82, 104, 23);
+            btnAlquilarP.setActionCommand(AC_BOTON_ALQUILAR_PELICULA);
+            btnAlquilarP.addActionListener(this);
+            panelInternoP.add(btnAlquilarP);
 
-            spinDias = new JSpinner();
-            spinDias.setModel(new SpinnerListModel(new Integer[]{1, 2, 3, 4, 5, 7, 10, 15}));
-            spinDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
-            spinDias.setBounds(221, 80, 58, 26);
-            currentValue = (int) spinDias.getValue();
-            panelInternoP.add(spinDias);
+            spinDiasP = new JSpinner();
+            spinDiasP.setModel(new SpinnerListModel(new Integer[]{1, 2, 3, 4, 5, 7, 10, 15}));
+            spinDiasP.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
+            spinDiasP.setBounds(221, 80, 58, 26);
+            panelInternoP.add(spinDiasP);
 
             lblDias = new JLabel("Indique los dias");
             lblDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 10));
@@ -125,61 +132,61 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
 
             setTitle((String) articulo.getPropertyA(VIDEOJUEGO_NOMBRE));
 
-            panelInternoP = new JPanel();
-            panelInternoP.setBounds(0, 0, 296, 116);
-            getContentPane().add(panelInternoP);
-            panelInternoP.setBackground(Color.YELLOW);
-            panelInternoP.setLayout(null);
+            panelInternoV = new JPanel();
+            panelInternoV.setBounds(0, 0, 296, 116);
+            getContentPane().add(panelInternoV);
+            panelInternoV.setBackground(Color.YELLOW);
+            panelInternoV.setLayout(null);
 
             lblFechaSalida = new JLabel("Fecha de salida: " + articulo.getPropertyA(VIDEOJUEGO_FECHA_SALIDA));
             lblFechaSalida.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblFechaSalida.setBounds(0, 0, 279, 12);
-            panelInternoP.add(lblFechaSalida);
+            panelInternoV.add(lblFechaSalida);
 
             lblPrecio = new JLabel("Precio por dia alquilado: " + articulo.getPropertyA(VIDEOJUEGO_PRECIO));
             lblPrecio.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblPrecio.setBounds(0, 11, 279, 12);
-            panelInternoP.add(lblPrecio);
+            panelInternoV.add(lblPrecio);
 
             lblDuracion = new JLabel("Duracion del videojuego (horas.min): " + articulo.getPropertyA(VIDEOJUEGO_DURACION));
             lblDuracion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblDuracion.setBounds(0, 23, 279, 12);
-            panelInternoP.add(lblDuracion);
+            panelInternoV.add(lblDuracion);
 
             lPegi = new JLabel("Pegi del videojeugo:  " + articulo.getPropertyA(VIDEOJUEGO_PEGI));
             lPegi.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lPegi.setBounds(0, 34, 279, 12);
-            panelInternoP.add(lPegi);
+            panelInternoV.add(lPegi);
 
             lblPuntuacion = new JLabel("Puntuacion del videojuego:  " + articulo.getPropertyA(VIDEOJUEGO_PUNTUACION));
             lblPuntuacion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblPuntuacion.setBounds(0, 46, 279, 12);
-            panelInternoP.add(lblPuntuacion);
+            panelInternoV.add(lblPuntuacion);
 
             lblReservar = new JLabel("Marca si deseas alquilar: ");
             lblReservar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblReservar.setBounds(0, 57, 279, 12);
-            panelInternoP.add(lblReservar);
+            panelInternoV.add(lblReservar);
 
-            btnAlquilar = new JButton("Alquilar");
-            btnAlquilar.setBackground(new Color(238, 130, 238));
-            btnAlquilar.setForeground(new Color(0, 0, 0));
-            btnAlquilar.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
-            btnAlquilar.setBounds(10, 82, 104, 23);
-            btnAlquilar.setActionCommand(AC_BOTON_ALQUILAR);
-            btnAlquilar.addActionListener(this);
-            panelInternoP.add(btnAlquilar);
+            btnAlquilarV = new JButton("Alquilar");
+            btnAlquilarV.setBackground(new Color(238, 130, 238));
+            btnAlquilarV.setForeground(new Color(0, 0, 0));
+            btnAlquilarV.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
+            btnAlquilarV.setBounds(10, 82, 104, 23);
+            btnAlquilarV.setActionCommand(AC_BOTON_ALQUILAR_VIDEOJUEGO);
+            btnAlquilarV.addActionListener(this);
+            panelInternoV.add(btnAlquilarV);
 
-            spinDias = new JSpinner();
-            spinDias.setModel(new SpinnerListModel(new String[]{"1", "2", "3", "4", "5", "7", "10", "15"}));
-            spinDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
-            spinDias.setBounds(221, 80, 58, 26);
-            panelInternoP.add(spinDias);
+            spinDiasV = new JSpinner();
+            spinDiasV.setModel(new SpinnerListModel(new Integer[]{1, 2, 3, 4, 5, 7, 10, 15}));
+            spinDiasV.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
+            spinDiasV.setBounds(221, 80, 58, 26);
+            panelInternoV.add(spinDiasV);
 
             lblDias = new JLabel("Indique los dias");
             lblDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 10));
             lblDias.setBounds(124, 86, 272, 12);
-            panelInternoP.add(lblDias);
+            panelInternoV.add(lblDias);
 
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal), puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
@@ -189,63 +196,64 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
 
             setTitle((String) articulo.getPropertyA(MUSICA_NOMBRE));
 
-            panelInternoP = new JPanel();
-            panelInternoP.setBounds(0, 0, 296, 116);
-            getContentPane().add(panelInternoP);
-            panelInternoP.setBackground(Color.GREEN);
-            panelInternoP.setLayout(null);
+            panelInternoM = new JPanel();
+            panelInternoM.setBounds(0, 0, 296, 116);
+            getContentPane().add(panelInternoM);
+            panelInternoM.setBackground(Color.GREEN);
+            panelInternoM.setLayout(null);
 
             lblFechaSalida = new JLabel("Fecha de salida: " + articulo.getPropertyA(MUSICA_FECHA_SALIDA));
             lblFechaSalida.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblFechaSalida.setBounds(0, 0, 279, 12);
-            panelInternoP.add(lblFechaSalida);
+            panelInternoM.add(lblFechaSalida);
 
             lblPrecio = new JLabel("Precio por dia alquilado: " + articulo.getPropertyA(MUSICA_PRECIO));
             lblPrecio.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblPrecio.setBounds(0, 11, 279, 12);
-            panelInternoP.add(lblPrecio);
+            panelInternoM.add(lblPrecio);
 
             lblDuracion = new JLabel("Duracion de pelicula (horas.min): " + articulo.getPropertyA(MUSICA_DURACION));
             lblDuracion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblDuracion.setBounds(0, 23, 279, 12);
-            panelInternoP.add(lblDuracion);
+            panelInternoM.add(lblDuracion);
 
             lPegi = new JLabel("Estudio de musica: " + articulo.getPropertyA(MUSICA_EXPLICITO));
             lPegi.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lPegi.setBounds(0, 34, 279, 12);
-            panelInternoP.add(lPegi);
+            panelInternoM.add(lPegi);
 
             lblPuntuacion = new JLabel("Artista de album:  " + articulo.getPropertyA(MUSICA_ARTISTA));
             lblPuntuacion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblPuntuacion.setBounds(0, 46, 279, 12);
-            panelInternoP.add(lblPuntuacion);
+            panelInternoM.add(lblPuntuacion);
 
             lblReservar = new JLabel("Indica si alquilar:");
             lblReservar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblReservar.setBounds(0, 57, 279, 12);
-            panelInternoP.add(lblReservar);
+            panelInternoM.add(lblReservar);
 
-            btnAlquilar = new JButton("Alquilar");
-            btnAlquilar.setBackground(new Color(238, 130, 238));
-            btnAlquilar.setForeground(new Color(0, 0, 0));
-            btnAlquilar.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
-            btnAlquilar.setBounds(10, 82, 104, 23);
-            btnAlquilar.setActionCommand(AC_BOTON_ALQUILAR);
-            btnAlquilar.addActionListener(this);
-            panelInternoP.add(btnAlquilar);
+            btnAlquilarM = new JButton("Alquilar");
+            btnAlquilarM.setBackground(new Color(238, 130, 238));
+            btnAlquilarM.setForeground(new Color(0, 0, 0));
+            btnAlquilarM.setFont(new Font("BankGothic Lt BT", Font.BOLD, 11));
+            btnAlquilarM.setBounds(10, 82, 104, 23);
+            btnAlquilarM.setActionCommand(AC_BOTON_ALQUILAR_MUSICA);
+            btnAlquilarM.addActionListener(this);
+            panelInternoM.add(btnAlquilarM);
 
-            spinDias = new JSpinner();
-            spinDias.setModel(new SpinnerListModel(new String[]{"1", "2", "3", "4", "5", "7", "10", "15"}));
-            spinDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
-            spinDias.setBounds(221, 80, 58, 26);
-            panelInternoP.add(spinDias);
+            spinDiasM = new JSpinner();
+            spinDiasM.setModel(new SpinnerListModel(new Integer[]{1, 2, 3, 4, 5, 7, 10, 15}));
+            spinDiasM.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 16));
+            spinDiasM.setBounds(221, 80, 58, 26);
+            panelInternoM.add(spinDiasM);
 
             lblDias = new JLabel("Indique los dias");
             lblDias.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 10));
             lblDias.setBounds(124, 86, 272, 12);
-            panelInternoP.add(lblDias);
+            panelInternoM.add(lblDias);
 
-            setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal), puntoInicioY + (recuentoHorizontal * dimensionVertical),
+            setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal),
+                    puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
             getContentPane().setLayout(null);
 
@@ -275,15 +283,37 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
-            case AC_BOTON_ALQUILAR:
+            case AC_BOTON_ALQUILAR_PELICULA:
                 try {
 
-                    objGestor.anadirAlquilerP(identificador, id, fechaDevolucion((int)spinDias.getValue()));
+                    objGestor.anadirAlquilerP(identificador, id, fechaDevolucion((int)spinDiasP.getValue()));
 
                 } catch (SQLException | ClassNotFoundException | ParseException ex) {
                     ex.printStackTrace();
                 }
-                System.out.println("Alquiler Hecho");
+
+                break;
+            case AC_BOTON_ALQUILAR_VIDEOJUEGO:
+                try {
+                    objGestor.anadirAlquilerV(identificador, id, fechaDevolucion((int)spinDiasV.getValue()));
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (ParseException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case AC_BOTON_ALQUILAR_MUSICA:
+                try {
+                    objGestor.anadirAlquilerM(identificador, id, fechaDevolucion((int)spinDiasM.getValue()));
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (ParseException ex) {
+                    ex.printStackTrace();
+                }
                 break;
         }
 
