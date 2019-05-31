@@ -1,6 +1,7 @@
 package com.company.LP;
 
 import com.company.LN.clsGestor;
+
 import java.sql.SQLException;
 
 
@@ -18,7 +19,7 @@ public class clsMenuOpciones {
      * @throws SQLException           excepcion de tipo clase SQL
      * @throws ClassNotFoundException clase exception
      */
-    public void menuPrincipal(){
+    public void menuPrincipal() {
 
         /**
          * Objeto gestor para cargar los datos una vez que empieza el programa

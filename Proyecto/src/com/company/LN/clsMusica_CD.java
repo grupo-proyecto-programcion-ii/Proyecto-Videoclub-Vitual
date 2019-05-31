@@ -44,14 +44,15 @@ public class clsMusica_CD extends clsArticulo {
 
     /**
      * Contructor de la case. Se hace un super para hacer la llamda al contructor padre que es articulo.
-     * De ahi recibe los 4 atributos principales.
-     * @param _idPelicula atributo
-     * @param _nombreM atributo
-     * @param _precioP atributo
-     * @param _duracionP atributo
-     * @param _anio atributo
-     * @param _artistas atributo
-     * @param _explicito atributo
+     *      * De ahi recibe los 4 atributos principales.
+     * @param _idPelicula id
+     * @param _fechaDevM fecha
+     * @param _nombreM nombre
+     * @param _precioM precio
+     * @param _duracionM duracion
+     * @param _anio anio
+     * @param _artistas artistas
+     * @param _explicito explicito
      */
     public clsMusica_CD(int _idPelicula,  Date _fechaDevM,String _nombreM, double _precioM, double _duracionM, int _anio, String _artistas, String _explicito) {
 

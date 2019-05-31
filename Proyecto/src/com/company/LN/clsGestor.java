@@ -1,7 +1,7 @@
 package com.company.LN;
 
 import com.company.COMUN.itfProperty;
-import com.company.EXCEPCIONES.clsIdAlquilerRepetido;
+import com.company.EXCEPCIONES.clsObjetoIncorrecto;
 import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
@@ -246,7 +246,7 @@ public class clsGestor {
 
         objDatos.conectarBD();
 
-        try {
+
             for (clsPeliculas pelicula : listaPeliculas) {
                 for (clsUsuario usuario : listaUsuarios) {
                     if (indentificador.equals(usuario.getPropertyU(USUARIO_IDENTIFICADOR)) && _id == pelicula.getId() && compararIdAlquilerP(_id) == true) {
@@ -262,9 +262,6 @@ public class clsGestor {
                     }
                 }
             }
-        } catch (clsIdAlquilerRepetido id) {
-            id.mensajeIdRpetido();
-        }
         objDatos.desconectarBD();
     }
 
@@ -664,7 +661,7 @@ public class clsGestor {
         cargarAlquilerP();
         cargarAlquilerV();
         cargarAlquilerM();
-        //eliminarAlquiler();
+        eliminarAlquiler();
     }
 
     /**
@@ -681,7 +678,7 @@ public class clsGestor {
                     objDatos.conectarBD();
                     objDatos.eliminarAlquilerP(alquilerPelicula.getIdAlquiler());
                     objDatos.desconectarBD();
-                    listaAlquilerPelis.remove(alquilerPelicula);
+                    //listaAlquilerPelis.remove(alquilerPelicula);
                 }
             }
 
@@ -690,14 +687,14 @@ public class clsGestor {
                     objDatos.conectarBD();
                     objDatos.eliminarAlquilerV(alquilerVideojuego.getIdAlquiler());
                     objDatos.desconectarBD();
-                    listaAlquilerVidejuegos.remove(alquilerVideojuego);
+                    //listaAlquilerVidejuegos.remove(alquilerVideojuego);
                 }
             }
 
             for (clsAlquilarMusica alquilerCd : listaAlquilerMusica) {
                 if (alquilerCd.getFecha_DevolucionM().compareTo(fechaHoy) < 0) {
                     objDatos.eliminarAlquilerM(alquilerCd.getIdAlquiler());
-                    listaAlquilerMusica.remove(alquilerCd);
+                    //listaAlquilerMusica.remove(alquilerCd);
                 }
             }
             objDatos.desconectarBD();

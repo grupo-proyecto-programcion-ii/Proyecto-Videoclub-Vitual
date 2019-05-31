@@ -41,7 +41,6 @@ public class clsPeliculas extends clsArticulo {
      * @param _pegiPelicula atributo
      * @param _puntuacionPelicula atributo
      */
-
     public clsPeliculas(int _idPelicula,Date _fechaDevP , String _nombreP, double _precioP, double _duracionP, int _pegiPelicula, int _puntuacionPelicula) {
 
         super(_idPelicula, _fechaDevP,_nombreP,  _precioP, _duracionP);

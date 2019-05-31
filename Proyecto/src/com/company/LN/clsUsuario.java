@@ -207,8 +207,7 @@ public class clsUsuario implements itfProperty {
 
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((identificador == null) ? 0 : identificador.hashCode());
@@ -217,10 +216,8 @@ public class clsUsuario implements itfProperty {
         return result;
     }
 
-
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj)    {
         if (this == obj) return true;
 
         if (obj == null) return false;
@@ -229,25 +226,20 @@ public class clsUsuario implements itfProperty {
             return false;
 
         clsUsuario other = (clsUsuario) obj;
-        if (identificador == null)
-        {
+        if (identificador == null) {
             if (other.identificador != null)
                 return false;
-        }
-        else if (!identificador.equals(other.identificador  ))
+        } else if (!identificador.equals(other.identificador))
             return false;
 
-        if (contrasena == null)
-        {
+        if (contrasena == null) {
             if (other.contrasena != null)
                 return false;
-        }
-        else if (!contrasena.equals(other.contrasena))
+        } else if (!contrasena.equals(other.contrasena))
             return false;
 
         return true;
     }
-
 
 
 }

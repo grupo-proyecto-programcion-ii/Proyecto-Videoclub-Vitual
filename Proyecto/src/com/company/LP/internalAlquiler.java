@@ -1,16 +1,8 @@
 package com.company.LP;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.swing.*;
 
 import com.company.COMUN.itfProperty;
@@ -88,11 +80,6 @@ public class internalAlquiler  extends JInternalFrame implements WindowListener 
             lblPuntuacion.setBounds(0, 46, 279, 12);
             panelInternoP.add(lblPuntuacion);
 
-            lblReservar = new JLabel("Marca si deseas alquilar: ");
-            lblReservar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
-            lblReservar.setBounds(0, 57, 279, 12);
-            panelInternoP.add(lblReservar);
-
 
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal), puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
@@ -134,11 +121,6 @@ public class internalAlquiler  extends JInternalFrame implements WindowListener 
             lblPuntuacion.setBounds(0, 46, 279, 12);
             panelInternoV.add(lblPuntuacion);
 
-            lblReservar = new JLabel("Marca si deseas alquilar: ");
-            lblReservar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
-            lblReservar.setBounds(0, 57, 279, 12);
-            panelInternoV.add(lblReservar);
-
 
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal), puntoInicioY + (recuentoHorizontal * dimensionVertical),
                     dimensionHorizontal, dimensionVertical);
@@ -178,11 +160,6 @@ public class internalAlquiler  extends JInternalFrame implements WindowListener 
             lblPuntuacion.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
             lblPuntuacion.setBounds(0, 46, 279, 12);
             panelInternoM.add(lblPuntuacion);
-
-            lblReservar = new JLabel("Indica si alquilar:");
-            lblReservar.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 12));
-            lblReservar.setBounds(0, 57, 279, 12);
-            panelInternoM.add(lblReservar);
 
             setBounds(puntoInicioX + (recuentoVertical * dimensionHorizontal),
                     puntoInicioY + (recuentoHorizontal * dimensionVertical),

@@ -58,6 +58,12 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
 
     /**
      * Creacion de las ventanas, constructor de la clase
+     * @param articulo objeto articulo
+     * @param _objGestor objeto gestor
+     * @param codigo cidigo selecion
+     * @param _identificador identificador
+     * @param recuentoHorizontal recuentoH
+     * @param recuentoVertical recuentoV
      */
     public internalArticulo(itfProperty articulo, clsGestor _objGestor, int codigo, String _identificador, int recuentoHorizontal, int recuentoVertical) {
 
@@ -311,11 +317,7 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
             case AC_BOTON_ALQUILAR_VIDEOJUEGO:
                 try {
                     objGestor.anadirAlquilerV(identificador, id, fechaDevolucion((int)spinDiasV.getValue()));
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (ParseException ex) {
+                } catch (SQLException | ClassNotFoundException | ParseException ex) {
                     ex.printStackTrace();
                 }
                 break;
@@ -323,11 +325,7 @@ public class internalArticulo extends JInternalFrame implements ActionListener, 
 
                 try {
                     objGestor.anadirAlquilerM(identificador, id, fechaDevolucion((int)spinDiasM.getValue()));
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                } catch (ParseException ex) {
+                } catch (SQLException | ClassNotFoundException | ParseException ex) {
                     ex.printStackTrace();
                 }
                 break;

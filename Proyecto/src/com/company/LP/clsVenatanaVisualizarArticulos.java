@@ -80,38 +80,44 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         panel.add(label);
 
 
-        switch (codigo) {
-            case 1:
-                ventanaPeliculas();
-                ventanaVideojuegos();
-                ventanaMusica();
-                break;
-            case 2:
-                ventanaPeliculas();
-                break;
-            case 3:
-                ventanaPeliculasPtos();
-                break;
-            case 4:
-                ventanaVideojuegos();
-                break;
-            case 5:
-                ventanaVideojuegosPtos();
-                break;
-            case 6:
-                ventanaMusica();
-                break;
-            case 7:
-                ventanaMusicaAnio();
-                break;
-            case 8:
-                ventanaAlquilerP();
-                ventanaAlquilerV();
-                ventanaAlquilerM();
-                break;
-            case 9:
-                //ventanaAlquilerP_alquiler();
-                break;
+        try {
+            switch (codigo) {
+                case 1:
+                    ventanaPeliculas();
+                    ventanaVideojuegos();
+                    ventanaMusica();
+                    break;
+                case 2:
+                    ventanaPeliculas();
+                    break;
+                case 3:
+                    ventanaPeliculasPtos();
+                    break;
+                case 4:
+                    ventanaVideojuegos();
+                    break;
+                case 5:
+                    ventanaVideojuegosPtos();
+                    break;
+                case 6:
+                    ventanaMusica();
+                    break;
+                case 7:
+                    ventanaMusicaAnio();
+                    break;
+                case 8:
+                    ventanaAlquilerP();
+                    ventanaAlquilerV();
+                    ventanaAlquilerM();
+                    break;
+                case 9:
+                    ventanaAlquilerP_alquiler();
+                    ventanaAlquilerV_alquiler();
+                    ventanaAlquilerM_alquiler();
+                    break;
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "error al insertar ventanas");
         }
     }
 
@@ -120,19 +126,19 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaPeliculas() {
 
-        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
-        for (itfProperty pelicula : peliculas) {
+            ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+            for (itfProperty pelicula : peliculas) {
 
-            internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
-            listaInternalFrames.add(internalP);
-            panel.add(internalP);
-            internalP.setVisible(true);
-            recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
-                recuentoV++;
-                recuentoH = 0;
+                internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+                listaInternalFrames.add(internalP);
+                panel.add(internalP);
+                internalP.setVisible(true);
+                recuentoH++;
+                if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                    recuentoV++;
+                    recuentoH = 0;
+                }
             }
-        }
     }
 
     /**
@@ -235,7 +241,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
-
+    /**
+     * Ventana para mostrar peliculas con suscripcion
+     */
     private void ventanaAlquilerP() {
 
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
@@ -253,9 +261,13 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Venatana para mostrar peliculas alquiladas
+     */
     private void ventanaAlquilerP_alquiler() {
 
-        ArrayList<itfProperty> alquilerPeliculas = objGestor.leerPeliculas();
+
+        ArrayList<itfProperty> alquilerPeliculas = objGestor.leerAlquilerP();
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
         for (itfProperty pelicula : peliculas) {
             for (itfProperty alquilerP : alquilerPeliculas) {
@@ -276,6 +288,9 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Ventana apra mostrar videjuegos con suscripcion
+     */
     private void ventanaAlquilerV() {
 
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
@@ -293,6 +308,39 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Ventana para mostrar videojuegos alquilados
+     */
+    private void ventanaAlquilerV_alquiler() {
+
+        ArrayList<itfProperty> alquilerVidejuegos = objGestor.leerAlquilerV();
+        ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
+
+        for (itfProperty videojuego : videojuegos) {
+            for (itfProperty alquilerV : alquilerVidejuegos) {
+                if (codigo_aleatorio == (int) alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO) &&
+                        (int) alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_ID_PROPIA) == (int) videojuego.getPropertyA(ALQUILER_VIDEOJUEGO_ID)) {
+
+                    internalAlquiler internalAlquilerV = new internalAlquiler(videojuego, objGestor, 2, id, recuentoH, recuentoV);
+                    listaInternalFrames.add(internalAlquilerV);
+                    panel.add(internalAlquilerV);
+                    internalAlquilerV.setVisible(true);
+
+                    recuentoH++;
+                    if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                        recuentoV++;
+                        recuentoH = 0;
+                    }
+                }else {
+
+                }
+            }
+        }
+    }
+
+    /**
+     * Venatan para mostrar musica con suscripcion
+     */
     private void ventanaAlquilerM() {
 
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
@@ -310,6 +358,32 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         }
     }
 
+    /**
+     * Venatan para mostrar musica alquiladas
+     */
+    private void ventanaAlquilerM_alquiler() {
+
+        ArrayList<itfProperty> alquilerMusicas = objGestor.leerAlquilerM();
+        ArrayList<itfProperty> cds = objGestor.leerMusica();
+
+        for (itfProperty cd : cds) {
+            for (itfProperty alquilerM : alquilerMusicas) {
+                if (codigo_aleatorio == (int) alquilerM.getPropertyA(ALQUILER_MUSICA_USUARIOS_CODIGO) &&
+                        (int) alquilerM.getPropertyA(ALQUILER_MUSICA_ID_PROPIA) == (int) alquilerM.getPropertyA(ALQUILER_MUSICA_ID)) {
+
+                    internalAlquiler internalAlquilerV = new internalAlquiler(cd, objGestor, 3, id, recuentoH, recuentoV);
+                    listaInternalFrames.add(internalAlquilerV);
+                    panel.add(internalAlquilerV);
+                    internalAlquilerV.setVisible(true);
+                    recuentoH++;
+                    if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                        recuentoV++;
+                        recuentoH = 0;
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * Metodo para leer los datos del usuario logeado anteriormente

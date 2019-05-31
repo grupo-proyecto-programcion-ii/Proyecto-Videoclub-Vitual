@@ -76,7 +76,7 @@ public class clsAlquilarVideojuegosBD {
      * @param objStat objeto statment
      * @param objRS objetorsult
      * @param id id del usuario
-     * @throws SQLException
+     * @throws SQLException excepcion
      */
     public static void deleteVideojuego(Connection objCon, PreparedStatement objStat, ResultSet objRS, int id) throws SQLException {
 

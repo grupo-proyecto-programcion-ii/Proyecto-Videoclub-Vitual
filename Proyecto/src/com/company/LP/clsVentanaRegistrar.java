@@ -200,7 +200,6 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
                 return true;
             }
         }
-
         return retorno;
     }
 

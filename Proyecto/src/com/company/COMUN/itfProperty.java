@@ -2,6 +2,7 @@ package com.company.COMUN;
 
 
 /**
+ * Interface para mandar objetos a la logica de presentacion
  */
 public interface itfProperty {
 

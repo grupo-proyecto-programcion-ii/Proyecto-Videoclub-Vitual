@@ -64,10 +64,20 @@ public class clsDatos {
 
     /**
      * Metodos para insertar datos de cada articulo al mismo tiempo que se obtiene su id (primary key)
-     * que es autoincremental
-     *
+     *      * que es autoincremental
+     * @param _id id
+     * @param _contra contra
+     * @param _nombre nombre
+     * @param _apellidos apellido
+     * @param _correoE correo
+     * @param _numeroTarjeta numero
+     * @param _fechaNacimiento fecha
+     * @param _costeTotal coste
+     * @param _suscripcion suscripcion
+     * @param fechaSuscripcion fechaSus
+     * @return id
+     * @throws Exception excep
      */
-
     public int insertarCodigoUsuario(String _id, String _contra, String _nombre,String _apellidos,String _correoE,String _numeroTarjeta,
                                      Date _fechaNacimiento, double _costeTotal, boolean _suscripcion, Date fechaSuscripcion) throws Exception {
         Object[] parametrosUsuario = {_id, _contra, _nombre, _apellidos, _correoE, _numeroTarjeta, _fechaNacimiento, _costeTotal, _suscripcion, fechaSuscripcion};
