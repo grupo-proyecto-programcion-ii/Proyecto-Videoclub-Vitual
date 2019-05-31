@@ -240,6 +240,4 @@ public class clsUsuario implements itfProperty {
 
         return true;
     }
-
-
 }
