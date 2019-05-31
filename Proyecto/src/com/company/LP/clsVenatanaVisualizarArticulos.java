@@ -126,19 +126,19 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaPeliculas() {
 
-            ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
-            for (itfProperty pelicula : peliculas) {
+        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+        for (itfProperty pelicula : peliculas) {
 
-                internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
-                listaInternalFrames.add(internalP);
-                panel.add(internalP);
-                internalP.setVisible(true);
-                recuentoH++;
-                if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
-                    recuentoV++;
-                    recuentoH = 0;
-                }
+            internalArticulo internalP = new internalArticulo(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalP);
+            panel.add(internalP);
+            internalP.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                recuentoV++;
+                recuentoH = 0;
             }
+        }
     }
 
     /**
@@ -266,13 +266,12 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaAlquilerP_alquiler() {
 
-
         ArrayList<itfProperty> alquilerPeliculas = objGestor.leerAlquilerP();
         ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
         for (itfProperty pelicula : peliculas) {
             for (itfProperty alquilerP : alquilerPeliculas) {
-                if (codigo_aleatorio == (int) alquilerP.getPropertyA(ALQUILER_PELICULA_USUARIOS_CODIGO) &&
-                        (int) alquilerP.getPropertyA(ALQUILER_PELICULA_ID_PROPIA) == (int) pelicula.getPropertyA(PELICULA_CODIGO_ID)) {
+                if (codigo_aleatorio == (int)alquilerP.getPropertyA(ALQUILER_PELICULA_USUARIOS_CODIGO) &&
+                        (int)alquilerP.getPropertyA(ALQUILER_PELICULA_ID_PROPIA) == (int)pelicula.getPropertyA(PELICULA_CODIGO_ID)) {
 
                     internalAlquiler internalAlquilerP = new internalAlquiler(pelicula, objGestor, 1, id, recuentoH, recuentoV);
                     listaInternalFrames.add(internalAlquilerP);
@@ -313,29 +312,26 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaAlquilerV_alquiler() {
 
-        ArrayList<itfProperty> alquilerVidejuegos = objGestor.leerAlquilerV();
+        ArrayList<itfProperty> alquilerVideojuegos = objGestor.leerAlquilerV();
         ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
-
         for (itfProperty videojuego : videojuegos) {
-            for (itfProperty alquilerV : alquilerVidejuegos) {
-                if (codigo_aleatorio == (int) alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO) &&
-                        (int) alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_ID_PROPIA) == (int) videojuego.getPropertyA(ALQUILER_VIDEOJUEGO_ID)) {
+            for (itfProperty alquilerV : alquilerVideojuegos) {
+                if (codigo_aleatorio == (int)alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_USUARIOS_CODIGO) &&
+                        (int)alquilerV.getPropertyA(ALQUILER_VIDEOJUEGO_ID_PROPIA) == (int)videojuego.getPropertyA(VIDEJUEGO_ID)) {
 
                     internalAlquiler internalAlquilerV = new internalAlquiler(videojuego, objGestor, 2, id, recuentoH, recuentoV);
                     listaInternalFrames.add(internalAlquilerV);
                     panel.add(internalAlquilerV);
                     internalAlquilerV.setVisible(true);
-
                     recuentoH++;
                     if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                         recuentoV++;
                         recuentoH = 0;
                     }
-                }else {
-
                 }
             }
         }
+
     }
 
     /**
@@ -368,13 +364,14 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
 
         for (itfProperty cd : cds) {
             for (itfProperty alquilerM : alquilerMusicas) {
-                if (codigo_aleatorio == (int) alquilerM.getPropertyA(ALQUILER_MUSICA_USUARIOS_CODIGO) &&
-                        (int) alquilerM.getPropertyA(ALQUILER_MUSICA_ID_PROPIA) == (int) alquilerM.getPropertyA(ALQUILER_MUSICA_ID)) {
+                System.out.println(alquilerM.getPropertyA(ALQUILER_MUSICA_ID_PROPIA));
+                if (codigo_aleatorio == (int)alquilerM.getPropertyA(ALQUILER_MUSICA_USUARIOS_CODIGO) &&
+                        (int)alquilerM.getPropertyA(ALQUILER_MUSICA_ID_PROPIA) == (int)cd.getPropertyA(MUSICA_ID)) {
 
-                    internalAlquiler internalAlquilerV = new internalAlquiler(cd, objGestor, 3, id, recuentoH, recuentoV);
-                    listaInternalFrames.add(internalAlquilerV);
-                    panel.add(internalAlquilerV);
-                    internalAlquilerV.setVisible(true);
+                    internalAlquiler internalAlquilerM = new internalAlquiler(cd, objGestor, 3, id, recuentoH, recuentoV);
+                    listaInternalFrames.add(internalAlquilerM);
+                    panel.add(internalAlquilerM);
+                    internalAlquilerM.setVisible(true);
                     recuentoH++;
                     if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                         recuentoV++;
