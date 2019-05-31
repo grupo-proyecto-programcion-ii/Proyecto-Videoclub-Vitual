@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5721db6-9093-4624-88a5-6a73acc21b9f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/LP/internalAlquiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsGestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsGestor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsUsuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsMenuOpciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsMenuOpciones.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaRegistrar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarMusicaBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarMusicaBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarPeliculasBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarPeliculasBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarVideojuegosBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LD/clsAlquilarVideojuegosBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarMusica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarMusica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarPeliculas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarPeliculas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarVideojuegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsAlquilarVideojuegos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsAlquiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsAlquiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsArticulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsGestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsGestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsMenuOpciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsMenuOpciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaInicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/clsVentanaValidar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/clsVentanaValidar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LP/internalArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LP/internalArticulo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,165 +24,117 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquiler.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-              <folding>
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#491#492#0" expanded="true" />
-                <element signature="e#530#531#0" expanded="true" />
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#627#628#0" expanded="true" />
-                <element signature="e#681#682#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#919#920#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-                <element signature="e#1050#1051#0" expanded="true" />
-                <element signature="e#1120#1121#0" expanded="true" />
-                <element signature="e#1147#1148#0" expanded="true" />
-                <element signature="e#1204#1205#0" expanded="true" />
-                <element signature="e#1232#1233#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarMusica.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
-              <folding>
-                <element signature="e#321#322#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#524#525#0" expanded="true" />
-                <element signature="e#588#589#0" expanded="true" />
-                <element signature="e#646#647#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarPeliculas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-507">
-              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsArticulo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-748">
-              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="168">
+              <caret line="200" column="80" selection-start-line="200" selection-start-column="80" selection-end-line="200" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1300#1301#0" expanded="true" />
-                <element signature="e#1325#1326#0" expanded="true" />
-                <element signature="e#1358#1359#0" expanded="true" />
-                <element signature="e#1386#1387#0" expanded="true" />
-                <element signature="e#1420#1421#0" expanded="true" />
-                <element signature="e#1449#1450#0" expanded="true" />
-                <element signature="e#1493#1494#0" expanded="true" />
-                <element signature="e#1529#1530#0" expanded="true" />
-                <element signature="e#1562#1563#0" expanded="true" />
-                <element signature="e#1591#1592#0" expanded="true" />
-                <element signature="e#1635#1636#0" expanded="true" />
-                <element signature="e#1671#1672#0" expanded="true" />
-                <element signature="e#1706#1707#0" expanded="true" />
-                <element signature="e#1737#1738#0" expanded="true" />
-                <element signature="e#1785#1786#0" expanded="true" />
-                <element signature="e#1825#1826#0" expanded="true" />
-                <element signature="e#1856#1857#0" expanded="true" />
-                <element signature="e#1885#1886#0" expanded="true" />
-                <element signature="e#1927#1928#0" expanded="true" />
-                <element signature="e#1963#1964#0" expanded="true" />
-                <element signature="e#2033#2034#0" expanded="true" />
-                <element signature="e#2060#2061#0" expanded="true" />
-                <element signature="e#2130#2131#0" expanded="true" />
-                <element signature="e#2157#2158#0" expanded="true" />
-                <element signature="e#2214#2215#0" expanded="true" />
-                <element signature="e#2242#2243#0" expanded="true" />
-                <element signature="e#2299#2300#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarVideojuegos.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/internalAlquiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-592">
-              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+            <state relative-caret-position="209">
+              <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
               <folding>
-                <element signature="e#335#336#0" expanded="true" />
-                <element signature="e#371#372#0" expanded="true" />
-                <element signature="e#426#427#0" expanded="true" />
-                <element signature="e#476#477#0" expanded="true" />
-                <element signature="e#518#519#0" expanded="true" />
-                <element signature="e#558#559#0" expanded="true" />
-                <element signature="e#622#623#0" expanded="true" />
-                <element signature="e#680#681#0" expanded="true" />
-                <element signature="e#1294#1295#0" expanded="true" />
-                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarMusicaBD.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+            <state relative-caret-position="566">
+              <caret line="145" column="22" lean-forward="true" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarPeliculasBD.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaValidar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+            <state relative-caret-position="-765">
+              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarVideojuegosBD.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+            <state relative-caret-position="459">
+              <caret line="149" column="5" lean-forward="true" selection-start-line="139" selection-start-column="4" selection-end-line="149" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsConstantesBD.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+            <state relative-caret-position="1343">
+              <caret line="207" column="38" selection-start-line="207" selection-start-column="38" selection-end-line="207" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsGestor.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="506" column="5" lean-forward="true" selection-start-line="506" selection-start-column="5" selection-end-line="506" selection-end-column="5" />
+            <state relative-caret-position="1236">
+              <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#17009#17022#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/COMUN/clsConstantes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="164" column="22" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="164" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsGestor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="666" column="10" selection-start-line="666" selection-start-column="10" selection-end-line="666" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -259,9 +191,7 @@
         <option value="$PROJECT_DIR$/src/com/company/LN/clsUsuario.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsMenuOpciones.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java" />
-        <option value="$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaInicio.java" />
-        <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java" />
         <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java" />
@@ -276,11 +206,15 @@
         <option value="$PROJECT_DIR$/src/com/company/LN/clsAlquilarMusica.java" />
         <option value="$PROJECT_DIR$/src/com/company/LN/clsArticulo.java" />
         <option value="$PROJECT_DIR$/src/com/company/LN/clsGestor.java" />
+        <option value="$PROJECT_DIR$/src/com/company/LP/internalAlquiler.java" />
+        <option value="$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java" />
+        <option value="$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-114" />
+    <option name="y" value="240" />
     <option name="width" value="1376" />
     <option name="height" value="754" />
   </component>
@@ -310,20 +244,6 @@
               <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="COMUN" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="EXCEPCIONES" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
@@ -426,10 +346,10 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.11596639" side_tool="true" weight="0.25681818" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.83521444" visible="true" weight="0.2128788" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.83521444" visible="true" weight="0.2159091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.048" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.1168" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.1232" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.048" />
@@ -445,7 +365,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Run" order="8" weight="0.2030303" />
+      <window_info anchor="right" id="Run" order="8" weight="0.060606062" />
     </layout>
     <layout-to-restore>
       <window_info id="Structure" order="0" sideWeight="0.15208334" side_tool="true" weight="0.45768026" />
@@ -476,35 +396,53 @@
       <window_info anchor="right" id="Run" order="8" weight="0.022727273" />
     </layout-to-restore>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>261</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>115</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>260</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>259</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>258</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java</url>
+          <line>257</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/COMUN/itfProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="4240" selection-start-line="4240" selection-end-line="4240" />
-          <folding>
-            <element signature="e#161954#161955#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/sun/util/logging/PlatformLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="339" selection-start-line="339" selection-end-line="339" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/logger/LazyLoggers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -674,13 +612,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarAlquileres.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/COMUN/clsConstantes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsMusicaAnio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -725,100 +656,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsMenuOpciones.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2683">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="243" column="17" selection-start-line="243" selection-start-column="17" selection-end-line="243" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaInicio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-779">
           <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3584">
-          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="145" column="22" lean-forward="true" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="207" column="38" selection-start-line="207" selection-start-column="38" selection-end-line="207" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1049">
-          <caret line="153" column="21" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaValidar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2091">
-          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/internalArticulo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-626">
-          <caret line="275" column="49" selection-start-line="275" selection-start-column="49" selection-end-line="275" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -839,157 +680,217 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsDatos.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarMusicaBD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsConstantesBD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarPeliculasBD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarVideojuegosBD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+        <state relative-caret-position="306">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarMusica.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="629">
           <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
           <folding>
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
             <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarPeliculas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
+        <state relative-caret-position="85">
           <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarVideojuegos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-592">
-          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-          <folding>
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1147#1148#0" expanded="true" />
-            <element signature="e#1204#1205#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsArticulo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
+        <state relative-caret-position="714">
           <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1300#1301#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1358#1359#0" expanded="true" />
-            <element signature="e#1386#1387#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1591#1592#0" expanded="true" />
-            <element signature="e#1635#1636#0" expanded="true" />
-            <element signature="e#1671#1672#0" expanded="true" />
-            <element signature="e#1706#1707#0" expanded="true" />
-            <element signature="e#1737#1738#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-            <element signature="e#1825#1826#0" expanded="true" />
-            <element signature="e#1856#1857#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
-            <element signature="e#1963#1964#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2130#2131#0" expanded="true" />
-            <element signature="e#2157#2158#0" expanded="true" />
-            <element signature="e#2214#2215#0" expanded="true" />
-            <element signature="e#2242#2243#0" expanded="true" />
-            <element signature="e#2299#2300#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsAlquilarVideojuegos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding>
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarMusicaBD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarPeliculasBD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsAlquilarVideojuegosBD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsConstantesBD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/COMUN/itfProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsMenuOpciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/internalArticulo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6392">
+          <caret line="423" column="7" lean-forward="true" selection-start-line="423" selection-start-column="7" selection-end-line="423" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsUsuarioBD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LD/clsDatos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsGestor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="506" column="5" lean-forward="true" selection-start-line="506" selection-start-column="5" selection-end-line="506" selection-end-column="5" />
+        <state relative-caret-position="20">
+          <caret line="666" column="10" selection-start-line="666" selection-start-column="10" selection-end-line="666" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#17009#17022#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaRegistrar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="207" column="38" selection-start-line="207" selection-start-column="38" selection-end-line="207" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaValidar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaSuscripcion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="149" column="5" lean-forward="true" selection-start-line="139" selection-start-column="4" selection-end-line="149" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaMenuAlquiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="164" column="22" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="164" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/internalAlquiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenuVisualizar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="145" column="22" lean-forward="true" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/COMUN/clsConstantes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="200" column="80" selection-start-line="200" selection-start-column="80" selection-end-line="200" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1236">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

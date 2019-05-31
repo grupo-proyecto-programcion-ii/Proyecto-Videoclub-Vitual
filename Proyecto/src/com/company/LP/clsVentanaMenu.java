@@ -1,5 +1,6 @@
 package com.company.LP;
 
+import com.company.COMUN.itfProperty;
 import com.company.LN.clsGestor;
 
 import javax.swing.*;
@@ -8,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.Date;
+
+import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
+import static com.company.COMUN.clsConstantes.USUARIO_SUSCRIPCION;
 
 /**
  * Clase para la ventana del menu principal de la aplicacion
@@ -16,6 +22,7 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
     private clsGestor objGestor;
     private String id;
+    protected boolean estado;
 
     private JPanel panelDeContenido;
     private JButton btnAlquilarA;
@@ -49,6 +56,8 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
         objGestor = _objGestor;
         id = _id;
+
+        leerDatos(id);
 
         this.setSize(1920, 1080);
         getContentPane().setLayout(null);
@@ -149,6 +158,15 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
 
     }
 
+    private void leerDatos(String id) {
+        ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
+        for (itfProperty usuario : lUsuarios) {
+            if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
+                estado = (boolean) usuario.getPropertyU(USUARIO_SUSCRIPCION);
+
+            }
+        }
+    }
 
     /**
      * Invoked when an action occurs.
@@ -174,9 +192,21 @@ public class clsVentanaMenu extends JFrame implements ActionListener, WindowList
                 this.dispose();
                 break;
             case AC_BOTON_VISUALIZAR:
-                clsVentanaMenuVisualizar objVentanaMenuVisualizar = new clsVentanaMenuVisualizar(objGestor, id);
-                objVentanaMenuVisualizar.setVisible(true);
-                objVentanaMenuVisualizar.setExtendedState(6);
+
+                if(estado == true) {
+                    clsVenatanaVisualizarArticulos objVisualizarArticulos = new clsVenatanaVisualizarArticulos(objGestor, id, 8);
+                    objVisualizarArticulos.setVisible(true);
+                    objVisualizarArticulos.setExtendedState(6);
+                }else {
+                    clsVenatanaVisualizarArticulos objVisualizarArticulos = new clsVenatanaVisualizarArticulos(objGestor, id, 9);
+                    objVisualizarArticulos.setVisible(true);
+                    objVisualizarArticulos.setExtendedState(6);
+                }
+
+                this.dispose();
+                //clsVentanaMenuVisualizar objVentanaMenuVisualizar = new clsVentanaMenuVisualizar(objGestor, id);
+                //objVentanaMenuVisualizar.setVisible(true);
+                //objVentanaMenuVisualizar.setExtendedState(6);
                 break;
             case AC_BOTON_VOLVER:
                 clsVentanaInicio objVentanaInicio = new clsVentanaInicio(objGestor);

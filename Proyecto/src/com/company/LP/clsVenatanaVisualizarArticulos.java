@@ -11,8 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-import static com.company.COMUN.clsConstantes.USUARIO_COSTE_TOTAL;
-import static com.company.COMUN.clsConstantes.USUARIO_IDENTIFICADOR;
+import static com.company.COMUN.clsConstantes.*;
 
 /**
  * Clase para la ventana de visualizacionde los articulos. Dentro de ella de encuentras las
@@ -25,6 +24,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
     private int recuentoH;
     private int recuentoV;
     private double costeTotal;
+    private int codigo_aleatorio = 0;
 
     private JPanel panel;
     private ArrayList<JInternalFrame> listaInternalFrames = new ArrayList<>();
@@ -36,10 +36,11 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
 
     /**
      * Constructor de la clase
+     *
      * @param _objGestor objeto para los metodos de gestor
-     * @param _id identidicador del usuario logeado
-     * @param codigo codigo que se le transmite desde la ventana anterior para ejecitar
-     *               las ventanas interiores seleccionadas
+     * @param _id        identidicador del usuario logeado
+     * @param codigo     codigo que se le transmite desde la ventana anterior para ejecitar
+     *                   las ventanas interiores seleccionadas
      */
     public clsVenatanaVisualizarArticulos(clsGestor _objGestor, String _id, int codigo) {
 
@@ -65,8 +66,8 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
         btnVolver.addActionListener(this);
         btnVolver.setBounds(10, 653, 282, 50);
         panel.add(btnVolver);
-        
-        lblCosteTotalActual = new JLabel("Coste total actual: "+ costeTotal+"$");
+
+        lblCosteTotalActual = new JLabel("Coste total actual: " + costeTotal + "$");
         lblCosteTotalActual.setForeground(Color.WHITE);
         lblCosteTotalActual.setBackground(Color.WHITE);
         lblCosteTotalActual.setFont(new Font("BankGothic Lt BT", Font.PLAIN, 22));
@@ -103,6 +104,14 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             case 7:
                 ventanaMusicaAnio();
                 break;
+            case 8:
+                ventanaAlquilerP();
+                ventanaAlquilerV();
+                ventanaAlquilerM();
+                break;
+            case 9:
+                //ventanaAlquilerP_alquiler();
+                break;
         }
     }
 
@@ -119,7 +128,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(internalP);
             internalP.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
@@ -139,7 +148,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(_internalP);
             _internalP.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
@@ -159,7 +168,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(internalV);
             internalV.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
@@ -179,7 +188,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(_internalV);
             _internalV.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
@@ -199,7 +208,7 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(internalM);
             internalM.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
@@ -219,28 +228,107 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
             panel.add(_internalM);
             _internalM.setVisible(true);
             recuentoH++;
-            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12){
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
                 recuentoV++;
                 recuentoH = 0;
             }
         }
     }
 
+
+    private void ventanaAlquilerP() {
+
+        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+        for (itfProperty pelicula : peliculas) {
+
+            internalAlquiler internalAlquilerP = new internalAlquiler(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalAlquilerP);
+            panel.add(internalAlquilerP);
+            internalAlquilerP.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
+    private void ventanaAlquilerP_alquiler() {
+
+        ArrayList<itfProperty> alquilerPeliculas = objGestor.leerPeliculas();
+        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+        for (itfProperty pelicula : peliculas) {
+            for (itfProperty alquilerP : alquilerPeliculas) {
+                if (codigo_aleatorio == (int) alquilerP.getPropertyA(ALQUILER_PELICULA_USUARIOS_CODIGO) &&
+                        (int) alquilerP.getPropertyA(ALQUILER_PELICULA_ID_PROPIA) == (int) pelicula.getPropertyA(PELICULA_CODIGO_ID)) {
+
+                    internalAlquiler internalAlquilerP = new internalAlquiler(pelicula, objGestor, 1, id, recuentoH, recuentoV);
+                    listaInternalFrames.add(internalAlquilerP);
+                    panel.add(internalAlquilerP);
+                    internalAlquilerP.setVisible(true);
+                    recuentoH++;
+                    if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                        recuentoV++;
+                        recuentoH = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    private void ventanaAlquilerV() {
+
+        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+        for (itfProperty pelicula : peliculas) {
+
+            internalAlquiler internalAlquilerV = new internalAlquiler(pelicula, objGestor, 2, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalAlquilerV);
+            panel.add(internalAlquilerV);
+            internalAlquilerV.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
+    private void ventanaAlquilerM() {
+
+        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
+        for (itfProperty pelicula : peliculas) {
+
+            internalAlquiler internalAlquilerM = new internalAlquiler(pelicula, objGestor, 3, id, recuentoH, recuentoV);
+            listaInternalFrames.add(internalAlquilerM);
+            panel.add(internalAlquilerM);
+            internalAlquilerM.setVisible(true);
+            recuentoH++;
+            if (recuentoH == 4 || recuentoH == 8 || recuentoH == 12) {
+                recuentoV++;
+                recuentoH = 0;
+            }
+        }
+    }
+
+
     /**
      * Metodo para leer los datos del usuario logeado anteriormente
+     *
      * @param id
      */
-    private void leerDatos(String id){
+    private void leerDatos(String id) {
         ArrayList<itfProperty> lUsuarios = objGestor.leerUsuarios();
         for (itfProperty usuario : lUsuarios) {
             if (usuario.getPropertyU(USUARIO_IDENTIFICADOR).equals(id)) {
                 costeTotal = (Double) usuario.getPropertyU(USUARIO_COSTE_TOTAL);
+                codigo_aleatorio = (int) usuario.getPropertyU(USUARIO_CODIGO_ID);
             }
         }
     }
 
     /**
      * Metodo para la escucha de selecciones de botones
+     *
      * @param e e
      */
     public void actionPerformed(ActionEvent e) {

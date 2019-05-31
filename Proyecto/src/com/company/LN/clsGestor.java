@@ -98,8 +98,11 @@ public class clsGestor {
      */
     public void actualizarCosteTotal(boolean _estado, int _codigoAleatorio) {
 
+
         try {
+            objDatos.conectarBD();
             objDatos.insertarUpdateCoste(calculoCosteTotal(_estado), _codigoAleatorio);
+            objDatos.desconectarBD();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -661,7 +664,7 @@ public class clsGestor {
         cargarAlquilerP();
         cargarAlquilerV();
         cargarAlquilerM();
-        eliminarAlquiler();
+        //eliminarAlquiler();
     }
 
     /**
@@ -675,14 +678,18 @@ public class clsGestor {
 
             for (clsAlquilarPeliculas alquilerPelicula : listaAlquilerPelis) {
                 if (alquilerPelicula.getFecha_DevolucionP().compareTo(fechaHoy) < 0) {
+                    objDatos.conectarBD();
                     objDatos.eliminarAlquilerP(alquilerPelicula.getIdAlquiler());
+                    objDatos.desconectarBD();
                     listaAlquilerPelis.remove(alquilerPelicula);
                 }
             }
 
             for (clsAlquilarVideojuegos alquilerVideojuego : listaAlquilerVidejuegos) {
                 if (alquilerVideojuego.getFecha_DevolucionV().compareTo(fechaHoy) < 0) {
+                    objDatos.conectarBD();
                     objDatos.eliminarAlquilerV(alquilerVideojuego.getIdAlquiler());
+                    objDatos.desconectarBD();
                     listaAlquilerVidejuegos.remove(alquilerVideojuego);
                 }
             }
