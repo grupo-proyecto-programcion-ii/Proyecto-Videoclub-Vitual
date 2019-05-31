@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5721db6-9093-4624-88a5-6a73acc21b9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/LN/clsUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LN/clsUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/COMUN/itfProperty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/COMUN/itfProperty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsGestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LN/clsGestor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto/com/company/LP/clsVentanaInicio.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="6069">
               <caret line="368" column="112" selection-start-line="368" selection-start-column="112" selection-end-line="368" selection-end-column="112" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,7 +66,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsUsuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3315">
+            <state relative-caret-position="544">
               <caret line="241" column="5" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -218,8 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,14 +277,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555074945225" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/EXMANE_ASIER_MARIN/ExamenOrd1819" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -346,13 +348,13 @@
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.2048" side_tool="true" visible="true" weight="0.23712121" />
+      <window_info id="Structure" order="0" sideWeight="0.2064" side_tool="true" visible="true" weight="0.24015151" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.1104" side_tool="true" weight="0.22803031" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.7952" visible="true" weight="0.23712121" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.7936" visible="true" weight="0.24015151" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.048" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.0768" />
@@ -786,6 +788,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6069">
+          <caret line="368" column="112" selection-start-line="368" selection-start-column="112" selection-end-line="368" selection-end-column="112" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVentanaMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3179">
@@ -832,19 +844,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/LP/clsVenatanaVisualizarArticulos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="368" column="112" selection-start-line="368" selection-start-column="112" selection-end-line="368" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/LN/clsUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
+        <state relative-caret-position="544">
           <caret line="241" column="5" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -860,10 +862,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>Proyecto:jar2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -906,7 +910,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Proyecto Videoclub</last-edited>
+          <last-edited>Proyecto</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
