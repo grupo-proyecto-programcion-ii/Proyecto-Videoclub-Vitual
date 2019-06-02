@@ -292,10 +292,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaAlquilerV() {
 
-        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
-        for (itfProperty pelicula : peliculas) {
+        ArrayList<itfProperty> videojuegos = objGestor.leerVideojuegos();
+        for (itfProperty videojuego : videojuegos) {
 
-            internalAlquiler internalAlquilerV = new internalAlquiler(pelicula, objGestor, 2, id, recuentoH, recuentoV);
+            internalAlquiler internalAlquilerV = new internalAlquiler(videojuego, objGestor, 2, id, recuentoH, recuentoV);
             listaInternalFrames.add(internalAlquilerV);
             panel.add(internalAlquilerV);
             internalAlquilerV.setVisible(true);
@@ -339,10 +339,10 @@ public class clsVenatanaVisualizarArticulos extends JFrame implements ItemListen
      */
     private void ventanaAlquilerM() {
 
-        ArrayList<itfProperty> peliculas = objGestor.leerPeliculas();
-        for (itfProperty pelicula : peliculas) {
+        ArrayList<itfProperty> musicas = objGestor.leerMusica();
+        for (itfProperty musica : musicas) {
 
-            internalAlquiler internalAlquilerM = new internalAlquiler(pelicula, objGestor, 3, id, recuentoH, recuentoV);
+            internalAlquiler internalAlquilerM = new internalAlquiler(musica, objGestor, 3, id, recuentoH, recuentoV);
             listaInternalFrames.add(internalAlquilerM);
             panel.add(internalAlquilerM);
             internalAlquilerM.setVisible(true);
