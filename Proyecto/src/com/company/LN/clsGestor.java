@@ -2,6 +2,7 @@ package com.company.LN;
 
 import com.company.COMUN.itfProperty;
 import com.company.EXCEPCIONES.clsObjetoIncorrecto;
+import com.company.EXCEPCIONES.clsSinAlquiler;
 import com.company.LD.clsDatos;
 
 import java.sql.ResultSet;
@@ -385,7 +386,9 @@ public class clsGestor {
             for (clsUsuario usuario : listaUsuarios) {
                 if (usuario.getFechaSuscripcion().compareTo(fechaHoy) < 0) {
                     usuario.setSuscripcion(false);
+                    objDatos.conectarBD();
                     objDatos.insertarUpdateBajaS(usuario.isSuscripcion(), usuario.getCodigoAleatoria());
+                    objDatos.desconectarBD();
 
                 }
             }
