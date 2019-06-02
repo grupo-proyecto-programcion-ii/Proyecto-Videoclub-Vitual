@@ -693,7 +693,9 @@ public class clsGestor {
 
             for (clsAlquilarMusica alquilerCd : listaAlquilerMusica) {
                 if (alquilerCd.getFecha_DevolucionM().compareTo(fechaHoy) < 0) {
+                    objDatos.conectarBD();
                     objDatos.eliminarAlquilerM(alquilerCd.getIdAlquiler());
+                    objDatos.desconectarBD();
                     //listaAlquilerMusica.remove(alquilerCd);
                 }
             }
