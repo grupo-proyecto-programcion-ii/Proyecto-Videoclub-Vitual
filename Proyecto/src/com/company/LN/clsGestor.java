@@ -258,7 +258,6 @@ public class clsGestor {
                         objAP.setIdAlquiler(objDatos.insertarAlquilerP(usuario.getCodigoAleatoria(), _id, _fechaDev));
 
                         usuario.setCosteTotal(usuario.getCosteTotal() + pelicula.getPrecio());
-                        System.out.println(usuario.getCosteTotal());
                         objDatos.insertarUpdateCoste(usuario.getCosteTotal(), usuario.getCodigoAleatoria());
                     }
                 }

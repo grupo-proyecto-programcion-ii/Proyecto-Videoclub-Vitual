@@ -246,6 +246,9 @@ public class clsVentanaRegistrar extends JFrame implements ActionListener, Windo
 
                 } catch (ParseException ex) {
                     ex.printStackTrace();
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "No has introducido bien los datos melon...., mira que era dificil poner una fecha");
+
                 }
                 break;
 
